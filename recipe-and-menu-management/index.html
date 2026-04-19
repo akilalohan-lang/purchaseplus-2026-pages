@@ -628,9 +628,10 @@
         visuals.forEach(function(v){ v.classList.add('is-in'); });
         return;
       }
+      /* Bidirectional reveal: slide in on scroll down, slide back out on scroll up */
       var io = new IntersectionObserver(function(entries){
         entries.forEach(function(e){
-          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          e.target.classList.toggle('is-in', e.isIntersecting);
         });
       }, { threshold: 0.18 });
       visuals.forEach(function(v){ io.observe(v); });
