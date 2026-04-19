@@ -5,23 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="From email to approved invoice — zero manual entry. PurchasePlus reads, matches, and routes invoices automatically with AI.">
   <title>Invoicing & AP Automation | PurchasePlus</title>
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Invoicing & AP Automation | PurchasePlus">
   <meta property="og:description" content="From email to approved invoice — zero manual entry. AI-powered AP automation for hospitality.">
   <meta property="og:site_name" content="PurchasePlus">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Invoicing & AP Automation | PurchasePlus">
-  <meta name="twitter:description" content="From email to approved invoice — zero manual entry. AI-powered AP automation.">
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: #fff; color: #111827; }
@@ -29,1227 +20,433 @@
 </head>
 <body>
 
-<!-- ============================================================
-  GLOBAL HEADER (pasted verbatim from widget_header.html)
-============================================================ -->
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
 <header class="pp-header" role="banner">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
-    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .pp-header { position: sticky; top: 0; left: 0; right: 0; z-index: 1000; background: #ffffff; border-bottom: 1px solid #e5e7eb; font-family: 'Inter', sans-serif; width: 100vw; margin-left: calc(50% - 50vw); box-sizing: border-box; }
-    .pp-header-inner { padding: 0 2vw; height: 68px; display: grid; grid-template-columns: 1.4fr auto 0.6fr; align-items: center; }
-    .pp-hdr-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; justify-self: start; }
-    .pp-hdr-logo img { height: 39px; width: auto; display: block; }
-    .pp-nav { display: flex; align-items: center; gap: 2px; }
-    .pp-nav-item { position: relative; }
-    .pp-nav-link { display: inline-flex; align-items: center; gap: 4px; padding: 8px 12px; font-size: 13px; font-weight: 400; color: #6b7280; text-decoration: none; border-radius: 7px; transition: color 0.2s, background 0.2s; cursor: pointer; border: none; background: none; font-family: 'Inter', sans-serif; white-space: nowrap; line-height: 1; }
-    .pp-nav-link:hover { color: #111827; background: #f9fafb; }
-    .pp-nav-chevron { display: inline-block; width: 13px; height: 13px; flex-shrink: 0; color: #9ca3af; transition: transform 0.2s ease; }
-    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform: rotate(180deg); color: #6b7280; }
-    .pp-dropdown { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05); padding: 6px; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; z-index: 200; pointer-events: none; }
-    .pp-dropdown::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 10px; height: 6px; background: #ffffff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-    .pp-nav-item.pp-open .pp-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-    .pp-dropdown::after { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
-    .pp-dropdown-right { left: auto; right: 0; transform: translateY(-6px); }
-    .pp-dropdown-right::before { left: auto; right: 20px; transform: none; }
-    .pp-nav-item.pp-open .pp-dropdown-right { transform: translateY(0); }
-    .pp-dropdown-link { display: block; padding: 9px 13px; font-size: 13.5px; font-weight: 400; color: #374151; text-decoration: none; border-radius: 8px; transition: color 0.15s, background 0.15s; white-space: nowrap; font-family: 'Inter', sans-serif; }
-    .pp-dropdown-link:hover { color: #111827; background: #f3f4f6; }
-    .pp-header-actions { display: flex; align-items: center; gap: 8px; justify-self: end; }
-    .pp-btn-register { display: inline-flex; align-items: center; justify-content: center; padding: 9px 20px; font-size: 14px; font-weight: 500; color: #111827; background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(90deg, #a956ff, #7c5dff 50%, #3766fe) border-box; border: 1.5px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; line-height: 1; }
-    .pp-btn-register:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(119, 93, 255, 0.2); }
-    @keyframes pp-hdr-grad { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .pp-btn-signin { display: inline-flex; align-items: center; justify-content: center; padding: 9px 20px; font-size: 14px; font-weight: 500; color: #ffffff; background: linear-gradient(90deg, #a956ff 0%, #7c5dff 30%, #3766fe 60%, #7c5dff 85%, #a956ff 100%); background-size: 250% 100%; animation: pp-hdr-grad 4s ease infinite; border: 1.5px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; line-height: 1; }
-    .pp-btn-signin:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(55, 102, 254, 0.35); }
-    .pp-mobile-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: none; background: linear-gradient(90deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); cursor: pointer; border-radius: 9px; transition: opacity 0.2s; flex-shrink: 0; justify-self: end; }
-    .pp-mobile-toggle:hover { opacity: 0.88; }
-    .pp-hamburger { display: flex; flex-direction: column; gap: 5px; }
-    .pp-hamburger span { display: block; width: 20px; height: 2px; background: #ffffff; border-radius: 2px; transition: all 0.25s ease; transform-origin: center; }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .pp-mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 12px 32px rgba(0,0,0,0.08); max-height: calc(100vh - 68px); overflow-y: auto; z-index: 999; }
-    .pp-mobile-menu.pp-open { display: block; }
-    .pp-mobile-nav { padding: 12px 5vw 8px; }
-    .pp-mobile-nav-item { border-bottom: 1px solid #f3f4f6; }
-    .pp-mobile-nav-item:last-child { border-bottom: none; }
-    .pp-mobile-nav-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; font-size: 15px; font-weight: 500; color: #111827; text-decoration: none; cursor: pointer; border: none; background: none; width: 100%; text-align: left; font-family: 'Inter', sans-serif; line-height: 1.3; }
-    .pp-mobile-chevron { width: 16px; height: 16px; color: #9ca3af; transition: transform 0.2s ease; flex-shrink: 0; }
-    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform: rotate(180deg); color: #6b7280; }
-    .pp-mobile-submenu { display: none; padding: 0 0 12px 12px; flex-direction: column; gap: 2px; }
-    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display: flex; }
-    .pp-mobile-submenu-link { display: block; padding: 9px 12px; font-size: 14px; font-weight: 400; color: #4b5563; text-decoration: none; border-radius: 8px; transition: color 0.15s, background 0.15s; font-family: 'Inter', sans-serif; }
-    .pp-mobile-submenu-link:hover { color: #111827; background: #f9fafb; }
-    .pp-mobile-actions { padding: 16px 5vw 24px; display: flex; gap: 10px; }
-    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex: 1; padding: 12px 18px; font-size: 15px; }
-    @media (max-width: 680px) {
-      .pp-nav { display: none; }
-      .pp-header-actions { display: none; }
-      .pp-mobile-toggle { display: flex; }
-      .pp-header-inner { grid-template-columns: 1fr auto; }
-    }
+    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
+    .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
+    .pp-hdr-logo img { height:39px; width:auto; display:block; }
+    .pp-nav { display:flex; align-items:center; gap:2px; }
+    .pp-nav-item { position:relative; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link:hover { color:#111827; background:#f9fafb; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+    .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+    .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
+    .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
+    .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
+    .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
+    .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
+    @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu.pp-open { display:block; }
+    .pp-mobile-nav { padding:12px 5vw 8px; }
+    .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
+    .pp-mobile-nav-item:last-child { border-bottom:none; }
+    .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
+    .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
+    .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
+    .pp-mobile-submenu-link:hover { color:#111827; background:#f9fafb; }
+    .pp-mobile-actions { padding:16px 5vw 24px; display:flex; gap:10px; }
+    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex:1; padding:12px 18px; font-size:15px; }
+    @media (max-width:680px){ .pp-nav{display:none;} .pp-header-actions{display:none;} .pp-mobile-toggle{display:flex;} .pp-header-inner{grid-template-columns:1fr auto;} }
   </style>
-
   <div class="pp-header-inner">
-    <a href="https://www.purchaseplus.com" class="pp-hdr-logo" aria-label="PurchasePlus home">
-      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28">
-    </a>
-    <nav class="pp-nav" role="navigation" aria-label="Main navigation">
-      <div class="pp-nav-item" role="none">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">What We Offer
-          <svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-dropdown" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay" role="menuitem">Procure-to-Pay</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching" role="menuitem">AP 3-Way Matching</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing" role="menuitem">Paperless Invoicing</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory" role="menuitem">Inventory Management</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement" role="menuitem">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-nav-item" role="none">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">Industries
-          <svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-dropdown" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels" role="menuitem">Hospitality &amp; Hotels</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs" role="menuitem">Leisure &amp; Clubs</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care" role="menuitem">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
-      <div class="pp-nav-item" role="none"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
-      <div class="pp-nav-item" role="none"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
-      <div class="pp-nav-item" role="none"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-nav-item" role="none">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">More
-          <svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-dropdown pp-dropdown-right" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us" role="menuitem">Contact Us</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us" role="menuitem">About Our Team</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training" role="menuitem">Help &amp; Training</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/api" role="menuitem">API Documentation</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations" role="menuitem">Integrations</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies" role="menuitem">Our Policies</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog" role="menuitem">Blog</a>
-        </div>
-      </div>
+    <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
+    <nav class="pp-nav">
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-header-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
-    <button class="pp-mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="pp-mobile-menu">
-      <span class="pp-hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
-    </button>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
   </div>
-
-  <div class="pp-mobile-menu" id="pp-mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="false">
-    <nav class="pp-mobile-nav" aria-label="Mobile navigation">
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link" aria-haspopup="true" aria-expanded="false">What We Offer
-          <svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-mobile-submenu" role="menu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link" aria-haspopup="true" aria-expanded="false">Industries
-          <svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-mobile-submenu" role="menu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
+  <div class="pp-mobile-menu">
+    <nav class="pp-mobile-nav">
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link" aria-haspopup="true" aria-expanded="false">More
-          <svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="pp-mobile-submenu" role="menu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a>
-        </div>
-      </div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-mobile-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
   </div>
-
   <script>
-    (function () {
-      const header = document.querySelector('.pp-header');
-      const toggle = header.querySelector('.pp-mobile-toggle');
-      const mobileMenu = header.querySelector('.pp-mobile-menu');
-      const mobileItems = header.querySelectorAll('.pp-mobile-nav-item');
-      toggle.addEventListener('click', function () {
-        const isOpen = mobileMenu.classList.toggle('pp-open');
-        toggle.classList.toggle('pp-active', isOpen);
-        toggle.setAttribute('aria-expanded', isOpen);
-        toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
-      });
-      mobileItems.forEach(function (item) {
-        const btn = item.querySelector('.pp-mobile-nav-link');
-        if (!btn || btn.tagName === 'A') return;
-        btn.addEventListener('click', function () {
-          const isOpen = item.classList.toggle('pp-open');
-          btn.setAttribute('aria-expanded', isOpen);
-          mobileItems.forEach(function (sibling) {
-            if (sibling !== item) {
-              sibling.classList.remove('pp-open');
-              const sibBtn = sibling.querySelector('button.pp-mobile-nav-link');
-              if (sibBtn) sibBtn.setAttribute('aria-expanded', 'false');
-            }
-          });
-        });
-      });
-      const navItems = header.querySelectorAll('.pp-nav-item');
-      function closeAllDropdowns() {
-        navItems.forEach(function (item) {
-          item.classList.remove('pp-open');
-          const btn = item.querySelector('button.pp-nav-link');
-          if (btn) btn.setAttribute('aria-expanded', 'false');
-        });
-      }
-      navItems.forEach(function (item) {
-        const btn = item.querySelector('button.pp-nav-link');
-        item.addEventListener('mouseenter', function () {
-          closeAllDropdowns();
-          if (btn) { item.classList.add('pp-open'); btn.setAttribute('aria-expanded', 'true'); }
-        });
-        item.addEventListener('mouseleave', function () {
-          item.classList.remove('pp-open');
-          if (btn) btn.setAttribute('aria-expanded', 'false');
-        });
-        if (btn) {
-          btn.addEventListener('click', function () {
-            const isOpen = item.classList.toggle('pp-open');
-            btn.setAttribute('aria-expanded', isOpen);
-            navItems.forEach(function (other) {
-              if (other !== item) {
-                other.classList.remove('pp-open');
-                const ob = other.querySelector('button.pp-nav-link');
-                if (ob) ob.setAttribute('aria-expanded', 'false');
-              }
-            });
-          });
-        }
-      });
-      window.addEventListener('scroll', closeAllDropdowns, { passive: true });
-      document.addEventListener('click', function (e) {
-        if (!header.contains(e.target)) {
-          closeAllDropdowns();
-          mobileMenu.classList.remove('pp-open');
-          toggle.classList.remove('pp-active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      window.addEventListener('resize', function () {
-        if (window.innerWidth > 680) {
-          mobileMenu.classList.remove('pp-open');
-          toggle.classList.remove('pp-active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') {
-          closeAllDropdowns();
-          mobileMenu.classList.remove('pp-open');
-          toggle.classList.remove('pp-active');
-          toggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    })();
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
   </script>
 </header>
 
-<!-- ============================================================
-  WIDGET 1: HERO (video-enabled, scoped as invoicing_hero)
-============================================================ -->
-<section class="invoicing_hero" aria-label="Invoicing & AP Automation Hero">
+<!-- ============================================================ WIDGET 1: HERO (video + 4-chip stats) ============================================================ -->
+<section class="iv-hero" aria-label="Invoicing & AP Automation Hero">
   <style>
-    .invoicing_hero {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563; --pp-border:#e5e7eb;
-      --pp-blue:#3766fe; --pp-purple:#7c5dff; --pp-light-purple:#a956ff;
-      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      font-family:var(--pp-font); width:100%; background:#fff; overflow:hidden;
-      padding:40px 20px 40px 65px; display:flex; justify-content:center; align-items:center;
-    }
-    .invoicing_hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
-    .invoicing_hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; justify-content:center; }
-    .invoicing_hero .pp-copy { width:45%; display:flex; flex-direction:column; gap:24px; flex-shrink:0; }
-    .invoicing_hero .pp-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
-    .invoicing_hero .pp-title { font-size:72px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0; letter-spacing:-1.5px; text-wrap:balance; }
-    .invoicing_hero .pp-grad { font-weight:400; background:linear-gradient(90deg, #a956ff 0%, #a956ff 20%, #7c5dff 50%, #3766fe 80%, #3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; animation:invoicingGradPulse 5s linear infinite; display:inline-block; }
-    @keyframes invoicingGradPulse { 0% { background-position:200% 50%; } 100% { background-position:0% 50%; } }
-    .invoicing_hero .pp-sub { font-size:22px; line-height:1.5; font-weight:300; color:var(--pp-body); margin:0; max-width:540px; text-wrap:pretty; }
-    .invoicing_hero .pp-bullets { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; }
-    .invoicing_hero .pp-bullets li { display:flex; gap:12px; align-items:flex-start; color:var(--pp-body); font-size:16px; line-height:1.5; font-weight:300; }
-    .invoicing_hero .pp-check { width:18px; height:18px; margin-top:2px; flex:0 0 auto; border-radius:50%; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(55,102,254,0.18); }
-    .invoicing_hero svg { fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .invoicing_hero .pp-check svg { width:12px; height:12px; stroke:#fff; stroke-width:2.2; }
-    .invoicing_hero .pp-cta-row { display:flex; align-items:center; gap:24px; margin-top:10px; }
-    .invoicing_hero .pp-cta-primary { display:inline-flex; align-items:center; justify-content:center; padding:14px 32px; background:var(--pp-grad); color:#fff; border-radius:50px; text-decoration:none; font-size:16px; font-weight:400; box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s ease; white-space:nowrap; }
-    .invoicing_hero .pp-cta-primary:hover { transform:translateY(-2px); }
-    .invoicing_hero .pp-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:#1F2937; text-decoration:none; font-size:16px; font-weight:400; padding:0; white-space:nowrap; transition:color .2s; }
-    .invoicing_hero .pp-cta-secondary:hover { color:#7c5dff; }
-    .invoicing_hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
-    .invoicing_hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
-    .invoicing_hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; }
-    .invoicing_hero .pp-video { width:90%; height:auto; max-height:700px; display:block; margin-left:30px; object-fit:contain; border-radius:24px; }
-    .invoicing_hero .pp-break { display:none; }
-    @media (max-width: 1300px){
-      .invoicing_hero{ padding:30px 15px 30px 50px; }
-      .invoicing_hero .pp-title{ font-size:48px; }
-      .invoicing_hero .pp-sub{ font-size:18px; max-width:400px; }
-      .invoicing_hero .pp-bullets li{ font-size:14px; }
-      .invoicing_hero .pp-video{ margin-left:20px; max-height:550px; }
-      .invoicing_hero .pp-break{ display:block; }
-    }
-    @media (max-width: 1024px){
-      .invoicing_hero .pp-hero-grid { flex-direction:column; }
-      .invoicing_hero .pp-copy, .invoicing_hero .pp-visual { width:100%; }
-      .invoicing_hero .pp-video { margin-left:0; max-height:440px; }
-    }
-    @media (max-width: 768px){
-      .invoicing_hero{ padding:25px 16px; }
-      .invoicing_hero .pp-title{ font-size:36px; }
-      .invoicing_hero .pp-sub{ font-size:16px; }
-      .invoicing_hero .pp-cta-primary{ padding:12px 24px; font-size:14px; }
-      .invoicing_hero .pp-cta-secondary{ font-size:13px; }
-    }
+    .iv-hero { --grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; width:100%; background:#fff; padding:60px 5vw 40px; overflow:hidden; }
+    .iv-hero .wrap { max-width:1350px; margin:0 auto; display:grid; grid-template-columns:1.05fr 1fr; gap:40px; align-items:center; }
+    .iv-hero .copy { display:flex; flex-direction:column; gap:20px; }
+    .iv-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .iv-hero h1 { font-size:clamp(38px,5vw,64px); font-weight:400; line-height:1.08; letter-spacing:-1.4px; color:#111827; max-width:640px; text-wrap:balance; }
+    .iv-hero h1 .g { background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ivHeroGrad 5s linear infinite; }
+    @keyframes ivHeroGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .iv-hero .lead { font-size:18px; font-weight:300; line-height:1.6; color:#4B5563; max-width:560px; }
+    .iv-hero .ctas { display:flex; align-items:center; gap:24px; margin-top:4px; flex-wrap:wrap; }
+    .iv-hero .btn-primary { display:inline-flex; align-items:center; padding:14px 30px; background:var(--grad); color:#fff; border-radius:50px; font-size:16px; text-decoration:none; box-shadow:0 4px 15px rgba(55,102,254,.3); transition:transform .2s ease; white-space:nowrap; }
+    .iv-hero .btn-primary:hover { transform:translateY(-2px); }
+    .iv-hero .btn-link { display:inline-flex; align-items:center; gap:6px; color:#1F2937; font-size:16px; text-decoration:none; transition:color .2s; }
+    .iv-hero .btn-link:hover { color:#7c5dff; }
+    .iv-hero .btn-link svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+    .iv-hero .btn-link:hover svg { transform:translateX(3px); }
+    .iv-hero .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .iv-hero .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; font-size:13px; font-weight:500; color:#4B5563; background:#f8fafc; border:1px solid #e2e8f0; border-radius:999px; }
+    .iv-hero .chip svg { width:14px; height:14px; stroke:url(#iv-hero-gradient); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .iv-hero .visual { position:relative; }
+    .iv-hero .video { width:100%; max-height:640px; aspect-ratio:16/11; object-fit:cover; border-radius:24px; box-shadow:0 30px 80px rgba(15,23,42,.08); display:block; }
+    .iv-hero .float-card { position:absolute; background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px 16px; box-shadow:0 16px 40px rgba(15,23,42,.08); font-size:12px; font-weight:500; color:#111827; display:flex; align-items:center; gap:10px; }
+    .iv-hero .float-card.top { top:10%; left:-4%; animation:ivHeroFloat 6s ease-in-out infinite; }
+    .iv-hero .float-card.bottom { bottom:10%; right:-4%; animation:ivHeroFloat 6s ease-in-out infinite -3s; }
+    .iv-hero .float-card .dot { width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 0 5px rgba(16,185,129,.15); flex-shrink:0; }
+    .iv-hero .float-card .accent { color:#7c5dff; font-weight:600; }
+    @keyframes ivHeroFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    @media (max-width:1024px){ .iv-hero .wrap{ grid-template-columns:1fr; gap:32px; } .iv-hero .float-card{ display:none; } }
+    @media (max-width:640px){ .iv-hero{ padding:40px 20px; } .iv-hero h1{ font-size:34px; } .iv-hero .lead{ font-size:16px; } }
   </style>
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="iv-hero-gradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
 
-  <svg style="display:none;" aria-hidden="true">
-    <symbol id="invoicing-hero-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
-    <symbol id="invoicing-hero-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
-  </svg>
-
-  <div class="pp-inner">
-    <div class="pp-hero-grid">
-      <div class="pp-copy">
-        <div class="pp-eyebrow">Invoicing &amp; AP Automation</div>
-        <h1 class="pp-title">From email to <span class="pp-grad">approved invoice</span> — <span class="pp-grad">zero manual entry.</span></h1>
-        <p class="pp-sub">PurchasePlus receives invoices in any format, reads every line with AI, matches them against purchase orders and receiving notes, and routes exceptions to your team. Your AP department handles discrepancies — not data.</p>
-        <ul class="pp-bullets">
-          <li><span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#invoicing-hero-check"/></svg></span><span>40,000,000+ invoices processed across hospitality.</span></li>
-          <li><span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#invoicing-hero-check"/></svg></span><span>90% straight-through processing rate.</span></li>
-          <li><span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#invoicing-hero-check"/></svg></span><span>75% reduction in invoice processing costs.</span></li>
-          <li><span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#invoicing-hero-check"/></svg></span><span>Save 1 FTE per 2,000 monthly invoices.</span></li>
-        </ul>
-        <div class="pp-cta-row">
-          <a class="pp-cta-primary" href="https://www.purchaseplus.com/request-a-demo" aria-label="Book a demo">Book a Demo</a>
-          <a class="pp-cta-secondary" href="#invoicing-advantage" aria-label="See it in action">
-            <span>See It in Action</span>
-            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#invoicing-hero-arrow"/></svg>
-          </a>
-        </div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Invoicing &amp; AP Automation</div>
+      <h1>From email to <span class="g">approved invoice</span> — <span class="g">zero manual entry.</span></h1>
+      <p class="lead">PurchasePlus receives invoices in any format, reads every line with AI, matches them against purchase orders and receiving notes, and routes exceptions to your team. Your AP department handles discrepancies — not data.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+        <a class="btn-link" href="#iv-how-it-works">See It in Action <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
-      <div class="pp-visual">
-        <!-- VIDEO: replace the src with the final Invoicing hero loop (5s silent MP4) -->
-        <video class="pp-video" autoplay loop muted playsinline aria-label="AI invoicing demo">
-          <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
+      <div class="chips">
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>40,000,000+ invoices processed</span>
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>90% straight-through processing</span>
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>75% cost reduction</span>
+        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save 1 FTE per 2,000 invoices</span>
+      </div>
+    </div>
+    <div class="visual">
+      <!-- VIDEO: replace src with final Invoicing hero loop (5s silent MP4) -->
+      <video class="video" autoplay loop muted playsinline aria-label="AI invoice processing demo">
+        <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
+      </video>
+      <div class="float-card top"><span class="dot"></span>Matched <span class="accent">&nbsp;PO-18432</span></div>
+      <div class="float-card bottom"><span class="dot"></span>Auto-coded <span class="accent">&nbsp;GL-6140</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WIDGET 2: HOW IT WORKS (3-step horizontal journey) ============================================================ -->
+<section class="iv-how" id="iv-how-it-works" aria-label="How It Works">
+  <style>
+    .iv-how { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:96px 5vw; border-top:1px solid #e5e7eb; }
+    .iv-how .wrap { max-width:1280px; margin:0 auto; }
+    .iv-how .head { text-align:center; max-width:920px; margin:0 auto 64px; }
+    .iv-how .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:16px; }
+    .iv-how h2 { font-size:clamp(32px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
+    .iv-how .flow { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:stretch; position:relative; }
+    .iv-how .flow::before { content:''; position:absolute; left:10%; right:10%; top:54px; height:2px; background:linear-gradient(90deg, rgba(169,86,255,0), rgba(124,93,255,.5), rgba(55,102,254,.5), rgba(55,102,254,0)); z-index:0; }
+    .iv-how .step { position:relative; z-index:1; background:#fff; border:1px solid #e2e8f0; border-radius:24px; padding:32px 28px; display:flex; flex-direction:column; gap:16px; transition:transform .3s ease, box-shadow .3s ease; }
+    .iv-how .step:hover { transform:translateY(-4px); box-shadow:0 24px 60px rgba(15,23,42,.08); }
+    .iv-how .step-badge { width:108px; height:108px; border-radius:50%; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; margin-bottom:8px; position:relative; }
+    .iv-how .step-badge::after { content:''; position:absolute; inset:-4px; border-radius:50%; background:var(--grad); opacity:0; transition:opacity .3s; z-index:-1; filter:blur(12px); }
+    .iv-how .step:hover .step-badge::after { opacity:.35; }
+    .iv-how .step-badge svg { width:48px; height:48px; stroke:url(#iv-how-gradient); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .iv-how .step-num { font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .iv-how .step h3 { font-size:22px; font-weight:500; line-height:1.3; letter-spacing:-.3px; color:#111827; }
+    .iv-how .step p { font-size:15px; font-weight:300; line-height:1.6; color:#4B5563; }
+    .iv-how .arrow { display:flex; justify-content:center; align-items:center; color:#7c5dff; margin-top:4px; opacity:.7; }
+    .iv-how .arrow svg { width:22px; height:22px; stroke:currentColor; stroke-width:2; fill:none; }
+    @media (max-width:1024px){ .iv-how .flow{ grid-template-columns:1fr; gap:20px; } .iv-how .flow::before{ display:none; } }
+  </style>
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="iv-how-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
+
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">How It Works</div>
+      <h2>Invoice arrives. AI handles it. Your team reviews exceptions.</h2>
+    </div>
+    <div class="flow">
+      <div class="step">
+        <div class="step-badge"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <div class="step-num">Step 01</div>
+        <h3>Invoice Arrives in Any Format</h3>
+        <p>Supplier emails an invoice — PDF, EDI, scanned image, or any format. It lands in the PurchasePlus Invoicing Inbox. No special supplier setup required.</p>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="step">
+        <div class="step-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg></div>
+        <div class="step-num">Step 02</div>
+        <h3>AI Reads, Extracts &amp; Matches</h3>
+        <p>PurchasePlus AI reads every line: supplier, product, quantity, price, tax. It matches the invoice against the original purchase order and goods receiving note. Three-way match — automated.</p>
+        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="step">
+        <div class="step-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/><path d="M20 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8"/></svg></div>
+        <div class="step-num">Step 03</div>
+        <h3>Approve or Route — Instantly</h3>
+        <p>Invoices that match go straight through for approval. Discrepancies route automatically to the right person with the exception flagged. Your team only touches invoices that need attention.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-  WIDGET 2: REALITY CHECK / 3 PROBLEM CARDS (invoicing_reality)
-  Copy note: not in DOCX — drafted in PurchasePlus voice to match the
-  Inventory 'Silent Killer' pattern for AP-specific pains.
-============================================================ -->
-<section class="invoicing_reality" aria-label="The AP Reality Check">
+<!-- ============================================================ WIDGET 3: KEY FEATURES (6 alternating rows) ============================================================ -->
+<section class="iv-feat" aria-label="Key Features">
   <style>
-    .invoicing_reality {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563; --pp-muted:#94a3b8;
-      --pp-border:#e2e8f0; --pp-soft:#f8fafc;
-      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      width:100%; background:#fff; font-family:var(--pp-font); padding:90px 0; overflow:hidden;
-    }
-    .invoicing_reality .pp-inner { width:100%; padding:0 14vw; box-sizing:border-box; }
-    .invoicing_reality .pp-head { text-align:center; max-width:980px; margin:0 auto 44px auto; }
-    .invoicing_reality .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 16px 0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .invoicing_reality .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0 0 16px 0; letter-spacing:-1px; }
-    .invoicing_reality .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 auto; max-width:900px; }
-    .invoicing_reality .pp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; align-items:stretch; margin-top:34px; perspective:1100px; }
-    .invoicing_reality .pp-card { background:var(--pp-soft); border:1px solid var(--pp-border); border-radius:32px; padding:28px; box-shadow:0 20px 40px rgba(15,23,42,.03); position:relative; overflow:hidden; min-height:300px; display:flex; flex-direction:column; justify-content:flex-start; transform-origin:center center; will-change:transform; transform-style:preserve-3d; transition:background .4s ease, border-color .4s ease; }
-    .invoicing_reality .pp-card.is-active, .invoicing_reality .pp-card:hover { background:var(--pp-grad); border-color:transparent; }
-    .invoicing_reality .pp-card.is-active .pp-card-title, .invoicing_reality .pp-card:hover .pp-card-title { color:#fff; }
-    .invoicing_reality .pp-card.is-active .pp-card-desc, .invoicing_reality .pp-card:hover .pp-card-desc { color:rgba(255,255,255,.9); }
-    .invoicing_reality .pp-card.pp-tilt-1 { transform:rotate(-1.2deg); }
-    .invoicing_reality .pp-card.pp-tilt-2 { transform:rotate(1.0deg); }
-    .invoicing_reality .pp-card.pp-tilt-3 { transform:rotate(-0.6deg); }
-    .invoicing_reality .pp-card-title { font-size:28px; font-weight:600; color:var(--pp-ink); margin:0 0 16px 0; letter-spacing:-.5px; text-align:left; line-height:1.2; }
-    .invoicing_reality .pp-card-desc { font-size:15px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 0 20px 0; max-width:90%; }
-    .invoicing_reality .pp-cta-btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 24px; background:var(--pp-grad); color:#fff; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:999px; box-shadow:0 10px 25px rgba(55,102,254,.22); margin-top:auto; transition:background .4s ease, color .4s ease, box-shadow .2s ease; width:max-content; }
-    .invoicing_reality .pp-card.is-active .pp-cta-btn, .invoicing_reality .pp-card:hover .pp-cta-btn { background:#fff !important; color:#7c5dff !important; box-shadow:0 0 20px rgba(255,255,255,0.6), 0 10px 25px rgba(124,93,255,.22); }
-    .invoicing_reality .pp-bridge { text-align:center; margin:34px auto 0 auto; max-width:980px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); color:var(--pp-body); font-size:15px; line-height:1.55; font-weight:300; }
-    .invoicing_reality .pp-bridge strong { font-weight:600; color:var(--pp-ink); }
-    @media (max-width: 1400px){ .invoicing_reality .pp-inner{ padding:0 8vw; } .invoicing_reality .pp-title{ font-size:40px; } }
-    @media (max-width: 1024px){
-      .invoicing_reality{ padding:64px 0; }
-      .invoicing_reality .pp-inner{ padding:0 5vw; }
-      .invoicing_reality .pp-title{ font-size:32px; }
-      .invoicing_reality .pp-grid{ grid-template-columns:1fr; gap:16px; }
-      .invoicing_reality .pp-card{ padding:22px; min-height:auto; }
-      .invoicing_reality .pp-card-title{ font-size:24px; }
-      .invoicing_reality .pp-card.pp-tilt-1, .invoicing_reality .pp-card.pp-tilt-2, .invoicing_reality .pp-card.pp-tilt-3 { transform:none; }
-    }
-    @media (max-width: 480px){ .invoicing_reality .pp-title{ font-size:24px; } .invoicing_reality .pp-card-title{ font-size:20px; } }
+    .iv-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .iv-feat .wrap { max-width:1200px; margin:0 auto; }
+    .iv-feat .head { text-align:center; max-width:760px; margin:0 auto 72px; }
+    .iv-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .iv-feat .head h2 { font-size:clamp(32px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
+    .iv-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-bottom:110px; }
+    .iv-feat .row:last-child { margin-bottom:0; }
+    .iv-feat .row.reverse .visual { order:-1; }
+    .iv-feat .copy .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 12px; border-radius:999px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); color:#7c5dff; margin-bottom:16px; }
+    .iv-feat .copy h3 { font-size:clamp(26px,2.6vw,34px); font-weight:500; line-height:1.2; letter-spacing:-.5px; color:#111827; margin-bottom:16px; }
+    .iv-feat .copy p { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; }
+    .iv-feat .visual { aspect-ratio:4/3; border-radius:24px; background:linear-gradient(135deg, #f8fafc, #fff); border:1px solid #e2e8f0; box-shadow:0 20px 60px rgba(15,23,42,.05); padding:32px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .iv-feat .visual::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(169,86,255,.08), transparent 60%), radial-gradient(circle at 70% 70%, rgba(55,102,254,.08), transparent 60%); }
+    .iv-feat .visual .mock { position:relative; z-index:1; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#7c5dff; }
+    .iv-feat .visual .mock svg { width:50%; height:50%; stroke:currentColor; stroke-width:1.2; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.45; }
+    .iv-feat .visual .mock-label { position:absolute; bottom:16px; left:16px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
+    @media (max-width:1024px){ .iv-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:72px; } .iv-feat .row.reverse .visual{ order:0; } }
+    @media (max-width:640px){ .iv-feat{ padding:72px 20px; } .iv-feat .copy h3{ font-size:24px; } .iv-feat .copy p{ font-size:15px; } }
   </style>
-
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">AP Reality Check</div>
-      <h2 class="pp-title">Is Your AP Process Quietly<br>Burning a Full FTE Every Month?</h2>
-      <p class="pp-sub">Most finance teams accept manual invoice processing as a cost of doing business. If you're still keying line items, chasing approvals, and reconciling in Excel, you're facing the Three Hidden Costs.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Key Features</div>
+      <h2>Six connected capabilities. One continuous flow.</h2>
     </div>
 
-    <div class="pp-grid" id="invoicing-reality-grid">
-      <div class="pp-card pp-tilt-1" data-card="0">
-        <h3 class="pp-card-title">The "Data Entry Tax"</h3>
-        <p class="pp-card-desc">Does your team still key invoice lines into your ERP? Every supplier, every product, every tax code — touched by a human. It's not just slow. It introduces errors that compound through the month.</p>
-        <a class="pp-cta-btn" href="#invoicing-advantage" aria-label="Eliminate data entry">Eliminate data entry</a>
+    <div class="row">
+      <div class="copy">
+        <div class="tag">Feature 01 · Inbox &amp; AI Scanning</div>
+        <h3>Every invoice format — one inbox.</h3>
+        <p>Suppliers email invoices in whatever format they use. PurchasePlus AI scans and extracts all data — header, lines, totals, tax — with no manual keying. Works with PDFs, scans, EDI files, and more.</p>
       </div>
-      <div class="pp-card pp-tilt-2" data-card="1">
-        <h3 class="pp-card-title">The "Match Maze"</h3>
-        <p class="pp-card-desc">Three-way matching by hand means chasing POs, receiving notes, and invoices across systems and inboxes. Most operators skip it — and pay the price in overcharges they never catch.</p>
-        <a class="pp-cta-btn" href="#invoicing-advantage" aria-label="Automate matching">Automate matching</a>
-      </div>
-      <div class="pp-card pp-tilt-3" data-card="2">
-        <h3 class="pp-card-title">The "Month-End Crunch"</h3>
-        <p class="pp-card-desc">Are invoices still piling up waiting for approval the week of close? Manual routing means every exception lands on the same person's desk — and month-end runs late. Every month.</p>
-        <a class="pp-cta-btn" href="#invoicing-advantage" aria-label="Fix routing">Fix routing</a>
-      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 14l18 12 18-12"/><circle cx="40" cy="34" r="6" fill="rgba(124,93,255,.1)"/><path d="M37 34l2 2 4-4"/></svg><div class="mock-label">Screenshot: AI invoice scanning</div></div></div>
     </div>
 
-    <div class="pp-bridge" aria-live="polite">
-      <strong id="invoicing-bridge-strong">PurchasePlus changes the economics of AP.</strong><br>
-      <span id="invoicing-bridge-sub">We don't just digitise invoices — we remove the work entirely.</span>
+    <div class="row reverse">
+      <div class="copy">
+        <div class="tag">Feature 02 · 3-Way Matching</div>
+        <h3>Invoice vs PO vs Receiving Note — automatically.</h3>
+        <p>Every invoice is checked against the original purchase order (price and product) and the goods receiving note (quantity and delivery). Discrepancies are flagged. Matched invoices process straight through.</p>
+      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><circle cx="12" cy="12" r="7"/><circle cx="36" cy="12" r="7"/><circle cx="24" cy="34" r="7"/><path d="M18 14l12 0M14 18l8 12M34 18l-8 12"/></svg><div class="mock-label">Screenshot: 3-way match visualizer</div></div></div>
+    </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="tag">Feature 03 · Auto Approval Routing</div>
+        <h3>Exceptions go to the right person — automatically.</h3>
+        <p>Configure approval rules by dollar amount, supplier, GL code, or discrepancy type. Invoices that need review route automatically — with full context — to the right approver. No manual chasing.</p>
+      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="4" y="14" width="12" height="20" rx="2"/><rect x="32" y="6" width="12" height="20" rx="2"/><rect x="32" y="28" width="12" height="14" rx="2"/><path d="M16 24l12-10M16 26l12 10"/><circle cx="28" cy="16" r="2"/><circle cx="28" cy="36" r="2"/></svg><div class="mock-label">Screenshot: Approval workflow</div></div></div>
+    </div>
+
+    <div class="row reverse">
+      <div class="copy">
+        <div class="tag">Feature 04 · Auto GL Coding</div>
+        <h3>Every invoice line coded correctly. Every time.</h3>
+        <p>Set up your GL mapping once. PurchasePlus applies the correct GL code to every invoice line automatically — based on the product, supplier, and cost centre. Month-end reconciliation becomes a check, not a task.</p>
+      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><path d="M6 8h36M6 16h36M6 24h36M6 32h36M6 40h24"/><rect x="32" y="28" width="12" height="8" rx="2" fill="rgba(124,93,255,.12)"/></svg><div class="mock-label">Screenshot: GL code mapping</div></div></div>
+    </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="tag">Feature 05 · Journal Entries &amp; ERP Export</div>
+        <h3>Approved invoices flow straight to your accounting system.</h3>
+        <p>Once approved, PurchasePlus generates journal entries and exports them directly to Xero, NetSuite, Dynamics 365, MYOB, and more. No rekeying. No manual uploads.</p>
+      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="14" height="32" rx="2"/><rect x="28" y="8" width="14" height="32" rx="2"/><path d="M20 24h8M24 20l4 4-4 4"/></svg><div class="mock-label">Screenshot: ERP sync console</div></div></div>
+    </div>
+
+    <div class="row reverse">
+      <div class="copy">
+        <div class="tag">Feature 06 · Audit History</div>
+        <h3>A complete, timestamped trail for every invoice.</h3>
+        <p>Every action on every invoice is logged — who approved it, when, and why an exception was flagged. Full audit history available for every document, every time.</p>
+      </div>
+      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l6 4"/></svg><div class="mock-label">Screenshot: Audit timeline</div></div></div>
     </div>
   </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = Array.from(document.querySelectorAll('#invoicing-reality-grid .pp-card'));
-      const strongEl = document.getElementById('invoicing-bridge-strong');
-      const subEl = document.getElementById('invoicing-bridge-sub');
-      const bridgeStrong = [
-        "The \u201CData Entry Tax\u201D drains your finance team.",
-        "The \u201CMatch Maze\u201D lets overcharges slip through.",
-        "The \u201CMonth-End Crunch\u201D delays close every month."
-      ];
-      const bridgeSub = [
-        "PurchasePlus AI reads every invoice line automatically \u2014 zero keying.",
-        "PurchasePlus matches invoice vs PO vs receiving note on every document.",
-        "PurchasePlus routes exceptions instantly, so close happens on time."
-      ];
-      function setActive(i){
-        cards.forEach((c, k) => c.classList.toggle('is-active', k === i));
-        if (strongEl) strongEl.textContent = bridgeStrong[i];
-        if (subEl) subEl.textContent = bridgeSub[i];
-      }
-      const tl = gsap.timeline({ repeat: -1 });
-      cards.forEach((card, i) => {
-        tl.call(() => setActive(i));
-        tl.to(cards, { duration: 0.35, ease: "power2.out", scale: 1, rotation: (j) => {
-          if (window.matchMedia("(max-width: 1024px)").matches) return 0;
-          return j === 0 ? -1.2 : (j === 1 ? 1.0 : -0.6);
-        } }, "+=0");
-        tl.to(card, { duration: 0.55, ease: "back.out(1.7)", scale: 1.06, rotation: 0 }, "+=0.05");
-        tl.to(card, { duration: 1.55, ease: "none" }, "+=0.25");
-        tl.to(card, { duration: 0.45, ease: "power2.inOut", scale: 1, rotation: () => window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6)) }, "+=0.1");
-      });
-      setActive(0);
-      cards.forEach((card, i) => {
-        card.addEventListener('mouseenter', () => {
-          tl.pause();
-          setActive(i);
-          gsap.to(card, { duration: 0.35, ease: "back.out(1.6)", scale: 1.06, rotation: 0 });
-        });
-        card.addEventListener('mouseleave', () => {
-          gsap.to(card, { duration: 0.25, ease: "power2.out", scale: 1, rotation: () => window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6)) });
-          tl.resume();
-        });
-      });
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 3: HOW IT WORKS / 3 NUMBERED STEPS (invoicing_advantage)
-  Mapped from DOCX "HOW IT WORKS (3-step visual)"
-============================================================ -->
-<section class="invoicing_advantage" id="invoicing-advantage" aria-label="How It Works">
+<!-- ============================================================ WIDGET 4: ROI SECTION (4 stat cards) ============================================================ -->
+<section class="iv-roi" aria-label="The ROI Numbers">
   <style>
-    .invoicing_advantage {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563; --pp-border:#e2e8f0;
-      --pp-blue:#3766fe; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      width:100%; background:#fff; font-family:var(--pp-font); padding:92px 0; overflow:hidden; position:relative;
-    }
-    .invoicing_advantage::before { content:""; position:absolute; inset:-220px -180px auto -180px; height:520px; background: radial-gradient(closest-side, rgba(169,86,255,.16), transparent 60%), radial-gradient(closest-side, rgba(55,102,254,.12), transparent 60%); filter:blur(14px); pointer-events:none; }
-    .invoicing_advantage .pp-inner { width:100%; padding:0 14vw; box-sizing:border-box; }
-    .invoicing_advantage .pp-head { text-align:center; max-width:980px; margin:0 auto 44px auto; position:relative; z-index:2; }
-    .invoicing_advantage .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 16px 0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .invoicing_advantage .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0 0 14px 0; letter-spacing:-1px; text-wrap:balance; }
-    .invoicing_advantage .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 auto; max-width:920px; text-wrap:balance; }
-    .invoicing_advantage .pp-flow { position:relative; z-index:2; max-width:1100px; margin:34px auto 0 auto; }
-    .invoicing_advantage .pp-spine { position:absolute; top:18px; bottom:18px; left:28px; width:2px; background:linear-gradient(180deg, rgba(169,86,255,.0), rgba(124,93,255,.35), rgba(55,102,254,.25), rgba(55,102,254,.0)); border-radius:999px; opacity:.7; }
-    .invoicing_advantage .pp-spine::after { content:""; position:absolute; left:50%; transform:translateX(-50%); width:10px; height:70px; border-radius:999px; background:linear-gradient(180deg, rgba(169,86,255,0), rgba(169,86,255,.55), rgba(55,102,254,.55), rgba(55,102,254,0)); filter:blur(1px); animation: invoicingSpine 4.6s ease-in-out infinite; opacity:.9; }
-    @keyframes invoicingSpine { 0%{top:0%;opacity:.25;} 20%{opacity:.9;} 50%{top:52%;opacity:.75;} 80%{opacity:.9;} 100%{top:100%;opacity:.25;} }
-    .invoicing_advantage .pp-adv { display:grid; grid-template-columns:70px 1fr; gap:18px 26px; padding:26px 20px 26px 0; border-top:1px solid rgba(226,232,240,.75); }
-    .invoicing_advantage .pp-adv:first-child { border-top:none; }
-    .invoicing_advantage .pp-adv-marker { position:relative; display:flex; align-items:flex-start; justify-content:center; padding-top:6px; }
-    .invoicing_advantage .pp-badge { width:46px; height:46px; border-radius:16px; background:#fff; border:1px solid rgba(226,232,240,.9); box-shadow:0 16px 40px rgba(15,23,42,.06); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .invoicing_advantage .pp-badge::before { content:""; position:absolute; inset:-2px; background:linear-gradient(135deg, rgba(169,86,255,.20), rgba(55,102,254,.12)); opacity:.55; }
-    .invoicing_advantage .pp-badge span { position:relative; z-index:2; font-weight:700; font-size:13px; letter-spacing:.08em; color:rgba(17,24,39,.88); }
-    .invoicing_advantage .pp-adv-title { font-size:22px; line-height:1.2; font-weight:600; color:var(--pp-ink); margin:0 0 10px 0; letter-spacing:-.3px; text-wrap:balance; }
-    .invoicing_advantage .pp-adv-body { font-size:16px; line-height:1.65; font-weight:300; color:var(--pp-body); margin:0 0 14px 0; max-width:90ch; }
-    .invoicing_advantage .pp-result { display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:18px; border:1px solid rgba(55,102,254,.18); background:linear-gradient(135deg, rgba(55,102,254,.06), rgba(169,86,255,.05)); color:rgba(17,24,39,.86); font-size:14px; line-height:1.45; font-weight:500; width:fit-content; max-width:100%; }
-    .invoicing_advantage .pp-result strong { font-weight:700; color:var(--pp-ink); }
-    .invoicing_advantage .pp-dot { width:10px; height:10px; border-radius:50%; background:var(--pp-blue); box-shadow:0 0 0 7px rgba(55,102,254,.10); flex:0 0 auto; }
-    .invoicing_advantage .pp-bridge { margin:30px auto 0 auto; max-width:1100px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); text-align:center; color:var(--pp-body); font-size:15px; line-height:1.55; font-weight:300; }
-    .invoicing_advantage .pp-bridge strong { font-weight:600; color:var(--pp-ink); }
-    .invoicing_advantage .pp-ctas { margin:24px auto 0 auto; max-width:1100px; display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; }
-    .invoicing_advantage .pp-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 22px; border-radius:999px; font-size:15px; font-weight:500; text-decoration:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease; }
-    .invoicing_advantage .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .invoicing_advantage .pp-btn-primary:hover { transform:translateY(-2px); box-shadow:0 16px 34px rgba(55,102,254,.30); }
-    .invoicing_advantage .pp-btn-secondary { background:#fff; color:rgba(17,24,39,.92); border:1px solid rgba(226,232,240,.95); box-shadow:0 10px 22px rgba(15,23,42,.05); }
-    .invoicing_advantage .pp-btn-secondary:hover { transform:translateY(-2px); box-shadow:0 14px 28px rgba(15,23,42,.08); }
-    .invoicing_advantage .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .invoicing_advantage .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .invoicing_advantage .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width: 1400px){ .invoicing_advantage .pp-inner{ padding:0 8vw; } .invoicing_advantage .pp-title{ font-size:40px; } }
-    @media (max-width: 1024px){
-      .invoicing_advantage{ padding:64px 0; }
-      .invoicing_advantage .pp-inner{ padding:0 5vw; }
-      .invoicing_advantage .pp-title{ font-size:32px; }
-      .invoicing_advantage .pp-spine{ display:none; }
-      .invoicing_advantage .pp-adv{ grid-template-columns:56px 1fr; gap:14px 16px; padding:22px 0; }
-      .invoicing_advantage .pp-adv-title{ font-size:20px; }
-    }
-    @media (max-width: 480px){ .invoicing_advantage .pp-title{ font-size:28px; } .invoicing_advantage .pp-btn{ width:100%; max-width:520px; } }
+    .iv-roi { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(180deg, #0b0f1f 0%, #111827 100%); color:#fff; padding:110px 5vw; position:relative; overflow:hidden; }
+    .iv-roi::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:120%; height:200%; background: radial-gradient(ellipse at center, rgba(124,93,255,.15), transparent 55%); pointer-events:none; }
+    .iv-roi .wrap { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+    .iv-roi .head { text-align:center; max-width:760px; margin:0 auto 64px; }
+    .iv-roi .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .iv-roi h2 { font-size:clamp(32px,4.2vw,48px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#fff; }
+    .iv-roi .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+    .iv-roi .stat { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:40px 28px; backdrop-filter:blur(8px); display:flex; flex-direction:column; gap:8px; transition:transform .3s ease, border-color .3s ease; }
+    .iv-roi .stat:hover { transform:translateY(-4px); border-color:rgba(169,86,255,.35); }
+    .iv-roi .stat .num { font-size:clamp(40px,5vw,60px); font-weight:500; line-height:1; letter-spacing:-1.5px; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:ivRoiGrad 6s linear infinite; }
+    @keyframes ivRoiGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .iv-roi .stat .label { font-size:15px; font-weight:400; color:rgba(255,255,255,.78); line-height:1.4; margin-top:4px; }
+    .iv-roi .cta-row { text-align:center; margin-top:52px; }
+    .iv-roi .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:50px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fff; font-size:15px; font-weight:500; text-decoration:none; transition:background .2s, transform .2s; }
+    .iv-roi .btn:hover { background:rgba(255,255,255,.14); transform:translateY(-2px); }
+    .iv-roi .btn svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    @media (max-width:900px){ .iv-roi .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:480px){ .iv-roi .grid{ grid-template-columns:1fr; } }
   </style>
-
-  <div class="pp-inner">
-    <div class="pp-head pp-reveal">
-      <div class="pp-kicker">How It Works</div>
-      <h2 class="pp-title">Invoice arrives. AI handles it. Your team reviews exceptions.</h2>
-      <p class="pp-sub">Three connected steps that move every invoice from inbox to ERP — without manual keying, without chasing approvals, without month-end panic.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">The ROI</div>
+      <h2>The numbers that matter to your CFO.</h2>
     </div>
-
-    <div class="pp-flow">
-      <div class="pp-spine" aria-hidden="true"></div>
-
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge" aria-hidden="true"><span>01</span></div></div>
-        <div class="pp-adv-content">
-          <h3 class="pp-adv-title">Invoice Arrives in Any Format</h3>
-          <p class="pp-adv-body">Supplier emails an invoice — PDF, EDI, scanned image, or any format. It lands in the PurchasePlus Invoicing Inbox. No special supplier setup required, no portal login for them to remember.</p>
-          <div class="pp-result"><span class="pp-dot" aria-hidden="true"></span><span><strong>The Result:</strong> Every supplier, on day one. No onboarding friction, no format restrictions.</span></div>
-        </div>
-      </div>
-
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge" aria-hidden="true"><span>02</span></div></div>
-        <div class="pp-adv-content">
-          <h3 class="pp-adv-title">AI Reads, Extracts &amp; Matches</h3>
-          <p class="pp-adv-body">PurchasePlus AI reads every line — supplier, product, quantity, price, tax — with no manual keying. It matches the invoice against the original purchase order and goods receiving note. Three-way match, automated.</p>
-          <div class="pp-result"><span class="pp-dot" aria-hidden="true"></span><span><strong>The Result:</strong> 90% of invoices process straight through. Discrepancies caught before they're paid.</span></div>
-        </div>
-      </div>
-
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge" aria-hidden="true"><span>03</span></div></div>
-        <div class="pp-adv-content">
-          <h3 class="pp-adv-title">Approve or Route — Instantly</h3>
-          <p class="pp-adv-body">Invoices that match go straight through for approval. Discrepancies route automatically to the right person with the exception flagged and the context attached. Your team only touches invoices that need attention.</p>
-          <div class="pp-result"><span class="pp-dot" aria-hidden="true"></span><span><strong>The Result:</strong> Month-end closes on time. AP becomes a controls function, not a data-entry department.</span></div>
-        </div>
-      </div>
+    <div class="grid">
+      <div class="stat"><div class="num">40M+</div><div class="label">Invoices processed across PurchasePlus since 1999.</div></div>
+      <div class="stat"><div class="num">90%</div><div class="label">Straight-through processing rate — no human touch required.</div></div>
+      <div class="stat"><div class="num">75%</div><div class="label">Reduction in invoice processing costs.</div></div>
+      <div class="stat"><div class="num">1 FTE</div><div class="label">Saved per 2,000 monthly invoices.</div></div>
     </div>
-
-    <div class="pp-bridge pp-reveal" aria-live="polite">
-      <strong>Invoices, POs, receiving, and your ERP shouldn't live in four separate systems.</strong><br>
-      PurchasePlus connects them so AP is a controls function — not a data-entry department.
-    </div>
-
-    <div class="pp-ctas pp-reveal">
-      <a class="pp-btn pp-btn-primary" href="https://www.purchaseplus.com/request-a-demo" aria-label="Book a demo">
-        Book a Demo
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l10 7-10 7V5z"></path></svg>
-      </a>
-      <a class="pp-btn pp-btn-secondary" href="#invoicing-comparison" aria-label="Compare the market">
-        Compare the Market
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
-      </a>
+    <div class="cta-row">
+      <a class="btn" href="https://www.purchaseplus.com/request-a-demo">Calculate your ROI <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = Array.from(document.querySelectorAll('.invoicing_advantage .pp-reveal'));
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (!e.isIntersecting) return; e.target.classList.add('is-in'); io.unobserve(e.target); });
-      }, { threshold: 0.12 });
-      items.forEach((el, i) => { el.style.transitionDelay = (i * 70) + "ms"; io.observe(el); });
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 4: COMPARISON TABLE (invoicing_comparison)
-  Copy note: new table drafted for AP-specific dimensions.
-============================================================ -->
-<section class="invoicing_comparison" id="invoicing-comparison" aria-label="Compare the Market">
+<!-- ============================================================ WIDGET 5: INTEGRATIONS (logo strip) ============================================================ -->
+<section class="iv-int" aria-label="Integrations">
   <style>
-    .invoicing_comparison {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563; --pp-muted:#94a3b8;
-      --pp-border:#e2e8f0; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      --pp-pos:#00bdc5; --pp-neg:#ee2b62;
-      width:100%; background:#fff; font-family:var(--pp-font); padding:90px 0; overflow:hidden;
-    }
-    .invoicing_comparison .pp-inner { width:100%; padding:0 14vw; box-sizing:border-box; }
-    .invoicing_comparison .pp-head { text-align:center; max-width:1040px; margin:0 auto 44px auto; }
-    .invoicing_comparison .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 16px 0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .invoicing_comparison .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0 0 14px 0; letter-spacing:-1px; }
-    .invoicing_comparison .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 auto; max-width:940px; }
-    .invoicing_comparison .pp-table-wrap { margin-top:34px; border-radius:28px; border:1px solid rgba(226,232,240,.9); background:linear-gradient(180deg, rgba(248,250,252,.9), rgba(255,255,255,1)); box-shadow:0 28px 70px rgba(15,23,42,.06); overflow:hidden; }
-    .invoicing_comparison .pp-table { display:grid; grid-template-columns:1.35fr 1fr 1fr 1fr; }
-    .invoicing_comparison .pp-th { padding:18px 22px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(17,24,39,.72); background:rgba(248,250,252,.92); border-bottom:1px solid rgba(226,232,240,.9); display:flex; align-items:center; min-height:64px; }
-    .invoicing_comparison .pp-th.center { justify-content:center; }
-    .invoicing_comparison .pp-pill { display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:12px; font-weight:700; letter-spacing:.06em; color:rgba(17,24,39,.78); line-height:1; white-space:nowrap; }
-    .invoicing_comparison .pp-logo { height:64px; width:auto; display:block; }
-    .invoicing_comparison .pp-row { display:contents; }
-    .invoicing_comparison .pp-td { padding:18px 22px; border-bottom:1px solid rgba(226,232,240,.75); background:#fff; min-height:104px; display:flex; align-items:center; box-sizing:border-box; }
-    .invoicing_comparison .pp-rowline.is-active .pp-td, .invoicing_comparison .pp-rowline.is-locked .pp-td { background:linear-gradient(90deg, rgba(169,86,255,.05), rgba(124,93,255,.03)); }
-    .invoicing_comparison .pp-feature { display:flex; flex-direction:column; gap:8px; align-items:flex-start; }
-    .invoicing_comparison .pp-feature-title { font-size:16px; font-weight:700; color:var(--pp-ink); letter-spacing:-.2px; line-height:1.25; margin:0; }
-    .invoicing_comparison .pp-feature-desc { font-size:14px; font-weight:300; color:var(--pp-body); line-height:1.45; margin:0; max-width:52ch; }
-    .invoicing_comparison .pp-val { width:100%; display:flex; align-items:center; gap:14px; }
-    .invoicing_comparison .pp-badge { width:44px; height:44px; border-radius:999px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(226,232,240,.9); background:rgba(248,250,252,.9); flex:0 0 44px; transition:background .25s ease, border-color .25s ease, transform .25s ease; }
-    .invoicing_comparison .pp-badge svg { width:18px; height:18px; display:block; }
-    .invoicing_comparison .pp-val-text { font-size:14px; font-weight:500; color:rgba(17,24,39,.74); line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:36ch; }
-    .invoicing_comparison .pp-rowline.is-active .pp-badge[data-state="pos"], .invoicing_comparison .pp-rowline.is-locked .pp-badge[data-state="pos"] { background:var(--pp-pos); border-color:rgba(0,189,197,.65); }
-    .invoicing_comparison .pp-rowline.is-active .pp-badge[data-state="neg"], .invoicing_comparison .pp-rowline.is-locked .pp-badge[data-state="neg"] { background:var(--pp-neg); border-color:rgba(238,43,98,.6); }
-    .invoicing_comparison .pp-rowline.is-active .pp-badge svg path, .invoicing_comparison .pp-rowline.is-locked .pp-badge svg path { stroke:#fff; }
-    .invoicing_comparison .pp-rowline.is-active .pp-badge, .invoicing_comparison .pp-rowline.is-locked .pp-badge { transform:scale(1.03); }
-    .invoicing_comparison .pp-cta-bar { padding:22px 22px 26px 22px; background:rgba(248,250,252,.55); display:flex; flex-direction:column; gap:14px; }
-    .invoicing_comparison .pp-cta-title { font-size:14px; font-weight:700; color:var(--pp-ink); margin:0; line-height:1.25; }
-    .invoicing_comparison .pp-cta-sub { font-size:14px; font-weight:300; color:var(--pp-body); margin:0; line-height:1.45; max-width:80ch; }
-    .invoicing_comparison .pp-cta-actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; }
-    .invoicing_comparison .pp-btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:16px 22px; border-radius:999px; font-size:14px; font-weight:600; border:1px solid rgba(226,232,240,.9); background:#fff; color:rgba(17,24,39,.84); text-decoration:none; box-shadow:0 14px 28px rgba(15,23,42,.06); transition:transform .2s ease, box-shadow .2s ease; }
-    .invoicing_comparison .pp-btn:hover { transform:translateY(-2px); box-shadow:0 18px 36px rgba(15,23,42,.10); }
-    .invoicing_comparison .pp-btn.primary { border:none; background:var(--pp-grad); color:#fff; box-shadow:0 16px 34px rgba(55,102,254,.18); }
-    .invoicing_comparison .pp-btn svg { width:16px; height:16px; }
-    .invoicing_comparison .pp-btn svg path { stroke:currentColor; }
-    .invoicing_comparison .pp-leaders-text { width:100%; text-align:center; font-size:14px; font-weight:300; color:#4B5563; margin-top:40px; margin-bottom:15px; }
-    .invoicing_comparison .pp-brand-anim { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; display:inline-block; animation:invoicingMarqueeGrad 5s linear infinite; }
-    @keyframes invoicingMarqueeGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .invoicing_comparison .pp-carousel { width:100%; overflow:hidden; position:relative; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); }
-    .invoicing_comparison .pp-track { display:flex; gap:15rem; align-items:center; animation:invoicingMarquee 40s linear infinite; width:max-content; }
-    .invoicing_comparison .pp-track img { height:120px; min-width:200px; object-fit:contain; flex-shrink:0; }
-    @keyframes invoicingMarquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    @media (max-width: 1400px){ .invoicing_comparison .pp-inner{ padding:0 6vw; } .invoicing_comparison .pp-title{ font-size:40px; } .invoicing_comparison .pp-table{ grid-template-columns:1.2fr 0.85fr 0.85fr 0.85fr; } .invoicing_comparison .pp-th{ padding:16px 14px; font-size:11px; } .invoicing_comparison .pp-td{ padding:16px 14px; } .invoicing_comparison .pp-feature-title{ font-size:15px; } .invoicing_comparison .pp-feature-desc{ font-size:13px; } .invoicing_comparison .pp-val-text{ font-size:13px; } .invoicing_comparison .pp-badge{ width:38px; height:38px; flex:0 0 38px; } .invoicing_comparison .pp-logo{ height:58px; } }
-    @media (max-width: 1024px){ .invoicing_comparison{ padding:50px 0; } .invoicing_comparison .pp-title{ font-size:28px; } .invoicing_comparison .pp-table{ grid-template-columns:1.2fr 0.8fr 0.8fr 0.8fr; } .invoicing_comparison .pp-th{ padding:12px 8px; font-size:9px; min-height:48px; } .invoicing_comparison .pp-logo{ height:42px; } .invoicing_comparison .pp-feature-title{ font-size:12px; } .invoicing_comparison .pp-feature-desc{ font-size:10px; } .invoicing_comparison .pp-val-text{ font-size:9px; } .invoicing_comparison .pp-badge{ width:28px; height:28px; flex:0 0 28px; } }
-    @media (max-width: 768px){ .invoicing_comparison .pp-title{ font-size:22px; } .invoicing_comparison .pp-val-text{ font-size:8px; } }
-    @media (max-width: 480px){ .invoicing_comparison .pp-val-text{ display:none; } .invoicing_comparison .pp-badge{ width:20px; height:20px; flex:0 0 20px; } }
+    .iv-int { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:88px 5vw; }
+    .iv-int .wrap { max-width:1200px; margin:0 auto; text-align:center; }
+    .iv-int .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .iv-int h2 { font-size:clamp(28px,3.4vw,36px); font-weight:400; line-height:1.2; letter-spacing:-.6px; color:#111827; margin-bottom:44px; }
+    .iv-int .logos { display:grid; grid-template-columns:repeat(4,1fr); gap:24px 28px; align-items:stretch; }
+    .iv-int .logo { padding:28px 20px; border:1px solid #e2e8f0; border-radius:20px; background:#fff; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:600; color:#111827; letter-spacing:-.3px; transition:border-color .2s, box-shadow .2s, transform .2s; min-height:92px; }
+    .iv-int .logo:hover { border-color:#c4b5fd; box-shadow:0 12px 36px rgba(124,93,255,.12); transform:translateY(-2px); }
+    .iv-int .cta { display:inline-flex; align-items:center; gap:8px; margin-top:40px; color:#7c5dff; font-size:15px; font-weight:500; text-decoration:none; }
+    .iv-int .cta:hover { color:#3766fe; }
+    .iv-int .cta svg { width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+    .iv-int .cta:hover svg { transform:translateX(3px); }
+    @media (max-width:900px){ .iv-int .logos{ grid-template-columns:repeat(2,1fr); } }
   </style>
-
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">Comparison Table</div>
-      <h2 class="pp-title">Compare the Market</h2>
-      <p class="pp-sub">See how PurchasePlus stacks up against legacy OCR vendors and niche AP apps — across capture, matching, approvals, coding, and ERP export.</p>
+  <div class="wrap">
+    <div class="kicker">Integrations</div>
+    <h2>Works with your existing accounting system.</h2>
+    <div class="logos">
+      <div class="logo">Xero</div>
+      <div class="logo">NetSuite</div>
+      <div class="logo">Dynamics 365</div>
+      <div class="logo">Sage</div>
+      <div class="logo">MYOB</div>
+      <div class="logo">Reckon</div>
+      <div class="logo">SunSystems</div>
+      <div class="logo">Accredo</div>
     </div>
+    <a class="cta" href="https://www.purchaseplus.com/integrations/accounting-systems">See all integrations <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+  </div>
+</section>
 
-    <div class="pp-table-wrap" id="invoicing-table">
-      <div class="pp-table">
-        <div class="pp-th">Feature</div>
-        <div class="pp-th center"><img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/98-082%20PurchasePlus%20Logo%20Horizontal%20RGB%2072dpi.png" alt="PurchasePlus" class="pp-logo"></div>
-        <div class="pp-th center"><span class="pp-pill">Legacy OCR</span></div>
-        <div class="pp-th center"><span class="pp-pill">Niche AP Apps</span></div>
-
-        <div class="pp-rowline pp-row" data-row="0">
-          <div class="pp-td"><div class="pp-feature"><p class="pp-feature-title">Invoice Capture</p><p class="pp-feature-desc">Receive any format from any supplier — PDF, EDI, scanned image — without onboarding friction.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Any Format, Any Supplier</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Template-Limited</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Portal Onboarding Required</div></div></div>
-        </div>
-
-        <div class="pp-rowline pp-row" data-row="1">
-          <div class="pp-td"><div class="pp-feature"><p class="pp-feature-title">3-Way Matching</p><p class="pp-feature-desc">Automatically match invoice vs PO vs receiving note on every document — not just flagged ones.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Automated on Every Invoice</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual / Sample-Based</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">2-Way Matching Only</div></div></div>
-        </div>
-
-        <div class="pp-rowline pp-row" data-row="2">
-          <div class="pp-td"><div class="pp-feature"><p class="pp-feature-title">Exception Routing</p><p class="pp-feature-desc">Route discrepancies instantly to the right approver — by dollar, supplier, GL code, or variance type.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Rule-Based, Auto-Routed</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Email Chains / Manual</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Basic Single-Path</div></div></div>
-        </div>
-
-        <div class="pp-rowline pp-row" data-row="3">
-          <div class="pp-td"><div class="pp-feature"><p class="pp-feature-title">GL Coding</p><p class="pp-feature-desc">Apply the correct GL code to every invoice line automatically — by product, supplier, and cost centre.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Auto-Coded, Line-Level</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Header-Only or Manual</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Basic Rules Only</div></div></div>
-        </div>
-
-        <div class="pp-rowline pp-row" data-row="4">
-          <div class="pp-td"><div class="pp-feature"><p class="pp-feature-title">ERP Export</p><p class="pp-feature-desc">Push approved invoices and journal entries straight to your ERP — no rekeying, no manual uploads.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Real-Time Sync (8+ ERPs)</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">CSV Export / Manual</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Limited ERP Support</div></div></div>
-        </div>
-      </div>
-
-      <div class="pp-cta-bar">
-        <p class="pp-cta-title">Ready to see this in your AP workflow?</p>
-        <p class="pp-cta-sub">Book a personal demo and we'll show you how PurchasePlus reads, matches, and routes your invoices end-to-end.</p>
-        <div class="pp-cta-actions">
-          <a class="pp-btn primary" href="https://www.purchaseplus.com/request-a-demo">Book Your Personal Demo
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-          <a class="pp-btn" href="https://www.purchaseplus.com/integrations/accounting-systems">See Supported ERPs
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div class="pp-leaders-text">Industry leaders demand the best. The best choose <span class="pp-brand-anim">PurchasePlus</span>.</div>
-    <div class="pp-carousel">
-      <div class="pp-track">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra" aria-hidden="true">
-      </div>
+<!-- ============================================================ WIDGET 6: CTA BANNER ============================================================ -->
+<section class="iv-cta" aria-label="Final CTA">
+  <style>
+    .iv-cta { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
+    .iv-cta .wrap { max-width:1040px; margin:0 auto; background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); border-radius:40px; padding:72px 56px; text-align:center; color:#fff; position:relative; overflow:hidden; }
+    .iv-cta .wrap::before { content:''; position:absolute; top:-50%; right:-20%; width:80%; height:200%; background:radial-gradient(ellipse at center, rgba(255,255,255,.18), transparent 55%); pointer-events:none; }
+    .iv-cta .wrap::after { content:''; position:absolute; bottom:-60%; left:-20%; width:80%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.12), transparent 55%); pointer-events:none; }
+    .iv-cta h2 { position:relative; z-index:1; font-size:clamp(30px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; max-width:900px; margin:0 auto 32px; text-wrap:balance; }
+    .iv-cta .btns { position:relative; z-index:1; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .iv-cta .btn { display:inline-flex; align-items:center; padding:14px 32px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .iv-cta .btn-primary { background:#fff; color:#7c5dff; box-shadow:0 8px 24px rgba(0,0,0,.15); }
+    .iv-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.2); }
+    .iv-cta .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.4); }
+    .iv-cta .btn-ghost:hover { background:rgba(255,255,255,.1); transform:translateY(-2px); }
+    @media (max-width:640px){ .iv-cta{ padding:60px 20px; } .iv-cta .wrap{ padding:48px 28px; border-radius:28px; } }
+  </style>
+  <div class="wrap">
+    <h2>40 million invoices processed. What would zero manual entry mean for your team?</h2>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const widget = document.querySelector(".invoicing_comparison");
-      const rows = Array.from(widget.querySelectorAll(".pp-rowline"));
-      let started = false;
-      function runSequence(){
-        if (started) return;
-        started = true;
-        let i = 0;
-        const stepMs = 900;
-        const tick = () => {
-          if (i >= rows.length) return;
-          const row = rows[i];
-          row.classList.add("is-active");
-          setTimeout(() => { row.classList.remove("is-active"); row.classList.add("is-locked"); }, Math.max(520, stepMs - 180));
-          i++;
-          setTimeout(tick, stepMs);
-        };
-        tick();
-      }
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { if (entry.isIntersecting) runSequence(); });
-      }, { threshold: 0.25 });
-      io.observe(widget);
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 5: THREE PILLARS (invoicing_pillars)
-  Mapped from DOCX KEY FEATURES — top 3 condensed
-============================================================ -->
-<section class="invoicing_pillars" id="invoicing-pillars" aria-label="Three Pillars of AP Automation">
-  <style>
-    .invoicing_pillars { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; background-color:#fafafa; color:#1a1a1b; }
-    .invoicing_pillars .wp_container { max-width:1200px; width:100%; margin:0 auto; padding:0 20px; }
-    .invoicing_pillars .wp_header { text-align:center; padding:8px 20px 4px; flex-shrink:0; }
-    .invoicing_pillars .wp_kicker { font-weight:700; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#6b7280; margin-bottom:4px; }
-    .invoicing_pillars .wp_heading { font-size:clamp(26px,3.6vw,36px); font-weight:400; line-height:1.2; margin-bottom:6px; letter-spacing:-0.5px; color:#1a1a1b; }
-    .invoicing_pillars .wp_sub { font-size:14px; color:#444446; max-width:580px; margin:0 auto; line-height:1.4; font-weight:400; }
-    .invoicing_pillars .wp_outcome { text-align:center; margin-top:8px; padding-bottom:8px; flex-shrink:0; }
-    .invoicing_pillars .wp_outcome_label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:3px; }
-    .invoicing_pillars .wp_outcome_title { font-size:20px; font-weight:400; color:#1a1a1b; }
-    .invoicing_pillars .wp_scroll_wrapper { height:380vh; position:relative; }
-    .invoicing_pillars .wp_sticky_area { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 20px; overflow:hidden; }
-    .invoicing_pillars .wp_grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1100px; width:100%; align-items:stretch; position:relative; z-index:2; }
-    .invoicing_pillars .wp_grad { background:linear-gradient(90deg,#a956ff,#7c5dff,#3766fe,#7c5dff,#a956ff); background-size:800px 100%; animation:invoicingPillarGrad 3.5s ease-in-out infinite; }
-    @keyframes invoicingPillarGrad { 0%{background-position:0 0;} 50%{background-position:400px 0;} 100%{background-position:0 0;} }
-    .invoicing_pillars .wp_pillar { display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(60px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
-    .invoicing_pillars .wp_pillar.wp_revealed { opacity:1; transform:translate(0,0); }
-    .invoicing_pillars .wp_cap_bar { width:100%; height:12px; border-radius:10px 10px 0 0; }
-    .invoicing_pillars .wp_cap_taper { width:91%; height:8px; border-radius:0 0 8px 8px; }
-    .invoicing_pillars .wp_pillar_shaft { width:82%; padding:3px; flex-grow:1; border-radius:8px; }
-    .invoicing_pillars .wp_shaft_inner { background:#fff; padding:14px; text-align:center; display:flex; flex-direction:column; height:100%; border-radius:6px; }
-    .invoicing_pillars .wp_base_taper { width:91%; height:8px; border-radius:8px 8px 0 0; }
-    .invoicing_pillars .wp_base_bar { width:100%; height:12px; border-radius:0 0 10px 10px; }
-    .invoicing_pillars .wp_card_kicker { font-size:clamp(7px,0.85vw,10px); font-weight:700; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:6px; background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .invoicing_pillars .wp_card_title { font-size:clamp(11px,1.1vw,14px); font-weight:600; line-height:1.3; margin-bottom:8px; color:#1a1a1b; }
-    .invoicing_pillars .wp_card_body { font-size:12px; color:#444446; line-height:1.5; margin-bottom:10px; flex-grow:1; }
-    .invoicing_pillars .wp_examples { list-style:none; padding:0; margin:4px auto 0; display:inline-flex; flex-direction:column; gap:4px; text-align:left; }
-    .invoicing_pillars .wp_examples li { display:flex; align-items:center; gap:7px; font-size:clamp(8px,0.8vw,11px); color:#444446; line-height:1.3; }
-    .invoicing_pillars .wp_ex_icon { width:14px; height:14px; flex-shrink:0; color:#7c5dff; }
-    .invoicing_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:24px; }
-    .invoicing_pillars .wp_pillar_center .wp_shaft_inner { padding-top:20px; }
-    .invoicing_pillars .wp_card_result { font-size:11px; font-weight:600; color:#1a1a1b; padding-top:10px; line-height:1.4; position:relative; }
-    .invoicing_pillars .wp_card_result::before { content:''; position:absolute; top:0; left:10%; width:80%; height:2px; background:var(--pp-grad); border-radius:1px; }
-    .invoicing_pillars .wp_card_result strong { background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    @media (max-width:991px){
-      .invoicing_pillars { overflow-x:hidden; }
-      .invoicing_pillars .wp_scroll_wrapper { height:auto !important; }
-      .invoicing_pillars .wp_sticky_area { position:relative; height:auto; padding:40px 20px; flex-direction:column; overflow:visible; }
-      .invoicing_pillars .wp_grid { grid-template-columns:1fr; gap:80px; max-width:400px; margin:0 auto; }
-      .invoicing_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:0; }
-      .invoicing_pillars .wp_pillar:nth-child(odd) { transform:translateX(-80px); }
-      .invoicing_pillars .wp_pillar:nth-child(even) { transform:translateX(80px); }
-      .invoicing_pillars .wp_pillar.wp_revealed { opacity:1; transform:translateX(0); }
-      .invoicing_pillars .wp_shaft_inner { padding:28px 22px; }
-    }
-  </style>
-
-  <div class="wp_scroll_wrapper">
-    <div class="wp_sticky_area">
-      <header class="wp_header">
-        <div class="wp_kicker">The PurchasePlus Advantage</div>
-        <h2 class="wp_heading">Three Pillars That Remove the AP Workload</h2>
-        <p class="wp_sub">PurchasePlus connects capture, matching, and coding into one system that processes 90% of invoices without a human touch.</p>
-      </header>
-
-      <div class="wp_outcome">
-        <div class="wp_outcome_label">Core Business Outcome</div>
-        <div class="wp_outcome_title">Straight-Through Processing at Scale</div>
-      </div>
-
-      <div class="wp_grid">
-        <div class="wp_pillar" data-reveal="2">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Any format. One inbox.</div>
-              <h3 class="wp_card_title">AI-Powered Invoice Capture</h3>
-              <div class="wp_card_body">
-                <p>Suppliers email invoices in whatever format they use. PurchasePlus AI scans and extracts all data — header, lines, totals, tax — with no manual keying.</p>
-                <p>Works with every format you'll see:</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>PDF invoices from any email</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg><span>Scanned images &amp; paper invoices</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg><span>EDI &amp; structured feeds</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> Every supplier, every format, on day one — with zero data entry from your team.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-
-        <div class="wp_pillar wp_pillar_center" data-reveal="1">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Invoice vs PO vs Receiving.</div>
-              <h3 class="wp_card_title">Automated 3-Way Matching</h3>
-              <div class="wp_card_body">
-                <p>Every invoice is checked against the original purchase order (price and product) and the goods receiving note (quantity and delivery). Discrepancies flagged before payment.</p>
-                <p>Match outcomes, at a glance:</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg><span>Clean match — straight through</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span>Price variance — route to buyer</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6L6 18M6 6l12 12"/></svg><span>Qty short — hold for credit note</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> 90% straight-through processing — and every overcharge caught before you pay it.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-
-        <div class="wp_pillar" data-reveal="3">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Code it once. Apply it forever.</div>
-              <h3 class="wp_card_title">Auto GL Coding &amp; ERP Export</h3>
-              <div class="wp_card_body">
-                <p>Set up your GL mapping once. PurchasePlus applies the correct GL code to every invoice line automatically, then generates journal entries and exports to your ERP.</p>
-                <p>Works natively with your stack:</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg><span>Xero, NetSuite, Dynamics 365</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg><span>Sage, MYOB, Reckon</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20"/></svg><span>SunSystems, Accredo</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> Month-end reconciliation becomes a check — not a task. Close in hours, not days.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const pillars = document.querySelectorAll('.invoicing_pillars .wp_pillar');
-      const scrollWrapper = document.querySelector('.invoicing_pillars .wp_scroll_wrapper');
-      function isMobile() { return window.innerWidth <= 991; }
-      function initMobile() {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('wp_revealed'); });
-        }, { threshold: 0.15 });
-        pillars.forEach(p => observer.observe(p));
-      }
-      function initDesktop() {
-        function onScroll() {
-          const rect = scrollWrapper.getBoundingClientRect();
-          const scrollableHeight = scrollWrapper.offsetHeight - window.innerHeight;
-          const scrolled = -rect.top;
-          const progress = Math.max(0, Math.min(1, scrolled / scrollableHeight));
-          pillars.forEach(pillar => {
-            const step = parseInt(pillar.dataset.reveal, 10);
-            const threshold = (step - 1) / 3;
-            if (progress >= threshold) pillar.classList.add('wp_revealed');
-            else pillar.classList.remove('wp_revealed');
-          });
-        }
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-      if (isMobile()) initMobile(); else initDesktop();
-    });
-  </script>
-</section>
-
-<!-- ============================================================
-  WIDGET 6: FINAL CTA WITH ROI FORMULA (invoicing_finalcta)
-  Mapped from DOCX CTA BANNER + ROI SECTION
-============================================================ -->
-<section class="invoicing_finalcta" aria-label="Final CTA">
-  <style>
-    .invoicing_finalcta {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563; --pp-blue:#3766fe;
-      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      width:100%; background:#fff; font-family:var(--pp-font); padding:92px 0; overflow:hidden; position:relative;
-    }
-    .invoicing_finalcta .pp-bg-chart { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; filter:blur(3px); opacity:.5; }
-    .invoicing_finalcta .pp-inner { width:100%; max-width:900px; margin:0 auto; padding:0 24px; box-sizing:border-box; text-align:center; position:relative; z-index:2; }
-    .invoicing_finalcta .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 16px 0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .invoicing_finalcta .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 auto 36px auto; max-width:740px; text-wrap:balance; }
-    .invoicing_finalcta .pp-formula-card { max-width:840px; margin:0 auto 44px auto; padding:32px 36px; border-radius:22px; background:rgba(255,255,255,.92); backdrop-filter:blur(14px); border:1px solid rgba(226,232,240,.9); box-shadow:0 28px 70px rgba(15,23,42,.06); text-align:center; position:relative; z-index:2; overflow:visible; }
-    .invoicing_finalcta .pp-formula { display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:nowrap; margin-bottom:8px; overflow:visible; }
-    .invoicing_finalcta .pp-wac { font-size:28px; font-weight:700; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.5px; flex-shrink:0; }
-    .invoicing_finalcta .pp-equals { font-size:24px; font-weight:300; color:var(--pp-body); flex-shrink:0; }
-    .invoicing_finalcta .pp-fraction { display:inline-flex; flex-direction:column; align-items:center; flex-shrink:1; min-width:0; }
-    .invoicing_finalcta .pp-numerator, .invoicing_finalcta .pp-denominator { font-size:13px; font-weight:400; color:var(--pp-ink); line-height:1.4; padding:4px 10px; white-space:nowrap; }
-    .invoicing_finalcta .pp-frac-line { width:100%; height:1px; background:var(--pp-ink); opacity:.35; }
-    .invoicing_finalcta .pp-live-result { font-size:32px; font-weight:700; background-image:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.5px; animation:invoicingGradShift 4s linear infinite; min-width:90px; display:inline-block; flex-shrink:0; padding:4px 2px; }
-    @keyframes invoicingGradShift { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .invoicing_finalcta .pp-tagline { display:flex; align-items:center; justify-content:center; gap:18px; margin-top:20px; flex-wrap:nowrap; white-space:nowrap; }
-    .invoicing_finalcta .pp-tag { font-size:13px; font-weight:500; color:var(--pp-body); display:flex; align-items:center; gap:6px; }
-    .invoicing_finalcta .pp-tag-dot { width:6px; height:6px; border-radius:50%; background:var(--pp-blue); box-shadow:0 0 0 4px rgba(55,102,254,.10); flex:0 0 auto; }
-    .invoicing_finalcta .pp-cta-heading { font-size:28px; line-height:1.2; font-weight:400; color:var(--pp-ink); margin:0 0 8px 0; letter-spacing:-.5px; text-wrap:balance; }
-    .invoicing_finalcta .pp-cta-sub { font-size:16px; font-weight:300; color:var(--pp-body); margin:0 0 24px 0; line-height:1.5; text-wrap:balance; }
-    .invoicing_finalcta .pp-btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 32px; border-radius:999px; font-size:16px; font-weight:500; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .invoicing_finalcta .pp-btn:hover { transform:translateY(-2px); box-shadow:0 16px 34px rgba(55,102,254,.30); }
-    .invoicing_finalcta .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .invoicing_finalcta .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .invoicing_finalcta .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width: 1024px){ .invoicing_finalcta{ padding:64px 0; } .invoicing_finalcta .pp-formula-card{ padding:24px 20px; } .invoicing_finalcta .pp-wac{ font-size:22px; } .invoicing_finalcta .pp-live-result{ font-size:24px; } .invoicing_finalcta .pp-numerator, .invoicing_finalcta .pp-denominator{ font-size:11px; } }
-    @media (max-width: 768px){ .invoicing_finalcta .pp-formula{ gap:8px; } .invoicing_finalcta .pp-wac{ font-size:18px; } .invoicing_finalcta .pp-equals{ font-size:14px; } .invoicing_finalcta .pp-live-result{ font-size:20px; } .invoicing_finalcta .pp-numerator, .invoicing_finalcta .pp-denominator{ font-size:9px; padding:2px 4px; } }
-    @media (max-width: 480px){ .invoicing_finalcta .pp-cta-heading{ font-size:22px; } .invoicing_finalcta .pp-btn{ width:100%; max-width:320px; } }
-  </style>
-
-  <canvas class="pp-bg-chart" id="invoicing-finalcta-chart" aria-hidden="true"></canvas>
-
-  <div class="pp-inner">
-    <div class="pp-reveal">
-      <div class="pp-kicker">The AP Automation Math</div>
-      <p class="pp-sub">Straight-through processing rate is the single number that defines modern AP. We measure it — and we publish it.</p>
-    </div>
-
-    <div class="pp-formula-card pp-reveal">
-      <div class="pp-formula">
-        <span class="pp-wac">STP</span>
-        <span class="pp-equals">=</span>
-        <span class="pp-fraction">
-          <span class="pp-numerator">Invoices Processed Without Human Touch</span>
-          <span class="pp-frac-line"></span>
-          <span class="pp-denominator">Total Invoices Received</span>
-        </span>
-        <span class="pp-equals">=</span>
-        <span class="pp-live-result" id="invoicing-stp-val">75%</span>
-      </div>
-      <div class="pp-tagline">
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Audit-ready</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Line-level accurate</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> ERP-native</span>
-      </div>
-    </div>
-
-    <div class="pp-reveal">
-      <h2 class="pp-cta-heading">40 million invoices processed. What would zero manual entry mean for your team?</h2>
-      <p class="pp-cta-sub">Join the AP teams that have already stopped keying data — and started doing controls work.</p>
-      <a class="pp-btn" href="https://www.purchaseplus.com/request-a-demo" aria-label="Book a demo">
-        Book a Demo
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 5l7 7-7 7"></path></svg>
-      </a>
-    </div>
-  </div>
-
-  <script>
-    (function(){
-      var section = document.querySelector('.invoicing_finalcta');
-      if (!section) return;
-      var items = Array.prototype.slice.call(section.querySelectorAll('.pp-reveal'));
-      var revealIO = new IntersectionObserver(function(entries){
-        entries.forEach(function(e){ if (!e.isIntersecting) return; e.target.classList.add('is-in'); revealIO.unobserve(e.target); });
-      }, { threshold: 0.12 });
-      items.forEach(function(el, i){ el.style.transitionDelay = (i * 100) + 'ms'; revealIO.observe(el); });
-
-      var canvas = document.getElementById('invoicing-finalcta-chart');
-      if (!canvas || !canvas.getContext) return;
-      var ctx = canvas.getContext('2d');
-      var CYCLE = 20000;
-      var STP_START = 75;
-      var STP_END = 92;
-      var stpEl = document.getElementById('invoicing-stp-val');
-      var NUM_BARS = 24;
-      var barTargets = [];
-      for (var b = 0; b < NUM_BARS; b++){
-        var p = b / (NUM_BARS - 1);
-        var base = 0.18 + 0.62 * Math.pow(p, 1.3);
-        var noise = Math.sin(p * 11.3) * 0.06 + Math.sin(p * 23.7 + 1.5) * 0.04 + Math.sin(p * 5.2 + 3) * 0.05;
-        var h = Math.max(0.08, Math.min(0.92, base + noise));
-        barTargets.push(h);
-      }
-      function resize(){
-        var rect = section.getBoundingClientRect();
-        var dpr = window.devicePixelRatio || 1;
-        canvas.width = rect.width * dpr;
-        canvas.height = rect.height * dpr;
-        canvas.style.width = rect.width + 'px';
-        canvas.style.height = rect.height + 'px';
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      }
-      resize();
-      window.addEventListener('resize', resize);
-      var startTime = null, running = false;
-      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
-      function easeInOutCubic(t){ return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
-      function draw(timestamp){
-        if (!running) return;
-        if (!startTime) startTime = timestamp;
-        var elapsed = (timestamp - startTime) % CYCLE;
-        var cycleProgress = elapsed / CYCLE;
-        var dpr = window.devicePixelRatio || 1;
-        var w = canvas.width / dpr, h = canvas.height / dpr;
-        ctx.clearRect(0, 0, w, h);
-        var drawPhase = Math.min(cycleProgress / 0.75, 1);
-        var fadePhase = cycleProgress > 0.85 ? (cycleProgress - 0.85) / 0.15 : 0;
-        ctx.globalAlpha = 1 - easeOutCubic(fadePhase);
-        var padX = w * 0.04, padTop = h * 0.05, padBottom = h * 0.05;
-        var chartW = w - padX * 2, chartH = h - padTop - padBottom;
-        var barGap = chartW * 0.015;
-        var barWidth = (chartW - barGap * (NUM_BARS - 1)) / NUM_BARS;
-        var barsToShow = Math.min(NUM_BARS, Math.ceil(drawPhase * NUM_BARS));
-        var linePoints = [];
-        for (var i = 0; i < barsToShow; i++){
-          var barX = padX + i * (barWidth + barGap);
-          var targetH = barTargets[i] * chartH;
-          var barStart = i / NUM_BARS * 0.85;
-          var barEnd = barStart + 0.25;
-          var barProgress = easeOutCubic(Math.max(0, Math.min(1, (drawPhase - barStart) / (barEnd - barStart))));
-          var currentH = targetH * barProgress;
-          var barY = padTop + chartH - currentH;
-          var barGrad = ctx.createLinearGradient(0, barY, 0, padTop + chartH);
-          barGrad.addColorStop(0, 'rgba(169,86,255,0.75)');
-          barGrad.addColorStop(0.4, 'rgba(124,93,255,0.55)');
-          barGrad.addColorStop(1, 'rgba(55,102,254,0.30)');
-          var radius = Math.min(barWidth * 0.35, 4);
-          ctx.beginPath();
-          ctx.moveTo(barX, padTop + chartH);
-          ctx.lineTo(barX, barY + radius);
-          ctx.quadraticCurveTo(barX, barY, barX + radius, barY);
-          ctx.lineTo(barX + barWidth - radius, barY);
-          ctx.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + radius);
-          ctx.lineTo(barX + barWidth, padTop + chartH);
-          ctx.closePath();
-          ctx.fillStyle = barGrad;
-          ctx.fill();
-          if (barProgress > 0.01) linePoints.push({ x: barX + barWidth / 2, y: barY });
-        }
-        if (linePoints.length >= 2){
-          var lineGrad = ctx.createLinearGradient(padX, 0, padX + chartW, 0);
-          lineGrad.addColorStop(0, 'rgba(169,86,255,0.9)');
-          lineGrad.addColorStop(0.5, 'rgba(124,93,255,0.9)');
-          lineGrad.addColorStop(1, 'rgba(55,102,254,0.9)');
-          ctx.beginPath();
-          ctx.moveTo(linePoints[0].x, linePoints[0].y);
-          for (var j = 1; j < linePoints.length; j++){
-            var prev = linePoints[j - 1], curr = linePoints[j];
-            var cpx = (prev.x + curr.x) / 2;
-            ctx.quadraticCurveTo(prev.x, prev.y, cpx, (prev.y + curr.y) / 2);
-          }
-          ctx.lineTo(linePoints[linePoints.length - 1].x, linePoints[linePoints.length - 1].y);
-          ctx.strokeStyle = lineGrad;
-          ctx.lineWidth = 3.5;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.stroke();
-        }
-        ctx.globalAlpha = 1;
-        if (stpEl){
-          var counterProgress = easeInOutCubic(Math.min(drawPhase, 1));
-          var currentStp = STP_START + (STP_END - STP_START) * counterProgress;
-          stpEl.textContent = Math.round(currentStp) + '%';
-        }
-        requestAnimationFrame(draw);
-      }
-      var chartIO = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if (entry.isIntersecting){ running = true; startTime = null; requestAnimationFrame(draw); }
-          else running = false;
-        });
-      }, { threshold: 0.05 });
-      chartIO.observe(section);
-    })();
-  </script>
-</section>
-
-<!-- ============================================================
-  GLOBAL FOOTER (pasted verbatim from widget_footer.html)
-============================================================ -->
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
 <footer class="pp-footer" role="contentinfo">
   <style>
-    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .pp-footer { background: #ffffff; font-family: 'Inter', sans-serif; color: #374151; border-top: 1px solid #e5e7eb; }
-    .pp-ftr-inner { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
-    .pp-ftr-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; padding: 64px 0 52px; }
-    .pp-ftr-logo { display: flex; align-items: center; text-decoration: none; margin-bottom: 24px; }
-    .pp-ftr-logo img { height: 34px; width: auto; display: block; }
-    .pp-ftr-logo img.pp-ftr-logo-mobile { display: none; }
-    .pp-ftr-contact-head { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #9ca3af; margin-bottom: 14px; }
-    .pp-ftr-address { font-size: 13.5px; font-weight: 300; line-height: 1.7; color: #6b7280; margin-bottom: 16px; }
-    .pp-ftr-email { font-size: 13.5px; font-weight: 400; color: #374151; text-decoration: none; transition: color 0.2s; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 22px; }
-    .pp-ftr-email:hover { color: #7c5dff; }
-    .pp-ftr-email svg { flex-shrink: 0; color: #9ca3af; }
-    @keyframes pp-ftr-grad { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .pp-ftr-demo-btn { display: inline-flex; align-items: center; padding: 10px 22px; font-size: 14px; font-weight: 500; color: #ffffff; text-decoration: none; border-radius: 8px; background: linear-gradient(90deg, #a956ff 0%, #7c5dff 40%, #3766fe 70%, #a956ff 100%); background-size: 250% 100%; animation: pp-ftr-grad 4s ease-in-out infinite; transition: opacity 0.2s, transform 0.2s; white-space: nowrap; margin-bottom: 20px; }
-    .pp-ftr-demo-btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .pp-ftr-social { display: flex; gap: 10px; }
-    .pp-ftr-social a { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 7px; border: 1px solid #e5e7eb; color: #6b7280; text-decoration: none; transition: border-color 0.2s, color 0.2s, background 0.2s; }
-    .pp-ftr-social a:hover { border-color: #c4b5fd; color: #7c5dff; background: #f5f3ff; }
-    .pp-ftr-social svg { width: 15px; height: 15px; fill: currentColor; }
-    .pp-ftr-col-head { font-size: 13px; font-weight: 600; color: #111827; margin-bottom: 16px; letter-spacing: -0.01em; }
-    .pp-ftr-phones { list-style: none; }
-    .pp-ftr-phones li { display: flex; flex-direction: row; align-items: baseline; gap: 6px; margin-bottom: 20px; }
-    .pp-ftr-phones li:last-child { margin-bottom: 0; }
-    .pp-ftr-country { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #9ca3af; }
-    .pp-ftr-col-offset { padding-top: 58px; }
-    .pp-ftr-col-right { text-align: right; }
-    .pp-ftr-col-divider { position: relative; }
-    .pp-ftr-col-divider::before { content: ''; position: absolute; left: -17px; top: 0; bottom: 0; width: 1px; background: #e5e7eb; }
-    .pp-ftr-phones a { font-size: 12.5px; font-weight: 300; color: #374151; text-decoration: none; transition: color 0.2s; }
-    .pp-ftr-phones a:hover { color: #7c5dff; }
-    .pp-ftr-links { list-style: none; }
-    .pp-ftr-links li + li { margin-top: 11px; }
-    .pp-ftr-links a { font-size: 13.5px; font-weight: 300; color: #6b7280; text-decoration: none; transition: color 0.2s; line-height: 1.4; }
-    .pp-ftr-links a:hover { color: #111827; }
-    .pp-ftr-bottom { border-top: 1px solid #e5e7eb; padding: 22px 0; }
-    .pp-ftr-bottom .pp-ftr-inner { display: flex; align-items: center; }
-    .pp-ftr-copy { font-size: 13px; font-weight: 300; color: #9ca3af; }
-    @media (max-width: 960px) {
-      .pp-ftr-body { display: grid; grid-template-columns: 210px 210px; justify-content: center; gap: 52px 80px; padding: 52px 0; }
-      .pp-ftr-body > div:nth-child(1) { order: 3; }
-      .pp-ftr-body > div:nth-child(2) { order: 4; }
-      .pp-ftr-body > div:nth-child(3) { order: 1; }
-      .pp-ftr-body > div:nth-child(4) { order: 2; }
-      .pp-ftr-col-offset { padding-top: 0; }
-      .pp-ftr-col-right { text-align: left; }
-      .pp-ftr-col-divider::before { display: none; }
-      .pp-ftr-body > div:nth-child(2) { padding-top: 58px; }
-      .pp-ftr-bottom .pp-ftr-inner { display: grid; grid-template-columns: 500px; justify-content: center; }
-    }
-    @media (max-width: 580px) {
-      .pp-ftr-body { grid-template-columns: 1fr; gap: 0; padding: 44px 0 0; }
-      .pp-ftr-body > div:nth-child(1) { order: 4; }
-      .pp-ftr-body > div:nth-child(2) { order: 3; }
-      .pp-ftr-body > div:nth-child(3) { order: 1; }
-      .pp-ftr-body > div:nth-child(4) { order: 2; }
-      .pp-ftr-body > div { text-align: center; padding-bottom: 36px; }
-      .pp-ftr-col-offset { padding-top: 0; }
-      .pp-ftr-col-right { text-align: center; }
-      .pp-ftr-logo { justify-content: center; }
-      .pp-ftr-social { justify-content: center; }
-      .pp-ftr-phones li { justify-content: center; }
-      .pp-ftr-logo img.pp-ftr-logo-desktop { display: none; }
-      .pp-ftr-logo img.pp-ftr-logo-mobile { display: block; height: 182px; width: auto; }
-      .pp-ftr-email { display: flex; justify-content: center; }
-      .pp-ftr-body > div:nth-child(4), .pp-ftr-body > div:nth-child(2), .pp-ftr-body > div:nth-child(1) { border-top: 1px solid #e5e7eb; padding-top: 36px; }
-      .pp-ftr-bottom .pp-ftr-inner { display: flex; justify-content: center; }
-      .pp-ftr-copy { white-space: nowrap; }
-    }
+    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-footer { background:#fff; font-family:'Inter',sans-serif; color:#374151; border-top:1px solid #e5e7eb; }
+    .pp-ftr-inner { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .pp-ftr-body { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding:64px 0 52px; }
+    .pp-ftr-logo { display:flex; align-items:center; text-decoration:none; margin-bottom:24px; }
+    .pp-ftr-logo img { height:34px; width:auto; display:block; }
+    .pp-ftr-logo img.pp-ftr-logo-mobile { display:none; }
+    .pp-ftr-contact-head { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
+    .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
+    .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
+    .pp-ftr-email:hover { color:#7c5dff; }
+    @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
+    .pp-ftr-social { display:flex; gap:10px; }
+    .pp-ftr-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:7px; border:1px solid #e5e7eb; color:#6b7280; text-decoration:none; }
+    .pp-ftr-social a:hover { border-color:#c4b5fd; color:#7c5dff; background:#f5f3ff; }
+    .pp-ftr-social svg { width:15px; height:15px; fill:currentColor; }
+    .pp-ftr-col-head { font-size:13px; font-weight:600; color:#111827; margin-bottom:16px; }
+    .pp-ftr-phones { list-style:none; }
+    .pp-ftr-phones li { display:flex; align-items:baseline; gap:6px; margin-bottom:20px; }
+    .pp-ftr-country { font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#9ca3af; }
+    .pp-ftr-col-offset { padding-top:58px; }
+    .pp-ftr-col-right { text-align:right; }
+    .pp-ftr-col-divider { position:relative; }
+    .pp-ftr-col-divider::before { content:''; position:absolute; left:-17px; top:0; bottom:0; width:1px; background:#e5e7eb; }
+    .pp-ftr-phones a { font-size:12.5px; font-weight:300; color:#374151; text-decoration:none; }
+    .pp-ftr-links { list-style:none; }
+    .pp-ftr-links li + li { margin-top:11px; }
+    .pp-ftr-links a { font-size:13.5px; font-weight:300; color:#6b7280; text-decoration:none; line-height:1.4; }
+    .pp-ftr-links a:hover { color:#111827; }
+    .pp-ftr-bottom { border-top:1px solid #e5e7eb; padding:22px 0; }
+    .pp-ftr-bottom .pp-ftr-inner { display:flex; align-items:center; }
+    .pp-ftr-copy { font-size:13px; font-weight:300; color:#9ca3af; }
+    @media (max-width:960px){ .pp-ftr-body{ grid-template-columns:210px 210px; justify-content:center; gap:52px 80px; } .pp-ftr-body > div:nth-child(1){ order:3; } .pp-ftr-body > div:nth-child(2){ order:4; padding-top:58px; } .pp-ftr-body > div:nth-child(3){ order:1; } .pp-ftr-body > div:nth-child(4){ order:2; } .pp-ftr-col-offset{ padding-top:0; } .pp-ftr-col-right{ text-align:left; } .pp-ftr-col-divider::before{ display:none; } }
+    @media (max-width:580px){ .pp-ftr-body{ grid-template-columns:1fr; gap:0; padding:44px 0 0; } .pp-ftr-body > div{ text-align:center; padding-bottom:36px; } .pp-ftr-logo img.pp-ftr-logo-desktop{ display:none; } .pp-ftr-logo img.pp-ftr-logo-mobile{ display:block; height:182px; width:auto; } .pp-ftr-logo{ justify-content:center; } .pp-ftr-social{ justify-content:center; } .pp-ftr-phones li{ justify-content:center; } .pp-ftr-email{ display:flex; justify-content:center; } }
   </style>
-
   <div class="pp-ftr-inner">
     <div class="pp-ftr-body">
       <div>
-        <a href="https://www.purchaseplus.com" class="pp-ftr-logo" aria-label="PurchasePlus home">
-          <img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26">
-          <img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182">
-        </a>
+        <a href="https://www.purchaseplus.com" class="pp-ftr-logo"><img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26"><img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182"></a>
         <p class="pp-ftr-contact-head">Get In Touch</p>
         <p class="pp-ftr-address">477 Pitt Street<br>Haymarket NSW 2000<br>Australia</p>
-        <a href="mailto:help@marketboomer.com" class="pp-ftr-email">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-          help@marketboomer.com
-        </a>
+        <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
         <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
         <div class="pp-ftr-social">
-          <a href="https://www.youtube.com/@purchaseplus" aria-label="PurchasePlus on YouTube" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
-          <a href="https://www.linkedin.com/company/purchaseplus" aria-label="PurchasePlus on LinkedIn" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
         </div>
       </div>
       <div class="pp-ftr-col-offset">
@@ -1288,10 +485,8 @@
       </div>
     </div>
   </div>
-  <div class="pp-ftr-bottom">
-    <div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-invoicing"></span> PurchasePlus. All rights reserved.</p></div>
-  </div>
-  <script>document.getElementById('pp-ftr-year-invoicing').textContent = new Date().getFullYear();</script>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-iv"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-iv').textContent=new Date().getFullYear();</script>
 </footer>
 
 </body>

@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Stop discovering budget blowouts after the month ends. PurchasePlus connects budgets to every purchase order and invoice — in real time.">
+  <meta name="description" content="Stop discovering budget blowouts after the month ends. PurchasePlus connects budgets to every purchase order and invoice in real time.">
   <title>Budgeting & Financials | PurchasePlus</title>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Budgeting & Financials | PurchasePlus">
   <meta property="og:description" content="Connect budgets to purchasing. Know your position before you spend.">
   <meta property="og:site_name" content="PurchasePlus">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Budgeting & Financials | PurchasePlus">
-  <meta name="twitter:description" content="Stop discovering budget blowouts after the month ends.">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,51 +20,49 @@
 </head>
 <body>
 
-<!-- ============================================================
-  GLOBAL HEADER
-============================================================ -->
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
 <header class="pp-header" role="banner">
   <style>
     .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
-    .pp-header { position:sticky; top:0; left:0; right:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
     .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
     .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
     .pp-hdr-logo img { height:39px; width:auto; display:block; }
     .pp-nav { display:flex; align-items:center; gap:2px; }
     .pp-nav-item { position:relative; }
-    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color 0.2s, background 0.2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
     .pp-nav-link:hover { color:#111827; background:#f9fafb; }
-    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform 0.2s ease; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s; }
     .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
-    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05); padding:6px; opacity:0; visibility:hidden; transition:opacity 0.18s, transform 0.18s, visibility 0.18s; z-index:200; pointer-events:none; }
-    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%, 0% 100%, 100% 100%); }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
     .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
     .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
     .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
     .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
     .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
-    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; transition:color 0.15s, background 0.15s; white-space:nowrap; }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
     .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
     .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
-    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform 0.2s, box-shadow 0.2s; white-space:nowrap; line-height:1; }
-    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,0.2); }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
     @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
-    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform 0.2s, box-shadow 0.2s; white-space:nowrap; line-height:1; }
-    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,0.35); }
-    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
     .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
-    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all 0.25s ease; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
     .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
     .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,0.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
     .pp-mobile-menu.pp-open { display:block; }
     .pp-mobile-nav { padding:12px 5vw 8px; }
     .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
     .pp-mobile-nav-item:last-child { border-bottom:none; }
     .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
-    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform 0.2s ease; flex-shrink:0; }
-    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
     .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
     .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
     .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
@@ -78,729 +74,360 @@
   <div class="pp-header-inner">
     <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
     <nav class="pp-nav">
-      <div class="pp-nav-item">
-        <button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-nav-item">
-        <button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-nav-item">
-        <button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown pp-dropdown-right">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a>
-        </div>
-      </div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-header-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
-    <button class="pp-mobile-toggle" aria-label="Open navigation menu"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
   </div>
-  <div class="pp-mobile-menu" id="pp-mobile-menu">
+  <div class="pp-mobile-menu">
     <nav class="pp-mobile-nav">
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a>
-        </div>
-      </div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-mobile-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
   </div>
   <script>
-    (function () {
-      const header = document.querySelector('.pp-header');
-      const toggle = header.querySelector('.pp-mobile-toggle');
-      const mobileMenu = header.querySelector('.pp-mobile-menu');
-      const mobileItems = header.querySelectorAll('.pp-mobile-nav-item');
-      toggle.addEventListener('click', function () { const isOpen = mobileMenu.classList.toggle('pp-open'); toggle.classList.toggle('pp-active', isOpen); });
-      mobileItems.forEach(function (item) { const btn = item.querySelector('.pp-mobile-nav-link'); if (!btn || btn.tagName === 'A') return; btn.addEventListener('click', function () { item.classList.toggle('pp-open'); mobileItems.forEach(function (s) { if (s !== item) s.classList.remove('pp-open'); }); }); });
-      const navItems = header.querySelectorAll('.pp-nav-item');
-      function closeAll() { navItems.forEach(i => i.classList.remove('pp-open')); }
-      navItems.forEach(function (item) {
-        const btn = item.querySelector('button.pp-nav-link');
-        item.addEventListener('mouseenter', function () { closeAll(); if (btn) item.classList.add('pp-open'); });
-        item.addEventListener('mouseleave', function () { item.classList.remove('pp-open'); });
-        if (btn) btn.addEventListener('click', function () { item.classList.toggle('pp-open'); navItems.forEach(o => { if (o !== item) o.classList.remove('pp-open'); }); });
-      });
-      window.addEventListener('scroll', closeAll, { passive: true });
-      document.addEventListener('click', function (e) { if (!header.contains(e.target)) { closeAll(); mobileMenu.classList.remove('pp-open'); toggle.classList.remove('pp-active'); } });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(); mobileMenu.classList.remove('pp-open'); toggle.classList.remove('pp-active'); } });
-    })();
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
   </script>
 </header>
 
-<!-- ============================================================
-  WIDGET 1: HERO (budgeting_hero)
-============================================================ -->
-<section class="budgeting_hero" aria-label="Budgeting & Financials Hero">
+<!-- ============================================================ WIDGET 1: HERO (dashboard feel, video + dashboard preview card) ============================================================ -->
+<section class="bg-hero" aria-label="Budgeting & Financials Hero">
   <style>
-    .budgeting_hero { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; width:100%; background:#fff; overflow:hidden; padding:40px 20px 40px 65px; display:flex; justify-content:center; align-items:center; }
-    .budgeting_hero .pp-inner { max-width:1350px; width:100%; }
-    .budgeting_hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; }
-    .budgeting_hero .pp-copy { width:45%; display:flex; flex-direction:column; gap:24px; flex-shrink:0; }
-    .budgeting_hero .pp-eyebrow { display:inline-flex; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .budgeting_hero .pp-title { font-size:72px; line-height:1.1; font-weight:400; color:#111827; letter-spacing:-1.5px; text-wrap:balance; }
-    .budgeting_hero .pp-grad { font-weight:400; background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:budgetingGradPulse 5s linear infinite; display:inline-block; }
-    @keyframes budgetingGradPulse { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .budgeting_hero .pp-sub { font-size:22px; line-height:1.5; font-weight:300; color:#4B5563; max-width:540px; }
-    .budgeting_hero .pp-bullets { list-style:none; display:flex; flex-direction:column; gap:16px; }
-    .budgeting_hero .pp-bullets li { display:flex; gap:12px; align-items:flex-start; color:#4B5563; font-size:16px; line-height:1.5; font-weight:300; }
-    .budgeting_hero .pp-check { width:18px; height:18px; margin-top:2px; flex:0 0 auto; border-radius:50%; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(55,102,254,0.18); }
-    .budgeting_hero svg { fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .budgeting_hero .pp-check svg { width:12px; height:12px; stroke:#fff; stroke-width:2.2; }
-    .budgeting_hero .pp-cta-row { display:flex; align-items:center; gap:24px; margin-top:10px; }
-    .budgeting_hero .pp-cta-primary { display:inline-flex; align-items:center; padding:14px 32px; background:var(--pp-grad); color:#fff; border-radius:50px; text-decoration:none; font-size:16px; box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s ease; white-space:nowrap; }
-    .budgeting_hero .pp-cta-primary:hover { transform:translateY(-2px); }
-    .budgeting_hero .pp-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:#1F2937; text-decoration:none; font-size:16px; }
-    .budgeting_hero .pp-cta-secondary:hover { color:#7c5dff; }
-    .budgeting_hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
-    .budgeting_hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
-    .budgeting_hero .pp-visual { width:55%; display:flex; align-items:center; }
-    .budgeting_hero .pp-video { width:90%; max-height:700px; margin-left:30px; object-fit:contain; border-radius:24px; }
-    @media (max-width:1300px){ .budgeting_hero{ padding:30px 15px 30px 50px; } .budgeting_hero .pp-title{ font-size:48px; } .budgeting_hero .pp-sub{ font-size:18px; max-width:400px; } .budgeting_hero .pp-bullets li{ font-size:14px; } .budgeting_hero .pp-video{ margin-left:20px; max-height:550px; } }
-    @media (max-width:1024px){ .budgeting_hero .pp-hero-grid{ flex-direction:column; } .budgeting_hero .pp-copy, .budgeting_hero .pp-visual{ width:100%; } .budgeting_hero .pp-video{ margin-left:0; max-height:440px; } }
-    @media (max-width:768px){ .budgeting_hero{ padding:25px 16px; } .budgeting_hero .pp-title{ font-size:36px; } }
+    .bg-hero { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(180deg, #fff 0%, #fafafa 100%); padding:72px 5vw 90px; position:relative; overflow:hidden; }
+    .bg-hero::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 80% 30%, rgba(55,102,254,.08), transparent 55%); pointer-events:none; }
+    .bg-hero .wrap { max-width:1300px; margin:0 auto; position:relative; }
+    .bg-hero .top { display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; margin-bottom:56px; }
+    .bg-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
+    .bg-hero h1 { font-size:clamp(38px,5vw,60px); font-weight:400; line-height:1.08; letter-spacing:-1.4px; color:#111827; text-wrap:balance; }
+    .bg-hero h1 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgHeroGrad 5s linear infinite; }
+    @keyframes bgHeroGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .bg-hero .lead { font-size:18px; font-weight:300; line-height:1.65; color:#4B5563; margin-top:20px; max-width:520px; }
+    .bg-hero .ctas { display:flex; align-items:center; gap:24px; margin-top:28px; flex-wrap:wrap; }
+    .bg-hero .btn-primary { display:inline-flex; align-items:center; padding:14px 30px; background:var(--grad); color:#fff; border-radius:50px; font-size:16px; text-decoration:none; box-shadow:0 4px 15px rgba(55,102,254,.3); transition:transform .2s; white-space:nowrap; }
+    .bg-hero .btn-primary:hover { transform:translateY(-2px); }
+    .bg-hero .btn-link { display:inline-flex; align-items:center; gap:6px; color:#1F2937; font-size:16px; text-decoration:none; }
+    .bg-hero .btn-link:hover { color:#7c5dff; }
+    .bg-hero .btn-link svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+    .bg-hero .btn-link:hover svg { transform:translateX(3px); }
+    .bg-hero .video-card { position:relative; aspect-ratio:5/4; border-radius:28px; overflow:hidden; box-shadow:0 40px 100px rgba(15,23,42,.14); border:1px solid #e2e8f0; background:#fff; }
+    .bg-hero .video-card video { width:100%; height:100%; object-fit:cover; display:block; }
+    .bg-hero .hero-dash { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:16px; padding:20px 24px; background:#fff; border:1px solid #e2e8f0; border-radius:20px; box-shadow:0 16px 48px rgba(15,23,42,.05); }
+    .bg-hero .dash-cell { display:flex; flex-direction:column; gap:4px; padding:0 16px; position:relative; }
+    .bg-hero .dash-cell + .dash-cell::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background:#e2e8f0; }
+    .bg-hero .dash-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9ca3af; }
+    .bg-hero .dash-val { font-size:20px; font-weight:600; color:#111827; margin-top:4px; letter-spacing:-.3px; }
+    .bg-hero .dash-val.a { color:#7c5dff; }
+    .bg-hero .dash-val.b { color:#3766fe; }
+    .bg-hero .dash-sub { font-size:11px; font-weight:500; color:#10B981; }
+    @media (max-width:1024px){ .bg-hero .top{ grid-template-columns:1fr; gap:32px; } .bg-hero .hero-dash{ grid-template-columns:1fr; gap:14px; } .bg-hero .dash-cell + .dash-cell::before{ display:none; } }
+    @media (max-width:640px){ .bg-hero{ padding:48px 20px; } .bg-hero h1{ font-size:34px; } }
   </style>
-  <svg style="display:none;"><symbol id="budgeting-hero-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol><symbol id="budgeting-hero-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol></svg>
-  <div class="pp-inner">
-    <div class="pp-hero-grid">
-      <div class="pp-copy">
-        <div class="pp-eyebrow">Budgeting &amp; Financials</div>
-        <h1 class="pp-title">Stop discovering <span class="pp-grad">budget blowouts</span> after the month ends.</h1>
-        <p class="pp-sub">PurchasePlus connects your budgets directly to every purchase order, invoice, and cost centre — in real time. Your team knows their position before they spend, not after.</p>
-        <ul class="pp-bullets">
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#budgeting-hero-check"/></svg></span><span>From commitment to actuals — real time.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#budgeting-hero-check"/></svg></span><span>Budget visibility across every property and cost centre.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#budgeting-hero-check"/></svg></span><span>Syncs with Xero, NetSuite, Dynamics, MYOB and more.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#budgeting-hero-check"/></svg></span><span>Threshold-based approval routing — stop overspend before it happens.</span></li>
-        </ul>
-        <div class="pp-cta-row">
-          <a class="pp-cta-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-          <a class="pp-cta-secondary" href="#budgeting-advantage"><span>See Budgeting in Action</span><svg viewBox="0 0 24 24"><use href="#budgeting-hero-arrow"/></svg></a>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="eyebrow">Budgeting &amp; Financials</div>
+        <h1>Stop discovering <em>budget blowouts</em> after the month ends.</h1>
+        <p class="lead">PurchasePlus connects your budgets directly to every purchase order, invoice, and cost centre — in real time. Your team knows their position before they spend, not after.</p>
+        <div class="ctas">
+          <a class="btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+          <a class="btn-link" href="#bg-features">See Budgeting in Action <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
       </div>
-      <div class="pp-visual">
+      <div class="video-card">
         <!-- VIDEO: replace src with final Budgeting hero loop -->
-        <video class="pp-video" autoplay loop muted playsinline aria-label="Budgeting demo">
+        <video autoplay loop muted playsinline aria-label="Budgeting demo">
           <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
         </video>
       </div>
     </div>
+    <div class="hero-dash">
+      <div class="dash-cell"><div class="dash-label">Commitment to actuals</div><div class="dash-val">Real time</div><div class="dash-sub">▲ Updated continuously</div></div>
+      <div class="dash-cell"><div class="dash-label">Property visibility</div><div class="dash-val a">Every centre</div><div class="dash-sub">Rollup &amp; drill-down</div></div>
+      <div class="dash-cell"><div class="dash-label">ERP sync</div><div class="dash-val b">Xero · NetSuite · Dynamics · MYOB</div><div class="dash-sub">Two-way native</div></div>
+    </div>
   </div>
 </section>
 
-<!-- ============================================================
-  WIDGET 2: REALITY CHECK (budgeting_reality)
-  Mapped from DOCX "THE PROBLEM" — 3 pain cards
-============================================================ -->
-<section class="budgeting_reality" aria-label="Budget Reality Check">
+<!-- ============================================================ WIDGET 2: THE PROBLEM (H2 + 3 pain cards, editorial style) ============================================================ -->
+<section class="bg-prob" aria-label="The Problem">
   <style>
-    .budgeting_reality { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:90px 0; overflow:hidden; }
-    .budgeting_reality .pp-inner { padding:0 14vw; }
-    .budgeting_reality .pp-head { text-align:center; max-width:980px; margin:0 auto 44px; }
-    .budgeting_reality .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .budgeting_reality .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:16px; letter-spacing:-1px; }
-    .budgeting_reality .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:900px; margin:0 auto; }
-    .budgeting_reality .pp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; margin-top:34px; perspective:1100px; }
-    .budgeting_reality .pp-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:32px; padding:28px; box-shadow:0 20px 40px rgba(15,23,42,.03); overflow:hidden; min-height:300px; display:flex; flex-direction:column; transition:background .4s ease, border-color .4s ease; }
-    .budgeting_reality .pp-card.is-active, .budgeting_reality .pp-card:hover { background:var(--pp-grad); border-color:transparent; }
-    .budgeting_reality .pp-card.is-active .pp-card-title, .budgeting_reality .pp-card:hover .pp-card-title { color:#fff; }
-    .budgeting_reality .pp-card.is-active .pp-card-desc, .budgeting_reality .pp-card:hover .pp-card-desc { color:rgba(255,255,255,.9); }
-    .budgeting_reality .pp-card.pp-tilt-1 { transform:rotate(-1.2deg); }
-    .budgeting_reality .pp-card.pp-tilt-2 { transform:rotate(1.0deg); }
-    .budgeting_reality .pp-card.pp-tilt-3 { transform:rotate(-0.6deg); }
-    .budgeting_reality .pp-card-title { font-size:28px; font-weight:600; color:#111827; margin-bottom:16px; letter-spacing:-.5px; line-height:1.2; }
-    .budgeting_reality .pp-card-desc { font-size:15px; line-height:1.55; font-weight:300; color:#4B5563; margin-bottom:20px; max-width:90%; }
-    .budgeting_reality .pp-cta-btn { display:inline-flex; align-items:center; padding:12px 24px; background:var(--pp-grad); color:#fff; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:999px; margin-top:auto; box-shadow:0 10px 25px rgba(55,102,254,.22); width:max-content; }
-    .budgeting_reality .pp-card.is-active .pp-cta-btn, .budgeting_reality .pp-card:hover .pp-cta-btn { background:#fff !important; color:#7c5dff !important; }
-    .budgeting_reality .pp-bridge { text-align:center; margin:34px auto 0; max-width:980px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); color:#4B5563; font-size:15px; line-height:1.55; font-weight:300; }
-    .budgeting_reality .pp-bridge strong { font-weight:600; color:#111827; }
-    @media (max-width:1400px){ .budgeting_reality .pp-inner{ padding:0 8vw; } .budgeting_reality .pp-title{ font-size:40px; } }
-    @media (max-width:1024px){ .budgeting_reality{ padding:64px 0; } .budgeting_reality .pp-inner{ padding:0 5vw; } .budgeting_reality .pp-title{ font-size:32px; } .budgeting_reality .pp-grid{ grid-template-columns:1fr; gap:16px; } .budgeting_reality .pp-card{ min-height:auto; } .budgeting_reality .pp-card.pp-tilt-1, .budgeting_reality .pp-card.pp-tilt-2, .budgeting_reality .pp-card.pp-tilt-3 { transform:none; } }
+    .bg-prob { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .bg-prob .wrap { max-width:1160px; margin:0 auto; }
+    .bg-prob .head { text-align:center; max-width:820px; margin:0 auto 64px; }
+    .bg-prob .kicker { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:16px; }
+    .bg-prob h2 { font-size:clamp(34px,4.4vw,50px); font-weight:400; line-height:1.12; letter-spacing:-1.1px; color:#111827; margin-bottom:20px; }
+    .bg-prob h2 em { font-style:normal; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgProbGrad 5s linear infinite; }
+    @keyframes bgProbGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .bg-prob .body { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; max-width:720px; margin:0 auto; }
+    .bg-prob .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; }
+    .bg-prob .cards::before { content:''; position:absolute; inset:-24px -40px; background:radial-gradient(ellipse at 50% 60%, rgba(169,86,255,.06), transparent 60%); z-index:-1; pointer-events:none; }
+    .bg-prob .card { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:32px 28px; position:relative; overflow:hidden; transition:transform .3s, box-shadow .3s, border-color .3s; }
+    .bg-prob .card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad); }
+    .bg-prob .card:hover { transform:translateY(-5px); box-shadow:0 24px 60px rgba(124,93,255,.1); }
+    .bg-prob .warn { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ee2b62; background:rgba(238,43,98,.08); padding:6px 12px; border-radius:999px; margin-bottom:18px; }
+    .bg-prob .warn .dot { width:6px; height:6px; border-radius:50%; background:#ee2b62; box-shadow:0 0 0 3px rgba(238,43,98,.18); }
+    .bg-prob .card h3 { font-size:22px; font-weight:500; color:#111827; line-height:1.25; margin-bottom:12px; letter-spacing:-.3px; }
+    .bg-prob .card p { font-size:15px; font-weight:300; line-height:1.65; color:#4B5563; }
+    @media (max-width:1024px){ .bg-prob .cards{ grid-template-columns:1fr; } }
+    @media (max-width:640px){ .bg-prob{ padding:72px 20px; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">The Budget Reality Check</div>
-      <h2 class="pp-title">Your Budget Is a Spreadsheet.<br>Your Spending Isn't.</h2>
-      <p class="pp-sub">Most finance teams set annual budgets in Excel and review actuals once a month — in arrears. By the time the numbers land, the damage is done. Maverick purchasing, unbudgeted orders, and price drift all happen between the spreadsheet and the invoice.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">The Problem</div>
+      <h2>Your budget is a spreadsheet.<br>Your <em>spending</em> isn't.</h2>
+      <p class="body">Most finance teams set annual budgets in Excel and review actuals once a month — in arrears. By the time the numbers land, the damage is done. Maverick purchasing, unbudgeted orders, and price drift all happen between the spreadsheet and the invoice.</p>
     </div>
-    <div class="pp-grid" id="budgeting-reality-grid">
-      <div class="pp-card pp-tilt-1" data-card="0">
-        <h3 class="pp-card-title">"Month-End Surprises"</h3>
-        <p class="pp-card-desc">Actuals hit your ERP 30 days after the spending happened. There's no way to course-correct in real time — you only find out what went wrong when it's already done.</p>
-        <a class="pp-cta-btn" href="#budgeting-advantage">See positions live</a>
+    <div class="cards">
+      <div class="card">
+        <span class="warn"><span class="dot"></span>Hidden cost</span>
+        <h3>"Month-End Surprises"</h3>
+        <p>Actuals hit your ERP 30 days after the spending happened. There's no way to course-correct in real time.</p>
       </div>
-      <div class="pp-card pp-tilt-2" data-card="1">
-        <h3 class="pp-card-title">"No Enforcement at Order Point"</h3>
-        <p class="pp-card-desc">Staff raise purchase orders without knowing if they've exceeded their allocation. Nothing stops them — and the approver has no budget context when signing off.</p>
-        <a class="pp-cta-btn" href="#budgeting-advantage">Enforce at PO</a>
+      <div class="card">
+        <span class="warn"><span class="dot"></span>Hidden cost</span>
+        <h3>"No Enforcement at Order Point"</h3>
+        <p>Staff raise purchase orders without knowing if they've exceeded their allocation. Nothing stops them.</p>
       </div>
-      <div class="pp-card pp-tilt-3" data-card="2">
-        <h3 class="pp-card-title">"Multi-Property Chaos"</h3>
-        <p class="pp-card-desc">Each property tracks its own numbers in different formats. There's no consolidated view for finance — and no way to compare performance across the portfolio.</p>
-        <a class="pp-cta-btn" href="#budgeting-advantage">Unify the group</a>
+      <div class="card">
+        <span class="warn"><span class="dot"></span>Hidden cost</span>
+        <h3>"Multi-Property Chaos"</h3>
+        <p>Each property tracks its own numbers in different formats. There's no consolidated view for finance.</p>
       </div>
-    </div>
-    <div class="pp-bridge">
-      <strong id="budgeting-bridge-strong">PurchasePlus turns budgets into guardrails.</strong><br>
-      <span id="budgeting-bridge-sub">Commitments, approvals, and rollups happen in one system — before the money moves.</span>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = Array.from(document.querySelectorAll('#budgeting-reality-grid .pp-card'));
-      const strongEl = document.getElementById('budgeting-bridge-strong');
-      const subEl = document.getElementById('budgeting-bridge-sub');
-      const bridgeStrong = ["\u201CMonth-End Surprises\u201D cost margin you can't recover.","\u201CNo Enforcement at Order Point\u201D lets overspend happen.","\u201CMulti-Property Chaos\u201D breaks finance visibility."];
-      const bridgeSub = ["PurchasePlus tracks spend from the moment a PO is approved \u2014 not after the invoice lands.","Orders that exceed budget route to the right approver before they go to suppliers.","One consolidated view rolls every property into the group \u2014 drill down anytime."];
-      function setActive(i){ cards.forEach((c,k) => c.classList.toggle('is-active', k === i)); if(strongEl) strongEl.textContent = bridgeStrong[i]; if(subEl) subEl.textContent = bridgeSub[i]; }
-      const tl = gsap.timeline({ repeat: -1 });
-      cards.forEach((card, i) => {
-        tl.call(() => setActive(i));
-        tl.to(cards, { duration: 0.35, ease: "power2.out", scale: 1, rotation: (j) => window.matchMedia("(max-width: 1024px)").matches ? 0 : (j === 0 ? -1.2 : (j === 1 ? 1.0 : -0.6)) }, "+=0");
-        tl.to(card, { duration: 0.55, ease: "back.out(1.7)", scale: 1.06, rotation: 0 }, "+=0.05");
-        tl.to(card, { duration: 1.55 }, "+=0.25");
-        tl.to(card, { duration: 0.45, scale: 1, rotation: () => window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6)) }, "+=0.1");
-      });
-      setActive(0);
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 3: ADVANTAGE / 3 NUMBERED CAPABILITIES (budgeting_advantage)
-============================================================ -->
-<section class="budgeting_advantage" id="budgeting-advantage" aria-label="The Budgeting Advantage">
+<!-- ============================================================ WIDGET 3: KEY FEATURES (4 alternating rows) ============================================================ -->
+<section class="bg-feat" id="bg-features" aria-label="Key Features">
   <style>
-    .budgeting_advantage { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:92px 0; overflow:hidden; position:relative; }
-    .budgeting_advantage::before { content:""; position:absolute; inset:-220px -180px auto -180px; height:520px; background:radial-gradient(closest-side, rgba(169,86,255,.16), transparent 60%), radial-gradient(closest-side, rgba(55,102,254,.12), transparent 60%); filter:blur(14px); pointer-events:none; }
-    .budgeting_advantage .pp-inner { padding:0 14vw; }
-    .budgeting_advantage .pp-head { text-align:center; max-width:980px; margin:0 auto 44px; position:relative; z-index:2; }
-    .budgeting_advantage .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .budgeting_advantage .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:14px; letter-spacing:-1px; }
-    .budgeting_advantage .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:920px; margin:0 auto; }
-    .budgeting_advantage .pp-flow { position:relative; z-index:2; max-width:1100px; margin:34px auto 0; }
-    .budgeting_advantage .pp-spine { position:absolute; top:18px; bottom:18px; left:28px; width:2px; background:linear-gradient(180deg, rgba(169,86,255,0), rgba(124,93,255,.35), rgba(55,102,254,.25), rgba(55,102,254,0)); border-radius:999px; }
-    .budgeting_advantage .pp-spine::after { content:""; position:absolute; left:50%; transform:translateX(-50%); width:10px; height:70px; border-radius:999px; background:linear-gradient(180deg, rgba(169,86,255,0), rgba(169,86,255,.55), rgba(55,102,254,.55), rgba(55,102,254,0)); filter:blur(1px); animation:budgetingSpine 4.6s ease-in-out infinite; }
-    @keyframes budgetingSpine { 0%{top:0%;opacity:.25;} 20%{opacity:.9;} 50%{top:52%;opacity:.75;} 80%{opacity:.9;} 100%{top:100%;opacity:.25;} }
-    .budgeting_advantage .pp-adv { display:grid; grid-template-columns:70px 1fr; gap:18px 26px; padding:26px 20px 26px 0; border-top:1px solid rgba(226,232,240,.75); }
-    .budgeting_advantage .pp-adv:first-child { border-top:none; }
-    .budgeting_advantage .pp-adv-marker { display:flex; justify-content:center; padding-top:6px; }
-    .budgeting_advantage .pp-badge { width:46px; height:46px; border-radius:16px; background:#fff; border:1px solid rgba(226,232,240,.9); box-shadow:0 16px 40px rgba(15,23,42,.06); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .budgeting_advantage .pp-badge::before { content:""; position:absolute; inset:-2px; background:linear-gradient(135deg, rgba(169,86,255,.20), rgba(55,102,254,.12)); opacity:.55; }
-    .budgeting_advantage .pp-badge span { position:relative; z-index:2; font-weight:700; font-size:13px; letter-spacing:.08em; color:rgba(17,24,39,.88); }
-    .budgeting_advantage .pp-adv-title { font-size:22px; line-height:1.2; font-weight:600; color:#111827; margin-bottom:10px; letter-spacing:-.3px; }
-    .budgeting_advantage .pp-adv-body { font-size:16px; line-height:1.65; font-weight:300; color:#4B5563; margin-bottom:14px; max-width:90ch; }
-    .budgeting_advantage .pp-result { display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:18px; border:1px solid rgba(55,102,254,.18); background:linear-gradient(135deg, rgba(55,102,254,.06), rgba(169,86,255,.05)); color:rgba(17,24,39,.86); font-size:14px; line-height:1.45; font-weight:500; width:fit-content; }
-    .budgeting_advantage .pp-result strong { font-weight:700; color:#111827; }
-    .budgeting_advantage .pp-dot { width:10px; height:10px; border-radius:50%; background:#3766fe; box-shadow:0 0 0 7px rgba(55,102,254,.10); }
-    .budgeting_advantage .pp-bridge { margin:30px auto 0; max-width:1100px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); text-align:center; color:#4B5563; font-size:15px; line-height:1.55; font-weight:300; }
-    .budgeting_advantage .pp-bridge strong { font-weight:600; color:#111827; }
-    .budgeting_advantage .pp-ctas { margin:24px auto 0; max-width:1100px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-    .budgeting_advantage .pp-btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .18s ease; }
-    .budgeting_advantage .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .budgeting_advantage .pp-btn-primary:hover { transform:translateY(-2px); }
-    .budgeting_advantage .pp-btn-secondary { background:#fff; color:#111827; border:1px solid rgba(226,232,240,.95); box-shadow:0 10px 22px rgba(15,23,42,.05); }
-    .budgeting_advantage .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .budgeting_advantage .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .budgeting_advantage .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width:1400px){ .budgeting_advantage .pp-inner{ padding:0 8vw; } .budgeting_advantage .pp-title{ font-size:40px; } }
-    @media (max-width:1024px){ .budgeting_advantage{ padding:64px 0; } .budgeting_advantage .pp-inner{ padding:0 5vw; } .budgeting_advantage .pp-title{ font-size:32px; } .budgeting_advantage .pp-spine{ display:none; } .budgeting_advantage .pp-adv{ grid-template-columns:56px 1fr; padding:22px 0; } }
+    .bg-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
+    .bg-feat .wrap { max-width:1200px; margin:0 auto; }
+    .bg-feat .head { max-width:820px; margin-bottom:64px; }
+    .bg-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .bg-feat .head h2 { font-size:clamp(32px,4.2vw,42px); font-weight:400; line-height:1.15; letter-spacing:-.8px; color:#111827; }
+    .bg-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding:48px 0; border-top:1px solid #e2e8f0; }
+    .bg-feat .row:first-of-type { border-top:none; padding-top:0; }
+    .bg-feat .row.rev .visual { order:-1; }
+    .bg-feat .copy .tag { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7c5dff; margin-bottom:16px; }
+    .bg-feat .copy .tag::before { content:''; width:28px; height:2px; background:var(--grad); border-radius:1px; }
+    .bg-feat .copy h3 { font-size:clamp(26px,2.8vw,32px); font-weight:500; line-height:1.22; letter-spacing:-.4px; color:#111827; margin-bottom:16px; }
+    .bg-feat .copy p { font-size:16px; font-weight:300; line-height:1.7; color:#4B5563; }
+    .bg-feat .visual { aspect-ratio:5/4; border-radius:20px; background:#fff; border:1px solid #e2e8f0; box-shadow:0 16px 48px rgba(15,23,42,.05); padding:28px; position:relative; overflow:hidden; }
+    .bg-feat .visual::after { content:'Screenshot placeholder'; position:absolute; bottom:14px; left:16px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
+    .bg-feat .visual .chart { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
+    .bg-feat .visual svg { width:60%; height:60%; stroke:url(#bg-feat-grad); stroke-width:1.4; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.5; }
+    @media (max-width:1024px){ .bg-feat .row{ grid-template-columns:1fr; gap:24px; padding:36px 0; } .bg-feat .row.rev .visual{ order:0; } }
+    @media (max-width:640px){ .bg-feat{ padding:72px 20px; } .bg-feat .copy h3{ font-size:24px; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head pp-reveal">
-      <div class="pp-kicker">The PurchasePlus Advantage</div>
-      <h2 class="pp-title">Know your position before you spend. Not after.</h2>
-      <p class="pp-sub">Three connected capabilities that turn your budget from a year-end report into an operational guardrail.</p>
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="bg-feat-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Key Features</div>
+      <h2>Four capabilities that turn your budget from a year-end report into an operational guardrail.</h2>
     </div>
-    <div class="pp-flow">
-      <div class="pp-spine"></div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>01</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">Commitment-Based Budgeting</h3>
-          <p class="pp-adv-body">PurchasePlus tracks spend from the first requisition — not when the invoice arrives. The moment a PO is approved, it's committed against budget. You see your true position in real time, every day.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> No more month-end surprises. You know the number before it hits the ERP.</span></div>
-        </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="tag">Feature 01 · Commitment-Based</div>
+        <h3>Know your budget position the moment an order is raised.</h3>
+        <p>PurchasePlus tracks spend from the first requisition — not when the invoice arrives. The moment a PO is approved, it's committed against budget. You see your true position in real time, every day.</p>
       </div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>02</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">Budget Thresholds &amp; Approval Routing</h3>
-          <p class="pp-adv-body">Set budget thresholds by department, cost centre, or property. When a purchase order pushes spending over a limit, it routes to the right approver before going to the supplier. Control without micromanagement.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> Overspend becomes an approval decision — not a month-end discovery.</span></div>
-        </div>
-      </div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>03</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">Multi-Property &amp; Cost Centre Visibility</h3>
-          <p class="pp-adv-body">Build budgets by property, department, F&amp;B outlet, GL code, or cost centre. Roll them up into a consolidated group view for finance, and down into operational detail for managers on the floor.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> The right visibility at every level of the organisation — from chef to CFO.</span></div>
-        </div>
-      </div>
+      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="4" y="28" width="8" height="12" rx="1"/><rect x="14" y="20" width="8" height="20" rx="1"/><rect x="24" y="14" width="8" height="26" rx="1"/><rect x="34" y="8" width="8" height="32" rx="1"/><path d="M2 42h44" stroke-width="1" opacity=".4"/></svg></div></div>
     </div>
-    <div class="pp-bridge pp-reveal"><strong>Budgets shouldn't be year-end reports — they should be daily guardrails.</strong><br>PurchasePlus links commitments, approvals, and actuals so every decision is made with budget context.</div>
-    <div class="pp-ctas pp-reveal">
-      <a class="pp-btn pp-btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo<svg viewBox="0 0 24 24"><path d="M8 5l10 7-10 7V5z"/></svg></a>
-      <a class="pp-btn pp-btn-secondary" href="#budgeting-comparison">Compare the Market<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+
+    <div class="row rev">
+      <div class="copy">
+        <div class="tag">Feature 02 · Threshold Routing</div>
+        <h3>Orders that exceed budget require approval. Automatically.</h3>
+        <p>Set budget thresholds by department, cost centre, or property. When a purchase order pushes spending over a limit, it routes to the right approver before going to the supplier. Control without micromanagement.</p>
+      </div>
+      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><path d="M4 24h40"/><circle cx="12" cy="24" r="3"/><circle cx="24" cy="24" r="3"/><circle cx="36" cy="24" r="3"/><path d="M24 21v-8M24 8l-3 4M24 8l3 4"/></svg></div></div>
+    </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="tag">Feature 03 · Multi-Property Rollup</div>
+        <h3>One view across every property, department, and period.</h3>
+        <p>Build budgets by property, department, F&amp;B outlet, GL code, or cost centre. Roll them up into a consolidated group view for finance, and down into operational detail for managers on the floor. The right visibility at every level.</p>
+      </div>
+      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="3"/><path d="M6 18h36M6 30h36M18 6v36M30 6v36"/></svg></div></div>
+    </div>
+
+    <div class="row rev">
+      <div class="copy">
+        <div class="tag">Feature 04 · ERP Sync</div>
+        <h3>Import from your ERP. Export actuals back.</h3>
+        <p>Import approved budgets from Xero, NetSuite, Dynamics 365, or MYOB. PurchasePlus maps actuals back to the same chart of accounts — no rekeying, no reconciliation headache. One source of truth, two systems working together.</p>
+      </div>
+      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="14" height="28" rx="2"/><rect x="30" y="10" width="14" height="28" rx="2"/><path d="M18 20h12M18 24l4-4-4-4M30 32H18M30 28l-4 4 4 4" stroke-dasharray="0"/></svg></div></div>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = Array.from(document.querySelectorAll('.budgeting_advantage .pp-reveal'));
-      const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
-      items.forEach((el, i) => { el.style.transitionDelay = (i * 70) + "ms"; io.observe(el); });
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 4: COMPARISON TABLE (budgeting_comparison)
-============================================================ -->
-<section class="budgeting_comparison" id="budgeting-comparison" aria-label="Compare the Market">
+<!-- ============================================================ WIDGET 4: CAPABILITIES (6-card grid, horizontal layout) ============================================================ -->
+<section class="bg-cap" aria-label="Capabilities">
   <style>
-    .budgeting_comparison { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); --pp-pos:#00bdc5; --pp-neg:#ee2b62; width:100%; background:#fff; font-family:'Inter',sans-serif; padding:90px 0; overflow:hidden; }
-    .budgeting_comparison .pp-inner { padding:0 14vw; }
-    .budgeting_comparison .pp-head { text-align:center; max-width:1040px; margin:0 auto 44px; }
-    .budgeting_comparison .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .budgeting_comparison .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:14px; letter-spacing:-1px; }
-    .budgeting_comparison .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:940px; margin:0 auto; }
-    .budgeting_comparison .pp-table-wrap { margin-top:34px; border-radius:28px; border:1px solid rgba(226,232,240,.9); background:linear-gradient(180deg, rgba(248,250,252,.9), #fff); box-shadow:0 28px 70px rgba(15,23,42,.06); overflow:hidden; }
-    .budgeting_comparison .pp-table { display:grid; grid-template-columns:1.35fr 1fr 1fr 1fr; }
-    .budgeting_comparison .pp-th { padding:18px 22px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(17,24,39,.72); background:rgba(248,250,252,.92); border-bottom:1px solid rgba(226,232,240,.9); display:flex; align-items:center; min-height:64px; }
-    .budgeting_comparison .pp-th.center { justify-content:center; }
-    .budgeting_comparison .pp-pill { display:inline-flex; align-items:center; padding:10px 14px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:12px; font-weight:700; color:rgba(17,24,39,.78); white-space:nowrap; }
-    .budgeting_comparison .pp-logo { height:64px; width:auto; display:block; }
-    .budgeting_comparison .pp-row { display:contents; }
-    .budgeting_comparison .pp-td { padding:18px 22px; border-bottom:1px solid rgba(226,232,240,.75); background:#fff; min-height:104px; display:flex; align-items:center; }
-    .budgeting_comparison .pp-rowline.is-active .pp-td, .budgeting_comparison .pp-rowline.is-locked .pp-td { background:linear-gradient(90deg, rgba(169,86,255,.05), rgba(124,93,255,.03)); }
-    .budgeting_comparison .pp-feature-title { font-size:16px; font-weight:700; color:#111827; line-height:1.25; }
-    .budgeting_comparison .pp-feature-desc { font-size:14px; font-weight:300; color:#4B5563; line-height:1.45; margin-top:8px; max-width:52ch; }
-    .budgeting_comparison .pp-val { display:flex; align-items:center; gap:14px; width:100%; }
-    .budgeting_comparison .pp-badge { width:44px; height:44px; border-radius:999px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(226,232,240,.9); background:rgba(248,250,252,.9); flex:0 0 44px; transition:background .25s ease, transform .25s ease; }
-    .budgeting_comparison .pp-badge svg { width:18px; height:18px; }
-    .budgeting_comparison .pp-val-text { font-size:14px; font-weight:500; color:rgba(17,24,39,.74); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:36ch; }
-    .budgeting_comparison .pp-rowline.is-active .pp-badge[data-state="pos"], .budgeting_comparison .pp-rowline.is-locked .pp-badge[data-state="pos"] { background:var(--pp-pos); border-color:rgba(0,189,197,.65); }
-    .budgeting_comparison .pp-rowline.is-active .pp-badge[data-state="neg"], .budgeting_comparison .pp-rowline.is-locked .pp-badge[data-state="neg"] { background:var(--pp-neg); border-color:rgba(238,43,98,.6); }
-    .budgeting_comparison .pp-rowline.is-active .pp-badge svg path, .budgeting_comparison .pp-rowline.is-locked .pp-badge svg path { stroke:#fff; }
-    .budgeting_comparison .pp-rowline.is-active .pp-badge, .budgeting_comparison .pp-rowline.is-locked .pp-badge { transform:scale(1.03); }
-    .budgeting_comparison .pp-cta-bar { padding:22px 22px 26px; background:rgba(248,250,252,.55); display:flex; flex-direction:column; gap:14px; }
-    .budgeting_comparison .pp-cta-title { font-size:14px; font-weight:700; color:#111827; }
-    .budgeting_comparison .pp-cta-sub { font-size:14px; font-weight:300; color:#4B5563; }
-    .budgeting_comparison .pp-cta-actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; }
-    .budgeting_comparison .pp-btn { display:inline-flex; align-items:center; gap:12px; padding:16px 22px; border-radius:999px; font-size:14px; font-weight:600; border:1px solid rgba(226,232,240,.9); background:#fff; color:rgba(17,24,39,.84); text-decoration:none; box-shadow:0 14px 28px rgba(15,23,42,.06); transition:transform .2s ease; }
-    .budgeting_comparison .pp-btn.primary { border:none; background:var(--pp-grad); color:#fff; box-shadow:0 16px 34px rgba(55,102,254,.18); }
-    .budgeting_comparison .pp-btn:hover { transform:translateY(-2px); }
-    .budgeting_comparison .pp-leaders-text { text-align:center; font-size:14px; font-weight:300; color:#4B5563; margin-top:40px; margin-bottom:15px; }
-    .budgeting_comparison .pp-brand-anim { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:inline-block; animation:budgetingMarqueeGrad 5s linear infinite; }
-    @keyframes budgetingMarqueeGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .budgeting_comparison .pp-carousel { width:100%; overflow:hidden; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); }
-    .budgeting_comparison .pp-track { display:flex; gap:15rem; align-items:center; animation:budgetingMarquee 40s linear infinite; width:max-content; }
-    .budgeting_comparison .pp-track img { height:120px; min-width:200px; object-fit:contain; flex-shrink:0; }
-    @keyframes budgetingMarquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    @media (max-width:1400px){ .budgeting_comparison .pp-inner{ padding:0 6vw; } .budgeting_comparison .pp-title{ font-size:40px; } .budgeting_comparison .pp-table{ grid-template-columns:1.2fr 0.85fr 0.85fr 0.85fr; } .budgeting_comparison .pp-feature-title{ font-size:15px; } .budgeting_comparison .pp-feature-desc{ font-size:13px; } .budgeting_comparison .pp-val-text{ font-size:13px; } .budgeting_comparison .pp-badge{ width:38px; height:38px; flex:0 0 38px; } }
-    @media (max-width:1024px){ .budgeting_comparison{ padding:50px 0; } .budgeting_comparison .pp-title{ font-size:28px; } .budgeting_comparison .pp-feature-title{ font-size:12px; } .budgeting_comparison .pp-feature-desc{ font-size:10px; } .budgeting_comparison .pp-val-text{ font-size:9px; } .budgeting_comparison .pp-badge{ width:28px; height:28px; flex:0 0 28px; } }
-    @media (max-width:480px){ .budgeting_comparison .pp-val-text{ display:none; } .budgeting_comparison .pp-badge{ width:20px; height:20px; flex:0 0 20px; } }
+    .bg-cap { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .bg-cap .wrap { max-width:1200px; margin:0 auto; }
+    .bg-cap .head { text-align:center; max-width:640px; margin:0 auto 56px; }
+    .bg-cap .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .bg-cap h2 { font-size:clamp(28px,3.6vw,38px); font-weight:400; line-height:1.2; letter-spacing:-.8px; color:#111827; }
+    .bg-cap .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .bg-cap .card { background:#fafafa; border:1px solid #e2e8f0; border-radius:18px; padding:28px; display:flex; gap:20px; align-items:flex-start; transition:border-color .3s, background .3s, transform .3s; }
+    .bg-cap .card:hover { border-color:#c4b5fd; background:#fff; transform:translateX(4px); }
+    .bg-cap .icon { flex-shrink:0; width:56px; height:56px; border-radius:14px; background:var(--grad); display:flex; align-items:center; justify-content:center; color:#fff; box-shadow:0 10px 26px rgba(124,93,255,.25); }
+    .bg-cap .icon svg { width:26px; height:26px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .bg-cap .card h3 { font-size:17px; font-weight:600; color:#111827; margin-bottom:8px; line-height:1.3; letter-spacing:-.2px; }
+    .bg-cap .card p { font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; }
+    @media (max-width:760px){ .bg-cap .grid{ grid-template-columns:1fr; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">Comparison Table</div>
-      <h2 class="pp-title">Compare the Market</h2>
-      <p class="pp-sub">See how PurchasePlus stacks up against spreadsheet-based budgeting and ERP budget modules — across commitment tracking, enforcement, rollups, and real-time visibility.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Capabilities</div>
+      <h2>Everything you need to control procurement spend.</h2>
     </div>
-    <div class="pp-table-wrap">
-      <div class="pp-table">
-        <div class="pp-th">Feature</div>
-        <div class="pp-th center"><img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/98-082%20PurchasePlus%20Logo%20Horizontal%20RGB%2072dpi.png" alt="PurchasePlus" class="pp-logo"></div>
-        <div class="pp-th center"><span class="pp-pill">Spreadsheets</span></div>
-        <div class="pp-th center"><span class="pp-pill">ERP Budget Module</span></div>
-        <div class="pp-rowline pp-row" data-row="0">
-          <div class="pp-td"><div><p class="pp-feature-title">Commitment Tracking</p><p class="pp-feature-desc">Track spend from the moment a PO is approved — not when the invoice arrives.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Real-Time at PO</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual / After the Fact</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Invoice-Based Only</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="1">
-          <div class="pp-td"><div><p class="pp-feature-title">Threshold Enforcement</p><p class="pp-feature-desc">Orders that exceed budget route to the right approver automatically.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Auto-Routed by Rule</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">No Enforcement</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Warning Only</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="2">
-          <div class="pp-td"><div><p class="pp-feature-title">Multi-Property Rollup</p><p class="pp-feature-desc">One consolidated view across every property, department, and cost centre.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Group View + Drill-Down</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual Consolidation</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Single-Entity Focused</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="3">
-          <div class="pp-td"><div><p class="pp-feature-title">ERP Budget Sync</p><p class="pp-feature-desc">Import budgets from your ERP; actuals flow back to the same chart of accounts.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Two-Way Sync</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual Export to ERP</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Native</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="4">
-          <div class="pp-td"><div><p class="pp-feature-title">Role-Based Access</p><p class="pp-feature-desc">Managers see their cost centre; finance sees the group. No data leaks.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Granular Role Model</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">File-Based, Uncontrolled</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Admin-Heavy Setup</div></div></div>
-        </div>
-      </div>
-      <div class="pp-cta-bar">
-        <p class="pp-cta-title">See your real budget position — today.</p>
-        <p class="pp-cta-sub">Book a personal demo and we'll show you how commitments, approvals, and rollups flow through PurchasePlus in real time.</p>
-        <div class="pp-cta-actions">
-          <a class="pp-btn primary" href="https://www.purchaseplus.com/request-a-demo">Book Your Personal Demo<svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="pp-btn" href="https://www.purchaseplus.com/integrations/accounting-systems">See Supported ERPs<svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <div class="pp-leaders-text">Industry leaders demand the best. The best choose <span class="pp-brand-anim">PurchasePlus</span>.</div>
-    <div class="pp-carousel">
-      <div class="pp-track">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra" aria-hidden="true">
-      </div>
+    <div class="grid">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h3>Annual &amp; Period Budgets</h3><p>Set by year, quarter, or month. With rollover rules for underspend.</p></div></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 12h18M12 3v18M7 7l10 10M17 7L7 17"/></svg></div><div><h3>Cost Centre Mapping</h3><p>Every PO and invoice maps to the right GL code automatically.</p></div></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 2"/></svg></div><div><h3>Variance Alerts</h3><p>Get notified when spend approaches or exceeds thresholds.</p></div></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div><div><h3>Budget vs Actuals Reports</h3><p>Download anytime — by property, period, department, or supplier.</p></div></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><div><h3>Committed Spend Tracking</h3><p>See what's approved, ordered, received, and invoiced — the full chain.</p></div></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2"/></svg></div><div><h3>Role-Based Access</h3><p>Managers see their cost centre. Finance sees the group. Everyone sees what they need.</p></div></div>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const widget = document.querySelector(".budgeting_comparison");
-      const rows = Array.from(widget.querySelectorAll(".pp-rowline"));
-      let started = false;
-      function runSequence(){ if (started) return; started = true; let i = 0; const stepMs = 900; const tick = () => { if (i >= rows.length) return; const row = rows[i]; row.classList.add("is-active"); setTimeout(() => { row.classList.remove("is-active"); row.classList.add("is-locked"); }, Math.max(520, stepMs - 180)); i++; setTimeout(tick, stepMs); }; tick(); }
-      const io = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) runSequence(); }); }, { threshold: 0.25 });
-      io.observe(widget);
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 5: THREE PILLARS (budgeting_pillars)
-============================================================ -->
-<section class="budgeting_pillars" aria-label="Three Pillars of Budget Control">
+<!-- ============================================================ WIDGET 5: TESTIMONIAL ============================================================ -->
+<section class="bg-test" aria-label="Customer Testimonial">
   <style>
-    .budgeting_pillars { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; background:#fafafa; color:#1a1a1b; }
-    .budgeting_pillars .wp_scroll_wrapper { height:380vh; position:relative; }
-    .budgeting_pillars .wp_sticky_area { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 20px; overflow:hidden; }
-    .budgeting_pillars .wp_header { text-align:center; padding:8px 20px 4px; }
-    .budgeting_pillars .wp_kicker { font-weight:700; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#6b7280; margin-bottom:4px; }
-    .budgeting_pillars .wp_heading { font-size:clamp(26px,3.6vw,36px); font-weight:400; line-height:1.2; margin-bottom:6px; letter-spacing:-0.5px; }
-    .budgeting_pillars .wp_sub { font-size:14px; color:#444446; max-width:580px; margin:0 auto; line-height:1.4; }
-    .budgeting_pillars .wp_outcome { text-align:center; margin-top:8px; padding-bottom:8px; }
-    .budgeting_pillars .wp_outcome_label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:3px; }
-    .budgeting_pillars .wp_outcome_title { font-size:20px; font-weight:400; }
-    .budgeting_pillars .wp_grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1100px; width:100%; align-items:stretch; position:relative; z-index:2; }
-    .budgeting_pillars .wp_grad { background:linear-gradient(90deg,#a956ff,#7c5dff,#3766fe,#7c5dff,#a956ff); background-size:800px 100%; animation:budgetingPillarGrad 3.5s ease-in-out infinite; }
-    @keyframes budgetingPillarGrad { 0%{background-position:0 0;} 50%{background-position:400px 0;} 100%{background-position:0 0;} }
-    .budgeting_pillars .wp_pillar { display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(60px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
-    .budgeting_pillars .wp_pillar.wp_revealed { opacity:1; transform:translate(0,0); }
-    .budgeting_pillars .wp_cap_bar { width:100%; height:12px; border-radius:10px 10px 0 0; }
-    .budgeting_pillars .wp_cap_taper { width:91%; height:8px; border-radius:0 0 8px 8px; }
-    .budgeting_pillars .wp_pillar_shaft { width:82%; padding:3px; flex-grow:1; border-radius:8px; }
-    .budgeting_pillars .wp_shaft_inner { background:#fff; padding:14px; text-align:center; display:flex; flex-direction:column; height:100%; border-radius:6px; }
-    .budgeting_pillars .wp_base_taper { width:91%; height:8px; border-radius:8px 8px 0 0; }
-    .budgeting_pillars .wp_base_bar { width:100%; height:12px; border-radius:0 0 10px 10px; }
-    .budgeting_pillars .wp_card_kicker { font-size:clamp(7px,0.85vw,10px); font-weight:700; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:6px; background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .budgeting_pillars .wp_card_title { font-size:clamp(11px,1.1vw,14px); font-weight:600; line-height:1.3; margin-bottom:8px; }
-    .budgeting_pillars .wp_card_body { font-size:12px; color:#444446; line-height:1.5; margin-bottom:10px; flex-grow:1; }
-    .budgeting_pillars .wp_examples { list-style:none; padding:0; margin:4px auto 0; display:inline-flex; flex-direction:column; gap:4px; text-align:left; }
-    .budgeting_pillars .wp_examples li { display:flex; align-items:center; gap:7px; font-size:clamp(8px,0.8vw,11px); color:#444446; line-height:1.3; }
-    .budgeting_pillars .wp_ex_icon { width:14px; height:14px; flex-shrink:0; color:#7c5dff; }
-    .budgeting_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:24px; }
-    .budgeting_pillars .wp_pillar_center .wp_shaft_inner { padding-top:20px; }
-    .budgeting_pillars .wp_card_result { font-size:11px; font-weight:600; color:#1a1a1b; padding-top:10px; line-height:1.4; position:relative; }
-    .budgeting_pillars .wp_card_result::before { content:''; position:absolute; top:0; left:10%; width:80%; height:2px; background:var(--pp-grad); border-radius:1px; }
-    .budgeting_pillars .wp_card_result strong { background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    @media (max-width:991px){ .budgeting_pillars { overflow-x:hidden; } .budgeting_pillars .wp_scroll_wrapper { height:auto !important; } .budgeting_pillars .wp_sticky_area { position:relative; height:auto; padding:40px 20px; overflow:visible; } .budgeting_pillars .wp_grid { grid-template-columns:1fr; gap:80px; max-width:400px; margin:0 auto; } .budgeting_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:0; } .budgeting_pillars .wp_pillar:nth-child(odd) { transform:translateX(-80px); } .budgeting_pillars .wp_pillar:nth-child(even) { transform:translateX(80px); } .budgeting_pillars .wp_pillar.wp_revealed { opacity:1; transform:translateX(0); } .budgeting_pillars .wp_shaft_inner { padding:28px 22px; } }
+    .bg-test { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); padding:110px 5vw; position:relative; overflow:hidden; color:#fff; }
+    .bg-test::before { content:''; position:absolute; top:-30%; left:-10%; width:60%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.12), transparent 55%); pointer-events:none; }
+    .bg-test::after { content:''; position:absolute; bottom:-30%; right:-10%; width:60%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.08), transparent 55%); pointer-events:none; }
+    .bg-test .wrap { max-width:960px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+    .bg-test .kicker { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:36px; }
+    .bg-test .mark { font-size:96px; line-height:0; color:rgba(255,255,255,.25); font-family:Georgia, serif; display:block; margin-bottom:12px; }
+    .bg-test blockquote { font-size:clamp(22px,2.8vw,32px); font-weight:300; line-height:1.35; letter-spacing:-.3px; margin:0 auto 40px; max-width:800px; }
+    .bg-test .attrib { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:48px; flex-wrap:wrap; }
+    .bg-test .avatar { width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.2); border:2px solid rgba(255,255,255,.4); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:600; }
+    .bg-test .attrib-text { text-align:left; }
+    .bg-test .attrib-name { font-size:16px; font-weight:600; }
+    .bg-test .attrib-role { font-size:13px; font-weight:300; color:rgba(255,255,255,.78); margin-top:2px; }
+    .bg-test .logos { display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; opacity:.85; }
+    .bg-test .logo-chip { font-size:15px; font-weight:600; letter-spacing:.04em; color:rgba(255,255,255,.85); padding:10px 22px; border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.06); }
+    @media (max-width:640px){ .bg-test{ padding:72px 20px; } .bg-test blockquote{ font-size:20px; } .bg-test .logos{ gap:14px; } }
   </style>
-  <div class="wp_scroll_wrapper">
-    <div class="wp_sticky_area">
-      <header class="wp_header">
-        <div class="wp_kicker">The PurchasePlus Advantage</div>
-        <h2 class="wp_heading">Three Pillars of Live Budget Control</h2>
-        <p class="wp_sub">Commitments, approvals, and rollups flow through one system — so you see positions before money moves, not after.</p>
-      </header>
-      <div class="wp_outcome">
-        <div class="wp_outcome_label">Core Business Outcome</div>
-        <div class="wp_outcome_title">Spend Control Before It Happens</div>
-      </div>
-      <div class="wp_grid">
-        <div class="wp_pillar" data-reveal="2">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">See it at the PO — not the invoice.</div>
-              <h3 class="wp_card_title">Real-Time Commitment Tracking</h3>
-              <div class="wp_card_body">
-                <p>The moment a PO is approved, it's committed against budget. Available budget updates immediately across every cost centre.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><span>PO approved → committed today</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/></svg><span>Receiving → actuals update</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/></svg><span>Invoice → ERP sync</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> You see your true position every morning — not on the 10th of next month.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-        <div class="wp_pillar wp_pillar_center" data-reveal="1">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Stop overspend before it happens.</div>
-              <h3 class="wp_card_title">Threshold-Based Enforcement</h3>
-              <div class="wp_card_body">
-                <p>Set thresholds by department, cost centre, or property. When a PO pushes spend over the line, it routes to the right approver — before it goes to the supplier.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/></svg><span>By department</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/></svg><span>By cost centre</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20"/></svg><span>By property / outlet</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> Control without micromanagement. Approvers see budget context at the point of decision.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-        <div class="wp_pillar" data-reveal="3">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Group roll-up. Outlet drill-down.</div>
-              <h3 class="wp_card_title">Multi-Property Rollup</h3>
-              <div class="wp_card_body">
-                <p>One consolidated view across every property, department, and cost centre. Finance sees the group. Managers see their centre. No one waits on reports.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/></svg><span>Group rollup view</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><span>Drill down to outlet</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/></svg><span>Role-based access</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> One source of truth for finance — and everyone below sees exactly what they need to manage.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
+  <div class="wrap">
+    <div class="kicker">Customer Story · Placeholder</div>
+    <span class="mark" aria-hidden="true">&ldquo;</span>
+    <blockquote>Before PurchasePlus, our F&amp;B managers had no idea what they'd spent until month-end. Now they see their position every morning. It changed how they manage their departments.</blockquote>
+    <div class="attrib">
+      <div class="avatar">FD</div>
+      <div class="attrib-text">
+        <div class="attrib-name">Finance Director <span style="opacity:.6">[Name TBC]</span></div>
+        <div class="attrib-role">Hotel Group <span style="opacity:.6">[Brand TBC]</span></div>
       </div>
     </div>
+    <div class="logos">
+      <div class="logo-chip">Accor</div>
+      <div class="logo-chip">Marriott</div>
+      <div class="logo-chip">IHG</div>
+      <div class="logo-chip">Qantas</div>
+      <div class="logo-chip">Emirates</div>
+    </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const pillars = document.querySelectorAll('.budgeting_pillars .wp_pillar');
-      const scrollWrapper = document.querySelector('.budgeting_pillars .wp_scroll_wrapper');
-      function isMobile() { return window.innerWidth <= 991; }
-      function initMobile() { const o = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('wp_revealed'); }); }, { threshold: 0.15 }); pillars.forEach(p => o.observe(p)); }
-      function initDesktop() {
-        function onScroll() {
-          const rect = scrollWrapper.getBoundingClientRect();
-          const scrollableHeight = scrollWrapper.offsetHeight - window.innerHeight;
-          const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-          pillars.forEach(p => { const step = parseInt(p.dataset.reveal, 10); const threshold = (step - 1) / 3; if (progress >= threshold) p.classList.add('wp_revealed'); else p.classList.remove('wp_revealed'); });
-        }
-        window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-      }
-      if (isMobile()) initMobile(); else initDesktop();
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 6: FINAL CTA (budgeting_finalcta)
-  Formula: Available = Approved Budget − Committed − Actual
-============================================================ -->
-<section class="budgeting_finalcta" aria-label="Final CTA">
+<!-- ============================================================ WIDGET 6: CONNECTED PRODUCTS (3 cards) ============================================================ -->
+<section class="bg-conn" aria-label="Connected Products">
   <style>
-    .budgeting_finalcta { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:92px 0; overflow:hidden; position:relative; }
-    .budgeting_finalcta .pp-bg-chart { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; filter:blur(3px); opacity:.5; }
-    .budgeting_finalcta .pp-inner { max-width:900px; margin:0 auto; padding:0 24px; text-align:center; position:relative; z-index:2; }
-    .budgeting_finalcta .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .budgeting_finalcta .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; margin:0 auto 36px; max-width:740px; }
-    .budgeting_finalcta .pp-formula-card { max-width:840px; margin:0 auto 44px; padding:32px 36px; border-radius:22px; background:rgba(255,255,255,.92); backdrop-filter:blur(14px); border:1px solid rgba(226,232,240,.9); box-shadow:0 28px 70px rgba(15,23,42,.06); position:relative; z-index:2; }
-    .budgeting_finalcta .pp-formula { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:8px; flex-wrap:wrap; }
-    .budgeting_finalcta .pp-wac { font-size:22px; font-weight:700; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.5px; flex-shrink:0; }
-    .budgeting_finalcta .pp-equals { font-size:18px; font-weight:300; color:#4B5563; flex-shrink:0; }
-    .budgeting_finalcta .pp-term { font-size:13px; font-weight:500; color:#111827; padding:6px 12px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; white-space:nowrap; }
-    .budgeting_finalcta .pp-live-result { font-size:30px; font-weight:700; background-image:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:budgetingGradShift 4s linear infinite; min-width:90px; display:inline-block; }
-    @keyframes budgetingGradShift { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .budgeting_finalcta .pp-tagline { display:flex; justify-content:center; gap:18px; margin-top:20px; flex-wrap:wrap; }
-    .budgeting_finalcta .pp-tag { font-size:13px; font-weight:500; color:#4B5563; display:flex; align-items:center; gap:6px; }
-    .budgeting_finalcta .pp-tag-dot { width:6px; height:6px; border-radius:50%; background:#3766fe; box-shadow:0 0 0 4px rgba(55,102,254,.10); }
-    .budgeting_finalcta .pp-cta-heading { font-size:28px; line-height:1.2; font-weight:400; color:#111827; margin-bottom:8px; letter-spacing:-.5px; }
-    .budgeting_finalcta .pp-cta-sub { font-size:16px; font-weight:300; color:#4B5563; margin-bottom:24px; line-height:1.5; }
-    .budgeting_finalcta .pp-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; border-radius:999px; font-size:16px; font-weight:500; text-decoration:none; transition:transform .18s ease; background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .budgeting_finalcta .pp-btn:hover { transform:translateY(-2px); box-shadow:0 16px 34px rgba(55,102,254,.30); }
-    .budgeting_finalcta .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .budgeting_finalcta .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .budgeting_finalcta .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width:1024px){ .budgeting_finalcta{ padding:64px 0; } .budgeting_finalcta .pp-formula-card{ padding:24px 20px; } .budgeting_finalcta .pp-wac{ font-size:18px; } .budgeting_finalcta .pp-live-result{ font-size:24px; } .budgeting_finalcta .pp-term{ font-size:11px; } }
-    @media (max-width:768px){ .budgeting_finalcta .pp-cta-heading{ font-size:22px; } }
-    @media (max-width:480px){ .budgeting_finalcta .pp-btn{ width:100%; max-width:320px; } }
+    .bg-conn { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .bg-conn .wrap { max-width:1200px; margin:0 auto; }
+    .bg-conn .head { text-align:center; max-width:760px; margin:0 auto 52px; }
+    .bg-conn .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .bg-conn h2 { font-size:clamp(28px,3.6vw,38px); font-weight:400; line-height:1.2; letter-spacing:-.8px; color:#111827; margin-bottom:16px; }
+    .bg-conn .body { font-size:16px; font-weight:300; line-height:1.7; color:#4B5563; }
+    .bg-conn .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .bg-conn .card { display:flex; flex-direction:column; padding:32px 30px; background:#fff; border:1px solid #e2e8f0; border-radius:20px; text-decoration:none; transition:transform .3s, box-shadow .3s, border-color .3s; position:relative; overflow:hidden; min-height:220px; }
+    .bg-conn .card::before { content:''; position:absolute; top:0; left:-100%; right:100%; bottom:0; background:var(--grad); opacity:.06; transition:left .4s ease, right .4s ease; }
+    .bg-conn .card:hover { transform:translateY(-4px); box-shadow:0 24px 60px rgba(124,93,255,.12); border-color:#c4b5fd; }
+    .bg-conn .card:hover::before { left:0; right:0; }
+    .bg-conn .card-icon { position:relative; z-index:1; width:40px; height:40px; border-radius:10px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; color:#7c5dff; margin-bottom:18px; }
+    .bg-conn .card-icon svg { width:20px; height:20px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .bg-conn .card h3 { position:relative; z-index:1; font-size:20px; font-weight:500; letter-spacing:-.2px; color:#111827; margin-bottom:10px; }
+    .bg-conn .card p { position:relative; z-index:1; font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; margin-bottom:auto; }
+    .bg-conn .card-link { position:relative; z-index:1; display:inline-flex; align-items:center; gap:6px; color:#7c5dff; font-size:14px; font-weight:500; margin-top:20px; }
+    .bg-conn .card-link svg { width:15px; height:15px; stroke:currentColor; stroke-width:2; fill:none; transition:transform .2s; stroke-linecap:round; stroke-linejoin:round; }
+    .bg-conn .card:hover .card-link svg { transform:translateX(4px); }
+    @media (max-width:900px){ .bg-conn .cards{ grid-template-columns:1fr; } }
   </style>
-  <canvas class="pp-bg-chart" id="budgeting-chart" aria-hidden="true"></canvas>
-  <div class="pp-inner">
-    <div class="pp-reveal">
-      <div class="pp-kicker">The Budget Control Math</div>
-      <p class="pp-sub">Every morning, your available budget is a number — not a guess. Here's the equation that runs it.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Connected Products</div>
+      <h2>Budgeting works best when it's connected to everything.</h2>
+      <p class="body">Standalone budget tools only see what's already been spent. PurchasePlus Budgeting is built into the full procure-to-pay workflow — so it knows about every requisition, order, receipt, and invoice before they hit your accounting system.</p>
     </div>
-    <div class="pp-formula-card pp-reveal">
-      <div class="pp-formula">
-        <span class="pp-wac">Available</span>
-        <span class="pp-equals">=</span>
-        <span class="pp-term">Approved</span>
-        <span class="pp-equals">−</span>
-        <span class="pp-term">Committed</span>
-        <span class="pp-equals">−</span>
-        <span class="pp-term">Actual</span>
-        <span class="pp-equals">=</span>
-        <span class="pp-live-result" id="budgeting-avail-val">$142K</span>
-      </div>
-      <div class="pp-tagline">
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Live commitments</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Role-based views</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> ERP-synced</span>
-      </div>
-    </div>
-    <div class="pp-reveal">
-      <h2 class="pp-cta-heading">See your real budget position — today.</h2>
-      <p class="pp-cta-sub">Join Accor, IHG, Marriott and thousands of hospitality operations that already control spend before it happens.</p>
-      <a class="pp-btn" href="https://www.purchaseplus.com/request-a-demo">Book a Demo<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+    <div class="cards">
+      <a class="card" href="https://www.purchaseplus.com/procure-to-pay">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg></div>
+        <h3>Purchasing</h3>
+        <p>Requisition, PO, and receiving flow — every commitment feeds budget in real time.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card" href="https://akilalohan-lang.github.io/purchaseplus-2026-pages/invoicing-and-ap-automation/">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <h3>Invoicing &amp; AP Automation</h3>
+        <p>Approved invoices flow as actuals — with GL codes applied automatically.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card" href="https://www.purchaseplus.com/integrations">
+        <div class="card-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></div>
+        <h3>Accounting Systems</h3>
+        <p>Two-way ERP sync with Xero, NetSuite, Dynamics 365, MYOB, and more.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
     </div>
   </div>
-  <script>
-    (function(){
-      var section = document.querySelector('.budgeting_finalcta');
-      if (!section) return;
-      var items = Array.prototype.slice.call(section.querySelectorAll('.pp-reveal'));
-      var revealIO = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (!e.isIntersecting) return; e.target.classList.add('is-in'); revealIO.unobserve(e.target); }); }, { threshold: 0.12 });
-      items.forEach(function(el, i){ el.style.transitionDelay = (i * 100) + 'ms'; revealIO.observe(el); });
-      var canvas = document.getElementById('budgeting-chart');
-      if (!canvas || !canvas.getContext) return;
-      var ctx = canvas.getContext('2d');
-      var CYCLE = 20000, AVAIL_START = 142, AVAIL_END = 198;
-      var availEl = document.getElementById('budgeting-avail-val');
-      var NUM_BARS = 24; var barTargets = [];
-      for (var b = 0; b < NUM_BARS; b++){ var p = b / (NUM_BARS - 1); var base = 0.18 + 0.62 * Math.pow(p, 1.3); var noise = Math.sin(p * 11.3) * 0.06 + Math.sin(p * 23.7 + 1.5) * 0.04; barTargets.push(Math.max(0.08, Math.min(0.92, base + noise))); }
-      function resize(){ var rect = section.getBoundingClientRect(); var dpr = window.devicePixelRatio || 1; canvas.width = rect.width * dpr; canvas.height = rect.height * dpr; canvas.style.width = rect.width + 'px'; canvas.style.height = rect.height + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-      resize(); window.addEventListener('resize', resize);
-      var startTime = null, running = false;
-      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
-      function draw(timestamp){
-        if (!running) return; if (!startTime) startTime = timestamp;
-        var elapsed = (timestamp - startTime) % CYCLE, cycleProgress = elapsed / CYCLE;
-        var dpr = window.devicePixelRatio || 1, w = canvas.width / dpr, h = canvas.height / dpr;
-        ctx.clearRect(0, 0, w, h);
-        var drawPhase = Math.min(cycleProgress / 0.75, 1);
-        var fadePhase = cycleProgress > 0.85 ? (cycleProgress - 0.85) / 0.15 : 0;
-        ctx.globalAlpha = 1 - easeOutCubic(fadePhase);
-        var padX = w * 0.04, padTop = h * 0.05, padBottom = h * 0.05;
-        var chartW = w - padX * 2, chartH = h - padTop - padBottom;
-        var barGap = chartW * 0.015, barWidth = (chartW - barGap * (NUM_BARS - 1)) / NUM_BARS;
-        var barsToShow = Math.min(NUM_BARS, Math.ceil(drawPhase * NUM_BARS));
-        for (var i = 0; i < barsToShow; i++){
-          var barX = padX + i * (barWidth + barGap);
-          var targetH = barTargets[i] * chartH;
-          var barStart = i / NUM_BARS * 0.85, barEnd = barStart + 0.25;
-          var barProgress = easeOutCubic(Math.max(0, Math.min(1, (drawPhase - barStart) / (barEnd - barStart))));
-          var currentH = targetH * barProgress, barY = padTop + chartH - currentH;
-          var barGrad = ctx.createLinearGradient(0, barY, 0, padTop + chartH);
-          barGrad.addColorStop(0, 'rgba(169,86,255,0.75)'); barGrad.addColorStop(0.4, 'rgba(124,93,255,0.55)'); barGrad.addColorStop(1, 'rgba(55,102,254,0.30)');
-          var radius = Math.min(barWidth * 0.35, 4);
-          ctx.beginPath(); ctx.moveTo(barX, padTop + chartH); ctx.lineTo(barX, barY + radius);
-          ctx.quadraticCurveTo(barX, barY, barX + radius, barY);
-          ctx.lineTo(barX + barWidth - radius, barY);
-          ctx.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + radius);
-          ctx.lineTo(barX + barWidth, padTop + chartH); ctx.closePath();
-          ctx.fillStyle = barGrad; ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-        if (availEl){ var currentAvail = AVAIL_START + (AVAIL_END - AVAIL_START) * easeOutCubic(Math.min(drawPhase, 1)); availEl.textContent = '$' + Math.round(currentAvail) + 'K'; }
-        requestAnimationFrame(draw);
-      }
-      var chartIO = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if (entry.isIntersecting){ running = true; startTime = null; requestAnimationFrame(draw); } else running = false; }); }, { threshold: 0.05 });
-      chartIO.observe(section);
-    })();
-  </script>
 </section>
 
-<!-- ============================================================
-  GLOBAL FOOTER
-============================================================ -->
+<!-- ============================================================ WIDGET 7: CTA BANNER ============================================================ -->
+<section class="bg-cta" aria-label="Final CTA">
+  <style>
+    .bg-cta { font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
+    .bg-cta .wrap { max-width:960px; margin:0 auto; padding:72px 64px; background:#0b0f1f; border-radius:32px; text-align:center; color:#fff; position:relative; overflow:hidden; }
+    .bg-cta .wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 20% 20%, rgba(169,86,255,.22), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(55,102,254,.18), transparent 50%); pointer-events:none; }
+    .bg-cta h2 { position:relative; z-index:1; font-size:clamp(30px,4vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; margin-bottom:18px; }
+    .bg-cta h2 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgCtaGrad 4s linear infinite; }
+    @keyframes bgCtaGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .bg-cta .body { position:relative; z-index:1; font-size:16px; font-weight:300; line-height:1.65; color:rgba(255,255,255,.78); max-width:640px; margin:0 auto 32px; }
+    .bg-cta .btns { position:relative; z-index:1; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .bg-cta .btn { display:inline-flex; align-items:center; padding:14px 30px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .bg-cta .btn-primary { background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); color:#fff; box-shadow:0 12px 30px rgba(55,102,254,.3); }
+    .bg-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 16px 36px rgba(55,102,254,.4); }
+    .bg-cta .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.25); }
+    .bg-cta .btn-ghost:hover { background:rgba(255,255,255,.08); transform:translateY(-2px); }
+    @media (max-width:640px){ .bg-cta{ padding:72px 20px; } .bg-cta .wrap{ padding:48px 28px; border-radius:24px; } }
+  </style>
+  <div class="wrap">
+    <h2>See your real budget position — <em>today.</em></h2>
+    <p class="body">Join Accor, IHG, Marriott and thousands of hospitality operations that already control spend before it happens.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
 <footer class="pp-footer" role="contentinfo">
   <style>
     .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
@@ -814,7 +441,7 @@
     .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
     .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
     @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
-    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; }
+    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
     .pp-ftr-social { display:flex; gap:10px; }
     .pp-ftr-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:7px; border:1px solid #e5e7eb; color:#6b7280; text-decoration:none; }
     .pp-ftr-social a:hover { border-color:#c4b5fd; color:#7c5dff; background:#f5f3ff; }
@@ -847,8 +474,8 @@
         <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
         <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
         <div class="pp-ftr-social">
-          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
-          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
         </div>
       </div>
       <div class="pp-ftr-col-offset">
@@ -887,10 +514,8 @@
       </div>
     </div>
   </div>
-  <div class="pp-ftr-bottom">
-    <div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-budgeting"></span> PurchasePlus. All rights reserved.</p></div>
-  </div>
-  <script>document.getElementById('pp-ftr-year-budgeting').textContent = new Date().getFullYear();</script>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-bg"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-bg').textContent=new Date().getFullYear();</script>
 </footer>
 
 </body>

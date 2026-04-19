@@ -7,11 +7,9 @@
   <title>Recipe & Menu Management | PurchasePlus</title>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Recipe & Menu Management | PurchasePlus">
-  <meta property="og:description" content="Know the true cost of every dish. In real time. Live-linked recipe costing for hospitality.">
+  <meta property="og:description" content="Know the true cost of every dish. In real time. Live-linked recipe costing.">
   <meta property="og:site_name" content="PurchasePlus">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Recipe & Menu Management | PurchasePlus">
-  <meta name="twitter:description" content="Know the true cost of every dish. In real time.">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -22,814 +20,395 @@
 </head>
 <body>
 
-<!-- ============================================================
-  GLOBAL HEADER (pasted verbatim from widget_header.html)
-============================================================ -->
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
 <header class="pp-header" role="banner">
   <style>
-    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    .pp-header { position: sticky; top: 0; left: 0; right: 0; z-index: 1000; background: #ffffff; border-bottom: 1px solid #e5e7eb; font-family: 'Inter', sans-serif; width: 100vw; margin-left: calc(50% - 50vw); box-sizing: border-box; }
-    .pp-header-inner { padding: 0 2vw; height: 68px; display: grid; grid-template-columns: 1.4fr auto 0.6fr; align-items: center; }
-    .pp-hdr-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; justify-self: start; }
-    .pp-hdr-logo img { height: 39px; width: auto; display: block; }
-    .pp-nav { display: flex; align-items: center; gap: 2px; }
-    .pp-nav-item { position: relative; }
-    .pp-nav-link { display: inline-flex; align-items: center; gap: 4px; padding: 8px 12px; font-size: 13px; font-weight: 400; color: #6b7280; text-decoration: none; border-radius: 7px; transition: color 0.2s, background 0.2s; cursor: pointer; border: none; background: none; font-family: 'Inter', sans-serif; white-space: nowrap; line-height: 1; }
-    .pp-nav-link:hover { color: #111827; background: #f9fafb; }
-    .pp-nav-chevron { display: inline-block; width: 13px; height: 13px; flex-shrink: 0; color: #9ca3af; transition: transform 0.2s ease; }
-    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform: rotate(180deg); color: #6b7280; }
-    .pp-dropdown { position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(-6px); min-width: 210px; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.09), 0 2px 8px rgba(0,0,0,0.05); padding: 6px; opacity: 0; visibility: hidden; transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s; z-index: 200; pointer-events: none; }
-    .pp-dropdown::before { content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 10px; height: 6px; background: #ffffff; clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
-    .pp-nav-item.pp-open .pp-dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); pointer-events: auto; }
-    .pp-dropdown::after { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
-    .pp-dropdown-right { left: auto; right: 0; transform: translateY(-6px); }
-    .pp-dropdown-right::before { left: auto; right: 20px; transform: none; }
-    .pp-nav-item.pp-open .pp-dropdown-right { transform: translateY(0); }
-    .pp-dropdown-link { display: block; padding: 9px 13px; font-size: 13.5px; font-weight: 400; color: #374151; text-decoration: none; border-radius: 8px; transition: color 0.15s, background 0.15s; white-space: nowrap; font-family: 'Inter', sans-serif; }
-    .pp-dropdown-link:hover { color: #111827; background: #f3f4f6; }
-    .pp-header-actions { display: flex; align-items: center; gap: 8px; justify-self: end; }
-    .pp-btn-register { display: inline-flex; align-items: center; justify-content: center; padding: 9px 20px; font-size: 14px; font-weight: 500; color: #111827; background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(90deg, #a956ff, #7c5dff 50%, #3766fe) border-box; border: 1.5px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; line-height: 1; }
-    .pp-btn-register:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(119, 93, 255, 0.2); }
-    @keyframes pp-hdr-grad { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .pp-btn-signin { display: inline-flex; align-items: center; justify-content: center; padding: 9px 20px; font-size: 14px; font-weight: 500; color: #ffffff; background: linear-gradient(90deg, #a956ff 0%, #7c5dff 30%, #3766fe 60%, #7c5dff 85%, #a956ff 100%); background-size: 250% 100%; animation: pp-hdr-grad 4s ease infinite; border: 1.5px solid transparent; border-radius: 8px; cursor: pointer; text-decoration: none; font-family: 'Inter', sans-serif; transition: transform 0.2s ease, box-shadow 0.2s ease; white-space: nowrap; line-height: 1; }
-    .pp-btn-signin:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(55, 102, 254, 0.35); }
-    .pp-mobile-toggle { display: none; align-items: center; justify-content: center; width: 40px; height: 40px; border: none; background: linear-gradient(90deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); cursor: pointer; border-radius: 9px; transition: opacity 0.2s; flex-shrink: 0; justify-self: end; }
-    .pp-mobile-toggle:hover { opacity: 0.88; }
-    .pp-hamburger { display: flex; flex-direction: column; gap: 5px; }
-    .pp-hamburger span { display: block; width: 20px; height: 2px; background: #ffffff; border-radius: 2px; transition: all 0.25s ease; transform-origin: center; }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .pp-mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #ffffff; border-bottom: 1px solid #e5e7eb; box-shadow: 0 12px 32px rgba(0,0,0,0.08); max-height: calc(100vh - 68px); overflow-y: auto; z-index: 999; }
-    .pp-mobile-menu.pp-open { display: block; }
-    .pp-mobile-nav { padding: 12px 5vw 8px; }
-    .pp-mobile-nav-item { border-bottom: 1px solid #f3f4f6; }
-    .pp-mobile-nav-item:last-child { border-bottom: none; }
-    .pp-mobile-nav-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; font-size: 15px; font-weight: 500; color: #111827; text-decoration: none; cursor: pointer; border: none; background: none; width: 100%; text-align: left; font-family: 'Inter', sans-serif; line-height: 1.3; }
-    .pp-mobile-chevron { width: 16px; height: 16px; color: #9ca3af; transition: transform 0.2s ease; flex-shrink: 0; }
-    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform: rotate(180deg); color: #6b7280; }
-    .pp-mobile-submenu { display: none; padding: 0 0 12px 12px; flex-direction: column; gap: 2px; }
-    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display: flex; }
-    .pp-mobile-submenu-link { display: block; padding: 9px 12px; font-size: 14px; font-weight: 400; color: #4b5563; text-decoration: none; border-radius: 8px; transition: color 0.15s, background 0.15s; font-family: 'Inter', sans-serif; }
-    .pp-mobile-submenu-link:hover { color: #111827; background: #f9fafb; }
-    .pp-mobile-actions { padding: 16px 5vw 24px; display: flex; gap: 10px; }
-    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex: 1; padding: 12px 18px; font-size: 15px; }
-    @media (max-width: 680px) { .pp-nav { display: none; } .pp-header-actions { display: none; } .pp-mobile-toggle { display: flex; } .pp-header-inner { grid-template-columns: 1fr auto; } }
+    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
+    .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
+    .pp-hdr-logo img { height:39px; width:auto; display:block; }
+    .pp-nav { display:flex; align-items:center; gap:2px; }
+    .pp-nav-item { position:relative; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link:hover { color:#111827; background:#f9fafb; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s; }
+    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+    .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+    .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
+    .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
+    .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
+    .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
+    .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
+    @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu.pp-open { display:block; }
+    .pp-mobile-nav { padding:12px 5vw 8px; }
+    .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
+    .pp-mobile-nav-item:last-child { border-bottom:none; }
+    .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
+    .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
+    .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
+    .pp-mobile-submenu-link:hover { color:#111827; background:#f9fafb; }
+    .pp-mobile-actions { padding:16px 5vw 24px; display:flex; gap:10px; }
+    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex:1; padding:12px 18px; font-size:15px; }
+    @media (max-width:680px){ .pp-nav{display:none;} .pp-header-actions{display:none;} .pp-mobile-toggle{display:flex;} .pp-header-inner{grid-template-columns:1fr auto;} }
   </style>
   <div class="pp-header-inner">
-    <a href="https://www.purchaseplus.com" class="pp-hdr-logo" aria-label="PurchasePlus home">
-      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28">
-    </a>
-    <nav class="pp-nav" role="navigation" aria-label="Main navigation">
-      <div class="pp-nav-item" role="none">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-nav-item" role="none">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
+    <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
+    <nav class="pp-nav">
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
       <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-nav-item">
-        <button class="pp-nav-link" aria-haspopup="true" aria-expanded="false">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-dropdown pp-dropdown-right" role="menu">
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a>
-          <a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a>
-        </div>
-      </div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-header-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
-    <button class="pp-mobile-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="pp-mobile-menu"><span class="pp-hamburger" aria-hidden="true"><span></span><span></span><span></span></span></button>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
   </div>
-  <div class="pp-mobile-menu" id="pp-mobile-menu" role="dialog" aria-label="Mobile navigation" aria-modal="false">
+  <div class="pp-mobile-menu">
     <nav class="pp-mobile-nav">
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a>
-        </div>
-      </div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a>
-        </div>
-      </div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
       <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
-      <div class="pp-mobile-nav-item">
-        <button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="pp-mobile-submenu">
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a>
-          <a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a>
-        </div>
-      </div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
     </nav>
-    <div class="pp-mobile-actions">
-      <a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a>
-      <a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a>
-    </div>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
   </div>
   <script>
-    (function () {
-      const header = document.querySelector('.pp-header');
-      const toggle = header.querySelector('.pp-mobile-toggle');
-      const mobileMenu = header.querySelector('.pp-mobile-menu');
-      const mobileItems = header.querySelectorAll('.pp-mobile-nav-item');
-      toggle.addEventListener('click', function () { const isOpen = mobileMenu.classList.toggle('pp-open'); toggle.classList.toggle('pp-active', isOpen); toggle.setAttribute('aria-expanded', isOpen); });
-      mobileItems.forEach(function (item) {
-        const btn = item.querySelector('.pp-mobile-nav-link');
-        if (!btn || btn.tagName === 'A') return;
-        btn.addEventListener('click', function () {
-          const isOpen = item.classList.toggle('pp-open');
-          mobileItems.forEach(function (s) { if (s !== item) s.classList.remove('pp-open'); });
-        });
-      });
-      const navItems = header.querySelectorAll('.pp-nav-item');
-      function closeAll() { navItems.forEach(i => i.classList.remove('pp-open')); }
-      navItems.forEach(function (item) {
-        const btn = item.querySelector('button.pp-nav-link');
-        item.addEventListener('mouseenter', function () { closeAll(); if (btn) item.classList.add('pp-open'); });
-        item.addEventListener('mouseleave', function () { item.classList.remove('pp-open'); });
-        if (btn) btn.addEventListener('click', function () { const isOpen = item.classList.toggle('pp-open'); navItems.forEach(o => { if (o !== item) o.classList.remove('pp-open'); }); });
-      });
-      window.addEventListener('scroll', closeAll, { passive: true });
-      document.addEventListener('click', function (e) { if (!header.contains(e.target)) { closeAll(); mobileMenu.classList.remove('pp-open'); toggle.classList.remove('pp-active'); } });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { closeAll(); mobileMenu.classList.remove('pp-open'); toggle.classList.remove('pp-active'); } });
-    })();
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
   </script>
 </header>
 
-<!-- ============================================================
-  WIDGET 1: HERO (recipe_hero)
-============================================================ -->
-<section class="recipe_hero" aria-label="Recipe & Menu Management Hero">
+<!-- ============================================================ WIDGET 1: HERO (asymmetric split, video + 3-chip stats) ============================================================ -->
+<section class="rc-hero" aria-label="Recipe & Menu Management Hero">
   <style>
-    .recipe_hero {
-      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-body:#4B5563;
-      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
-      font-family:var(--pp-font); width:100%; background:#fff; overflow:hidden;
-      padding:40px 20px 40px 65px; display:flex; justify-content:center; align-items:center;
-    }
-    .recipe_hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
-    .recipe_hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; justify-content:center; }
-    .recipe_hero .pp-copy { width:45%; display:flex; flex-direction:column; gap:24px; flex-shrink:0; }
-    .recipe_hero .pp-eyebrow { display:inline-flex; gap:10px; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .recipe_hero .pp-title { font-size:72px; line-height:1.1; font-weight:400; color:var(--pp-ink); letter-spacing:-1.5px; text-wrap:balance; }
-    .recipe_hero .pp-grad { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:recipeGradPulse 5s linear infinite; display:inline-block; }
-    @keyframes recipeGradPulse { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .recipe_hero .pp-sub { font-size:22px; line-height:1.5; font-weight:300; color:var(--pp-body); max-width:540px; text-wrap:pretty; }
-    .recipe_hero .pp-bullets { list-style:none; display:flex; flex-direction:column; gap:16px; }
-    .recipe_hero .pp-bullets li { display:flex; gap:12px; align-items:flex-start; color:var(--pp-body); font-size:16px; line-height:1.5; font-weight:300; }
-    .recipe_hero .pp-check { width:18px; height:18px; margin-top:2px; flex:0 0 auto; border-radius:50%; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(55,102,254,0.18); }
-    .recipe_hero svg { fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .recipe_hero .pp-check svg { width:12px; height:12px; stroke:#fff; stroke-width:2.2; }
-    .recipe_hero .pp-cta-row { display:flex; align-items:center; gap:24px; margin-top:10px; }
-    .recipe_hero .pp-cta-primary { display:inline-flex; align-items:center; padding:14px 32px; background:var(--pp-grad); color:#fff; border-radius:50px; text-decoration:none; font-size:16px; font-weight:400; box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s ease; white-space:nowrap; }
-    .recipe_hero .pp-cta-primary:hover { transform:translateY(-2px); }
-    .recipe_hero .pp-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:#1F2937; text-decoration:none; font-size:16px; white-space:nowrap; transition:color .2s; }
-    .recipe_hero .pp-cta-secondary:hover { color:#7c5dff; }
-    .recipe_hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
-    .recipe_hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
-    .recipe_hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; }
-    .recipe_hero .pp-video { width:90%; height:auto; max-height:700px; margin-left:30px; object-fit:contain; border-radius:24px; }
-    @media (max-width: 1300px){ .recipe_hero{ padding:30px 15px 30px 50px; } .recipe_hero .pp-title{ font-size:48px; } .recipe_hero .pp-sub{ font-size:18px; max-width:400px; } .recipe_hero .pp-bullets li{ font-size:14px; } .recipe_hero .pp-video{ margin-left:20px; max-height:550px; } }
-    @media (max-width: 1024px){ .recipe_hero .pp-hero-grid { flex-direction:column; } .recipe_hero .pp-copy, .recipe_hero .pp-visual { width:100%; } .recipe_hero .pp-video { margin-left:0; max-height:440px; } }
-    @media (max-width: 768px){ .recipe_hero{ padding:25px 16px; } .recipe_hero .pp-title{ font-size:36px; } .recipe_hero .pp-sub{ font-size:16px; } }
+    .rc-hero { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:60px 5vw 80px; position:relative; overflow:hidden; }
+    .rc-hero::before { content:''; position:absolute; top:-180px; right:-140px; width:520px; height:520px; background:radial-gradient(circle, rgba(169,86,255,.10), transparent 60%); pointer-events:none; }
+    .rc-hero::after { content:''; position:absolute; bottom:-180px; left:-140px; width:520px; height:520px; background:radial-gradient(circle, rgba(55,102,254,.08), transparent 60%); pointer-events:none; }
+    .rc-hero .wrap { max-width:1300px; margin:0 auto; display:grid; grid-template-columns:0.95fr 1.05fr; gap:56px; align-items:center; position:relative; }
+    .rc-hero .copy { display:flex; flex-direction:column; gap:22px; }
+    .rc-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .rc-hero h1 { font-size:clamp(40px,5vw,66px); font-weight:400; line-height:1.05; letter-spacing:-1.6px; color:#111827; text-wrap:balance; }
+    .rc-hero h1 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:rcHeroGrad 5s linear infinite; }
+    @keyframes rcHeroGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .rc-hero .lead { font-size:18px; font-weight:300; line-height:1.65; color:#4B5563; max-width:540px; }
+    .rc-hero .stats { display:flex; flex-direction:column; gap:10px; border-left:2px solid #e2e8f0; padding-left:18px; margin-top:4px; }
+    .rc-hero .stat-line { font-size:14px; color:#4B5563; line-height:1.4; font-weight:300; }
+    .rc-hero .stat-line strong { color:#111827; font-weight:500; }
+    .rc-hero .ctas { display:flex; align-items:center; gap:24px; margin-top:16px; flex-wrap:wrap; }
+    .rc-hero .btn-primary { display:inline-flex; align-items:center; padding:15px 32px; background:var(--grad); color:#fff; border-radius:50px; font-size:16px; text-decoration:none; box-shadow:0 4px 18px rgba(55,102,254,.3); transition:transform .2s; }
+    .rc-hero .btn-primary:hover { transform:translateY(-2px); }
+    .rc-hero .btn-link { display:inline-flex; align-items:center; gap:6px; color:#1F2937; font-size:16px; text-decoration:none; }
+    .rc-hero .btn-link:hover { color:#7c5dff; }
+    .rc-hero .btn-link svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
+    .rc-hero .btn-link:hover svg { transform:translateX(3px); }
+    .rc-hero .visual { position:relative; aspect-ratio:4/3; }
+    .rc-hero .video { width:100%; height:100%; object-fit:cover; border-radius:32px; display:block; box-shadow:0 40px 100px rgba(15,23,42,.12); }
+    .rc-hero .badge-chip { position:absolute; background:#fff; border:1px solid #e2e8f0; border-radius:999px; padding:10px 18px; box-shadow:0 16px 40px rgba(15,23,42,.1); font-size:13px; font-weight:500; color:#111827; display:inline-flex; align-items:center; gap:10px; }
+    .rc-hero .badge-chip .pulse { width:8px; height:8px; border-radius:50%; background:#10B981; position:relative; }
+    .rc-hero .badge-chip .pulse::after { content:''; position:absolute; inset:-4px; border-radius:50%; border:2px solid #10B981; opacity:.5; animation:rcPulse 2s ease-in-out infinite; }
+    @keyframes rcPulse { 0%{transform:scale(1);opacity:.5;} 100%{transform:scale(2);opacity:0;} }
+    .rc-hero .badge-chip .accent { color:#7c5dff; font-weight:600; }
+    .rc-hero .badge-chip.c1 { top:8%; left:-6%; animation:rcFloat 7s ease-in-out infinite; }
+    .rc-hero .badge-chip.c2 { bottom:18%; right:-5%; animation:rcFloat 7s ease-in-out infinite -3.5s; }
+    .rc-hero .gp-card { position:absolute; bottom:-8%; left:8%; background:#fff; border:1px solid #e2e8f0; border-radius:18px; padding:18px 22px; box-shadow:0 24px 60px rgba(15,23,42,.12); min-width:220px; }
+    .rc-hero .gp-card-label { font-size:11px; font-weight:600; color:#9ca3af; letter-spacing:.1em; text-transform:uppercase; }
+    .rc-hero .gp-card-val { font-size:28px; font-weight:500; margin-top:6px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .rc-hero .gp-card-delta { font-size:12px; color:#10B981; margin-top:2px; font-weight:500; }
+    @keyframes rcFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    @media (max-width:1024px){ .rc-hero .wrap{ grid-template-columns:1fr; gap:40px; } .rc-hero .badge-chip, .rc-hero .gp-card{ display:none; } }
+    @media (max-width:640px){ .rc-hero{ padding:40px 20px 60px; } .rc-hero h1{ font-size:36px; } }
   </style>
-  <svg style="display:none;"><symbol id="recipe-hero-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol><symbol id="recipe-hero-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol></svg>
-  <div class="pp-inner">
-    <div class="pp-hero-grid">
-      <div class="pp-copy">
-        <div class="pp-eyebrow">Recipe &amp; Menu Management</div>
-        <h1 class="pp-title">Know the <span class="pp-grad">true cost</span> of every dish. <span class="pp-grad">In real time.</span></h1>
-        <p class="pp-sub">PurchasePlus links each recipe directly to live supplier pricing. When ingredients cost more, every affected dish recalculates automatically. Your GP% is always accurate — without a spreadsheet in sight.</p>
-        <ul class="pp-bullets">
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#recipe-hero-check"/></svg></span><span>Live cost per dish — updates when supplier prices change.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#recipe-hero-check"/></svg></span><span>Recipe library linked to purchasing, receiving, and inventory.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#recipe-hero-check"/></svg></span><span>GP% by dish, by menu, by outlet.</span></li>
-          <li><span class="pp-check"><svg viewBox="0 0 24 24"><use href="#recipe-hero-check"/></svg></span><span>Yield factors and portion sizes — costing on what's actually used.</span></li>
-        </ul>
-        <div class="pp-cta-row">
-          <a class="pp-cta-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-          <a class="pp-cta-secondary" href="#recipe-advantage"><span>See Recipe Costing in Action</span><svg viewBox="0 0 24 24"><use href="#recipe-hero-arrow"/></svg></a>
-        </div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">Recipe &amp; Menu Management</div>
+      <h1>Know the true cost of every dish. <em>In real time.</em></h1>
+      <p class="lead">PurchasePlus links each recipe directly to live supplier pricing. When ingredients cost more, every affected dish recalculates automatically. Your GP% is always accurate — without a spreadsheet in sight.</p>
+      <div class="stats">
+        <div class="stat-line"><strong>Live cost per dish</strong> — updates when supplier prices change</div>
+        <div class="stat-line"><strong>Recipe library</strong> linked to purchasing, receiving, and inventory</div>
+        <div class="stat-line"><strong>GP%</strong> by dish, by menu, by outlet</div>
       </div>
-      <div class="pp-visual">
-        <!-- VIDEO: replace src with final Recipe & Menu hero loop -->
-        <video class="pp-video" autoplay loop muted playsinline aria-label="Recipe costing demo">
-          <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
-        </video>
+      <div class="ctas">
+        <a class="btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+        <a class="btn-link" href="#rc-features">See It in Action <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+    <div class="visual">
+      <!-- VIDEO: replace src with final Recipe hero loop -->
+      <video class="video" autoplay loop muted playsinline aria-label="Recipe costing demo">
+        <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
+      </video>
+      <div class="badge-chip c1"><span class="pulse"></span>Price update <span class="accent">&nbsp;Chicken ↑ 4%</span></div>
+      <div class="badge-chip c2"><span class="pulse"></span>Recalculated <span class="accent">&nbsp;17 dishes</span></div>
+      <div class="gp-card"><div class="gp-card-label">Signature Burger</div><div class="gp-card-val">GP 68%</div><div class="gp-card-delta">▲ +2.1% vs last week</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ WIDGET 2: THE PROBLEM (H2 + body + 3 pain cards) ============================================================ -->
+<section class="rc-prob" aria-label="The Problem">
+  <style>
+    .rc-prob { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#0b0f1f; color:#fff; padding:110px 5vw; position:relative; overflow:hidden; }
+    .rc-prob::before { content:''; position:absolute; top:-40%; left:-20%; width:140%; height:180%; background:radial-gradient(ellipse at 20% 20%, rgba(169,86,255,.12), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(55,102,254,.1), transparent 55%); pointer-events:none; }
+    .rc-prob .wrap { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+    .rc-prob .head { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-bottom:72px; }
+    .rc-prob .kicker { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
+    .rc-prob h2 { font-size:clamp(34px,4.4vw,54px); font-weight:400; line-height:1.1; letter-spacing:-1.2px; }
+    .rc-prob .body { font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,.72); padding-top:26px; }
+    .rc-prob .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .rc-prob .card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:36px 32px; backdrop-filter:blur(8px); transition:border-color .3s, background .3s, transform .3s; }
+    .rc-prob .card:hover { border-color:rgba(169,86,255,.5); background:rgba(255,255,255,.06); transform:translateY(-4px); }
+    .rc-prob .card-num { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:12px; }
+    .rc-prob .card h3 { font-size:24px; font-weight:500; line-height:1.2; letter-spacing:-.4px; margin-bottom:14px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; display:inline-block; }
+    .rc-prob .card p { font-size:15px; font-weight:300; line-height:1.65; color:rgba(255,255,255,.78); }
+    @media (max-width:1024px){ .rc-prob .head{ grid-template-columns:1fr; gap:20px; margin-bottom:48px; } .rc-prob .body{ padding-top:0; } .rc-prob .cards{ grid-template-columns:1fr; } }
+    @media (max-width:640px){ .rc-prob{ padding:72px 20px; } }
+  </style>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="kicker">The Problem</div>
+        <h2>Your recipe spreadsheet hasn't been updated since the menu changed.</h2>
+      </div>
+      <p class="body">Most kitchens price their menus at the start of the year — or when a new chef joins. Supplier prices change weekly. Portion sizes drift. The spreadsheet never catches up. By the time you run a food cost report, your menu is priced on numbers that are months out of date.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="card-num">Pain · 01</div>
+        <h3>"Stale Cost Data"</h3>
+        <p>Ingredient prices change every week. Your recipe spreadsheet doesn't. The gap compounds every month.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Pain · 02</div>
+        <h3>"Disconnected from Purchasing"</h3>
+        <p>Recipe costs and purchasing data live in separate systems. There's no automatic link.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">Pain · 03</div>
+        <h3>"GP% Is a Guess"</h3>
+        <p>Without live recipe costs, food cost % is estimated from memory. Decisions made on bad numbers produce bad results.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-  WIDGET 2: REALITY CHECK / 3 PROBLEM CARDS (recipe_reality)
-  Mapped from DOCX "THE PROBLEM" — 3 pain cards verbatim
-============================================================ -->
-<section class="recipe_reality" aria-label="Recipe Reality Check">
+<!-- ============================================================ WIDGET 3: KEY FEATURES (5 alternating rows) ============================================================ -->
+<section class="rc-feat" id="rc-features" aria-label="Key Features">
   <style>
-    .recipe_reality { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:90px 0; overflow:hidden; }
-    .recipe_reality .pp-inner { padding:0 14vw; }
-    .recipe_reality .pp-head { text-align:center; max-width:980px; margin:0 auto 44px; }
-    .recipe_reality .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .recipe_reality .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:16px; letter-spacing:-1px; }
-    .recipe_reality .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:900px; margin:0 auto; }
-    .recipe_reality .pp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; margin-top:34px; perspective:1100px; }
-    .recipe_reality .pp-card { background:#f8fafc; border:1px solid #e2e8f0; border-radius:32px; padding:28px; box-shadow:0 20px 40px rgba(15,23,42,.03); overflow:hidden; min-height:300px; display:flex; flex-direction:column; transform-origin:center; transition:background .4s ease, border-color .4s ease; }
-    .recipe_reality .pp-card.is-active, .recipe_reality .pp-card:hover { background:var(--pp-grad); border-color:transparent; }
-    .recipe_reality .pp-card.is-active .pp-card-title, .recipe_reality .pp-card:hover .pp-card-title { color:#fff; }
-    .recipe_reality .pp-card.is-active .pp-card-desc, .recipe_reality .pp-card:hover .pp-card-desc { color:rgba(255,255,255,.9); }
-    .recipe_reality .pp-card.pp-tilt-1 { transform:rotate(-1.2deg); }
-    .recipe_reality .pp-card.pp-tilt-2 { transform:rotate(1.0deg); }
-    .recipe_reality .pp-card.pp-tilt-3 { transform:rotate(-0.6deg); }
-    .recipe_reality .pp-card-title { font-size:28px; font-weight:600; color:#111827; margin-bottom:16px; letter-spacing:-.5px; line-height:1.2; }
-    .recipe_reality .pp-card-desc { font-size:15px; line-height:1.55; font-weight:300; color:#4B5563; margin-bottom:20px; max-width:90%; }
-    .recipe_reality .pp-cta-btn { display:inline-flex; align-items:center; padding:12px 24px; background:var(--pp-grad); color:#fff; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:999px; box-shadow:0 10px 25px rgba(55,102,254,.22); margin-top:auto; transition:background .4s ease, color .4s ease; width:max-content; }
-    .recipe_reality .pp-card.is-active .pp-cta-btn, .recipe_reality .pp-card:hover .pp-cta-btn { background:#fff !important; color:#7c5dff !important; }
-    .recipe_reality .pp-bridge { text-align:center; margin:34px auto 0; max-width:980px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); color:#4B5563; font-size:15px; line-height:1.55; font-weight:300; }
-    .recipe_reality .pp-bridge strong { font-weight:600; color:#111827; }
-    @media (max-width: 1400px){ .recipe_reality .pp-inner{ padding:0 8vw; } .recipe_reality .pp-title{ font-size:40px; } }
-    @media (max-width: 1024px){ .recipe_reality{ padding:64px 0; } .recipe_reality .pp-inner{ padding:0 5vw; } .recipe_reality .pp-title{ font-size:32px; } .recipe_reality .pp-grid{ grid-template-columns:1fr; gap:16px; } .recipe_reality .pp-card{ min-height:auto; } .recipe_reality .pp-card.pp-tilt-1, .recipe_reality .pp-card.pp-tilt-2, .recipe_reality .pp-card.pp-tilt-3 { transform:none; } }
+    .rc-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .rc-feat .wrap { max-width:1200px; margin:0 auto; }
+    .rc-feat .head { text-align:center; max-width:720px; margin:0 auto 72px; }
+    .rc-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .rc-feat .head h2 { font-size:clamp(32px,4.2vw,42px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
+    .rc-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-bottom:120px; }
+    .rc-feat .row:last-child { margin-bottom:0; }
+    .rc-feat .row.rev .visual { order:-1; }
+    .rc-feat .copy .num { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:14px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); color:#7c5dff; font-size:15px; font-weight:700; letter-spacing:.06em; margin-bottom:20px; }
+    .rc-feat .copy h3 { font-size:clamp(26px,2.8vw,34px); font-weight:500; line-height:1.22; letter-spacing:-.5px; color:#111827; margin-bottom:18px; }
+    .rc-feat .copy p { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; }
+    .rc-feat .visual { aspect-ratio:4/3; border-radius:28px; background:linear-gradient(135deg, #faf5ff 0%, #f0f5ff 100%); border:1px solid #e2e8f0; padding:36px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .rc-feat .visual::after { content:'Screenshot placeholder'; position:absolute; bottom:20px; left:20px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
+    .rc-feat .visual svg { width:55%; height:55%; stroke:url(#rc-feat-grad); stroke-width:1.2; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.5; }
+    @media (max-width:1024px){ .rc-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:80px; } .rc-feat .row.rev .visual{ order:0; } }
+    @media (max-width:640px){ .rc-feat{ padding:72px 20px; } .rc-feat .copy h3{ font-size:24px; } .rc-feat .copy p{ font-size:15px; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">The Recipe Reality Check</div>
-      <h2 class="pp-title">Your Recipe Spreadsheet Hasn't Been<br>Updated Since the Menu Changed.</h2>
-      <p class="pp-sub">Most kitchens price their menus at the start of the year — or when a new chef joins. Supplier prices change weekly. Portion sizes drift. The spreadsheet never catches up. By the time you run a food cost report, your menu is priced on numbers that are months out of date.</p>
+  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="rc-feat-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
+
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Key Features</div>
+      <h2>Five capabilities that turn your recipe library into a live margin engine.</h2>
     </div>
-    <div class="pp-grid" id="recipe-reality-grid">
-      <div class="pp-card pp-tilt-1" data-card="0">
-        <h3 class="pp-card-title">"Stale Cost Data"</h3>
-        <p class="pp-card-desc">Ingredient prices change every week. Your recipe spreadsheet doesn't. The gap compounds every month — until food cost % becomes a number you can't explain to finance.</p>
-        <a class="pp-cta-btn" href="#recipe-advantage">Fix costing</a>
+
+    <div class="row">
+      <div class="copy">
+        <div class="num">01</div>
+        <h3>Build it once. PurchasePlus keeps it accurate.</h3>
+        <p>Each recipe ingredient links to a real product in your PurchasePlus catalogue. Every time a supplier updates their price, every recipe containing that ingredient recalculates automatically. No manual updates. No stale numbers.</p>
       </div>
-      <div class="pp-card pp-tilt-2" data-card="1">
-        <h3 class="pp-card-title">"Disconnected from Purchasing"</h3>
-        <p class="pp-card-desc">Recipe costs and purchasing data live in separate systems. There's no automatic link — so menu decisions are made blind to what you're actually paying today.</p>
-        <a class="pp-cta-btn" href="#recipe-advantage">Connect systems</a>
-      </div>
-      <div class="pp-card pp-tilt-3" data-card="2">
-        <h3 class="pp-card-title">"GP% Is a Guess"</h3>
-        <p class="pp-card-desc">Without live recipe costs, food cost % is estimated from memory. Decisions made on bad numbers produce bad results — and you only find out at month-end.</p>
-        <a class="pp-cta-btn" href="#recipe-advantage">Get real numbers</a>
-      </div>
+      <div class="visual"><svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M12 16h24M12 22h24M12 28h16"/><circle cx="36" cy="30" r="5" fill="rgba(124,93,255,.12)"/><path d="M33 30l2 2 4-4"/></svg></div>
     </div>
-    <div class="pp-bridge">
-      <strong id="recipe-bridge-strong">PurchasePlus connects your recipes to reality.</strong><br>
-      <span id="recipe-bridge-sub">When a supplier price changes, every dish recalculates. Automatically.</span>
+
+    <div class="row rev">
+      <div class="copy">
+        <div class="num">02</div>
+        <h3>See gross profit by dish — not just by month.</h3>
+        <p>PurchasePlus calculates GP% per recipe using live ingredient costs and your selling price. Review at dish level, menu level, outlet level, or across your whole portfolio. Spot problems before they become patterns.</p>
+      </div>
+      <div class="visual"><svg viewBox="0 0 48 48"><rect x="4" y="28" width="8" height="16" rx="1"/><rect x="16" y="20" width="8" height="24" rx="1"/><rect x="28" y="12" width="8" height="32" rx="1"/><rect x="40" y="4" width="6" height="40" rx="1"/></svg></div>
+    </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="num">03</div>
+        <h3>Cost what's actually used — not just what's purchased.</h3>
+        <p>Build in yield factors, portion sizes, and prep weights for each ingredient. PurchasePlus calculates cost based on usable yield per portion — not the raw purchase unit. The math is always right.</p>
+      </div>
+      <div class="visual"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 8v32M8 24h32"/><path d="M18 18l12 12M30 18l-12 12" stroke-dasharray="2 3" opacity=".6"/></svg></div>
+    </div>
+
+    <div class="row rev">
+      <div class="copy">
+        <div class="num">04</div>
+        <h3>Complex menus, no complexity.</h3>
+        <p>Build sub-recipes (stocks, sauces, pastry bases) and use them as components inside other recipes. Cost cascades automatically through every dish they appear in. Change the sub-recipe once — every dish updates.</p>
+      </div>
+      <div class="visual"><svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="5"/><circle cx="10" cy="32" r="5"/><circle cx="24" cy="32" r="5"/><circle cx="38" cy="32" r="5"/><path d="M24 15l-12 12M24 15v12M24 15l12 12"/></svg></div>
+    </div>
+
+    <div class="row">
+      <div class="copy">
+        <div class="num">05</div>
+        <h3>Recipes feed inventory. POS sales feed GP%. All connected.</h3>
+        <p>Every recipe links directly to inventory items. When a dish is sold via your POS system, inventory decrements automatically by the recipe quantities. Theoretical vs actual usage is tracked in real time — variance appears immediately.</p>
+      </div>
+      <div class="visual"><svg viewBox="0 0 48 48"><rect x="4" y="6" width="12" height="10" rx="2"/><rect x="18" y="19" width="12" height="10" rx="2"/><rect x="32" y="32" width="12" height="10" rx="2"/><path d="M16 11l2 8M30 24l2 8"/><path d="M14 16l4 3M28 29l4 3" stroke-dasharray="2 2"/></svg></div>
     </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const cards = Array.from(document.querySelectorAll('#recipe-reality-grid .pp-card'));
-      const strongEl = document.getElementById('recipe-bridge-strong');
-      const subEl = document.getElementById('recipe-bridge-sub');
-      const bridgeStrong = ["\u201CStale Cost Data\u201D breaks your food cost %.","\u201CDisconnected from Purchasing\u201D blinds your decisions.","\u201CGP% Is a Guess\u201D costs margin every month."];
-      const bridgeSub = ["PurchasePlus links each recipe to live supplier pricing \u2014 always current.","Recipes, purchasing, receiving and POS flow through one system.","Live GP% at dish, menu, and outlet level \u2014 no estimates."];
-      function setActive(i){ cards.forEach((c,k) => c.classList.toggle('is-active', k === i)); if(strongEl) strongEl.textContent = bridgeStrong[i]; if(subEl) subEl.textContent = bridgeSub[i]; }
-      const tl = gsap.timeline({ repeat: -1 });
-      cards.forEach((card, i) => {
-        tl.call(() => setActive(i));
-        tl.to(cards, { duration: 0.35, ease: "power2.out", scale: 1, rotation: (j) => window.matchMedia("(max-width: 1024px)").matches ? 0 : (j === 0 ? -1.2 : (j === 1 ? 1.0 : -0.6)) }, "+=0");
-        tl.to(card, { duration: 0.55, ease: "back.out(1.7)", scale: 1.06, rotation: 0 }, "+=0.05");
-        tl.to(card, { duration: 1.55 }, "+=0.25");
-        tl.to(card, { duration: 0.45, scale: 1, rotation: () => window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6)) }, "+=0.1");
-      });
-      setActive(0);
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 3: ADVANTAGE / 3 NUMBERED CAPABILITIES (recipe_advantage)
-  Mapped from DOCX KEY FEATURES 1-3
-============================================================ -->
-<section class="recipe_advantage" id="recipe-advantage" aria-label="The Recipe Advantage">
+<!-- ============================================================ WIDGET 4: CAPABILITIES (6-card grid) ============================================================ -->
+<section class="rc-cap" aria-label="Capabilities">
   <style>
-    .recipe_advantage { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:92px 0; overflow:hidden; position:relative; }
-    .recipe_advantage::before { content:""; position:absolute; inset:-220px -180px auto -180px; height:520px; background: radial-gradient(closest-side, rgba(169,86,255,.16), transparent 60%), radial-gradient(closest-side, rgba(55,102,254,.12), transparent 60%); filter:blur(14px); pointer-events:none; }
-    .recipe_advantage .pp-inner { padding:0 14vw; }
-    .recipe_advantage .pp-head { text-align:center; max-width:980px; margin:0 auto 44px; position:relative; z-index:2; }
-    .recipe_advantage .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .recipe_advantage .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:14px; letter-spacing:-1px; }
-    .recipe_advantage .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:920px; margin:0 auto; }
-    .recipe_advantage .pp-flow { position:relative; z-index:2; max-width:1100px; margin:34px auto 0; }
-    .recipe_advantage .pp-spine { position:absolute; top:18px; bottom:18px; left:28px; width:2px; background:linear-gradient(180deg, rgba(169,86,255,0), rgba(124,93,255,.35), rgba(55,102,254,.25), rgba(55,102,254,0)); border-radius:999px; opacity:.7; }
-    .recipe_advantage .pp-spine::after { content:""; position:absolute; left:50%; transform:translateX(-50%); width:10px; height:70px; border-radius:999px; background:linear-gradient(180deg, rgba(169,86,255,0), rgba(169,86,255,.55), rgba(55,102,254,.55), rgba(55,102,254,0)); filter:blur(1px); animation: recipeSpine 4.6s ease-in-out infinite; }
-    @keyframes recipeSpine { 0%{top:0%;opacity:.25;} 20%{opacity:.9;} 50%{top:52%;opacity:.75;} 80%{opacity:.9;} 100%{top:100%;opacity:.25;} }
-    .recipe_advantage .pp-adv { display:grid; grid-template-columns:70px 1fr; gap:18px 26px; padding:26px 20px 26px 0; border-top:1px solid rgba(226,232,240,.75); }
-    .recipe_advantage .pp-adv:first-child { border-top:none; }
-    .recipe_advantage .pp-adv-marker { display:flex; justify-content:center; padding-top:6px; }
-    .recipe_advantage .pp-badge { width:46px; height:46px; border-radius:16px; background:#fff; border:1px solid rgba(226,232,240,.9); box-shadow:0 16px 40px rgba(15,23,42,.06); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .recipe_advantage .pp-badge::before { content:""; position:absolute; inset:-2px; background:linear-gradient(135deg, rgba(169,86,255,.20), rgba(55,102,254,.12)); opacity:.55; }
-    .recipe_advantage .pp-badge span { position:relative; z-index:2; font-weight:700; font-size:13px; letter-spacing:.08em; color:rgba(17,24,39,.88); }
-    .recipe_advantage .pp-adv-title { font-size:22px; line-height:1.2; font-weight:600; color:#111827; margin-bottom:10px; letter-spacing:-.3px; }
-    .recipe_advantage .pp-adv-body { font-size:16px; line-height:1.65; font-weight:300; color:#4B5563; margin-bottom:14px; max-width:90ch; }
-    .recipe_advantage .pp-result { display:flex; align-items:center; gap:10px; padding:12px 14px; border-radius:18px; border:1px solid rgba(55,102,254,.18); background:linear-gradient(135deg, rgba(55,102,254,.06), rgba(169,86,255,.05)); color:rgba(17,24,39,.86); font-size:14px; line-height:1.45; font-weight:500; width:fit-content; }
-    .recipe_advantage .pp-result strong { font-weight:700; color:#111827; }
-    .recipe_advantage .pp-dot { width:10px; height:10px; border-radius:50%; background:#3766fe; box-shadow:0 0 0 7px rgba(55,102,254,.10); flex:0 0 auto; }
-    .recipe_advantage .pp-bridge { margin:30px auto 0; max-width:1100px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); text-align:center; color:#4B5563; font-size:15px; line-height:1.55; font-weight:300; }
-    .recipe_advantage .pp-bridge strong { font-weight:600; color:#111827; }
-    .recipe_advantage .pp-ctas { margin:24px auto 0; max-width:1100px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
-    .recipe_advantage .pp-btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
-    .recipe_advantage .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .recipe_advantage .pp-btn-primary:hover { transform:translateY(-2px); }
-    .recipe_advantage .pp-btn-secondary { background:#fff; color:rgba(17,24,39,.92); border:1px solid rgba(226,232,240,.95); box-shadow:0 10px 22px rgba(15,23,42,.05); }
-    .recipe_advantage .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .recipe_advantage .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .recipe_advantage .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width: 1400px){ .recipe_advantage .pp-inner{ padding:0 8vw; } .recipe_advantage .pp-title{ font-size:40px; } }
-    @media (max-width: 1024px){ .recipe_advantage{ padding:64px 0; } .recipe_advantage .pp-inner{ padding:0 5vw; } .recipe_advantage .pp-title{ font-size:32px; } .recipe_advantage .pp-spine{ display:none; } .recipe_advantage .pp-adv{ grid-template-columns:56px 1fr; padding:22px 0; } }
+    .rc-cap { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:100px 5vw; border-top:1px solid #e5e7eb; border-bottom:1px solid #e5e7eb; }
+    .rc-cap .wrap { max-width:1200px; margin:0 auto; }
+    .rc-cap .head { text-align:center; max-width:700px; margin:0 auto 56px; }
+    .rc-cap .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+    .rc-cap h2 { font-size:clamp(28px,3.6vw,38px); font-weight:400; line-height:1.2; letter-spacing:-.8px; color:#111827; }
+    .rc-cap .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .rc-cap .card { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:32px 28px; transition:border-color .3s, box-shadow .3s, transform .3s; position:relative; overflow:hidden; }
+    .rc-cap .card::before { content:''; position:absolute; inset:-1px; border-radius:22px; background:var(--grad); opacity:0; transition:opacity .3s; z-index:-1; }
+    .rc-cap .card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(124,93,255,.1); border-color:transparent; }
+    .rc-cap .card:hover::before { opacity:1; padding:1px; }
+    .rc-cap .icon { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; margin-bottom:18px; color:#7c5dff; }
+    .rc-cap .icon svg { width:22px; height:22px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .rc-cap .card h3 { font-size:18px; font-weight:600; color:#111827; margin-bottom:10px; line-height:1.3; letter-spacing:-.2px; }
+    .rc-cap .card p { font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; }
+    @media (max-width:1024px){ .rc-cap .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:600px){ .rc-cap .grid{ grid-template-columns:1fr; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head pp-reveal">
-      <div class="pp-kicker">The PurchasePlus Advantage</div>
-      <h2 class="pp-title">Build recipes once. Prices update automatically. Forever.</h2>
-      <p class="pp-sub">Three connected capabilities that turn your recipe library from a maintenance headache into a live margin instrument.</p>
+  <div class="wrap">
+    <div class="head">
+      <div class="kicker">Capabilities</div>
+      <h2>Everything your kitchen and finance team need.</h2>
     </div>
-    <div class="pp-flow">
-      <div class="pp-spine"></div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>01</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">Live-Linked Recipe Costing</h3>
-          <p class="pp-adv-body">Each recipe ingredient links to a real product in your PurchasePlus catalogue. Every time a supplier updates their price, every recipe containing that ingredient recalculates automatically. No manual updates. No stale numbers.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> Recipe costs that are accurate today — not three months ago.</span></div>
-        </div>
-      </div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>02</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">GP% at Dish and Menu Level</h3>
-          <p class="pp-adv-body">PurchasePlus calculates GP% per recipe using live ingredient costs and your selling price. Review at dish level, menu level, outlet level, or across your whole portfolio. Spot problems before they become patterns.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> Real gross profit — at the only levels that matter for decisions.</span></div>
-        </div>
-      </div>
-      <div class="pp-adv pp-reveal">
-        <div class="pp-adv-marker"><div class="pp-badge"><span>03</span></div></div>
-        <div>
-          <h3 class="pp-adv-title">Portion, Yield &amp; Waste Management</h3>
-          <p class="pp-adv-body">Build in yield factors, portion sizes, and prep weights for each ingredient. PurchasePlus calculates cost based on usable yield per portion — not the raw purchase unit. The math is always right.</p>
-          <div class="pp-result"><span class="pp-dot"></span><span><strong>The Result:</strong> Costs that reflect what you actually plate — not the invoice weight.</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="pp-bridge pp-reveal"><strong>Recipes are only useful when they're connected.</strong><br>PurchasePlus links recipes to purchasing, inventory, and POS so every cost, variance, and GP% flows through one system.</div>
-    <div class="pp-ctas pp-reveal">
-      <a class="pp-btn pp-btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo<svg viewBox="0 0 24 24"><path d="M8 5l10 7-10 7V5z"/></svg></a>
-      <a class="pp-btn pp-btn-secondary" href="#recipe-comparison">Compare the Market<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
+    <div class="grid">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Recipe Builder</h3><p>Unlimited ingredients, sub-recipes, and components.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h3>Live Ingredient Pricing</h3><p>Costs update automatically when supplier prices change.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg></div><h3>Selling Price &amp; GP%</h3><p>Enter your selling price and see GP% calculated instantly.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/></svg></div><h3>Menu Costing</h3><p>Group recipes into menus, calculate total food cost %.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v9l6 3"/></svg></div><h3>Yield &amp; Waste Tracking</h3><p>Accurate costing based on actual usable yield per portion.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Multi-Outlet Support</h3><p>Manage recipe libraries across multiple kitchens and outlets.</p></div>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const items = Array.from(document.querySelectorAll('.recipe_advantage .pp-reveal'));
-      const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { threshold: 0.12 });
-      items.forEach((el, i) => { el.style.transitionDelay = (i * 70) + "ms"; io.observe(el); });
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 4: COMPARISON TABLE (recipe_comparison)
-  Copy note: new table drafted for recipe costing dimensions.
-============================================================ -->
-<section class="recipe_comparison" id="recipe-comparison" aria-label="Compare the Market">
+<!-- ============================================================ WIDGET 5: CONNECTED PRODUCTS (3-card banner) ============================================================ -->
+<section class="rc-conn" aria-label="Connected Products">
   <style>
-    .recipe_comparison { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); --pp-pos:#00bdc5; --pp-neg:#ee2b62; width:100%; background:#fff; font-family:'Inter',sans-serif; padding:90px 0; overflow:hidden; }
-    .recipe_comparison .pp-inner { padding:0 14vw; }
-    .recipe_comparison .pp-head { text-align:center; max-width:1040px; margin:0 auto 44px; }
-    .recipe_comparison .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .recipe_comparison .pp-title { font-size:44px; line-height:1.1; font-weight:400; color:#111827; margin-bottom:14px; letter-spacing:-1px; }
-    .recipe_comparison .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; max-width:940px; margin:0 auto; }
-    .recipe_comparison .pp-table-wrap { margin-top:34px; border-radius:28px; border:1px solid rgba(226,232,240,.9); background:linear-gradient(180deg, rgba(248,250,252,.9), #fff); box-shadow:0 28px 70px rgba(15,23,42,.06); overflow:hidden; }
-    .recipe_comparison .pp-table { display:grid; grid-template-columns:1.35fr 1fr 1fr 1fr; }
-    .recipe_comparison .pp-th { padding:18px 22px; font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(17,24,39,.72); background:rgba(248,250,252,.92); border-bottom:1px solid rgba(226,232,240,.9); display:flex; align-items:center; min-height:64px; }
-    .recipe_comparison .pp-th.center { justify-content:center; }
-    .recipe_comparison .pp-pill { display:inline-flex; align-items:center; padding:10px 14px; border-radius:999px; border:1px solid rgba(226,232,240,.9); background:#fff; font-size:12px; font-weight:700; color:rgba(17,24,39,.78); white-space:nowrap; }
-    .recipe_comparison .pp-logo { height:64px; width:auto; display:block; }
-    .recipe_comparison .pp-row { display:contents; }
-    .recipe_comparison .pp-td { padding:18px 22px; border-bottom:1px solid rgba(226,232,240,.75); background:#fff; min-height:104px; display:flex; align-items:center; }
-    .recipe_comparison .pp-rowline.is-active .pp-td, .recipe_comparison .pp-rowline.is-locked .pp-td { background:linear-gradient(90deg, rgba(169,86,255,.05), rgba(124,93,255,.03)); }
-    .recipe_comparison .pp-feature-title { font-size:16px; font-weight:700; color:#111827; line-height:1.25; }
-    .recipe_comparison .pp-feature-desc { font-size:14px; font-weight:300; color:#4B5563; line-height:1.45; margin-top:8px; max-width:52ch; }
-    .recipe_comparison .pp-val { display:flex; align-items:center; gap:14px; width:100%; }
-    .recipe_comparison .pp-badge { width:44px; height:44px; border-radius:999px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(226,232,240,.9); background:rgba(248,250,252,.9); flex:0 0 44px; transition:background .25s ease, transform .25s ease; }
-    .recipe_comparison .pp-badge svg { width:18px; height:18px; }
-    .recipe_comparison .pp-val-text { font-size:14px; font-weight:500; color:rgba(17,24,39,.74); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:36ch; }
-    .recipe_comparison .pp-rowline.is-active .pp-badge[data-state="pos"], .recipe_comparison .pp-rowline.is-locked .pp-badge[data-state="pos"] { background:var(--pp-pos); border-color:rgba(0,189,197,.65); }
-    .recipe_comparison .pp-rowline.is-active .pp-badge[data-state="neg"], .recipe_comparison .pp-rowline.is-locked .pp-badge[data-state="neg"] { background:var(--pp-neg); border-color:rgba(238,43,98,.6); }
-    .recipe_comparison .pp-rowline.is-active .pp-badge svg path, .recipe_comparison .pp-rowline.is-locked .pp-badge svg path { stroke:#fff; }
-    .recipe_comparison .pp-rowline.is-active .pp-badge, .recipe_comparison .pp-rowline.is-locked .pp-badge { transform:scale(1.03); }
-    .recipe_comparison .pp-cta-bar { padding:22px 22px 26px; background:rgba(248,250,252,.55); display:flex; flex-direction:column; gap:14px; }
-    .recipe_comparison .pp-cta-title { font-size:14px; font-weight:700; color:#111827; }
-    .recipe_comparison .pp-cta-sub { font-size:14px; font-weight:300; color:#4B5563; }
-    .recipe_comparison .pp-cta-actions { display:flex; gap:14px; flex-wrap:wrap; margin-top:6px; }
-    .recipe_comparison .pp-btn { display:inline-flex; align-items:center; gap:12px; padding:16px 22px; border-radius:999px; font-size:14px; font-weight:600; border:1px solid rgba(226,232,240,.9); background:#fff; color:rgba(17,24,39,.84); text-decoration:none; box-shadow:0 14px 28px rgba(15,23,42,.06); transition:transform .2s ease; }
-    .recipe_comparison .pp-btn.primary { border:none; background:var(--pp-grad); color:#fff; box-shadow:0 16px 34px rgba(55,102,254,.18); }
-    .recipe_comparison .pp-btn:hover { transform:translateY(-2px); }
-    .recipe_comparison .pp-leaders-text { text-align:center; font-size:14px; font-weight:300; color:#4B5563; margin-top:40px; margin-bottom:15px; }
-    .recipe_comparison .pp-brand-anim { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; display:inline-block; animation:recipeMarqueeGrad 5s linear infinite; }
-    @keyframes recipeMarqueeGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .recipe_comparison .pp-carousel { width:100%; overflow:hidden; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); }
-    .recipe_comparison .pp-track { display:flex; gap:15rem; align-items:center; animation:recipeMarquee 40s linear infinite; width:max-content; }
-    .recipe_comparison .pp-track img { height:120px; min-width:200px; object-fit:contain; flex-shrink:0; }
-    @keyframes recipeMarquee { from{transform:translateX(0);} to{transform:translateX(-50%);} }
-    @media (max-width: 1400px){ .recipe_comparison .pp-inner{ padding:0 6vw; } .recipe_comparison .pp-title{ font-size:40px; } .recipe_comparison .pp-table{ grid-template-columns:1.2fr 0.85fr 0.85fr 0.85fr; } .recipe_comparison .pp-feature-title{ font-size:15px; } .recipe_comparison .pp-feature-desc{ font-size:13px; } .recipe_comparison .pp-val-text{ font-size:13px; } .recipe_comparison .pp-badge{ width:38px; height:38px; flex:0 0 38px; } }
-    @media (max-width: 1024px){ .recipe_comparison{ padding:50px 0; } .recipe_comparison .pp-title{ font-size:28px; } .recipe_comparison .pp-feature-title{ font-size:12px; } .recipe_comparison .pp-feature-desc{ font-size:10px; } .recipe_comparison .pp-val-text{ font-size:9px; } .recipe_comparison .pp-badge{ width:28px; height:28px; flex:0 0 28px; } }
-    @media (max-width: 480px){ .recipe_comparison .pp-val-text{ display:none; } .recipe_comparison .pp-badge{ width:20px; height:20px; flex:0 0 20px; } }
+    .rc-conn { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
+    .rc-conn .wrap { max-width:1200px; margin:0 auto; }
+    .rc-conn .head { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:end; margin-bottom:56px; }
+    .rc-conn .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:16px; }
+    .rc-conn h2 { font-size:clamp(30px,3.6vw,42px); font-weight:400; line-height:1.15; letter-spacing:-.8px; color:#111827; text-wrap:balance; }
+    .rc-conn .body { font-size:16px; font-weight:300; line-height:1.7; color:#4B5563; padding-bottom:8px; }
+    .rc-conn .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .rc-conn .card { position:relative; padding:36px 32px; border-radius:24px; background:#fff; border:1px solid #e2e8f0; text-decoration:none; transition:transform .3s, box-shadow .3s, border-color .3s; overflow:hidden; display:flex; flex-direction:column; min-height:240px; }
+    .rc-conn .card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:var(--grad); transform:scaleX(.3); transform-origin:left; transition:transform .4s ease; }
+    .rc-conn .card:hover { transform:translateY(-6px); box-shadow:0 28px 70px rgba(124,93,255,.14); border-color:transparent; }
+    .rc-conn .card:hover::before { transform:scaleX(1); }
+    .rc-conn .card-eyebrow { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
+    .rc-conn .card h3 { font-size:22px; font-weight:500; letter-spacing:-.3px; color:#111827; margin-bottom:10px; }
+    .rc-conn .card p { font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; margin-bottom:auto; }
+    .rc-conn .card-link { display:inline-flex; align-items:center; gap:6px; color:#7c5dff; font-size:14px; font-weight:500; margin-top:24px; }
+    .rc-conn .card-link svg { width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none; transition:transform .2s; stroke-linecap:round; stroke-linejoin:round; }
+    .rc-conn .card:hover .card-link svg { transform:translateX(4px); }
+    @media (max-width:1024px){ .rc-conn .head{ grid-template-columns:1fr; gap:16px; } .rc-conn .cards{ grid-template-columns:1fr; } }
   </style>
-  <div class="pp-inner">
-    <div class="pp-head">
-      <div class="pp-kicker">Comparison Table</div>
-      <h2 class="pp-title">Compare the Market</h2>
-      <p class="pp-sub">See how PurchasePlus compares to spreadsheet-based recipe costing and niche menu apps — across pricing, GP%, yield, sub-recipes, and system integration.</p>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <div class="kicker">Connected Products</div>
+        <h2>Recipes are the bridge between your kitchen and your finance team.</h2>
+      </div>
+      <p class="body">A recipe cost only means something when it's connected to real purchasing data, live inventory, and your POS. PurchasePlus connects all three.</p>
     </div>
-    <div class="pp-table-wrap">
-      <div class="pp-table">
-        <div class="pp-th">Feature</div>
-        <div class="pp-th center"><img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/98-082%20PurchasePlus%20Logo%20Horizontal%20RGB%2072dpi.png" alt="PurchasePlus" class="pp-logo"></div>
-        <div class="pp-th center"><span class="pp-pill">Spreadsheets</span></div>
-        <div class="pp-th center"><span class="pp-pill">Niche Recipe Apps</span></div>
-        <div class="pp-rowline pp-row" data-row="0">
-          <div class="pp-td"><div><p class="pp-feature-title">Ingredient Pricing</p><p class="pp-feature-desc">Recipe costs update automatically when supplier invoice prices change.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Live from Invoices</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual Quarterly Updates</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual Import or Integration</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="1">
-          <div class="pp-td"><div><p class="pp-feature-title">GP% Calculation</p><p class="pp-feature-desc">Calculate gross profit per dish, menu, or outlet using real costs.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Dish, Menu &amp; Outlet</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Formula-Based, Error-Prone</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Dish-Level Only</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="2">
-          <div class="pp-td"><div><p class="pp-feature-title">Yield &amp; Portion</p><p class="pp-feature-desc">Cost based on usable yield per portion — not raw purchase weight.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Yield Factors Built In</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Manual Math</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Basic Portion Only</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="3">
-          <div class="pp-td"><div><p class="pp-feature-title">Sub-Recipes</p><p class="pp-feature-desc">Cost cascades automatically through stocks, sauces, and components.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">Nested, Auto-Cascaded</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Duplicate Sheets</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Limited / Flat Structure</div></div></div>
-        </div>
-        <div class="pp-rowline pp-row" data-row="4">
-          <div class="pp-td"><div><p class="pp-feature-title">POS &amp; Inventory Link</p><p class="pp-feature-desc">Sales decrement inventory by recipe; variance appears in real time.</p></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="pos"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="pp-val-text">POS &amp; Inventory Native</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">Disconnected</div></div></div>
-          <div class="pp-td"><div class="pp-val"><div class="pp-badge" data-state="neg"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round"/></svg></div><div class="pp-val-text">One-Way Export Only</div></div></div>
-        </div>
-      </div>
-      <div class="pp-cta-bar">
-        <p class="pp-cta-title">Want to see recipe costing live across your menus?</p>
-        <p class="pp-cta-sub">Book a personal demo and we'll show you how PurchasePlus links recipes, pricing, yield, and GP% in one flow.</p>
-        <div class="pp-cta-actions">
-          <a class="pp-btn primary" href="https://www.purchaseplus.com/request-a-demo">Book Your Personal Demo<svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a class="pp-btn" href="https://www.purchaseplus.com/integrations/pos-systems">See POS Integrations<svg viewBox="0 0 24 24"><path d="M5 12h12M13 6l6 6-6 6" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <div class="pp-leaders-text">Industry leaders demand the best. The best choose <span class="pp-brand-anim">PurchasePlus</span>.</div>
-    <div class="pp-carousel">
-      <div class="pp-track">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel" aria-hidden="true">
-        <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra" aria-hidden="true">
-      </div>
+    <div class="cards">
+      <a class="card" href="https://www.purchaseplus.com/inventory">
+        <div class="card-eyebrow">Connected Product</div>
+        <h3>Inventory Management</h3>
+        <p>Live stock values, recipe-linked decrements, and variance visibility across every venue.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card" href="https://akilalohan-lang.github.io/purchaseplus-2026-pages/invoicing-and-ap-automation/">
+        <div class="card-eyebrow">Connected Product</div>
+        <h3>Point of Sale</h3>
+        <p>POS sales feed directly into recipes, decrementing inventory and surfacing GP% the same day.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
+      <a class="card" href="https://www.purchaseplus.com/for-suppliers">
+        <div class="card-eyebrow">Connected Product</div>
+        <h3>Supplier Engagement</h3>
+        <p>30,000+ suppliers on platform. Price updates flow in natively and trigger recipe recalcs.</p>
+        <span class="card-link">Explore <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+      </a>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const widget = document.querySelector(".recipe_comparison");
-      const rows = Array.from(widget.querySelectorAll(".pp-rowline"));
-      let started = false;
-      function runSequence(){
-        if (started) return; started = true;
-        let i = 0; const stepMs = 900;
-        const tick = () => { if (i >= rows.length) return; const row = rows[i]; row.classList.add("is-active"); setTimeout(() => { row.classList.remove("is-active"); row.classList.add("is-locked"); }, Math.max(520, stepMs - 180)); i++; setTimeout(tick, stepMs); };
-        tick();
-      }
-      const io = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) runSequence(); }); }, { threshold: 0.25 });
-      io.observe(widget);
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 5: THREE PILLARS (recipe_pillars)
-  Mapped from DOCX CAPABILITIES + CONNECTED PRODUCTS, condensed to 3
-============================================================ -->
-<section class="recipe_pillars" aria-label="Three Pillars of Recipe Costing">
+<!-- ============================================================ WIDGET 6: CTA BANNER ============================================================ -->
+<section class="rc-cta" aria-label="Final CTA">
   <style>
-    .recipe_pillars { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; background:#fafafa; color:#1a1a1b; }
-    .recipe_pillars .wp_scroll_wrapper { height:380vh; position:relative; }
-    .recipe_pillars .wp_sticky_area { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:10px 20px; overflow:hidden; }
-    .recipe_pillars .wp_header { text-align:center; padding:8px 20px 4px; flex-shrink:0; }
-    .recipe_pillars .wp_kicker { font-weight:700; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#6b7280; margin-bottom:4px; }
-    .recipe_pillars .wp_heading { font-size:clamp(26px,3.6vw,36px); font-weight:400; line-height:1.2; margin-bottom:6px; letter-spacing:-0.5px; color:#1a1a1b; }
-    .recipe_pillars .wp_sub { font-size:14px; color:#444446; max-width:580px; margin:0 auto; line-height:1.4; }
-    .recipe_pillars .wp_outcome { text-align:center; margin-top:8px; padding-bottom:8px; }
-    .recipe_pillars .wp_outcome_label { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:#6b7280; margin-bottom:3px; }
-    .recipe_pillars .wp_outcome_title { font-size:20px; font-weight:400; color:#1a1a1b; }
-    .recipe_pillars .wp_grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1100px; width:100%; align-items:stretch; position:relative; z-index:2; }
-    .recipe_pillars .wp_grad { background:linear-gradient(90deg,#a956ff,#7c5dff,#3766fe,#7c5dff,#a956ff); background-size:800px 100%; animation:recipePillarGrad 3.5s ease-in-out infinite; }
-    @keyframes recipePillarGrad { 0%{background-position:0 0;} 50%{background-position:400px 0;} 100%{background-position:0 0;} }
-    .recipe_pillars .wp_pillar { display:flex; flex-direction:column; align-items:center; opacity:0; transform:translateY(60px); transition:opacity 0.9s cubic-bezier(0.22,1,0.36,1), transform 0.9s cubic-bezier(0.22,1,0.36,1); }
-    .recipe_pillars .wp_pillar.wp_revealed { opacity:1; transform:translate(0,0); }
-    .recipe_pillars .wp_cap_bar { width:100%; height:12px; border-radius:10px 10px 0 0; }
-    .recipe_pillars .wp_cap_taper { width:91%; height:8px; border-radius:0 0 8px 8px; }
-    .recipe_pillars .wp_pillar_shaft { width:82%; padding:3px; flex-grow:1; border-radius:8px; }
-    .recipe_pillars .wp_shaft_inner { background:#fff; padding:14px; text-align:center; display:flex; flex-direction:column; height:100%; border-radius:6px; }
-    .recipe_pillars .wp_base_taper { width:91%; height:8px; border-radius:8px 8px 0 0; }
-    .recipe_pillars .wp_base_bar { width:100%; height:12px; border-radius:0 0 10px 10px; }
-    .recipe_pillars .wp_card_kicker { font-size:clamp(7px,0.85vw,10px); font-weight:700; letter-spacing:0.6px; text-transform:uppercase; margin-bottom:6px; background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-    .recipe_pillars .wp_card_title { font-size:clamp(11px,1.1vw,14px); font-weight:600; line-height:1.3; margin-bottom:8px; color:#1a1a1b; }
-    .recipe_pillars .wp_card_body { font-size:12px; color:#444446; line-height:1.5; margin-bottom:10px; flex-grow:1; }
-    .recipe_pillars .wp_examples { list-style:none; padding:0; margin:4px auto 0; display:inline-flex; flex-direction:column; gap:4px; text-align:left; }
-    .recipe_pillars .wp_examples li { display:flex; align-items:center; gap:7px; font-size:clamp(8px,0.8vw,11px); color:#444446; line-height:1.3; }
-    .recipe_pillars .wp_ex_icon { width:14px; height:14px; flex-shrink:0; color:#7c5dff; }
-    .recipe_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:24px; }
-    .recipe_pillars .wp_pillar_center .wp_shaft_inner { padding-top:20px; }
-    .recipe_pillars .wp_card_result { font-size:11px; font-weight:600; color:#1a1a1b; padding-top:10px; line-height:1.4; position:relative; }
-    .recipe_pillars .wp_card_result::before { content:''; position:absolute; top:0; left:10%; width:80%; height:2px; background:var(--pp-grad); border-radius:1px; }
-    .recipe_pillars .wp_card_result strong { background:var(--pp-grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-    @media (max-width:991px){ .recipe_pillars { overflow-x:hidden; } .recipe_pillars .wp_scroll_wrapper { height:auto !important; } .recipe_pillars .wp_sticky_area { position:relative; height:auto; padding:40px 20px; overflow:visible; } .recipe_pillars .wp_grid { grid-template-columns:1fr; gap:80px; max-width:400px; margin:0 auto; } .recipe_pillars .wp_pillar:not(.wp_pillar_center) { padding-top:0; } .recipe_pillars .wp_pillar:nth-child(odd) { transform:translateX(-80px); } .recipe_pillars .wp_pillar:nth-child(even) { transform:translateX(80px); } .recipe_pillars .wp_pillar.wp_revealed { opacity:1; transform:translateX(0); } .recipe_pillars .wp_shaft_inner { padding:28px 22px; } }
+    .rc-cta { font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
+    .rc-cta .wrap { max-width:960px; margin:0 auto; text-align:center; }
+    .rc-cta h2 { font-size:clamp(32px,4.4vw,54px); font-weight:400; line-height:1.1; letter-spacing:-1.2px; margin-bottom:20px; color:#111827; }
+    .rc-cta h2 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:rcCtaGrad 4s linear infinite; }
+    @keyframes rcCtaGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .rc-cta .body { font-size:18px; font-weight:300; line-height:1.65; color:#4B5563; max-width:640px; margin:0 auto 36px; }
+    .rc-cta .btns { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .rc-cta .btn { display:inline-flex; align-items:center; padding:15px 32px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .rc-cta .btn-primary { background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); color:#fff; box-shadow:0 10px 26px rgba(55,102,254,.25); }
+    .rc-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 16px 36px rgba(55,102,254,.32); }
+    .rc-cta .btn-ghost { background:#fff; color:#111827; border:1px solid #e2e8f0; }
+    .rc-cta .btn-ghost:hover { transform:translateY(-2px); border-color:#c4b5fd; }
+    @media (max-width:640px){ .rc-cta{ padding:72px 20px; } }
   </style>
-  <div class="wp_scroll_wrapper">
-    <div class="wp_sticky_area">
-      <header class="wp_header">
-        <div class="wp_kicker">The PurchasePlus Advantage</div>
-        <h2 class="wp_heading">Three Pillars of Live Recipe Costing</h2>
-        <p class="wp_sub">Your kitchen, finance team, and POS shouldn't live in different systems. PurchasePlus connects them into one live margin engine.</p>
-      </header>
-      <div class="wp_outcome">
-        <div class="wp_outcome_label">Core Business Outcome</div>
-        <div class="wp_outcome_title">Live GP% Across Every Menu</div>
-      </div>
-      <div class="wp_grid">
-        <div class="wp_pillar" data-reveal="2">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Build once. Update never.</div>
-              <h3 class="wp_card_title">Live Ingredient Pricing</h3>
-              <div class="wp_card_body">
-                <p>Each ingredient links to a real product in your PurchasePlus catalogue. Invoice prices feed directly into recipe costs — every time a supplier price changes.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg><span>Fresh produce — weekly price shifts</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg><span>Dry goods — contracted or spot</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg><span>Beverage — multi-pack conversions</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> Recipe costs that are accurate today — not at last quarter's prices.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-        <div class="wp_pillar wp_pillar_center" data-reveal="1">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Dish to menu to portfolio.</div>
-              <h3 class="wp_card_title">Menu GP% at Every Level</h3>
-              <div class="wp_card_body">
-                <p>See gross profit by dish, by menu, by outlet — using live ingredient costs and your selling price. Spot problems before they become patterns.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-6"/></svg><span>Per-dish — traffic-light margins</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/></svg><span>Per-menu — food cost %</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/></svg><span>Per-outlet — variance by location</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> Menu engineering decisions based on today's numbers — not last month's.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-        <div class="wp_pillar" data-reveal="3">
-          <div class="wp_cap_bar wp_grad"></div>
-          <div class="wp_cap_taper wp_grad"></div>
-          <div class="wp_pillar_shaft wp_grad">
-            <div class="wp_shaft_inner">
-              <div class="wp_card_kicker">Recipe to inventory to POS.</div>
-              <h3 class="wp_card_title">Connected to Inventory &amp; POS</h3>
-              <div class="wp_card_body">
-                <p>Every recipe links to inventory. When a dish sells via POS, inventory decrements automatically by the recipe quantities — theoretical vs actual variance shows up in real time.</p>
-                <ul class="wp_examples">
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="20 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span>POS sale decrements stock</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg><span>Theoretical vs actual flagged</span></li>
-                  <li><svg class="wp_ex_icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>Variance visible same day</span></li>
-                </ul>
-              </div>
-              <div class="wp_card_result"><strong>The Result:</strong> You see shrink, waste, and over-pour the day they happen — not at month-end.</div>
-            </div>
-          </div>
-          <div class="wp_base_taper wp_grad"></div>
-          <div class="wp_base_bar wp_grad"></div>
-        </div>
-      </div>
+  <div class="wrap">
+    <h2>Know what every dish costs. <em>Today.</em></h2>
+    <p class="body">Stop estimating. Connect your recipes to live pricing and make menu decisions based on real numbers.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
+      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
     </div>
   </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const pillars = document.querySelectorAll('.recipe_pillars .wp_pillar');
-      const scrollWrapper = document.querySelector('.recipe_pillars .wp_scroll_wrapper');
-      function isMobile() { return window.innerWidth <= 991; }
-      function initMobile() { const o = new IntersectionObserver((e) => { e.forEach(en => { if (en.isIntersecting) en.target.classList.add('wp_revealed'); }); }, { threshold: 0.15 }); pillars.forEach(p => o.observe(p)); }
-      function initDesktop() {
-        function onScroll() {
-          const rect = scrollWrapper.getBoundingClientRect();
-          const scrollableHeight = scrollWrapper.offsetHeight - window.innerHeight;
-          const progress = Math.max(0, Math.min(1, -rect.top / scrollableHeight));
-          pillars.forEach(p => { const step = parseInt(p.dataset.reveal, 10); const threshold = (step - 1) / 3; if (progress >= threshold) p.classList.add('wp_revealed'); else p.classList.remove('wp_revealed'); });
-        }
-        window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-      }
-      if (isMobile()) initMobile(); else initDesktop();
-    });
-  </script>
 </section>
 
-<!-- ============================================================
-  WIDGET 6: FINAL CTA WITH FORMULA (recipe_finalcta)
-  Formula: Dish Cost = Σ (Qty × Live Price × Yield Factor)
-============================================================ -->
-<section class="recipe_finalcta" aria-label="Final CTA">
-  <style>
-    .recipe_finalcta { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); width:100%; background:#fff; font-family:'Inter',sans-serif; padding:92px 0; overflow:hidden; position:relative; }
-    .recipe_finalcta .pp-bg-chart { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; filter:blur(3px); opacity:.5; }
-    .recipe_finalcta .pp-inner { max-width:900px; margin:0 auto; padding:0 24px; text-align:center; position:relative; z-index:2; }
-    .recipe_finalcta .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .recipe_finalcta .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:#4B5563; margin:0 auto 36px; max-width:740px; }
-    .recipe_finalcta .pp-formula-card { max-width:840px; margin:0 auto 44px; padding:32px 36px; border-radius:22px; background:rgba(255,255,255,.92); backdrop-filter:blur(14px); border:1px solid rgba(226,232,240,.9); box-shadow:0 28px 70px rgba(15,23,42,.06); position:relative; z-index:2; }
-    .recipe_finalcta .pp-formula { display:flex; align-items:center; justify-content:center; gap:14px; margin-bottom:8px; }
-    .recipe_finalcta .pp-wac { font-size:24px; font-weight:700; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.5px; flex-shrink:0; }
-    .recipe_finalcta .pp-equals { font-size:22px; font-weight:300; color:#4B5563; flex-shrink:0; }
-    .recipe_finalcta .pp-fraction { display:inline-flex; flex-direction:column; align-items:center; flex-shrink:1; }
-    .recipe_finalcta .pp-numerator, .recipe_finalcta .pp-denominator { font-size:12px; font-weight:400; color:#111827; line-height:1.4; padding:4px 10px; white-space:nowrap; }
-    .recipe_finalcta .pp-frac-line { width:100%; height:1px; background:#111827; opacity:.35; }
-    .recipe_finalcta .pp-live-result { font-size:30px; font-weight:700; background-image:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:recipeGradShift 4s linear infinite; min-width:90px; display:inline-block; }
-    @keyframes recipeGradShift { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .recipe_finalcta .pp-tagline { display:flex; justify-content:center; gap:18px; margin-top:20px; white-space:nowrap; }
-    .recipe_finalcta .pp-tag { font-size:13px; font-weight:500; color:#4B5563; display:flex; align-items:center; gap:6px; }
-    .recipe_finalcta .pp-tag-dot { width:6px; height:6px; border-radius:50%; background:#3766fe; box-shadow:0 0 0 4px rgba(55,102,254,.10); }
-    .recipe_finalcta .pp-cta-heading { font-size:28px; line-height:1.2; font-weight:400; color:#111827; margin-bottom:8px; letter-spacing:-.5px; }
-    .recipe_finalcta .pp-cta-sub { font-size:16px; font-weight:300; color:#4B5563; margin-bottom:24px; line-height:1.5; }
-    .recipe_finalcta .pp-btn { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; border-radius:999px; font-size:16px; font-weight:500; text-decoration:none; transition:transform .18s ease; background:var(--pp-grad); color:#fff; box-shadow:0 12px 26px rgba(55,102,254,.22); }
-    .recipe_finalcta .pp-btn:hover { transform:translateY(-2px); box-shadow:0 16px 34px rgba(55,102,254,.30); }
-    .recipe_finalcta .pp-btn svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-    .recipe_finalcta .pp-reveal { opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .5s ease; }
-    .recipe_finalcta .pp-reveal.is-in { opacity:1; transform:translateY(0); }
-    @media (max-width: 1024px){ .recipe_finalcta{ padding:64px 0; } .recipe_finalcta .pp-formula-card{ padding:24px 20px; } .recipe_finalcta .pp-wac{ font-size:20px; } .recipe_finalcta .pp-live-result{ font-size:24px; } .recipe_finalcta .pp-numerator, .recipe_finalcta .pp-denominator{ font-size:10px; } }
-    @media (max-width: 768px){ .recipe_finalcta .pp-formula{ gap:8px; flex-wrap:wrap; } .recipe_finalcta .pp-wac{ font-size:16px; } .recipe_finalcta .pp-equals{ font-size:14px; } .recipe_finalcta .pp-live-result{ font-size:18px; } .recipe_finalcta .pp-numerator, .recipe_finalcta .pp-denominator{ font-size:8px; padding:2px 4px; } .recipe_finalcta .pp-cta-heading{ font-size:22px; } }
-    @media (max-width: 480px){ .recipe_finalcta .pp-btn{ width:100%; max-width:320px; } }
-  </style>
-  <canvas class="pp-bg-chart" id="recipe-chart" aria-hidden="true"></canvas>
-  <div class="pp-inner">
-    <div class="pp-reveal">
-      <div class="pp-kicker">The Recipe Costing Math</div>
-      <p class="pp-sub">We don't estimate. Every dish is costed from live supplier prices and real yield — the formula every chef has been writing on napkins for decades, finally automated.</p>
-    </div>
-    <div class="pp-formula-card pp-reveal">
-      <div class="pp-formula">
-        <span class="pp-wac">Dish Cost</span>
-        <span class="pp-equals">=</span>
-        <span class="pp-fraction">
-          <span class="pp-numerator">Σ (Qty × Live Price × Yield Factor)</span>
-          <span class="pp-frac-line"></span>
-          <span class="pp-denominator">Portions Produced</span>
-        </span>
-        <span class="pp-equals">=</span>
-        <span class="pp-live-result" id="recipe-dish-val">$4.82</span>
-      </div>
-      <div class="pp-tagline">
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Live-linked</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> Yield-adjusted</span>
-        <span class="pp-tag"><span class="pp-tag-dot"></span> GP%-ready</span>
-      </div>
-    </div>
-    <div class="pp-reveal">
-      <h2 class="pp-cta-heading">Know what every dish costs. Today.</h2>
-      <p class="pp-cta-sub">Stop estimating. Connect your recipes to live pricing and make menu decisions based on real numbers.</p>
-      <a class="pp-btn" href="https://www.purchaseplus.com/request-a-demo">Book a Demo<svg viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 5l7 7-7 7"/></svg></a>
-    </div>
-  </div>
-  <script>
-    (function(){
-      var section = document.querySelector('.recipe_finalcta');
-      if (!section) return;
-      var items = Array.prototype.slice.call(section.querySelectorAll('.pp-reveal'));
-      var revealIO = new IntersectionObserver(function(entries){ entries.forEach(function(e){ if (!e.isIntersecting) return; e.target.classList.add('is-in'); revealIO.unobserve(e.target); }); }, { threshold: 0.12 });
-      items.forEach(function(el, i){ el.style.transitionDelay = (i * 100) + 'ms'; revealIO.observe(el); });
-      var canvas = document.getElementById('recipe-chart');
-      if (!canvas || !canvas.getContext) return;
-      var ctx = canvas.getContext('2d');
-      var CYCLE = 20000, DISH_START = 4.82, DISH_END = 3.21;
-      var dishEl = document.getElementById('recipe-dish-val');
-      var NUM_BARS = 24; var barTargets = [];
-      for (var b = 0; b < NUM_BARS; b++){ var p = b / (NUM_BARS - 1); var base = 0.18 + 0.62 * Math.pow(p, 1.3); var noise = Math.sin(p * 11.3) * 0.06 + Math.sin(p * 23.7 + 1.5) * 0.04; barTargets.push(Math.max(0.08, Math.min(0.92, base + noise))); }
-      function resize(){ var rect = section.getBoundingClientRect(); var dpr = window.devicePixelRatio || 1; canvas.width = rect.width * dpr; canvas.height = rect.height * dpr; canvas.style.width = rect.width + 'px'; canvas.style.height = rect.height + 'px'; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
-      resize(); window.addEventListener('resize', resize);
-      var startTime = null, running = false;
-      function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
-      function draw(timestamp){
-        if (!running) return; if (!startTime) startTime = timestamp;
-        var elapsed = (timestamp - startTime) % CYCLE, cycleProgress = elapsed / CYCLE;
-        var dpr = window.devicePixelRatio || 1, w = canvas.width / dpr, h = canvas.height / dpr;
-        ctx.clearRect(0, 0, w, h);
-        var drawPhase = Math.min(cycleProgress / 0.75, 1);
-        var fadePhase = cycleProgress > 0.85 ? (cycleProgress - 0.85) / 0.15 : 0;
-        ctx.globalAlpha = 1 - easeOutCubic(fadePhase);
-        var padX = w * 0.04, padTop = h * 0.05, padBottom = h * 0.05;
-        var chartW = w - padX * 2, chartH = h - padTop - padBottom;
-        var barGap = chartW * 0.015, barWidth = (chartW - barGap * (NUM_BARS - 1)) / NUM_BARS;
-        var barsToShow = Math.min(NUM_BARS, Math.ceil(drawPhase * NUM_BARS));
-        for (var i = 0; i < barsToShow; i++){
-          var barX = padX + i * (barWidth + barGap);
-          var targetH = barTargets[i] * chartH;
-          var barStart = i / NUM_BARS * 0.85, barEnd = barStart + 0.25;
-          var barProgress = easeOutCubic(Math.max(0, Math.min(1, (drawPhase - barStart) / (barEnd - barStart))));
-          var currentH = targetH * barProgress, barY = padTop + chartH - currentH;
-          var barGrad = ctx.createLinearGradient(0, barY, 0, padTop + chartH);
-          barGrad.addColorStop(0, 'rgba(169,86,255,0.75)'); barGrad.addColorStop(0.4, 'rgba(124,93,255,0.55)'); barGrad.addColorStop(1, 'rgba(55,102,254,0.30)');
-          var radius = Math.min(barWidth * 0.35, 4);
-          ctx.beginPath();
-          ctx.moveTo(barX, padTop + chartH); ctx.lineTo(barX, barY + radius);
-          ctx.quadraticCurveTo(barX, barY, barX + radius, barY);
-          ctx.lineTo(barX + barWidth - radius, barY);
-          ctx.quadraticCurveTo(barX + barWidth, barY, barX + barWidth, barY + radius);
-          ctx.lineTo(barX + barWidth, padTop + chartH); ctx.closePath();
-          ctx.fillStyle = barGrad; ctx.fill();
-        }
-        ctx.globalAlpha = 1;
-        if (dishEl){ var currentDish = DISH_START - (DISH_START - DISH_END) * easeOutCubic(Math.min(drawPhase, 1)); dishEl.textContent = '$' + currentDish.toFixed(2); }
-        requestAnimationFrame(draw);
-      }
-      var chartIO = new IntersectionObserver(function(entries){ entries.forEach(function(entry){ if (entry.isIntersecting){ running = true; startTime = null; requestAnimationFrame(draw); } else running = false; }); }, { threshold: 0.05 });
-      chartIO.observe(section);
-    })();
-  </script>
-</section>
-
-<!-- ============================================================
-  GLOBAL FOOTER (pasted verbatim from widget_footer.html)
-============================================================ -->
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
 <footer class="pp-footer" role="contentinfo">
   <style>
-    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
     .pp-footer { background:#fff; font-family:'Inter',sans-serif; color:#374151; border-top:1px solid #e5e7eb; }
     .pp-ftr-inner { max-width:1200px; margin:0 auto; padding:0 5vw; }
     .pp-ftr-body { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding:64px 0 52px; }
@@ -839,7 +418,6 @@
     .pp-ftr-contact-head { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
     .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
     .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
-    .pp-ftr-email:hover { color:#7c5dff; }
     @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
     .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
     .pp-ftr-social { display:flex; gap:10px; }
@@ -855,7 +433,6 @@
     .pp-ftr-col-divider { position:relative; }
     .pp-ftr-col-divider::before { content:''; position:absolute; left:-17px; top:0; bottom:0; width:1px; background:#e5e7eb; }
     .pp-ftr-phones a { font-size:12.5px; font-weight:300; color:#374151; text-decoration:none; }
-    .pp-ftr-phones a:hover { color:#7c5dff; }
     .pp-ftr-links { list-style:none; }
     .pp-ftr-links li + li { margin-top:11px; }
     .pp-ftr-links a { font-size:13.5px; font-weight:300; color:#6b7280; text-decoration:none; line-height:1.4; }
@@ -869,17 +446,14 @@
   <div class="pp-ftr-inner">
     <div class="pp-ftr-body">
       <div>
-        <a href="https://www.purchaseplus.com" class="pp-ftr-logo">
-          <img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26">
-          <img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182">
-        </a>
+        <a href="https://www.purchaseplus.com" class="pp-ftr-logo"><img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26"><img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182"></a>
         <p class="pp-ftr-contact-head">Get In Touch</p>
         <p class="pp-ftr-address">477 Pitt Street<br>Haymarket NSW 2000<br>Australia</p>
         <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
         <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
         <div class="pp-ftr-social">
-          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
-          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
         </div>
       </div>
       <div class="pp-ftr-col-offset">
@@ -918,10 +492,8 @@
       </div>
     </div>
   </div>
-  <div class="pp-ftr-bottom">
-    <div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-recipe"></span> PurchasePlus. All rights reserved.</p></div>
-  </div>
-  <script>document.getElementById('pp-ftr-year-recipe').textContent = new Date().getFullYear();</script>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-rc"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-rc').textContent=new Date().getFullYear();</script>
 </footer>
 
 </body>
