@@ -328,78 +328,177 @@
   </script>
 </section>
 
-<!-- ============================================================ WIDGET 2: THE PROBLEM (H2 + 3 pain cards, editorial style) ============================================================ -->
-<section class="bg-prob" aria-label="The Problem">
+<!-- ============================================================ WIDGET 2: THE PROBLEM (Inventory widget_018 exact pattern, GSAP looping) ============================================================ -->
+<section class="bg-prob" aria-label="Budget Reality Check">
   <style>
-    .bg-prob { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
-    .bg-prob .wrap { max-width:1160px; margin:0 auto; }
-    .bg-prob .head { text-align:center; max-width:820px; margin:0 auto 64px; }
-    .bg-prob .kicker { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:16px; }
-    .bg-prob h2 { font-size:clamp(34px,4.4vw,50px); font-weight:400; line-height:1.12; letter-spacing:-1.1px; color:#111827; margin-bottom:20px; }
-    .bg-prob h2 em { font-style:normal; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgProbGrad 5s linear infinite; }
-    @keyframes bgProbGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .bg-prob .body { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; max-width:720px; margin:0 auto; }
-    .bg-prob .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; position:relative; }
-    .bg-prob .cards::before { content:''; position:absolute; inset:-24px -40px; background:radial-gradient(ellipse at 50% 60%, rgba(169,86,255,.06), transparent 60%); z-index:-1; pointer-events:none; }
-    .bg-prob .card { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:32px 28px; position:relative; overflow:hidden; transition:transform .3s, box-shadow .3s, border-color .3s; }
-    .bg-prob .card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad); }
-    .bg-prob .card:hover { transform:translateY(-5px); box-shadow:0 24px 60px rgba(124,93,255,.1); }
-    .bg-prob .warn { display:inline-flex; align-items:center; gap:6px; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#ee2b62; background:rgba(238,43,98,.08); padding:6px 12px; border-radius:999px; margin-bottom:18px; }
-    .bg-prob .warn .dot { width:6px; height:6px; border-radius:50%; background:#ee2b62; box-shadow:0 0 0 3px rgba(238,43,98,.18); }
-    .bg-prob .card h3 { font-size:22px; font-weight:500; color:#111827; line-height:1.25; margin-bottom:12px; letter-spacing:-.3px; }
-    .bg-prob .card p { font-size:15px; font-weight:300; line-height:1.65; color:#4B5563; }
-    @media (max-width:1024px){ .bg-prob .cards{ grid-template-columns:1fr; } }
-    @media (max-width:640px){ .bg-prob{ padding:72px 20px; } }
+    .bg-prob { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); --pp-ink:#111827; --pp-body:#4B5563; --pp-border:#e2e8f0; --pp-soft:#f8fafc; font-family:'Inter',sans-serif; background:#fff; padding:90px 0; overflow:hidden; }
+    .bg-prob .pp-inner { width:100%; padding:0 14vw; box-sizing:border-box; }
+    .bg-prob .pp-head { text-align:center; max-width:980px; margin:0 auto 44px auto; }
+    .bg-prob .pp-kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin:0 0 16px 0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .bg-prob .pp-title { font-size:clamp(30px,4vw,44px); line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0 0 16px 0; letter-spacing:-1px; text-wrap:balance; }
+    .bg-prob .pp-sub { font-size:18px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 auto; max-width:900px; text-wrap:balance; }
+
+    .bg-prob .pp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; align-items:stretch; margin-top:34px; perspective:1100px; }
+    .bg-prob .pp-card { background:var(--pp-soft); border:1px solid var(--pp-border); border-radius:32px; padding:28px; box-shadow:0 20px 40px rgba(15,23,42,.03); position:relative; overflow:hidden; min-height:300px; display:flex; flex-direction:column; justify-content:flex-start; transform-origin:center center; will-change:transform; transform-style:preserve-3d; transition:background .4s ease, border-color .4s ease; }
+    .bg-prob .pp-card.is-active, .bg-prob .pp-card:hover { background:var(--pp-grad); border-color:transparent; }
+    .bg-prob .pp-card.is-active .pp-card-title, .bg-prob .pp-card:hover .pp-card-title { color:#fff; }
+    .bg-prob .pp-card.is-active .pp-card-desc, .bg-prob .pp-card:hover .pp-card-desc { color:rgba(255,255,255,.9); }
+    .bg-prob .pp-card.pp-tilt-1 { transform:rotate(-1.2deg); }
+    .bg-prob .pp-card.pp-tilt-2 { transform:rotate(1.0deg); }
+    .bg-prob .pp-card.pp-tilt-3 { transform:rotate(-0.6deg); }
+    .bg-prob .pp-card-inner { position:relative; z-index:2; }
+    .bg-prob .pp-card-title { font-size:24px; font-weight:600; color:var(--pp-ink); margin:0 0 16px 0; letter-spacing:-.5px; text-align:left; line-height:1.2; white-space:nowrap; transition:color .4s ease; }
+    .bg-prob .pp-card-desc { font-size:15px; line-height:1.55; font-weight:300; color:var(--pp-body); margin:0 0 20px 0; max-width:72%; transition:color .4s ease; }
+    .bg-prob .pp-card-character { position:absolute; bottom:0; right:0; width:180px; height:180px; pointer-events:none; opacity:0; transition:opacity .4s ease; }
+    .bg-prob .pp-card.is-active .pp-card-character, .bg-prob .pp-card:hover .pp-card-character { opacity:1; }
+    .bg-prob .pp-cta-btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 24px; background:var(--pp-grad); color:#fff; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; border-radius:999px; box-shadow:0 10px 25px rgba(55,102,254,.22); margin-top:auto; transition:background .4s ease, color .4s ease, box-shadow .2s ease; width:max-content; }
+    .bg-prob .pp-cta-btn:hover { box-shadow:0 14px 32px rgba(55,102,254,.30); }
+    .bg-prob .pp-card.is-active .pp-cta-btn, .bg-prob .pp-card:hover .pp-cta-btn { background:#fff !important; color:#7c5dff !important; box-shadow:0 0 20px rgba(255,255,255,.6), 0 10px 25px rgba(124,93,255,.22); }
+    .bg-prob .pp-bridge { text-align:center; margin:34px auto 0 auto; max-width:980px; padding:22px; border-radius:22px; background:#fff; border:1px dashed rgba(148,163,184,.55); color:var(--pp-body); font-size:15px; line-height:1.55; font-weight:300; }
+    .bg-prob .pp-bridge strong { font-weight:600; color:var(--pp-ink); }
+
+    @media (max-width:1400px) { .bg-prob .pp-inner { padding:0 8vw; } }
+    @media (max-width:1024px) {
+      .bg-prob { padding:64px 0; }
+      .bg-prob .pp-inner { padding:0 5vw; }
+      .bg-prob .pp-grid { grid-template-columns:1fr; gap:16px; }
+      .bg-prob .pp-card { padding:22px; min-height:auto; }
+      .bg-prob .pp-card-title { font-size:22px; white-space:normal; }
+      .bg-prob .pp-card-desc { max-width:72%; }
+      .bg-prob .pp-card-character { width:140px; height:140px; }
+      .bg-prob .pp-card.pp-tilt-1, .bg-prob .pp-card.pp-tilt-2, .bg-prob .pp-card.pp-tilt-3 { transform:none; }
+    }
+    @media (max-width:480px) { .bg-prob .pp-card-title { font-size:18px; } }
   </style>
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker">The Problem</div>
-      <h2>Your budget is a spreadsheet.<br>Your <em>spending</em> isn't.</h2>
-      <p class="body">Most finance teams set annual budgets in Excel and review actuals once a month, in arrears. By the time the numbers land, the damage is done. Maverick purchasing, unbudgeted orders, and price drift all happen between the spreadsheet and the invoice.</p>
+
+  <div class="pp-inner">
+    <div class="pp-head">
+      <div class="pp-kicker">Budget Reality Check</div>
+      <h2 class="pp-title">Is Your Budget the Silent&nbsp;Killer of Your Financial&nbsp;Control?</h2>
+      <p class="pp-sub">Most finance teams review actuals once a month, in arrears. By the time the numbers land, the damage is done. If you&rsquo;re using spreadsheets or standalone ERP budget modules, you&rsquo;re facing the Three Hidden&nbsp;Costs.</p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <span class="warn"><span class="dot"></span>Hidden cost</span>
-        <h3>"Month-End Surprises"</h3>
-        <p>Actuals hit your ERP 30 days after the spending happened. There's no way to course-correct in real time.</p>
+
+    <div class="pp-grid" id="bg-prob-grid">
+      <div class="pp-card pp-tilt-1" data-bg-prob="0">
+        <div class="pp-card-inner">
+          <h3 class="pp-card-title">Month-End Surprises</h3>
+          <p class="pp-card-desc">Actuals hit your ERP 30 days after the money moved. You can&rsquo;t course-correct what you can&rsquo;t see in real time.</p>
+          <a class="pp-cta-btn" href="#bg-features" aria-label="See positions live">See positions live</a>
+        </div>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
-      <div class="card">
-        <span class="warn"><span class="dot"></span>Hidden cost</span>
-        <h3>"No Enforcement at Order Point"</h3>
-        <p>Staff raise purchase orders without knowing if they've exceeded their allocation. Nothing stops them.</p>
+
+      <div class="pp-card pp-tilt-2" data-bg-prob="1">
+        <div class="pp-card-inner">
+          <h3 class="pp-card-title">No Order-Point Control</h3>
+          <p class="pp-card-desc">Staff raise purchase orders without knowing if they&rsquo;ve blown their allocation. Nothing catches overspend before it happens.</p>
+          <a class="pp-cta-btn" href="#bg-features" aria-label="Enforce at PO">Enforce at PO</a>
+        </div>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/002_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
-      <div class="card">
-        <span class="warn"><span class="dot"></span>Hidden cost</span>
-        <h3>"Multi-Property Chaos"</h3>
-        <p>Each property tracks its own numbers in different formats. There's no consolidated view for finance.</p>
+
+      <div class="pp-card pp-tilt-3" data-bg-prob="2">
+        <div class="pp-card-inner">
+          <h3 class="pp-card-title">Multi-Property Chaos</h3>
+          <p class="pp-card-desc">Each property tracks its own numbers in different formats. Finance has no consolidated view, and no way to compare.</p>
+          <a class="pp-cta-btn" href="#bg-features" aria-label="Unify the group">Unify the group</a>
+        </div>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/003_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
+    </div>
+
+    <div class="pp-bridge" aria-live="polite">
+      <strong id="bg-prob-bridge-strong">PurchasePlus turns budgets into guardrails.</strong><br>
+      <span id="bg-prob-bridge-sub">Commitments, approvals and rollups flow through one system &mdash; before the money moves.</span>
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      if (typeof gsap === 'undefined') return;
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#bg-prob-grid .pp-card'));
+      var strongEl = document.getElementById('bg-prob-bridge-strong');
+      var subEl = document.getElementById('bg-prob-bridge-sub');
+      var bridgeStrong = [
+        "\u201CMonth-End Surprises\u201D drain cash you can\u2019t recover.",
+        "\u201CNo Order-Point Control\u201D lets overspend happen.",
+        "\u201CMulti-Property Chaos\u201D breaks finance visibility."
+      ];
+      var bridgeSub = [
+        "PurchasePlus tracks spend from the moment a PO is approved, not after the invoice lands.",
+        "POs exceeding budget route to the right approver before they go to suppliers.",
+        "One consolidated view rolls every property into the group \u2014 drill down anytime."
+      ];
+      function setActive(i){
+        cards.forEach(function(c, k){ c.classList.toggle('is-active', k === i); });
+        if (strongEl) strongEl.textContent = bridgeStrong[i];
+        if (subEl) subEl.textContent = bridgeSub[i];
+      }
+      var tl = gsap.timeline({ repeat: -1 });
+      cards.forEach(function(card, i){
+        tl.call(function(){ setActive(i); });
+        tl.to(cards, { duration: 0.35, ease: "power2.out", scale: 1, rotation: function(j){
+          if (window.matchMedia("(max-width: 1024px)").matches) return 0;
+          return j === 0 ? -1.2 : (j === 1 ? 1.0 : -0.6);
+        }}, "+=0");
+        tl.to(card, { duration: 0.55, ease: "back.out(1.7)", scale: 1.06, rotation: 0 }, "+=0.05");
+        tl.to(card, { duration: 1.55, ease: "none" }, "+=0.25");
+        tl.to(card, { duration: 0.45, ease: "power2.inOut", scale: 1, rotation: function(){
+          return window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6));
+        }}, "+=0.1");
+      });
+      setActive(0);
+      cards.forEach(function(card, i){
+        card.addEventListener('mouseenter', function(){
+          tl.pause();
+          setActive(i);
+          gsap.to(card, { duration: 0.35, ease: "back.out(1.6)", scale: 1.06, rotation: 0 });
+        });
+        card.addEventListener('mouseleave', function(){
+          gsap.to(card, { duration: 0.25, ease: "power2.out", scale: 1, rotation: function(){
+            return window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6));
+          }});
+          tl.resume();
+        });
+      });
+    });
+  </script>
 </section>
 
-<!-- ============================================================ WIDGET 3: KEY FEATURES (4 alternating rows) ============================================================ -->
+<!-- ============================================================ WIDGET 3: KEY FEATURES (4 alternating rows, side-slide image + gradient glow) ============================================================ -->
 <section class="bg-feat" id="bg-features" aria-label="Key Features">
   <style>
     .bg-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
     .bg-feat .wrap { max-width:1200px; margin:0 auto; }
-    .bg-feat .head { max-width:820px; margin-bottom:64px; }
+    .bg-feat .head { max-width:820px; margin-bottom:72px; text-align:center; margin-left:auto; margin-right:auto; }
     .bg-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
     .bg-feat .head h2 { font-size:clamp(32px,4.2vw,42px); font-weight:400; line-height:1.15; letter-spacing:-.8px; color:#111827; }
-    .bg-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; padding:48px 0; border-top:1px solid #e2e8f0; }
-    .bg-feat .row:first-of-type { border-top:none; padding-top:0; }
+    .bg-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-bottom:130px; }
+    .bg-feat .row:last-child { margin-bottom:0; }
     .bg-feat .row.rev .visual { order:-1; }
     .bg-feat .copy .tag { display:inline-flex; align-items:center; gap:8px; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#7c5dff; margin-bottom:16px; }
     .bg-feat .copy .tag::before { content:''; width:28px; height:2px; background:var(--grad); border-radius:1px; }
-    .bg-feat .copy h3 { font-size:clamp(26px,2.8vw,32px); font-weight:500; line-height:1.22; letter-spacing:-.4px; color:#111827; margin-bottom:16px; }
+    .bg-feat .copy h3 { font-size:clamp(26px,2.8vw,32px); font-weight:400; line-height:1.22; letter-spacing:-.4px; color:#111827; margin-bottom:16px; }
     .bg-feat .copy p { font-size:16px; font-weight:300; line-height:1.7; color:#4B5563; }
-    .bg-feat .visual { aspect-ratio:5/4; border-radius:20px; background:#fff; border:1px solid #e2e8f0; box-shadow:0 16px 48px rgba(15,23,42,.05); padding:28px; position:relative; overflow:hidden; }
-    .bg-feat .visual::after { content:'Screenshot placeholder'; position:absolute; bottom:14px; left:16px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
-    .bg-feat .visual .chart { width:100%; height:100%; display:flex; align-items:center; justify-content:center; }
-    .bg-feat .visual svg { width:60%; height:60%; stroke:url(#bg-feat-grad); stroke-width:1.4; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.5; }
-    @media (max-width:1024px){ .bg-feat .row{ grid-template-columns:1fr; gap:24px; padding:36px 0; } .bg-feat .row.rev .visual{ order:0; } }
-    @media (max-width:640px){ .bg-feat{ padding:72px 20px; } .bg-feat .copy h3{ font-size:24px; } }
+
+    /* Visual: image slides in from outer edge with gradient glow beneath */
+    .bg-feat .visual { position:relative; opacity:0; transform:translateX(100px); transition:opacity .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1); }
+    .bg-feat .row.rev .visual { transform:translateX(-100px); }
+    .bg-feat .visual.is-in { opacity:1; transform:translateX(0); }
+    .bg-feat .visual img { display:block; width:100%; height:auto; position:relative; z-index:2; }
+    .bg-feat .visual::before {
+      content:''; position:absolute; left:6%; right:6%; bottom:-8%; height:45%;
+      background:radial-gradient(ellipse at 50% 50%, rgba(169,86,255,.45), rgba(124,93,255,.28) 35%, rgba(55,102,254,.18) 60%, transparent 80%);
+      filter:blur(38px); opacity:0;
+      transition:opacity 1.2s ease .25s;
+      z-index:1; pointer-events:none;
+    }
+    .bg-feat .visual.is-in::before { opacity:1; }
+
+    @media (max-width:1024px){ .bg-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:90px; } .bg-feat .row.rev .visual{ order:0; } }
+    @media (max-width:640px){ .bg-feat{ padding:72px 20px; } .bg-feat .copy h3{ font-size:24px; } .bg-feat .visual, .bg-feat .row.rev .visual { transform:translateY(40px); } .bg-feat .visual.is-in { transform:translateY(0); } }
   </style>
-  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="bg-feat-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
   <div class="wrap">
     <div class="head">
       <div class="kicker">Key Features</div>
@@ -410,9 +509,9 @@
       <div class="copy">
         <div class="tag">Feature 01 · Commitment-Based</div>
         <h3>Know your budget position the moment an order is raised.</h3>
-        <p>PurchasePlus tracks spend from the first requisition, not when the invoice arrives. The moment a PO is approved, it's committed against budget. You see your true position in real time, every day.</p>
+        <p>PurchasePlus tracks spend from the first requisition, not when the invoice arrives. The moment a PO is approved, it&rsquo;s committed against budget. You see your true position in real time, every day.</p>
       </div>
-      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="4" y="28" width="8" height="12" rx="1"/><rect x="14" y="20" width="8" height="20" rx="1"/><rect x="24" y="14" width="8" height="26" rx="1"/><rect x="34" y="8" width="8" height="32" rx="1"/><path d="M2 42h44" stroke-width="1" opacity=".4"/></svg></div></div>
+      <div class="visual"><img src="../images/budgeting-features/1.png" alt="Commitment-based budgeting dashboard" loading="lazy"></div>
     </div>
 
     <div class="row rev">
@@ -421,7 +520,7 @@
         <h3>Orders that exceed budget require approval. Automatically.</h3>
         <p>Set budget thresholds by department, cost centre, or property. When a purchase order pushes spending over a limit, it routes to the right approver before going to the supplier. Control without micromanagement.</p>
       </div>
-      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><path d="M4 24h40"/><circle cx="12" cy="24" r="3"/><circle cx="24" cy="24" r="3"/><circle cx="36" cy="24" r="3"/><path d="M24 21v-8M24 8l-3 4M24 8l3 4"/></svg></div></div>
+      <div class="visual"><img src="../images/budgeting-features/2.png" alt="Threshold approval routing" loading="lazy"></div>
     </div>
 
     <div class="row">
@@ -430,7 +529,7 @@
         <h3>One view across every property, department, and period.</h3>
         <p>Build budgets by property, department, F&amp;B outlet, GL code, or cost centre. Roll them up into a consolidated group view for finance, and down into operational detail for managers on the floor. The right visibility at every level.</p>
       </div>
-      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="3"/><path d="M6 18h36M6 30h36M18 6v36M30 6v36"/></svg></div></div>
+      <div class="visual"><img src="../images/budgeting-features/3.png" alt="Multi-property budget rollup" loading="lazy"></div>
     </div>
 
     <div class="row rev">
@@ -439,9 +538,24 @@
         <h3>Import from your ERP. Export actuals back.</h3>
         <p>Import approved budgets from Xero, NetSuite, Dynamics 365, or MYOB. PurchasePlus maps actuals back to the same chart of accounts, no rekeying, no reconciliation headache. One source of truth, two systems working together.</p>
       </div>
-      <div class="visual"><div class="chart"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="14" height="28" rx="2"/><rect x="30" y="10" width="14" height="28" rx="2"/><path d="M18 20h12M18 24l4-4-4-4M30 32H18M30 28l-4 4 4 4" stroke-dasharray="0"/></svg></div></div>
+      <div class="visual"><img src="../images/budgeting-features/4.png" alt="ERP sync console" loading="lazy"></div>
     </div>
   </div>
+  <script>
+    (function(){
+      var visuals = document.querySelectorAll('.bg-feat .visual');
+      if (!visuals.length || !('IntersectionObserver' in window)) {
+        visuals.forEach(function(v){ v.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.18 });
+      visuals.forEach(function(v){ io.observe(v); });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ WIDGET 4: CAPABILITIES (6-card grid, horizontal layout) ============================================================ -->
@@ -477,42 +591,86 @@
   </div>
 </section>
 
-<!-- ============================================================ WIDGET 5: TESTIMONIAL ============================================================ -->
+<!-- ============================================================ WIDGET 5: TESTIMONIAL (white bg + homepage logo marquee) ============================================================ -->
 <section class="bg-test" aria-label="Customer Testimonial">
   <style>
-    .bg-test { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); padding:110px 5vw; position:relative; overflow:hidden; color:#fff; }
-    .bg-test::before { content:''; position:absolute; top:-30%; left:-10%; width:60%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.12), transparent 55%); pointer-events:none; }
-    .bg-test::after { content:''; position:absolute; bottom:-30%; right:-10%; width:60%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.08), transparent 55%); pointer-events:none; }
-    .bg-test .wrap { max-width:960px; margin:0 auto; text-align:center; position:relative; z-index:1; }
-    .bg-test .kicker { font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:36px; }
-    .bg-test .mark { font-size:96px; line-height:0; color:rgba(255,255,255,.25); font-family:Georgia, serif; display:block; margin-bottom:12px; }
-    .bg-test blockquote { font-size:clamp(22px,2.8vw,32px); font-weight:300; line-height:1.35; letter-spacing:-.3px; margin:0 auto 40px; max-width:800px; }
-    .bg-test .attrib { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:48px; flex-wrap:wrap; }
-    .bg-test .avatar { width:56px; height:56px; border-radius:50%; background:rgba(255,255,255,.2); border:2px solid rgba(255,255,255,.4); display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:600; }
+    .bg-test { --grad:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); font-family:'Inter',sans-serif; background:#fff; padding:110px 0 90px; position:relative; overflow:hidden; color:#111827; }
+    .bg-test .wrap { max-width:1000px; margin:0 auto; text-align:center; padding:0 5vw; }
+    .bg-test .kicker { font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#94a3b8; margin-bottom:28px; }
+    .bg-test .mark { font-size:96px; line-height:0; font-family:Georgia, serif; display:block; margin-bottom:18px; background:var(--grad); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:bgTestGrad 5s linear infinite; }
+    @keyframes bgTestGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .bg-test blockquote { font-size:clamp(22px,2.8vw,30px); font-weight:300; line-height:1.4; letter-spacing:-.2px; margin:0 auto 36px; max-width:820px; color:#111827; }
+    .bg-test .attrib { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:64px; flex-wrap:wrap; }
+    .bg-test .avatar { width:56px; height:56px; border-radius:50%; background:linear-gradient(135deg, rgba(169,86,255,.15), rgba(55,102,254,.15)); border:1px solid #e2e8f0; display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; color:#7c5dff; }
     .bg-test .attrib-text { text-align:left; }
-    .bg-test .attrib-name { font-size:16px; font-weight:600; }
-    .bg-test .attrib-role { font-size:13px; font-weight:300; color:rgba(255,255,255,.78); margin-top:2px; }
-    .bg-test .logos { display:flex; justify-content:center; align-items:center; gap:48px; flex-wrap:wrap; opacity:.85; }
-    .bg-test .logo-chip { font-size:15px; font-weight:600; letter-spacing:.04em; color:rgba(255,255,255,.85); padding:10px 22px; border:1px solid rgba(255,255,255,.22); border-radius:999px; background:rgba(255,255,255,.06); }
-    @media (max-width:640px){ .bg-test{ padding:72px 20px; } .bg-test blockquote{ font-size:20px; } .bg-test .logos{ gap:14px; } }
+    .bg-test .attrib-name { font-size:15px; font-weight:500; color:#111827; }
+    .bg-test .attrib-role { font-size:13px; font-weight:300; color:#6b7280; margin-top:2px; }
+    .bg-test .attrib-text em { font-style:normal; color:#94a3b8; font-weight:300; }
+
+    /* Logo marquee matching homepage widget_001 */
+    .bg-test .pp-leaders-text { width:100%; text-align:center; font-size:18px; font-weight:300; color:#4B5563; margin-top:16px; margin-bottom:18px; }
+    .bg-test .pp-brand-anim { font-weight:400; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; display:inline-block; animation:bgTestBrandGrad 5s linear infinite; }
+    @keyframes bgTestBrandGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .bg-test .pp-carousel { width:100%; overflow:hidden; background:transparent; position:relative; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); padding:.5rem 0; }
+    .bg-test .pp-track { display:flex; gap:15rem; align-items:center; animation:bgTestMarquee 40s linear infinite; width:max-content; will-change:transform; -webkit-transform:translate3d(0,0,0); }
+    .bg-test .pp-track img { height:120px !important; min-width:200px; object-fit:contain; background:transparent; flex-shrink:0; }
+    @keyframes bgTestMarquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+    @media (max-width:768px) {
+      .bg-test .pp-track { gap:3rem; }
+      .bg-test .pp-track img { height:60px !important; min-width:100px; }
+      .bg-test .pp-leaders-text { font-size:14px; }
+    }
+    @media (max-width:640px){ .bg-test{ padding:72px 0 60px; } .bg-test blockquote{ font-size:20px; } }
   </style>
+
   <div class="wrap">
-    <div class="kicker">Customer Story · Placeholder</div>
+    <div class="kicker">Customer Story &middot; Placeholder</div>
     <span class="mark" aria-hidden="true">&ldquo;</span>
-    <blockquote>Before PurchasePlus, our F&amp;B managers had no idea what they'd spent until month-end. Now they see their position every morning. It changed how they manage their departments.</blockquote>
+    <blockquote>Before PurchasePlus, our F&amp;B managers had no idea what they&rsquo;d spent until month-end. Now they see their position every morning. It changed how they manage their departments.</blockquote>
     <div class="attrib">
       <div class="avatar">FD</div>
       <div class="attrib-text">
-        <div class="attrib-name">Finance Director <span style="opacity:.6">[Name TBC]</span></div>
-        <div class="attrib-role">Hotel Group <span style="opacity:.6">[Brand TBC]</span></div>
+        <div class="attrib-name">Finance Director <em>[Name TBC]</em></div>
+        <div class="attrib-role">Hotel Group <em>[Brand TBC]</em></div>
       </div>
     </div>
-    <div class="logos">
-      <div class="logo-chip">Accor</div>
-      <div class="logo-chip">Marriott</div>
-      <div class="logo-chip">IHG</div>
-      <div class="logo-chip">Qantas</div>
-      <div class="logo-chip">Emirates</div>
+  </div>
+
+  <div class="pp-leaders-text">Industry leaders demand the best. The best choose <span class="pp-brand-anim">PurchasePlus</span>.</div>
+  <div class="pp-carousel">
+    <div class="pp-track">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6503a4583ae81612c66517a2_Pace.png" alt="Pace">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6503a3fcdaf4050205228145_Captain-Cook.png" alt="Captain Cook Cruises">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4248196e6e4459208_1.png" alt="Logo 1">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae44b2565432d597029_2.png" alt="Logo 2">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4f9fc69f703e875fe_3.png" alt="Logo 3">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae432796e3627f6e75b_5.png" alt="Logo 5">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4dd4c7cefefbf5a41_4.png" alt="Logo 4">
+      <!-- Duplicates for seamless looping -->
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6503a4583ae81612c66517a2_Pace.png" alt="Pace" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4f6858353712fdb985df_Novotel.png" alt="Novotel" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6503a3fcdaf4050205228145_Captain-Cook.png" alt="Captain Cook Cruises" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50032ab9f2684a39e592_Sofitel.png" alt="Sofitel" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce50487ec6b02092dfa34b_Mantra.png" alt="Mantra" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4bed6cb0ca68f6af67a5_Accor.png" alt="Accor" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4ed87f81088169255d5e_Qantas.png" alt="Qantas" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c4d9e01c683a9139aaf_Marriott.png" alt="Marriott" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4c8b09417a38dd3146ed_IHG.png" alt="IHG" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62ce4defb0d1e361b07b4d4b_Emirates.png" alt="Emirates" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4248196e6e4459208_1.png" alt="Logo 1" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae44b2565432d597029_2.png" alt="Logo 2" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4f9fc69f703e875fe_3.png" alt="Logo 3" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae432796e3627f6e75b_5.png" alt="Logo 5" aria-hidden="true">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/68df6ae4dd4c7cefefbf5a41_4.png" alt="Logo 4" aria-hidden="true">
     </div>
   </div>
 </section>
@@ -569,32 +727,91 @@
   </div>
 </section>
 
-<!-- ============================================================ WIDGET 7: CTA BANNER ============================================================ -->
+<!-- ============================================================ WIDGET 7: CTA BANNER (Hospitality widget_052 rising screen deck) ============================================================ -->
 <section class="bg-cta" aria-label="Final CTA">
   <style>
-    .bg-cta { font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
-    .bg-cta .wrap { max-width:960px; margin:0 auto; padding:72px 64px; background:#0b0f1f; border-radius:32px; text-align:center; color:#fff; position:relative; overflow:hidden; }
-    .bg-cta .wrap::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 20% 20%, rgba(169,86,255,.22), transparent 50%), radial-gradient(ellipse at 80% 80%, rgba(55,102,254,.18), transparent 50%); pointer-events:none; }
-    .bg-cta h2 { position:relative; z-index:1; font-size:clamp(30px,4vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; margin-bottom:18px; }
-    .bg-cta h2 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgCtaGrad 4s linear infinite; }
-    @keyframes bgCtaGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .bg-cta .body { position:relative; z-index:1; font-size:16px; font-weight:300; line-height:1.65; color:rgba(255,255,255,.78); max-width:640px; margin:0 auto 32px; }
-    .bg-cta .btns { position:relative; z-index:1; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-    .bg-cta .btn { display:inline-flex; align-items:center; padding:14px 30px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
-    .bg-cta .btn-primary { background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); color:#fff; box-shadow:0 12px 30px rgba(55,102,254,.3); }
-    .bg-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 16px 36px rgba(55,102,254,.4); }
-    .bg-cta .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.25); }
-    .bg-cta .btn-ghost:hover { background:rgba(255,255,255,.08); transform:translateY(-2px); }
-    @media (max-width:640px){ .bg-cta{ padding:72px 20px; } .bg-cta .wrap{ padding:48px 28px; border-radius:24px; } }
+    .bg-cta { --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563; --pp-blue:#3766fe; --pp-purple:#a956ff; --pp-grad:linear-gradient(90deg,#a956ff 0%,#3766fe 100%); --pp-border:#e2e8f0; background:#fff; font-family:var(--pp-font); padding:80px 0 0 0; color:var(--pp-ink); overflow:hidden; text-align:center; position:relative; }
+    .bg-cta .pp-max-width { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .bg-cta .pp-cta-head { max-width:900px; margin:0 auto 40px; }
+    .bg-cta .pp-cta-title { font-size:clamp(34px,4.5vw,54px); font-weight:400; line-height:1.1; letter-spacing:-.04em; margin:0 0 20px; }
+    .bg-cta .pp-cta-grad { display:inline-block; background:linear-gradient(90deg, #a956ff, #3766fe, #a956ff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:bgCtaShiftGrad 4s linear infinite; font-weight:600; }
+    @keyframes bgCtaShiftGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .bg-cta .pp-cta-sub { font-size:20px; font-weight:300; color:var(--pp-text); line-height:1.6; margin-bottom:30px; max-width:800px; margin-left:auto; margin-right:auto; }
+    .bg-cta .pp-cta-btns { display:flex; gap:16px; justify-content:center; margin-bottom:40px; }
+    .bg-cta .pp-btn { padding:16px 36px; border-radius:50px; font-size:16px; font-weight:500; text-decoration:none; transition:all .3s cubic-bezier(.165,.84,.44,1); }
+    .bg-cta .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 20px rgba(55,102,254,.2); }
+    .bg-cta .pp-btn-primary:hover { transform:translateY(-3px); box-shadow:0 15px 30px rgba(55,102,254,.3); }
+    .bg-cta .pp-btn-secondary { background:#fff; color:var(--pp-ink); border:1px solid var(--pp-border); }
+    .bg-cta .pp-btn-secondary:hover { background:#f8fafc; border-color:#cbd5e1; transform:translateY(-3px); }
+    .bg-cta .pp-cta-note { font-size:13px; color:#94a3b8; max-width:700px; margin:0 auto 60px; font-weight:300; line-height:1.5; }
+    .bg-cta .pp-screen-deck { position:relative; width:100%; height:320px; display:flex; justify-content:center; align-items:flex-end; pointer-events:none; overflow:visible; }
+    .bg-cta .pp-rising-img { position:absolute; width:65%; border-radius:20px 20px 0 0; transform:translateY(40%); transition:transform .1s linear; }
+    .bg-cta .pp-rising-img-main { z-index:10; width:70%; }
+    .bg-cta .pp-rising-img-L1 { z-index:5; width:60%; left:5%; }
+    .bg-cta .pp-rising-img-R1 { z-index:5; width:60%; right:5%; }
+    .bg-cta .pp-rising-img-L2 { z-index:2; width:50%; left:-10%; }
+    .bg-cta .pp-rising-img-R2 { z-index:2; width:50%; right:-10%; }
+    @media (max-width:768px) {
+      .bg-cta .pp-cta-title { font-size:24px; }
+      .bg-cta .pp-cta-sub { font-size:16px; text-wrap:balance; }
+      .bg-cta .pp-cta-btns { flex-direction:column; align-items:center; }
+      .bg-cta .pp-btn { width:100%; max-width:280px; }
+      .bg-cta .pp-cta-note { margin-bottom:30px; }
+      .bg-cta .pp-screen-deck { height:200px; }
+      .bg-cta .pp-rising-img-main { width:75%; }
+      .bg-cta .pp-rising-img-L1 { width:55%; left:2%; }
+      .bg-cta .pp-rising-img-R1 { width:55%; right:2%; }
+      .bg-cta .pp-rising-img-L2 { width:45%; left:-5%; }
+      .bg-cta .pp-rising-img-R2 { width:45%; right:-5%; }
+    }
   </style>
-  <div class="wrap">
-    <h2>See your real budget position, <em>today.</em></h2>
-    <p class="body">Join Accor, IHG, Marriott and thousands of hospitality operations that already control spend before it happens.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
+
+  <div class="pp-max-width">
+    <header class="pp-cta-head">
+      <h2 class="pp-cta-title">
+        See your real budget position. <span class="pp-cta-grad">Today.</span>
+      </h2>
+      <p class="pp-cta-sub">
+        Join Accor, IHG, Marriott and thousands of hospitality operations that already control spend before it happens.
+      </p>
+    </header>
+
+    <div class="pp-cta-btns">
+      <a href="https://www.purchaseplus.com/talk-to-sales" class="pp-btn pp-btn-secondary">Talk to Sales</a>
+      <a href="https://www.purchaseplus.com/request-a-demo" class="pp-btn pp-btn-primary">Book a Demo</a>
+    </div>
+
+    <p class="pp-cta-note">
+      Results vary by property group size, ERP environment, and existing budgeting maturity. We&rsquo;ll walk through realistic expectations in a demo.
+    </p>
+
+    <div class="pp-screen-deck" id="bg-cta-deck">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f536cd8ffdfacc6f1ee7_Artboard%2010_PurchasePlu.png" class="pp-rising-img pp-rising-img-R2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52f675d51ed4d3a3f5f_Artboard%207_PurchasePlu.png" class="pp-rising-img pp-rising-img-L2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f53458e2ec1328938992_Artboard%209_PurchasePlu.avif" class="pp-rising-img pp-rising-img-R1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52810574bcc78f16cd4_Artboard%206_PurchasePlu.png" class="pp-rising-img pp-rising-img-L1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f532c446307cb7b90dcb_Artboard%208_PurchasePlu.png" class="pp-rising-img pp-rising-img-main" data-speed="1.0">
     </div>
   </div>
+
+  <script>
+    (function(){
+      var section = document.querySelector('.bg-cta');
+      if (!section) return;
+      var screens = section.querySelectorAll('.pp-rising-img');
+      window.addEventListener('scroll', function(){
+        var rect = section.getBoundingClientRect();
+        var winH = window.innerHeight;
+        var progress = Math.max(0, Math.min(1, (winH - rect.top) / (winH * 1.2)));
+        screens.forEach(function(img){
+          var speed = parseFloat(img.getAttribute('data-speed')) || 1;
+          var moveY = 40 - (progress * 30 * speed);
+          img.style.transform = 'translateY(' + moveY + '%)';
+          img.style.opacity = 1;
+        });
+      }, { passive: true });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ GLOBAL FOOTER ============================================================ -->
