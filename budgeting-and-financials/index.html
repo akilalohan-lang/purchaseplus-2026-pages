@@ -100,60 +100,127 @@
   </script>
 </header>
 
-<!-- ============================================================ WIDGET 1: HERO (dashboard feel, video + dashboard preview card) ============================================================ -->
+<!-- ============================================================ WIDGET 1: HERO (matches Inventory widget_017_HERO_horizontal exactly) ============================================================ -->
 <section class="bg-hero" aria-label="Budgeting & Financials Hero">
   <style>
-    .bg-hero { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(180deg, #fff 0%, #fafafa 100%); padding:72px 5vw 90px; position:relative; overflow:hidden; }
-    .bg-hero::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 80% 30%, rgba(55,102,254,.08), transparent 55%); pointer-events:none; }
-    .bg-hero .wrap { max-width:1300px; margin:0 auto; position:relative; }
-    .bg-hero .top { display:grid; grid-template-columns:1.1fr 1fr; gap:48px; align-items:center; margin-bottom:56px; }
-    .bg-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
-    .bg-hero h1 { font-size:clamp(38px,5vw,60px); font-weight:400; line-height:1.08; letter-spacing:-1.4px; color:#111827; text-wrap:balance; }
-    .bg-hero h1 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:bgHeroGrad 5s linear infinite; }
-    @keyframes bgHeroGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .bg-hero .lead { font-size:18px; font-weight:300; line-height:1.65; color:#4B5563; margin-top:20px; max-width:520px; }
-    .bg-hero .ctas { display:flex; align-items:center; gap:24px; margin-top:28px; flex-wrap:wrap; }
-    .bg-hero .btn-primary { display:inline-flex; align-items:center; padding:14px 30px; background:var(--grad); color:#fff; border-radius:50px; font-size:16px; text-decoration:none; box-shadow:0 4px 15px rgba(55,102,254,.3); transition:transform .2s; white-space:nowrap; }
-    .bg-hero .btn-primary:hover { transform:translateY(-2px); }
-    .bg-hero .btn-link { display:inline-flex; align-items:center; gap:6px; color:#1F2937; font-size:16px; text-decoration:none; }
-    .bg-hero .btn-link:hover { color:#7c5dff; }
-    .bg-hero .btn-link svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
-    .bg-hero .btn-link:hover svg { transform:translateX(3px); }
-    .bg-hero .video-card { position:relative; aspect-ratio:5/4; border-radius:28px; overflow:hidden; box-shadow:0 40px 100px rgba(15,23,42,.14); border:1px solid #e2e8f0; background:#fff; }
-    .bg-hero .video-card video { width:100%; height:100%; object-fit:cover; display:block; }
-    .bg-hero .hero-dash { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:16px; padding:20px 24px; background:#fff; border:1px solid #e2e8f0; border-radius:20px; box-shadow:0 16px 48px rgba(15,23,42,.05); }
-    .bg-hero .dash-cell { display:flex; flex-direction:column; gap:4px; padding:0 16px; position:relative; }
-    .bg-hero .dash-cell + .dash-cell::before { content:''; position:absolute; left:0; top:6px; bottom:6px; width:1px; background:#e2e8f0; }
-    .bg-hero .dash-label { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#9ca3af; }
-    .bg-hero .dash-val { font-size:20px; font-weight:600; color:#111827; margin-top:4px; letter-spacing:-.3px; }
-    .bg-hero .dash-val.a { color:#7c5dff; }
-    .bg-hero .dash-val.b { color:#3766fe; }
-    .bg-hero .dash-sub { font-size:11px; font-weight:500; color:#10B981; }
-    @media (max-width:1024px){ .bg-hero .top{ grid-template-columns:1fr; gap:32px; } .bg-hero .hero-dash{ grid-template-columns:1fr; gap:14px; } .bg-hero .dash-cell + .dash-cell::before{ display:none; } }
-    @media (max-width:640px){ .bg-hero{ padding:48px 20px; } .bg-hero h1{ font-size:34px; } }
+    .bg-hero {
+      --pp-font:'Inter',sans-serif;
+      --pp-ink:#111827;
+      --pp-body:#4B5563;
+      --pp-border:#e5e7eb;
+      --pp-blue:#3766fe;
+      --pp-purple:#7c5dff;
+      --pp-light-purple:#a956ff;
+      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
+      --pp-soft:#f8fafc;
+      font-family:var(--pp-font);
+      width:100%;
+      background:#fff;
+      overflow:hidden;
+      padding:40px 20px 40px 65px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .bg-hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
+    .bg-hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; justify-content:center; }
+    .bg-hero .pp-copy { width:45%; display:flex; flex-direction:column; gap:24px; flex-shrink:0; }
+    .bg-hero .pp-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
+    .bg-hero .pp-title { font-size:72px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0; letter-spacing:-1.5px; text-wrap:balance; }
+    .bg-hero .pp-grad { font-weight:400; background:linear-gradient(90deg, #a956ff 0%, #a956ff 20%, #7c5dff 50%, #3766fe 80%, #3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; animation:bgGradPulse 5s linear infinite; display:inline-block; }
+    @keyframes bgGradPulse { 0% { background-position:200% 50%; } 100% { background-position:0% 50%; } }
+    .bg-hero .pp-sub { font-size:22px; line-height:1.5; font-weight:300; color:var(--pp-body); margin:0; max-width:540px; text-wrap:pretty; }
+    .bg-hero .pp-bullets { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; }
+    .bg-hero .pp-bullets li { display:flex; gap:12px; align-items:flex-start; color:var(--pp-body); font-size:16px; line-height:1.5; font-weight:300; }
+    .bg-hero .pp-bullets li > span:last-child { white-space:nowrap; }
+    .bg-hero .pp-check { width:18px; height:18px; margin-top:2px; flex:0 0 auto; border-radius:50%; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(55,102,254,0.18); }
+    .bg-hero svg { fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .bg-hero .pp-check svg { width:12px; height:12px; stroke:#fff; stroke-width:2.2; }
+    .bg-hero .pp-cta-row { display:flex; align-items:center; gap:24px; margin-top:10px; }
+    .bg-hero .pp-cta-primary { display:inline-flex; align-items:center; justify-content:center; padding:14px 32px; background:var(--pp-grad); color:#fff; border-radius:50px; text-decoration:none; font-size:16px; font-weight:400; box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s ease; white-space:nowrap; }
+    .bg-hero .pp-cta-primary:hover { transform:translateY(-2px); }
+    .bg-hero .pp-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:#1F2937; text-decoration:none; font-size:16px; font-weight:400; transition:color .2s; white-space:nowrap; }
+    .bg-hero .pp-cta-secondary:hover { color:#7c5dff; }
+    .bg-hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
+    .bg-hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
+    .bg-hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; }
+    .bg-hero .pp-video { width:90%; height:auto; max-height:700px; display:block; margin-left:30px; object-fit:contain; }
+    .bg-hero .pp-break { display:none; }
+    @media (max-width: 1200px) {
+      .bg-hero { padding:35px 15px 35px 55px; }
+      .bg-hero .pp-title { font-size:60px; }
+      .bg-hero .pp-sub { font-size:20px; }
+      .bg-hero .pp-hero-grid { gap:25px; }
+      .bg-hero .pp-video { max-height:600px; margin-left:25px; }
+    }
+    @media (max-width: 1300px) {
+      .bg-hero { padding:30px 15px 30px 50px; }
+      .bg-hero .pp-title { font-size:48px; }
+      .bg-hero .pp-sub { font-size:18px; max-width:400px; }
+      .bg-hero .pp-bullets li { font-size:14px; }
+      .bg-hero .pp-hero-grid { gap:20px; }
+      .bg-hero .pp-video { margin-left:20px; max-height:550px; }
+      .bg-hero .pp-break { display:block; }
+      .bg-hero .pp-bullets li > span:last-child { white-space:normal; }
+    }
+    @media (max-width: 768px) {
+      .bg-hero { padding:25px 10px 25px 35px; }
+      .bg-hero .pp-title { font-size:36px; }
+      .bg-hero .pp-sub { font-size:16px; max-width:300px; }
+      .bg-hero .pp-bullets li { font-size:13px; }
+      .bg-hero .pp-hero-grid { gap:15px; }
+      .bg-hero .pp-cta-primary { padding:12px 24px; font-size:14px; }
+      .bg-hero .pp-cta-secondary { font-size:13px; }
+      .bg-hero .pp-video { margin-left:15px; max-height:450px; }
+    }
   </style>
-  <div class="wrap">
-    <div class="top">
-      <div>
-        <div class="eyebrow">Budgeting &amp; Financials</div>
-        <h1>Stop discovering <em>budget blowouts</em> after the month ends.</h1>
-        <p class="lead">PurchasePlus connects your budgets directly to every purchase order, invoice, and cost centre — in real time. Your team knows their position before they spend, not after.</p>
-        <div class="ctas">
-          <a class="btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-          <a class="btn-link" href="#bg-features">See Budgeting in Action <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+
+  <svg style="display:none;" aria-hidden="true">
+    <symbol id="bg-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="bg-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  </svg>
+
+  <div class="pp-inner">
+    <div class="pp-hero-grid">
+      <div class="pp-copy">
+        <div class="pp-eyebrow">Budgeting &amp; Financials</div>
+        <h1 class="pp-title">Stop discovering <span class="pp-grad">budget&nbsp;blowouts</span> after the month&nbsp;ends.</h1>
+        <p class="pp-sub">
+          PurchasePlus connects your budgets directly to every purchase order, invoice, and cost centre — in real&nbsp;time.
+        </p>
+        <ul class="pp-bullets">
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#bg-check"/></svg></span>
+            <span>From commitment to actuals — real&nbsp;time.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#bg-check"/></svg></span>
+            <span>Visibility across every property and cost&nbsp;centre.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#bg-check"/></svg></span>
+            <span>Syncs with Xero, NetSuite, Dynamics, MYOB and&nbsp;more.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#bg-check"/></svg></span>
+            <span>Threshold-based approval routing — stop overspend before it&nbsp;happens.</span>
+          </li>
+        </ul>
+        <div class="pp-cta-row">
+          <a class="pp-cta-primary" href="https://www.purchaseplus.com/request-a-demo" aria-label="Book a demo">Book a demo</a>
+          <a class="pp-cta-secondary" href="#bg-features" aria-label="See budgeting in action">
+            <span>See budgeting in action</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#bg-arrow-right"/></svg>
+          </a>
         </div>
       </div>
-      <div class="video-card">
-        <!-- VIDEO: replace src with final Budgeting hero loop -->
-        <video autoplay loop muted playsinline aria-label="Budgeting demo">
+      <div class="pp-visual">
+        <!-- VIDEO: replace src with final Budgeting hero loop (1080x1350 portrait) -->
+        <video class="pp-video" autoplay loop muted playsinline aria-label="Budgeting demo">
           <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
+          Your browser does not support the video tag.
         </video>
       </div>
-    </div>
-    <div class="hero-dash">
-      <div class="dash-cell"><div class="dash-label">Commitment to actuals</div><div class="dash-val">Real time</div><div class="dash-sub">▲ Updated continuously</div></div>
-      <div class="dash-cell"><div class="dash-label">Property visibility</div><div class="dash-val a">Every centre</div><div class="dash-sub">Rollup &amp; drill-down</div></div>
-      <div class="dash-cell"><div class="dash-label">ERP sync</div><div class="dash-val b">Xero · NetSuite · Dynamics · MYOB</div><div class="dash-sub">Two-way native</div></div>
     </div>
   </div>
 </section>

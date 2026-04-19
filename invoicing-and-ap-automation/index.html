@@ -100,63 +100,127 @@
   </script>
 </header>
 
-<!-- ============================================================ WIDGET 1: HERO (video + 4-chip stats) ============================================================ -->
+<!-- ============================================================ WIDGET 1: HERO (matches Inventory widget_017_HERO_horizontal exactly) ============================================================ -->
 <section class="iv-hero" aria-label="Invoicing & AP Automation Hero">
   <style>
-    .iv-hero { --grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; width:100%; background:#fff; padding:60px 5vw 40px; overflow:hidden; }
-    .iv-hero .wrap { max-width:1350px; margin:0 auto; display:grid; grid-template-columns:1.05fr 1fr; gap:40px; align-items:center; }
-    .iv-hero .copy { display:flex; flex-direction:column; gap:20px; }
-    .iv-hero .eyebrow { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .iv-hero h1 { font-size:clamp(38px,5vw,64px); font-weight:400; line-height:1.08; letter-spacing:-1.4px; color:#111827; max-width:640px; text-wrap:balance; }
-    .iv-hero h1 .g { background:linear-gradient(90deg,#a956ff,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:ivHeroGrad 5s linear infinite; }
-    @keyframes ivHeroGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .iv-hero .lead { font-size:18px; font-weight:300; line-height:1.6; color:#4B5563; max-width:560px; }
-    .iv-hero .ctas { display:flex; align-items:center; gap:24px; margin-top:4px; flex-wrap:wrap; }
-    .iv-hero .btn-primary { display:inline-flex; align-items:center; padding:14px 30px; background:var(--grad); color:#fff; border-radius:50px; font-size:16px; text-decoration:none; box-shadow:0 4px 15px rgba(55,102,254,.3); transition:transform .2s ease; white-space:nowrap; }
-    .iv-hero .btn-primary:hover { transform:translateY(-2px); }
-    .iv-hero .btn-link { display:inline-flex; align-items:center; gap:6px; color:#1F2937; font-size:16px; text-decoration:none; transition:color .2s; }
-    .iv-hero .btn-link:hover { color:#7c5dff; }
-    .iv-hero .btn-link svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
-    .iv-hero .btn-link:hover svg { transform:translateX(3px); }
-    .iv-hero .chips { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
-    .iv-hero .chip { display:inline-flex; align-items:center; gap:8px; padding:8px 14px; font-size:13px; font-weight:500; color:#4B5563; background:#f8fafc; border:1px solid #e2e8f0; border-radius:999px; }
-    .iv-hero .chip svg { width:14px; height:14px; stroke:url(#iv-hero-gradient); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .iv-hero .visual { position:relative; }
-    .iv-hero .video { width:100%; max-height:640px; aspect-ratio:16/11; object-fit:cover; border-radius:24px; box-shadow:0 30px 80px rgba(15,23,42,.08); display:block; }
-    .iv-hero .float-card { position:absolute; background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:12px 16px; box-shadow:0 16px 40px rgba(15,23,42,.08); font-size:12px; font-weight:500; color:#111827; display:flex; align-items:center; gap:10px; }
-    .iv-hero .float-card.top { top:10%; left:-4%; animation:ivHeroFloat 6s ease-in-out infinite; }
-    .iv-hero .float-card.bottom { bottom:10%; right:-4%; animation:ivHeroFloat 6s ease-in-out infinite -3s; }
-    .iv-hero .float-card .dot { width:8px; height:8px; border-radius:50%; background:#10B981; box-shadow:0 0 0 5px rgba(16,185,129,.15); flex-shrink:0; }
-    .iv-hero .float-card .accent { color:#7c5dff; font-weight:600; }
-    @keyframes ivHeroFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
-    @media (max-width:1024px){ .iv-hero .wrap{ grid-template-columns:1fr; gap:32px; } .iv-hero .float-card{ display:none; } }
-    @media (max-width:640px){ .iv-hero{ padding:40px 20px; } .iv-hero h1{ font-size:34px; } .iv-hero .lead{ font-size:16px; } }
+    .iv-hero {
+      --pp-font:'Inter',sans-serif;
+      --pp-ink:#111827;
+      --pp-body:#4B5563;
+      --pp-border:#e5e7eb;
+      --pp-blue:#3766fe;
+      --pp-purple:#7c5dff;
+      --pp-light-purple:#a956ff;
+      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
+      --pp-soft:#f8fafc;
+      font-family:var(--pp-font);
+      width:100%;
+      background:#fff;
+      overflow:hidden;
+      padding:40px 20px 40px 65px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .iv-hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
+    .iv-hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; justify-content:center; }
+    .iv-hero .pp-copy { width:45%; display:flex; flex-direction:column; gap:24px; flex-shrink:0; }
+    .iv-hero .pp-eyebrow { display:inline-flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin:0; }
+    .iv-hero .pp-title { font-size:72px; line-height:1.1; font-weight:400; color:var(--pp-ink); margin:0; letter-spacing:-1.5px; text-wrap:balance; }
+    .iv-hero .pp-grad { font-weight:400; background:linear-gradient(90deg, #a956ff 0%, #a956ff 20%, #7c5dff 50%, #3766fe 80%, #3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; animation:ivGradPulse 5s linear infinite; display:inline-block; }
+    @keyframes ivGradPulse { 0% { background-position:200% 50%; } 100% { background-position:0% 50%; } }
+    .iv-hero .pp-sub { font-size:22px; line-height:1.5; font-weight:300; color:var(--pp-body); margin:0; max-width:540px; text-wrap:pretty; }
+    .iv-hero .pp-bullets { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:16px; }
+    .iv-hero .pp-bullets li { display:flex; gap:12px; align-items:flex-start; color:var(--pp-body); font-size:16px; line-height:1.5; font-weight:300; }
+    .iv-hero .pp-bullets li > span:last-child { white-space:nowrap; }
+    .iv-hero .pp-check { width:18px; height:18px; margin-top:2px; flex:0 0 auto; border-radius:50%; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(55,102,254,0.18); }
+    .iv-hero svg { fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .iv-hero .pp-check svg { width:12px; height:12px; stroke:#fff; stroke-width:2.2; }
+    .iv-hero .pp-cta-row { display:flex; align-items:center; gap:24px; margin-top:10px; }
+    .iv-hero .pp-cta-primary { display:inline-flex; align-items:center; justify-content:center; padding:14px 32px; background:var(--pp-grad); color:#fff; border-radius:50px; text-decoration:none; font-size:16px; font-weight:400; box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s ease; white-space:nowrap; }
+    .iv-hero .pp-cta-primary:hover { transform:translateY(-2px); }
+    .iv-hero .pp-cta-secondary { display:inline-flex; align-items:center; gap:6px; color:#1F2937; text-decoration:none; font-size:16px; font-weight:400; transition:color .2s; white-space:nowrap; }
+    .iv-hero .pp-cta-secondary:hover { color:#7c5dff; }
+    .iv-hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
+    .iv-hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
+    .iv-hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; }
+    .iv-hero .pp-video { width:90%; height:auto; max-height:700px; display:block; margin-left:30px; object-fit:contain; }
+    .iv-hero .pp-break { display:none; }
+    @media (max-width: 1200px) {
+      .iv-hero { padding:35px 15px 35px 55px; }
+      .iv-hero .pp-title { font-size:60px; }
+      .iv-hero .pp-sub { font-size:20px; }
+      .iv-hero .pp-hero-grid { gap:25px; }
+      .iv-hero .pp-video { max-height:600px; margin-left:25px; }
+    }
+    @media (max-width: 1300px) {
+      .iv-hero { padding:30px 15px 30px 50px; }
+      .iv-hero .pp-title { font-size:48px; }
+      .iv-hero .pp-sub { font-size:18px; max-width:400px; }
+      .iv-hero .pp-bullets li { font-size:14px; }
+      .iv-hero .pp-hero-grid { gap:20px; }
+      .iv-hero .pp-video { margin-left:20px; max-height:550px; }
+      .iv-hero .pp-break { display:block; }
+      .iv-hero .pp-bullets li > span:last-child { white-space:normal; }
+    }
+    @media (max-width: 768px) {
+      .iv-hero { padding:25px 10px 25px 35px; }
+      .iv-hero .pp-title { font-size:36px; }
+      .iv-hero .pp-sub { font-size:16px; max-width:300px; }
+      .iv-hero .pp-bullets li { font-size:13px; }
+      .iv-hero .pp-hero-grid { gap:15px; }
+      .iv-hero .pp-cta-primary { padding:12px 24px; font-size:14px; }
+      .iv-hero .pp-cta-secondary { font-size:13px; }
+      .iv-hero .pp-video { margin-left:15px; max-height:450px; }
+    }
   </style>
-  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="iv-hero-gradient" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
 
-  <div class="wrap">
-    <div class="copy">
-      <div class="eyebrow">Invoicing &amp; AP Automation</div>
-      <h1>From email to <span class="g">approved invoice</span> — <span class="g">zero manual entry.</span></h1>
-      <p class="lead">PurchasePlus receives invoices in any format, reads every line with AI, matches them against purchase orders and receiving notes, and routes exceptions to your team. Your AP department handles discrepancies — not data.</p>
-      <div class="ctas">
-        <a class="btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-        <a class="btn-link" href="#iv-how-it-works">See It in Action <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <svg style="display:none;" aria-hidden="true">
+    <symbol id="iv-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+    <symbol id="iv-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  </svg>
+
+  <div class="pp-inner">
+    <div class="pp-hero-grid">
+      <div class="pp-copy">
+        <div class="pp-eyebrow">Invoicing &amp; AP Automation</div>
+        <h1 class="pp-title">From email to <span class="pp-grad">approved&nbsp;invoice</span> — <span class="pp-grad">zero&nbsp;manual&nbsp;entry.</span></h1>
+        <p class="pp-sub">
+          PurchasePlus receives invoices in any format, reads every line with AI, matches them against purchase orders and receiving notes, and routes exceptions to your&nbsp;team.
+        </p>
+        <ul class="pp-bullets">
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#iv-check"/></svg></span>
+            <span>40,000,000+ invoices processed since&nbsp;1999.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#iv-check"/></svg></span>
+            <span>90% straight-through processing&nbsp;rate.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#iv-check"/></svg></span>
+            <span>75% reduction in invoice processing&nbsp;costs.</span>
+          </li>
+          <li>
+            <span class="pp-check" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#iv-check"/></svg></span>
+            <span>Save 1 FTE per 2,000 monthly&nbsp;invoices.</span>
+          </li>
+        </ul>
+        <div class="pp-cta-row">
+          <a class="pp-cta-primary" href="https://www.purchaseplus.com/request-a-demo" aria-label="Book a demo">Book a demo</a>
+          <a class="pp-cta-secondary" href="#iv-how-it-works" aria-label="See it in action">
+            <span>See it in action</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#iv-arrow-right"/></svg>
+          </a>
+        </div>
       </div>
-      <div class="chips">
-        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>40,000,000+ invoices processed</span>
-        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>90% straight-through processing</span>
-        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>75% cost reduction</span>
-        <span class="chip"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Save 1 FTE per 2,000 invoices</span>
+      <div class="pp-visual">
+        <!-- VIDEO: replace src with final Invoicing hero loop (1080x1350 portrait) -->
+        <video class="pp-video" autoplay loop muted playsinline aria-label="AI invoicing demo">
+          <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
-    </div>
-    <div class="visual">
-      <!-- VIDEO: replace src with final Invoicing hero loop (5s silent MP4) -->
-      <video class="video" autoplay loop muted playsinline aria-label="AI invoice processing demo">
-        <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
-      </video>
-      <div class="float-card top"><span class="dot"></span>Matched <span class="accent">&nbsp;PO-18432</span></div>
-      <div class="float-card bottom"><span class="dot"></span>Auto-coded <span class="accent">&nbsp;GL-6140</span></div>
     </div>
   </div>
 </section>
