@@ -163,14 +163,14 @@
     .iv-hero .pp-viz-donut-val { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:400; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.2px; font-variant-numeric:tabular-nums; }
 
     /* Bars (Processing, grow from bottom, staggered wave) */
-    .iv-hero .pp-viz-bars { width:54px; height:34px; flex-shrink:0; overflow:visible; }
-    .iv-hero .pp-viz-bars rect { fill:url(#iv-chart-grad); transform-box:fill-box; transform-origin:center bottom; animation:ivBarGrow 2.6s ease-in-out infinite; }
-    .iv-hero .pp-viz-bars rect:nth-child(1) { animation-delay:0s; }
-    .iv-hero .pp-viz-bars rect:nth-child(2) { animation-delay:-.3s; }
-    .iv-hero .pp-viz-bars rect:nth-child(3) { animation-delay:-.6s; }
-    .iv-hero .pp-viz-bars rect:nth-child(4) { animation-delay:-.9s; }
-    .iv-hero .pp-viz-bars rect:nth-child(5) { animation-delay:-1.2s; }
-    @keyframes ivBarGrow { 0%,100% { transform:scaleY(.08); opacity:.35; } 50% { transform:scaleY(1); opacity:1; } }
+    .iv-hero .pp-viz-bars { width:54px; height:36px; flex-shrink:0; display:flex; align-items:flex-end; gap:4px; }
+    .iv-hero .pp-viz-bars .pp-bar { flex:1; background:linear-gradient(180deg, #a956ff 0%, #7c5dff 55%, #3766fe 100%); border-radius:2px 2px 0 0; transform-origin:center bottom; animation:ivBarGrow 2.2s ease-in-out infinite; }
+    .iv-hero .pp-viz-bars .pp-bar:nth-child(1) { height:58%; animation-delay:0s; }
+    .iv-hero .pp-viz-bars .pp-bar:nth-child(2) { height:82%; animation-delay:-.28s; }
+    .iv-hero .pp-viz-bars .pp-bar:nth-child(3) { height:100%; animation-delay:-.56s; }
+    .iv-hero .pp-viz-bars .pp-bar:nth-child(4) { height:68%; animation-delay:-.84s; }
+    .iv-hero .pp-viz-bars .pp-bar:nth-child(5) { height:88%; animation-delay:-1.12s; }
+    @keyframes ivBarGrow { 0%,100% { transform:scaleY(.18); opacity:.55; } 50% { transform:scaleY(1); opacity:1; } }
 
     /* Card positions + float animation */
     .iv-hero .pp-float-1 { top:7%; left:-3%; animation:ivFloatA 7s ease-in-out infinite; }
@@ -211,15 +211,15 @@
     }
   </style>
 
-  <svg style="display:none;" aria-hidden="true">
-    <symbol id="iv-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
-    <symbol id="iv-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <svg width="0" height="0" style="position:absolute;width:0;height:0;overflow:hidden;" aria-hidden="true">
     <defs>
       <linearGradient id="iv-chart-grad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#a956ff"/>
         <stop offset="50%" stop-color="#7c5dff"/>
         <stop offset="100%" stop-color="#3766fe"/>
       </linearGradient>
+      <symbol id="iv-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="iv-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
     </defs>
   </svg>
 
@@ -275,13 +275,13 @@
         </div>
         <!-- Card 2: Processing bars (grow and shrink in a wave) -->
         <div class="pp-float pp-float-2" aria-hidden="true">
-          <svg class="pp-viz-bars" viewBox="0 0 54 34" preserveAspectRatio="none">
-            <rect x="2" y="14" width="6" height="20" rx="1.2"/>
-            <rect x="13" y="8" width="6" height="26" rx="1.2"/>
-            <rect x="24" y="2" width="6" height="32" rx="1.2"/>
-            <rect x="35" y="10" width="6" height="24" rx="1.2"/>
-            <rect x="46" y="5" width="6" height="29" rx="1.2"/>
-          </svg>
+          <div class="pp-viz-bars">
+            <span class="pp-bar"></span>
+            <span class="pp-bar"></span>
+            <span class="pp-bar"></span>
+            <span class="pp-bar"></span>
+            <span class="pp-bar"></span>
+          </div>
           <div class="pp-float-txt"><span class="pp-float-main">Processing</span><span class="pp-float-label">Live throughput</span></div>
         </div>
         <!-- Card 3: Live invoice counter (ticks up continuously) -->
