@@ -121,6 +121,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      height:780px;
       min-height:780px;
     }
     .iv-hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
@@ -203,7 +204,7 @@
       .iv-hero .pp-float { display:none; }
     }
     @media (max-width: 768px) {
-      .iv-hero { padding:25px 10px 25px 35px; min-height:auto; }
+      .iv-hero { padding:25px 10px 25px 35px; min-height:auto; height:auto; }
       .iv-hero .pp-title { font-size:36px; }
       .iv-hero .pp-sub { font-size:16px; max-width:300px; }
       .iv-hero .pp-bullets li { font-size:13px; }
@@ -341,59 +342,164 @@
   </script>
 </section>
 
-<!-- ============================================================ WIDGET 2: HOW IT WORKS (3-step horizontal journey) ============================================================ -->
+<!-- ============================================================ WIDGET 2: HOW IT WORKS (scroll-fill long cards, mirrors Leisure widget_039) ============================================================ -->
 <section class="iv-how" id="iv-how-it-works" aria-label="How It Works">
   <style>
-    .iv-how { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:96px 5vw; border-top:1px solid #e5e7eb; }
-    .iv-how .wrap { max-width:1280px; margin:0 auto; }
-    .iv-how .head { text-align:center; max-width:920px; margin:0 auto 64px; }
-    .iv-how .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:16px; }
-    .iv-how h2 { font-size:clamp(32px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
-    .iv-how .flow { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; align-items:stretch; position:relative; }
-    .iv-how .flow::before { content:''; position:absolute; left:10%; right:10%; top:54px; height:2px; background:linear-gradient(90deg, rgba(169,86,255,0), rgba(124,93,255,.5), rgba(55,102,254,.5), rgba(55,102,254,0)); z-index:0; }
-    .iv-how .step { position:relative; z-index:1; background:#fff; border:1px solid #e2e8f0; border-radius:24px; padding:32px 28px; display:flex; flex-direction:column; gap:16px; transition:transform .3s ease, box-shadow .3s ease; }
-    .iv-how .step:hover { transform:translateY(-4px); box-shadow:0 24px 60px rgba(15,23,42,.08); }
-    .iv-how .step-badge { width:108px; height:108px; border-radius:50%; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; margin-bottom:8px; position:relative; }
-    .iv-how .step-badge::after { content:''; position:absolute; inset:-4px; border-radius:50%; background:var(--grad); opacity:0; transition:opacity .3s; z-index:-1; filter:blur(12px); }
-    .iv-how .step:hover .step-badge::after { opacity:.35; }
-    .iv-how .step-badge svg { width:48px; height:48px; stroke:url(#iv-how-gradient); stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .iv-how .step-num { font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
-    .iv-how .step h3 { font-size:22px; font-weight:500; line-height:1.3; letter-spacing:-.3px; color:#111827; }
-    .iv-how .step p { font-size:15px; font-weight:300; line-height:1.6; color:#4B5563; }
-    .iv-how .arrow { display:flex; justify-content:center; align-items:center; color:#7c5dff; margin-top:4px; opacity:.7; }
-    .iv-how .arrow svg { width:22px; height:22px; stroke:currentColor; stroke-width:2; fill:none; }
-    @media (max-width:1024px){ .iv-how .flow{ grid-template-columns:1fr; gap:20px; } .iv-how .flow::before{ display:none; } }
-  </style>
-  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="iv-how-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
+    .iv-how {
+      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563;
+      --pp-blue:#3766fe; --pp-purple:#a956ff; --pp-green:#10B981;
+      --pp-active-grad:linear-gradient(180deg, rgba(55,102,254,.55) 0%, rgba(169,86,255,.55) 100%);
+      --pp-border:#e2e8f0;
+      background:#fff; font-family:var(--pp-font); padding:100px 5vw; color:var(--pp-ink);
+    }
+    .iv-how .pp-max-width { max-width:1200px; margin:0 auto; }
+    .iv-how .pp-head { margin-bottom:80px; max-width:850px; }
+    .iv-how .pp-main-title { font-size:clamp(38px,6vw,56px); font-weight:400; line-height:1.1; letter-spacing:-.04em; margin:0 0 20px; }
+    .iv-how .pp-title-gradient { display:inline-block; background:linear-gradient(90deg, #a956ff, #3766fe, #a956ff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:ivHowShiftGrad 4s linear infinite; }
+    @keyframes ivHowShiftGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .iv-how .pp-main-sub { font-size:20px; font-weight:300; color:var(--pp-text); line-height:1.6; margin:0; }
+    .iv-how .pp-stack { display:flex; flex-direction:column; gap:40px; }
 
-  <div class="wrap">
-    <div class="head">
-      <div class="kicker">How It Works</div>
-      <h2>Invoice arrives. AI handles it. Your team reviews exceptions.</h2>
-    </div>
-    <div class="flow">
-      <div class="step">
-        <div class="step-badge"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
-        <div class="step-num">Step 01</div>
-        <h3>Invoice Arrives in Any Format</h3>
-        <p>Supplier emails an invoice, PDF, EDI, scanned image, or any format. It lands in the PurchasePlus Invoicing Inbox. No special supplier setup required.</p>
-        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-      </div>
-      <div class="step">
-        <div class="step-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/></svg></div>
-        <div class="step-num">Step 02</div>
-        <h3>AI Reads, Extracts &amp; Matches</h3>
-        <p>PurchasePlus AI reads every line: supplier, product, quantity, price, tax. It matches the invoice against the original purchase order and goods receiving note. Three-way match, automated.</p>
-        <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
-      </div>
-      <div class="step">
-        <div class="step-badge"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/><path d="M20 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h8"/></svg></div>
-        <div class="step-num">Step 03</div>
-        <h3>Approve or Route, Instantly</h3>
-        <p>Invoices that match go straight through for approval. Discrepancies route automatically to the right person with the exception flagged. Your team only touches invoices that need attention.</p>
-      </div>
-    </div>
+    .iv-how .pp-long-card { position:relative; background:#fff; border:1px solid var(--pp-border); border-radius:40px; padding:60px; display:flex; align-items:center; min-height:400px; overflow:hidden; transition:box-shadow .4s ease, border-color .4s ease; }
+    .iv-how .pp-card-bg { position:absolute; bottom:0; left:0; width:100%; height:0%; background:var(--pp-active-grad); z-index:1; mask-image:linear-gradient(to bottom, transparent 0%, black 100px); -webkit-mask-image:linear-gradient(to bottom, transparent 0%, black 100px); pointer-events:none; }
+    .iv-how .pp-card-main { position:relative; display:flex; gap:60px; align-items:center; z-index:3; width:100%; }
+
+    .iv-how .pp-slider-box { display:flex; flex-direction:column; align-items:center; }
+    .iv-how .pp-vol-slider { -webkit-appearance:none; appearance:none; width:220px; height:4px; background:#f1f5f9; border-radius:10px; outline:none; transform:rotate(-90deg); margin:110px -100px; cursor:pointer; }
+    .iv-how .pp-vol-slider::-webkit-slider-thumb { -webkit-appearance:none; width:32px; height:32px; background:#fff; border-radius:50%; box-shadow:0 4px 15px rgba(0,0,0,.1); border:1px solid var(--pp-blue); }
+    .iv-how .pp-vol-slider::-moz-range-thumb { width:32px; height:32px; background:#fff; border-radius:50%; box-shadow:0 4px 15px rgba(0,0,0,.1); border:1px solid var(--pp-blue); }
+
+    .iv-how .pp-card-content-wrapper { position:relative; flex:1; max-width:55%; }
+    .iv-how .pp-card-content-base { color:var(--pp-ink); font-weight:300; }
+    .iv-how .pp-card-content-overlay { position:absolute; top:0; left:0; width:100%; height:100%; color:#111827; font-weight:300; pointer-events:none; clip-path:inset(100% 0 0 0); }
+
+    .iv-how .pp-card-name { font-size:30px; font-weight:400; margin:0 0 16px; }
+    .iv-how .pp-card-desc { font-size:18px; line-height:1.6; margin:0 0 30px; opacity:.9; text-wrap:balance; }
+    .iv-how .pp-checks { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:15px; }
+    .iv-how .pp-check { display:flex; align-items:center; gap:14px; font-size:16px; }
+    .iv-how .pp-check-icon { width:28px; height:28px; background:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .iv-how .pp-check-icon svg { width:16px; height:16px; stroke:var(--pp-green); stroke-width:4; fill:none; }
+
+    .iv-how .pp-img-box { position:absolute; right:0; bottom:0; height:100%; width:40%; z-index:2; display:flex; align-items:flex-end; justify-content:flex-end; pointer-events:none; }
+    .iv-how .pp-char { max-height:90%; width:auto; max-width:100%; object-fit:contain; opacity:0; transform:translateY(60px); transition:all .8s cubic-bezier(.16,1,.3,1); }
+
+    .iv-how .pp-long-card.is-active { border-color:transparent; box-shadow:0 25px 60px rgba(55,102,254,.12); }
+    .iv-how .pp-long-card.is-active .pp-char { opacity:1; transform:translateY(0); }
+
+    @media (max-width: 768px) {
+      .iv-how .pp-head { margin-bottom:40px; }
+      .iv-how .pp-main-sub { font-size:18px; }
+      .iv-how .pp-long-card { flex-direction:column; align-items:stretch; padding:50px 30px 0 30px; min-height:auto; justify-content:flex-start; text-align:left; }
+      .iv-how .pp-long-card .pp-card-main { display:flex; flex-direction:column; gap:20px; align-items:flex-start; justify-content:flex-start; margin-bottom:30px; text-align:left; width:100%; }
+      .iv-how .pp-slider-box { display:none; }
+      .iv-how .pp-long-card .pp-card-content-wrapper { max-width:100%; width:100%; flex:none; text-align:left; }
+      .iv-how .pp-long-card .pp-card-name { font-size:26px; }
+      .iv-how .pp-long-card .pp-card-desc { font-size:16px; margin-bottom:20px; }
+      .iv-how .pp-long-card .pp-checks { align-items:flex-start; gap:15px; width:100%; text-align:left; }
+      .iv-how .pp-long-card .pp-checks .pp-check { width:100%; margin:0; }
+      .iv-how .pp-long-card .pp-img-box { position:relative; width:calc(100% + 60px); height:auto; margin:0 -30px; right:auto; bottom:0; justify-content:center; display:flex; }
+      .iv-how .pp-long-card .pp-char { width:100%; max-height:none; display:block; opacity:.3; }
+      .iv-how .pp-long-card.is-active .pp-char { opacity:1; }
+    }
+  </style>
+
+  <div class="pp-max-width">
+    <header class="pp-head">
+      <h2 class="pp-main-title">
+        Invoice arrives. AI handles it.<br>
+        <span class="pp-title-gradient">Your team reviews exceptions.</span>
+      </h2>
+      <p class="pp-main-sub">Three connected steps. Zero manual keying. 90% straight-through processing.</p>
+    </header>
+    <div class="pp-stack" id="iv-how-stack"></div>
   </div>
+
+  <script>
+    (function(){
+      var ivFeats = [
+        {
+          id: 'iv-s1',
+          title: 'Invoice arrives in any format',
+          desc: 'Supplier emails an invoice in any format (PDF, EDI, scanned image, or anything else). It lands in the PurchasePlus Invoicing Inbox with no special supplier setup.',
+          checks: ['PDFs, scans, EDI, email attachments', 'No portal login for suppliers', 'Instant capture, AI ready'],
+          img: 'https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/1.png'
+        },
+        {
+          id: 'iv-s2',
+          title: 'AI reads, extracts and matches',
+          desc: 'PurchasePlus AI reads every line (supplier, product, quantity, price, tax) and matches the invoice against the original purchase order and goods receiving note.',
+          checks: ['Every line, every field extracted', 'Invoice vs PO vs receiving note', '90% straight-through processing'],
+          img: 'https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/2.png'
+        },
+        {
+          id: 'iv-s3',
+          title: 'Approve or route, instantly',
+          desc: 'Invoices that match go straight through for approval. Discrepancies route automatically to the right person with the exception flagged and full context attached.',
+          checks: ['Clean matches auto approved', 'Exceptions routed by rule', 'Full audit trail on every action'],
+          img: 'https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/3.png'
+        }
+      ];
+
+      var stack = document.getElementById('iv-how-stack');
+      if (!stack) return;
+
+      stack.innerHTML = ivFeats.map(function(item){
+        var checks = item.checks.map(function(c){
+          return '<li class="pp-check"><span class="pp-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> ' + c + '</li>';
+        }).join('');
+        return '<article class="pp-long-card" id="' + item.id + '">' +
+                 '<div class="pp-card-bg"></div>' +
+                 '<div class="pp-card-main">' +
+                   '<div class="pp-slider-box">' +
+                     '<input type="range" min="0" max="100" value="0" class="pp-vol-slider" data-id="' + item.id + '" aria-label="' + item.title + ' activation">' +
+                   '</div>' +
+                   '<div class="pp-card-content-wrapper">' +
+                     '<div class="pp-card-content-base">' +
+                       '<h3 class="pp-card-name">' + item.title + '</h3>' +
+                       '<p class="pp-card-desc">' + item.desc + '</p>' +
+                       '<ul class="pp-checks">' + checks + '</ul>' +
+                     '</div>' +
+                     '<div class="pp-card-content-overlay" aria-hidden="true">' +
+                       '<h3 class="pp-card-name">' + item.title + '</h3>' +
+                       '<p class="pp-card-desc">' + item.desc + '</p>' +
+                       '<ul class="pp-checks">' + checks + '</ul>' +
+                     '</div>' +
+                   '</div>' +
+                 '</div>' +
+                 '<div class="pp-img-box">' +
+                   '<img src="' + item.img + '" class="pp-char" alt="' + item.title + '" loading="lazy">' +
+                 '</div>' +
+               '</article>';
+      }).join('');
+
+      function updateCard(id, val) {
+        var card = document.getElementById(id);
+        if (!card) return;
+        var bg = card.querySelector('.pp-card-bg');
+        var overlay = card.querySelector('.pp-card-content-overlay');
+        var slider = card.querySelector('.pp-vol-slider');
+        if (bg) bg.style.height = val + '%';
+        if (overlay) overlay.style.clipPath = 'inset(' + (100 - val) + '% 0 0 0)';
+        if (slider) slider.value = val;
+        if (val >= 60) card.classList.add('is-active'); else card.classList.remove('is-active');
+      }
+
+      stack.querySelectorAll('.pp-vol-slider').forEach(function(slider){
+        slider.addEventListener('input', function(){ updateCard(slider.dataset.id, slider.value); });
+      });
+
+      window.addEventListener('scroll', function(){
+        ivFeats.forEach(function(item){
+          var card = document.getElementById(item.id);
+          if (!card) return;
+          var rect = card.getBoundingClientRect();
+          var winH = window.innerHeight;
+          var progress = ((winH * 0.9 - rect.top) / (winH * 0.75)) * 100;
+          updateCard(item.id, Math.max(0, Math.min(100, progress)));
+        });
+      }, { passive: true });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ WIDGET 3: KEY FEATURES (6 alternating rows) ============================================================ -->
