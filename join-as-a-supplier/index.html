@@ -124,6 +124,8 @@
   .js-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.38); }
   .js-btn-secondary { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
   .js-btn-secondary:hover { border-color:#c4b5fd; color:#7c5dff; }
+  .js-btn-mobile-only { display:none; }
+  @media (max-width:960px) { .js-btn-mobile-only { display:inline-flex; } }
 
   /* FORM CARD */
   .js-form-card { position:relative; background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:36px 34px; box-shadow:0 30px 70px rgba(17,24,39,.08); }
@@ -218,7 +220,7 @@
           </div>
           <div class="js-hero-ctas">
             <a href="../supplier-benefits/" class="js-btn js-btn-secondary">See Supplier Benefits</a>
-            <a href="#js-form" class="js-btn js-btn-primary">Join as a Supplier</a>
+            <a href="#js-form" class="js-btn js-btn-primary js-btn-mobile-only">Join as a Supplier</a>
           </div>
         </div>
 
