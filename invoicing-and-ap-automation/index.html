@@ -149,11 +149,34 @@
     .iv-hero .pp-break { display:none; }
 
     /* Floating stat cards */
-    .iv-hero .pp-float { position:absolute; z-index:3; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:12px 18px; box-shadow:0 20px 50px rgba(15,23,42,.10), 0 4px 12px rgba(15,23,42,.05); display:flex; align-items:center; gap:12px; pointer-events:none; will-change:transform; }
-    .iv-hero .pp-float-dot { width:10px; height:10px; border-radius:50%; background:var(--pp-grad); flex-shrink:0; box-shadow:0 0 0 5px rgba(124,93,255,.10); }
-    .iv-hero .pp-float-txt { display:flex; flex-direction:column; line-height:1; }
-    .iv-hero .pp-float-num { font-size:20px; font-weight:700; letter-spacing:-0.3px; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .iv-hero .pp-float { position:absolute; z-index:3; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:12px 16px; box-shadow:0 20px 50px rgba(15,23,42,.10), 0 4px 12px rgba(15,23,42,.05); display:flex; align-items:center; gap:12px; pointer-events:none; will-change:transform; }
+    .iv-hero .pp-float-txt { display:flex; flex-direction:column; line-height:1.1; }
+    .iv-hero .pp-float-main { font-size:15px; font-weight:600; color:#111827; letter-spacing:-.2px; }
     .iv-hero .pp-float-label { font-size:10px; font-weight:600; color:#6b7280; letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+
+    /* Visualization: Donut chart */
+    .iv-hero .pp-viz-donut { position:relative; width:40px; height:40px; flex-shrink:0; }
+    .iv-hero .pp-viz-donut svg { width:100%; height:100%; }
+    .iv-hero .pp-viz-donut .pp-donut-bg { fill:none; stroke:#f1f5f9; stroke-width:3.6; }
+    .iv-hero .pp-viz-donut .pp-donut-arc { fill:none; stroke:url(#iv-chart-grad); stroke-width:3.6; stroke-linecap:round; stroke-dasharray:75.4; stroke-dashoffset:75.4; transform:rotate(-90deg); transform-origin:center; animation:ivDonutFill 3.6s ease-in-out infinite; }
+    .iv-hero .pp-viz-donut-val { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:11px; font-weight:700; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:-.2px; }
+    @keyframes ivDonutFill { 0% { stroke-dashoffset:75.4; } 45%,55% { stroke-dashoffset:7.5; } 100% { stroke-dashoffset:75.4; } }
+
+    /* Visualization: Bar sparkline */
+    .iv-hero .pp-viz-bars { width:50px; height:30px; flex-shrink:0; }
+    .iv-hero .pp-viz-bars rect { fill:url(#iv-chart-grad); transform-box:fill-box; transform-origin:center bottom; animation:ivBarPulse 2.2s ease-in-out infinite; }
+    .iv-hero .pp-viz-bars rect:nth-child(1) { animation-delay:0s; }
+    .iv-hero .pp-viz-bars rect:nth-child(2) { animation-delay:-.2s; }
+    .iv-hero .pp-viz-bars rect:nth-child(3) { animation-delay:-.4s; }
+    .iv-hero .pp-viz-bars rect:nth-child(4) { animation-delay:-.6s; }
+    .iv-hero .pp-viz-bars rect:nth-child(5) { animation-delay:-.8s; }
+    @keyframes ivBarPulse { 0%,100% { transform:scaleY(1); opacity:1; } 50% { transform:scaleY(.45); opacity:.75; } }
+
+    /* Visualization: Number with scale pulse */
+    .iv-hero .pp-float-num { font-size:22px; font-weight:700; letter-spacing:-0.4px; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; display:inline-block; transform-origin:left center; animation:ivNumPulse 2.4s ease-in-out infinite; }
+    @keyframes ivNumPulse { 0%,100% { transform:scale(1); } 50% { transform:scale(1.22); } }
+
+    /* Card positions + float animation */
     .iv-hero .pp-float-1 { top:7%; left:-3%; animation:ivFloatA 7s ease-in-out infinite; }
     .iv-hero .pp-float-2 { top:44%; right:-1%; animation:ivFloatB 8.5s ease-in-out infinite -2.5s; }
     .iv-hero .pp-float-3 { bottom:9%; left:10%; animation:ivFloatC 6.5s ease-in-out infinite -3.5s; }
@@ -195,6 +218,13 @@
   <svg style="display:none;" aria-hidden="true">
     <symbol id="iv-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
     <symbol id="iv-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <defs>
+      <linearGradient id="iv-chart-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#a956ff"/>
+        <stop offset="50%" stop-color="#7c5dff"/>
+        <stop offset="100%" stop-color="#3766fe"/>
+      </linearGradient>
+    </defs>
   </svg>
 
   <div class="pp-inner">
@@ -236,17 +266,31 @@
           <source src="../videos/invoicing-and-ap-automation.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <!-- Card 1: Donut chart (match rate) -->
         <div class="pp-float pp-float-1" aria-hidden="true">
-          <span class="pp-float-dot"></span>
-          <div class="pp-float-txt"><span class="pp-float-num">40M+</span><span class="pp-float-label">Invoices</span></div>
+          <div class="pp-viz-donut">
+            <svg viewBox="0 0 32 32">
+              <circle class="pp-donut-bg" cx="16" cy="16" r="12"/>
+              <circle class="pp-donut-arc" cx="16" cy="16" r="12"/>
+            </svg>
+            <span class="pp-viz-donut-val">90%</span>
+          </div>
+          <div class="pp-float-txt"><span class="pp-float-main">Match rate</span><span class="pp-float-label">3-way auto</span></div>
         </div>
+        <!-- Card 2: Bar sparkline (throughput) -->
         <div class="pp-float pp-float-2" aria-hidden="true">
-          <span class="pp-float-dot"></span>
-          <div class="pp-float-txt"><span class="pp-float-num">90%</span><span class="pp-float-label">Straight-through</span></div>
+          <svg class="pp-viz-bars" viewBox="0 0 50 30" preserveAspectRatio="none">
+            <rect x="2" y="18" width="6" height="12" rx="1.2"/>
+            <rect x="12" y="10" width="6" height="20" rx="1.2"/>
+            <rect x="22" y="4" width="6" height="26" rx="1.2"/>
+            <rect x="32" y="13" width="6" height="17" rx="1.2"/>
+            <rect x="42" y="7" width="6" height="23" rx="1.2"/>
+          </svg>
+          <div class="pp-float-txt"><span class="pp-float-main">Processing</span><span class="pp-float-label">Live throughput</span></div>
         </div>
+        <!-- Card 3: Number with pulse -->
         <div class="pp-float pp-float-3" aria-hidden="true">
-          <span class="pp-float-dot"></span>
-          <div class="pp-float-txt"><span class="pp-float-num">1 FTE</span><span class="pp-float-label">Saved</span></div>
+          <div class="pp-float-txt"><span class="pp-float-num">40M+</span><span class="pp-float-label">Invoices processed</span></div>
         </div>
       </div>
     </div>
