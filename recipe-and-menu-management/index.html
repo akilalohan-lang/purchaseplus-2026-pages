@@ -336,54 +336,207 @@
   </script>
 </section>
 
-<!-- ============================================================ WIDGET 2: THE PROBLEM (H2 + body + 3 pain cards) ============================================================ -->
-<section class="rc-prob" aria-label="The Problem">
+<!-- ============================================================ WIDGET 2: THE PROBLEM (Inventory widget_018 pattern, reversed colors on gradient bg) ============================================================ -->
+<section class="rc-prob" aria-label="Recipe Reality Check">
   <style>
-    .rc-prob { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#0b0f1f; color:#fff; padding:110px 5vw; position:relative; overflow:hidden; }
-    .rc-prob::before { content:''; position:absolute; top:-40%; left:-20%; width:140%; height:180%; background:radial-gradient(ellipse at 20% 20%, rgba(169,86,255,.12), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(55,102,254,.1), transparent 55%); pointer-events:none; }
-    .rc-prob .wrap { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
-    .rc-prob .head { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; margin-bottom:72px; }
-    .rc-prob .kicker { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
-    .rc-prob h2 { font-size:clamp(34px,4.4vw,54px); font-weight:400; line-height:1.1; letter-spacing:-1.2px; }
-    .rc-prob .body { font-size:17px; font-weight:300; line-height:1.7; color:rgba(255,255,255,.72); padding-top:26px; }
-    .rc-prob .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .rc-prob .card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:36px 32px; backdrop-filter:blur(8px); transition:border-color .3s, background .3s, transform .3s; }
-    .rc-prob .card:hover { border-color:rgba(169,86,255,.5); background:rgba(255,255,255,.06); transform:translateY(-4px); }
-    .rc-prob .card-num { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:12px; }
-    .rc-prob .card h3 { font-size:24px; font-weight:500; line-height:1.2; letter-spacing:-.4px; margin-bottom:14px; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; display:inline-block; }
-    .rc-prob .card p { font-size:15px; font-weight:300; line-height:1.65; color:rgba(255,255,255,.78); }
-    @media (max-width:1024px){ .rc-prob .head{ grid-template-columns:1fr; gap:20px; margin-bottom:48px; } .rc-prob .body{ padding-top:0; } .rc-prob .cards{ grid-template-columns:1fr; } }
-    @media (max-width:640px){ .rc-prob{ padding:72px 20px; } }
+    .rc-prob { --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); font-family:'Inter',sans-serif; background:#fff; padding:140px 0; position:relative; overflow:hidden; }
+    /* Pulsing gradient bg masked to fade in at the top and out at the bottom */
+    .rc-prob::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, #a956ff 0%, #7c5dff 45%, #3766fe 100%);
+      background-size:240% 240%;
+      animation:rcProbBgPulse 11s ease-in-out infinite;
+      mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      z-index:0;
+    }
+    @keyframes rcProbBgPulse { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
+    .rc-prob::after {
+      content:''; position:absolute; top:20%; left:50%; transform:translateX(-50%);
+      width:80%; height:60%;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.22), transparent 65%);
+      pointer-events:none; z-index:1;
+    }
+    .rc-prob .pp-inner { position:relative; z-index:2; max-width:1200px; margin:0 auto; padding:0 5vw; }
+
+    /* Header */
+    .rc-prob .pp-head { text-align:center; max-width:980px; margin:0 auto 44px auto; }
+    .rc-prob .pp-kicker { font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-bottom:18px; }
+    .rc-prob .pp-title { font-size:clamp(32px,4.2vw,44px); font-weight:400; line-height:1.1; color:#fff; margin:0 0 16px 0; letter-spacing:-1px; text-wrap:balance; }
+    .rc-prob .pp-sub { font-size:18px; font-weight:300; color:rgba(255,255,255,.82); line-height:1.6; max-width:900px; margin:0 auto; text-wrap:balance; }
+
+    /* Cards grid */
+    .rc-prob .pp-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; align-items:stretch; margin-top:40px; perspective:1100px; }
+
+    /* REVERSED card: starts gradient (+ white text), hover/active → white (+ dark text) */
+    .rc-prob .pp-card {
+      background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:32px;
+      padding:32px 28px;
+      box-shadow:0 20px 50px rgba(15,23,42,.14);
+      position:relative; overflow:hidden;
+      min-height:320px;
+      display:flex; flex-direction:column; justify-content:flex-start;
+      transform-origin:center center; will-change:transform;
+      transition:background .4s ease, border-color .4s ease, box-shadow .4s ease;
+    }
+    .rc-prob .pp-card.is-active,
+    .rc-prob .pp-card:hover {
+      background:#fff;
+      border-color:rgba(148,163,184,.25);
+      box-shadow:0 25px 60px rgba(15,23,42,.18);
+    }
+
+    .rc-prob .pp-card.pp-tilt-1 { transform:rotate(-1.2deg); }
+    .rc-prob .pp-card.pp-tilt-2 { transform:rotate(1.0deg); }
+    .rc-prob .pp-card.pp-tilt-3 { transform:rotate(-0.6deg); }
+
+    .rc-prob .pp-card-title {
+      font-size:22px; font-weight:600; color:#fff; margin:0 0 16px 0;
+      letter-spacing:-.3px; line-height:1.2; white-space:nowrap;
+      transition:color .4s ease;
+    }
+    .rc-prob .pp-card.is-active .pp-card-title,
+    .rc-prob .pp-card:hover .pp-card-title { color:#111827; }
+
+    .rc-prob .pp-card-desc {
+      font-size:15px; line-height:1.55; font-weight:300;
+      color:rgba(255,255,255,.9); margin:0 0 20px 0; max-width:80%;
+      transition:color .4s ease;
+    }
+    .rc-prob .pp-card.is-active .pp-card-desc,
+    .rc-prob .pp-card:hover .pp-card-desc { color:#4B5563; }
+
+    .rc-prob .pp-card-character {
+      position:absolute; bottom:0; right:0;
+      width:170px; height:170px;
+      pointer-events:none; opacity:0;
+      transition:opacity .4s ease;
+    }
+    .rc-prob .pp-card.is-active .pp-card-character,
+    .rc-prob .pp-card:hover .pp-card-character { opacity:1; }
+
+    /* CTA button: white bg with gradient text by default; on active becomes gradient with white text */
+    .rc-prob .pp-cta-btn {
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 24px;
+      background:#fff; color:#7c5dff;
+      font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+      text-decoration:none; border-radius:999px;
+      box-shadow:0 10px 25px rgba(0,0,0,.12);
+      margin-top:auto; width:max-content;
+      transition:background .4s ease, color .4s ease, box-shadow .2s ease;
+    }
+    .rc-prob .pp-card.is-active .pp-cta-btn,
+    .rc-prob .pp-card:hover .pp-cta-btn {
+      background:var(--pp-grad) !important; color:#fff !important;
+      box-shadow:0 10px 25px rgba(55,102,254,.25);
+    }
+
+    .rc-prob .pp-bridge {
+      text-align:center; margin:40px auto 0 auto; max-width:980px;
+      padding:22px; border-radius:22px;
+      background:rgba(255,255,255,.85); backdrop-filter:blur(6px);
+      border:1px dashed rgba(255,255,255,.6);
+      color:#4B5563; font-size:15px; line-height:1.55; font-weight:300;
+    }
+    .rc-prob .pp-bridge strong { font-weight:600; color:#111827; }
+
+    @media (max-width:1024px){
+      .rc-prob { padding:100px 0; }
+      .rc-prob .pp-title { font-size:32px; }
+      .rc-prob .pp-grid { grid-template-columns:1fr; gap:16px; }
+      .rc-prob .pp-card { padding:22px; min-height:auto; }
+      .rc-prob .pp-card-title { font-size:22px; white-space:normal; }
+      .rc-prob .pp-card-desc { max-width:75%; }
+      .rc-prob .pp-card-character { width:140px; height:140px; }
+      .rc-prob .pp-card.pp-tilt-1, .rc-prob .pp-card.pp-tilt-2, .rc-prob .pp-card.pp-tilt-3 { transform:none; }
+    }
+    @media (max-width:480px){
+      .rc-prob .pp-card-title { font-size:19px; }
+    }
   </style>
-  <div class="wrap">
-    <div class="head">
-      <div>
-        <div class="kicker">The Problem</div>
-        <h2>Your recipe spreadsheet hasn't been updated since the menu changed.</h2>
-      </div>
-      <p class="body">Most kitchens price their menus at the start of the year, or when a new chef joins. Supplier prices change weekly. Portion sizes drift. The spreadsheet never catches up. By the time you run a food cost report, your menu is priced on numbers that are months out of date.</p>
+
+  <div class="pp-inner">
+    <div class="pp-head">
+      <div class="pp-kicker">Recipe Reality Check</div>
+      <h2 class="pp-title">Your recipe spreadsheet hasn&rsquo;t been updated since the menu&nbsp;changed</h2>
+      <p class="pp-sub">Most kitchens price their menus at the start of the year, or when a new chef joins. Supplier prices change weekly. Portion sizes drift. By the time you run a food cost report, your menu is priced on numbers that are months out of date.</p>
     </div>
-    <div class="cards">
-      <div class="card">
-        <div class="card-num">Pain · 01</div>
-        <h3>"Stale Cost Data"</h3>
-        <p>Ingredient prices change every week. Your recipe spreadsheet doesn't. The gap compounds every month.</p>
+
+    <div class="pp-grid" id="rc-prob-grid">
+      <div class="pp-card pp-tilt-1" data-pp-prob="0">
+        <h3 class="pp-card-title">Stale Cost Data</h3>
+        <p class="pp-card-desc">Ingredient prices change every week. Your recipe spreadsheet doesn&rsquo;t. The gap compounds every month.</p>
+        <a class="pp-cta-btn" href="#rc-features" aria-label="Fix costing">Fix costing</a>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
-      <div class="card">
-        <div class="card-num">Pain · 02</div>
-        <h3>"Disconnected from Purchasing"</h3>
-        <p>Recipe costs and purchasing data live in separate systems. There's no automatic link.</p>
+
+      <div class="pp-card pp-tilt-2" data-pp-prob="1">
+        <h3 class="pp-card-title">Disconnected Systems</h3>
+        <p class="pp-card-desc">Recipe costs and purchasing data live in separate systems. There&rsquo;s no automatic link between them.</p>
+        <a class="pp-cta-btn" href="#rc-features" aria-label="Connect data">Connect data</a>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/002_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
-      <div class="card">
-        <div class="card-num">Pain · 03</div>
-        <h3>"GP% Is a Guess"</h3>
-        <p>Without live recipe costs, food cost % is estimated from memory. Decisions made on bad numbers produce bad results.</p>
+
+      <div class="pp-card pp-tilt-3" data-pp-prob="2">
+        <h3 class="pp-card-title">GP% Is a Guess</h3>
+        <p class="pp-card-desc">Without live recipe costs, food cost % is estimated from memory. Decisions made on bad numbers produce bad results.</p>
+        <a class="pp-cta-btn" href="#rc-features" aria-label="Get real numbers">Get real numbers</a>
+        <img src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/003_REALITY_CHECK.png" alt="" class="pp-card-character" aria-hidden="true">
       </div>
+    </div>
+
+    <div class="pp-bridge" aria-live="polite">
+      <strong>PurchasePlus connects your recipes to reality.</strong> When a supplier price changes, every dish recalculates automatically.
     </div>
   </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+      if (typeof gsap === 'undefined') return;
+      var cards = Array.prototype.slice.call(document.querySelectorAll('#rc-prob-grid .pp-card'));
+      if (!cards.length) return;
+
+      function setActive(i){
+        cards.forEach(function(c, k){ c.classList.toggle('is-active', k === i); });
+      }
+
+      var tl = gsap.timeline({ repeat: -1 });
+      cards.forEach(function(card, i){
+        tl.call(function(){ setActive(i); });
+        tl.to(cards, { duration: 0.35, ease: "power2.out", scale: 1, rotation: function(j){
+          if (window.matchMedia("(max-width: 1024px)").matches) return 0;
+          return j === 0 ? -1.2 : (j === 1 ? 1.0 : -0.6);
+        }}, "+=0");
+        tl.to(card, { duration: 0.55, ease: "back.out(1.7)", scale: 1.06, rotation: 0 }, "+=0.05");
+        tl.to(card, { duration: 1.55, ease: "none" }, "+=0.25");
+        tl.to(card, { duration: 0.45, ease: "power2.inOut", scale: 1, rotation: function(){
+          return window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6));
+        }}, "+=0.1");
+      });
+      setActive(0);
+
+      cards.forEach(function(card, i){
+        card.addEventListener('mouseenter', function(){
+          tl.pause();
+          setActive(i);
+          gsap.to(card, { duration: 0.35, ease: "back.out(1.6)", scale: 1.06, rotation: 0 });
+        });
+        card.addEventListener('mouseleave', function(){
+          gsap.to(card, { duration: 0.25, ease: "power2.out", scale: 1, rotation: function(){
+            return window.matchMedia("(max-width: 1024px)").matches ? 0 : (i === 0 ? -1.2 : (i === 1 ? 1.0 : -0.6));
+          }});
+          tl.resume();
+        });
+      });
+    });
+  </script>
 </section>
 
-<!-- ============================================================ WIDGET 3: KEY FEATURES (5 alternating rows) ============================================================ -->
+<!-- ============================================================ WIDGET 3: KEY FEATURES (5 alternating rows, side-slide image + gradient glow) ============================================================ -->
 <section class="rc-feat" id="rc-features" aria-label="Key Features">
   <style>
     .rc-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
@@ -391,19 +544,30 @@
     .rc-feat .head { text-align:center; max-width:720px; margin:0 auto 72px; }
     .rc-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
     .rc-feat .head h2 { font-size:clamp(32px,4.2vw,42px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
-    .rc-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-bottom:120px; }
+    .rc-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; margin-bottom:130px; }
     .rc-feat .row:last-child { margin-bottom:0; }
     .rc-feat .row.rev .visual { order:-1; }
     .rc-feat .copy .num { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:14px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); color:#7c5dff; font-size:15px; font-weight:700; letter-spacing:.06em; margin-bottom:20px; }
-    .rc-feat .copy h3 { font-size:clamp(26px,2.8vw,34px); font-weight:500; line-height:1.22; letter-spacing:-.5px; color:#111827; margin-bottom:18px; }
+    .rc-feat .copy h3 { font-size:clamp(26px,2.8vw,34px); font-weight:400; line-height:1.22; letter-spacing:-.5px; color:#111827; margin-bottom:18px; }
     .rc-feat .copy p { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; }
-    .rc-feat .visual { aspect-ratio:4/3; border-radius:28px; background:linear-gradient(135deg, #faf5ff 0%, #f0f5ff 100%); border:1px solid #e2e8f0; padding:36px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .rc-feat .visual::after { content:'Screenshot placeholder'; position:absolute; bottom:20px; left:20px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
-    .rc-feat .visual svg { width:55%; height:55%; stroke:url(#rc-feat-grad); stroke-width:1.2; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.5; }
-    @media (max-width:1024px){ .rc-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:80px; } .rc-feat .row.rev .visual{ order:0; } }
-    @media (max-width:640px){ .rc-feat{ padding:72px 20px; } .rc-feat .copy h3{ font-size:24px; } .rc-feat .copy p{ font-size:15px; } }
+
+    /* Visual: image slides in from outer edge with gradient glow beneath */
+    .rc-feat .visual { position:relative; opacity:0; transform:translateX(100px); transition:opacity .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1); }
+    .rc-feat .row.rev .visual { transform:translateX(-100px); }
+    .rc-feat .visual.is-in { opacity:1; transform:translateX(0); }
+    .rc-feat .visual img { display:block; width:100%; height:auto; position:relative; z-index:2; }
+    .rc-feat .visual::before {
+      content:''; position:absolute; left:6%; right:6%; bottom:-8%; height:45%;
+      background:radial-gradient(ellipse at 50% 50%, rgba(169,86,255,.45), rgba(124,93,255,.28) 35%, rgba(55,102,254,.18) 60%, transparent 80%);
+      filter:blur(38px); opacity:0;
+      transition:opacity 1.2s ease .25s;
+      z-index:1; pointer-events:none;
+    }
+    .rc-feat .visual.is-in::before { opacity:1; }
+
+    @media (max-width:1024px){ .rc-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:90px; } .rc-feat .row.rev .visual{ order:0; } }
+    @media (max-width:640px){ .rc-feat{ padding:72px 20px; } .rc-feat .copy h3{ font-size:24px; } .rc-feat .copy p{ font-size:15px; } .rc-feat .visual, .rc-feat .row.rev .visual { transform:translateY(40px); } .rc-feat .visual.is-in { transform:translateY(0); } }
   </style>
-  <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="rc-feat-grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#a956ff"/><stop offset="50%" stop-color="#7c5dff"/><stop offset="100%" stop-color="#3766fe"/></linearGradient></defs></svg>
 
   <div class="wrap">
     <div class="head">
@@ -417,7 +581,7 @@
         <h3>Build it once. PurchasePlus keeps it accurate.</h3>
         <p>Each recipe ingredient links to a real product in your PurchasePlus catalogue. Every time a supplier updates their price, every recipe containing that ingredient recalculates automatically. No manual updates. No stale numbers.</p>
       </div>
-      <div class="visual"><svg viewBox="0 0 48 48"><rect x="6" y="6" width="36" height="36" rx="4"/><path d="M12 16h24M12 22h24M12 28h16"/><circle cx="36" cy="30" r="5" fill="rgba(124,93,255,.12)"/><path d="M33 30l2 2 4-4"/></svg></div>
+      <div class="visual"><img src="../images/recipe-features/5.png" alt="Live-linked recipe costing" loading="lazy"></div>
     </div>
 
     <div class="row rev">
@@ -426,16 +590,16 @@
         <h3>See gross profit by dish, not just by month.</h3>
         <p>PurchasePlus calculates GP% per recipe using live ingredient costs and your selling price. Review at dish level, menu level, outlet level, or across your whole portfolio. Spot problems before they become patterns.</p>
       </div>
-      <div class="visual"><svg viewBox="0 0 48 48"><rect x="4" y="28" width="8" height="16" rx="1"/><rect x="16" y="20" width="8" height="24" rx="1"/><rect x="28" y="12" width="8" height="32" rx="1"/><rect x="40" y="4" width="6" height="40" rx="1"/></svg></div>
+      <div class="visual"><img src="../images/recipe-features/4.png" alt="GP% at dish and menu level" loading="lazy"></div>
     </div>
 
     <div class="row">
       <div class="copy">
         <div class="num">03</div>
-        <h3>Cost what's actually used, not just what's purchased.</h3>
+        <h3>Cost what&rsquo;s actually used, not just what&rsquo;s purchased.</h3>
         <p>Build in yield factors, portion sizes, and prep weights for each ingredient. PurchasePlus calculates cost based on usable yield per portion, not the raw purchase unit. The math is always right.</p>
       </div>
-      <div class="visual"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 8v32M8 24h32"/><path d="M18 18l12 12M30 18l-12 12" stroke-dasharray="2 3" opacity=".6"/></svg></div>
+      <div class="visual"><img src="../images/recipe-features/3.png" alt="Portion, yield and waste management" loading="lazy"></div>
     </div>
 
     <div class="row rev">
@@ -444,7 +608,7 @@
         <h3>Complex menus, no complexity.</h3>
         <p>Build sub-recipes (stocks, sauces, pastry bases) and use them as components inside other recipes. Cost cascades automatically through every dish they appear in. Change the sub-recipe once, every dish updates.</p>
       </div>
-      <div class="visual"><svg viewBox="0 0 48 48"><circle cx="24" cy="10" r="5"/><circle cx="10" cy="32" r="5"/><circle cx="24" cy="32" r="5"/><circle cx="38" cy="32" r="5"/><path d="M24 15l-12 12M24 15v12M24 15l12 12"/></svg></div>
+      <div class="visual"><img src="../images/recipe-features/2.png" alt="Sub-recipes and components" loading="lazy"></div>
     </div>
 
     <div class="row">
@@ -453,9 +617,24 @@
         <h3>Recipes feed inventory. POS sales feed GP%. All connected.</h3>
         <p>Every recipe links directly to inventory items. When a dish is sold via your POS system, inventory decrements automatically by the recipe quantities. Theoretical vs actual usage is tracked in real time, variance appears immediately.</p>
       </div>
-      <div class="visual"><svg viewBox="0 0 48 48"><rect x="4" y="6" width="12" height="10" rx="2"/><rect x="18" y="19" width="12" height="10" rx="2"/><rect x="32" y="32" width="12" height="10" rx="2"/><path d="M16 11l2 8M30 24l2 8"/><path d="M14 16l4 3M28 29l4 3" stroke-dasharray="2 2"/></svg></div>
+      <div class="visual"><img src="../images/recipe-features/1.png" alt="Connected to inventory and POS" loading="lazy"></div>
     </div>
   </div>
+  <script>
+    (function(){
+      var visuals = document.querySelectorAll('.rc-feat .visual');
+      if (!visuals.length || !('IntersectionObserver' in window)) {
+        visuals.forEach(function(v){ v.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.18 });
+      visuals.forEach(function(v){ io.observe(v); });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ WIDGET 4: CAPABILITIES (6-card grid) ============================================================ -->
@@ -467,14 +646,15 @@
     .rc-cap .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
     .rc-cap h2 { font-size:clamp(28px,3.6vw,38px); font-weight:400; line-height:1.2; letter-spacing:-.8px; color:#111827; }
     .rc-cap .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-    .rc-cap .card { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:32px 28px; transition:border-color .3s, box-shadow .3s, transform .3s; position:relative; overflow:hidden; }
-    .rc-cap .card::before { content:''; position:absolute; inset:-1px; border-radius:22px; background:var(--grad); opacity:0; transition:opacity .3s; z-index:-1; }
-    .rc-cap .card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(124,93,255,.1); border-color:transparent; }
-    .rc-cap .card:hover::before { opacity:1; padding:1px; }
-    .rc-cap .icon { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; margin-bottom:18px; color:#7c5dff; }
+    .rc-cap .card { background:#fff; border:1px solid #e2e8f0; border-radius:22px; padding:32px 28px; transition:background .35s ease, border-color .35s ease, box-shadow .35s ease, transform .35s ease; position:relative; overflow:hidden; }
+    .rc-cap .card:hover { background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); border-color:transparent; transform:translateY(-4px); box-shadow:0 20px 50px rgba(124,93,255,.25); }
+    .rc-cap .icon { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); display:flex; align-items:center; justify-content:center; margin-bottom:18px; color:#7c5dff; transition:background .35s ease, color .35s ease; }
     .rc-cap .icon svg { width:22px; height:22px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    .rc-cap .card h3 { font-size:18px; font-weight:600; color:#111827; margin-bottom:10px; line-height:1.3; letter-spacing:-.2px; }
-    .rc-cap .card p { font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; }
+    .rc-cap .card:hover .icon { background:rgba(255,255,255,.22); color:#fff; }
+    .rc-cap .card h3 { font-size:18px; font-weight:500; color:#111827; margin-bottom:10px; line-height:1.3; letter-spacing:-.2px; transition:color .35s ease; }
+    .rc-cap .card p { font-size:14px; font-weight:300; line-height:1.6; color:#4B5563; transition:color .35s ease; }
+    .rc-cap .card:hover h3 { color:#fff; }
+    .rc-cap .card:hover p { color:rgba(255,255,255,.92); }
     @media (max-width:1024px){ .rc-cap .grid{ grid-template-columns:repeat(2,1fr); } }
     @media (max-width:600px){ .rc-cap .grid{ grid-template-columns:1fr; } }
   </style>
@@ -547,31 +727,91 @@
   </div>
 </section>
 
-<!-- ============================================================ WIDGET 6: CTA BANNER ============================================================ -->
+<!-- ============================================================ WIDGET 6: CTA BANNER (Hospitality widget_052 rising screen deck) ============================================================ -->
 <section class="rc-cta" aria-label="Final CTA">
   <style>
-    .rc-cta { font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
-    .rc-cta .wrap { max-width:960px; margin:0 auto; text-align:center; }
-    .rc-cta h2 { font-size:clamp(32px,4.4vw,54px); font-weight:400; line-height:1.1; letter-spacing:-1.2px; margin-bottom:20px; color:#111827; }
-    .rc-cta h2 em { font-style:normal; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:rcCtaGrad 4s linear infinite; }
-    @keyframes rcCtaGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .rc-cta .body { font-size:18px; font-weight:300; line-height:1.65; color:#4B5563; max-width:640px; margin:0 auto 36px; }
-    .rc-cta .btns { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-    .rc-cta .btn { display:inline-flex; align-items:center; padding:15px 32px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
-    .rc-cta .btn-primary { background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); color:#fff; box-shadow:0 10px 26px rgba(55,102,254,.25); }
-    .rc-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 16px 36px rgba(55,102,254,.32); }
-    .rc-cta .btn-ghost { background:#fff; color:#111827; border:1px solid #e2e8f0; }
-    .rc-cta .btn-ghost:hover { transform:translateY(-2px); border-color:#c4b5fd; }
-    @media (max-width:640px){ .rc-cta{ padding:72px 20px; } }
+    .rc-cta { --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563; --pp-blue:#3766fe; --pp-purple:#a956ff; --pp-grad:linear-gradient(90deg,#a956ff 0%,#3766fe 100%); --pp-border:#e2e8f0; background:#fff; font-family:var(--pp-font); padding:80px 0 0 0; color:var(--pp-ink); overflow:hidden; text-align:center; position:relative; }
+    .rc-cta .pp-max-width { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .rc-cta .pp-cta-head { max-width:900px; margin:0 auto 40px; }
+    .rc-cta .pp-cta-title { font-size:clamp(34px,4.5vw,54px); font-weight:400; line-height:1.1; letter-spacing:-.04em; margin:0 0 20px; }
+    .rc-cta .pp-cta-grad { display:inline-block; background:linear-gradient(90deg, #a956ff, #3766fe, #a956ff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:rcCtaShiftGrad 4s linear infinite; font-weight:600; }
+    @keyframes rcCtaShiftGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .rc-cta .pp-cta-sub { font-size:20px; font-weight:300; color:var(--pp-text); line-height:1.6; margin-bottom:30px; max-width:800px; margin-left:auto; margin-right:auto; }
+    .rc-cta .pp-cta-btns { display:flex; gap:16px; justify-content:center; margin-bottom:40px; }
+    .rc-cta .pp-btn { padding:16px 36px; border-radius:50px; font-size:16px; font-weight:500; text-decoration:none; transition:all .3s cubic-bezier(.165,.84,.44,1); }
+    .rc-cta .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 20px rgba(55,102,254,.2); }
+    .rc-cta .pp-btn-primary:hover { transform:translateY(-3px); box-shadow:0 15px 30px rgba(55,102,254,.3); }
+    .rc-cta .pp-btn-secondary { background:#fff; color:var(--pp-ink); border:1px solid var(--pp-border); }
+    .rc-cta .pp-btn-secondary:hover { background:#f8fafc; border-color:#cbd5e1; transform:translateY(-3px); }
+    .rc-cta .pp-cta-note { font-size:13px; color:#94a3b8; max-width:700px; margin:0 auto 60px; font-weight:300; line-height:1.5; }
+    .rc-cta .pp-screen-deck { position:relative; width:100%; height:320px; display:flex; justify-content:center; align-items:flex-end; pointer-events:none; overflow:visible; }
+    .rc-cta .pp-rising-img { position:absolute; width:65%; border-radius:20px 20px 0 0; transform:translateY(40%); transition:transform .1s linear; }
+    .rc-cta .pp-rising-img-main { z-index:10; width:70%; }
+    .rc-cta .pp-rising-img-L1 { z-index:5; width:60%; left:5%; }
+    .rc-cta .pp-rising-img-R1 { z-index:5; width:60%; right:5%; }
+    .rc-cta .pp-rising-img-L2 { z-index:2; width:50%; left:-10%; }
+    .rc-cta .pp-rising-img-R2 { z-index:2; width:50%; right:-10%; }
+    @media (max-width:768px) {
+      .rc-cta .pp-cta-title { font-size:24px; }
+      .rc-cta .pp-cta-sub { font-size:16px; text-wrap:balance; }
+      .rc-cta .pp-cta-btns { flex-direction:column; align-items:center; }
+      .rc-cta .pp-btn { width:100%; max-width:280px; }
+      .rc-cta .pp-cta-note { margin-bottom:30px; }
+      .rc-cta .pp-screen-deck { height:200px; }
+      .rc-cta .pp-rising-img-main { width:75%; }
+      .rc-cta .pp-rising-img-L1 { width:55%; left:2%; }
+      .rc-cta .pp-rising-img-R1 { width:55%; right:2%; }
+      .rc-cta .pp-rising-img-L2 { width:45%; left:-5%; }
+      .rc-cta .pp-rising-img-R2 { width:45%; right:-5%; }
+    }
   </style>
-  <div class="wrap">
-    <h2>Know what every dish costs. <em>Today.</em></h2>
-    <p class="body">Stop estimating. Connect your recipes to live pricing and make menu decisions based on real numbers.</p>
-    <div class="btns">
-      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
+
+  <div class="pp-max-width">
+    <header class="pp-cta-head">
+      <h2 class="pp-cta-title">
+        Know what every dish costs. <span class="pp-cta-grad">Today.</span>
+      </h2>
+      <p class="pp-cta-sub">
+        Stop estimating. Connect your recipes to live pricing and make menu decisions based on real numbers.
+      </p>
+    </header>
+
+    <div class="pp-cta-btns">
+      <a href="https://www.purchaseplus.com/talk-to-sales" class="pp-btn pp-btn-secondary">Talk to Sales</a>
+      <a href="https://www.purchaseplus.com/request-a-demo" class="pp-btn pp-btn-primary">Book a Demo</a>
+    </div>
+
+    <p class="pp-cta-note">
+      Results vary by kitchen volume, POS integration, and current recipe maturity. We&rsquo;ll walk through realistic expectations in a demo.
+    </p>
+
+    <div class="pp-screen-deck" id="rc-cta-deck">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f536cd8ffdfacc6f1ee7_Artboard%2010_PurchasePlu.png" class="pp-rising-img pp-rising-img-R2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52f675d51ed4d3a3f5f_Artboard%207_PurchasePlu.png" class="pp-rising-img pp-rising-img-L2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f53458e2ec1328938992_Artboard%209_PurchasePlu.avif" class="pp-rising-img pp-rising-img-R1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52810574bcc78f16cd4_Artboard%206_PurchasePlu.png" class="pp-rising-img pp-rising-img-L1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f532c446307cb7b90dcb_Artboard%208_PurchasePlu.png" class="pp-rising-img pp-rising-img-main" data-speed="1.0">
     </div>
   </div>
+
+  <script>
+    (function(){
+      var section = document.querySelector('.rc-cta');
+      if (!section) return;
+      var screens = section.querySelectorAll('.pp-rising-img');
+      window.addEventListener('scroll', function(){
+        var rect = section.getBoundingClientRect();
+        var winH = window.innerHeight;
+        var progress = Math.max(0, Math.min(1, (winH - rect.top) / (winH * 1.2)));
+        screens.forEach(function(img){
+          var speed = parseFloat(img.getAttribute('data-speed')) || 1;
+          var moveY = 40 - (progress * 30 * speed);
+          img.style.transform = 'translateY(' + moveY + '%)';
+          img.style.opacity = 1;
+        });
+      }, { passive: true });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ GLOBAL FOOTER ============================================================ -->
