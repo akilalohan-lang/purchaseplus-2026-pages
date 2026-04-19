@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Join PurchasePlus. Build the procurement platform that hospitality depends on. Open roles in engineering, product, sales, customer success, and operations.">
+  <title>Careers | PurchasePlus</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Careers | PurchasePlus">
+  <meta property="og:description" content="Join PurchasePlus. Build the procurement platform that hospitality depends on. Open roles in engineering, product, sales, customer success, and operations.">
+  <meta property="og:site_name" content="PurchasePlus">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111827; }
+    h1, h2, h3 { text-wrap: balance; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
+<header class="pp-header" role="banner">
+  <style>
+    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
+    .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
+    .pp-hdr-logo img { height:39px; width:auto; display:block; }
+    .pp-nav { display:flex; align-items:center; gap:2px; }
+    .pp-nav-item { position:relative; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link:hover { color:#111827; background:#f9fafb; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+    .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+    .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
+    .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
+    .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
+    .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
+    .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
+    @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu.pp-open { display:block; }
+    .pp-mobile-nav { padding:12px 5vw 8px; }
+    .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
+    .pp-mobile-nav-item:last-child { border-bottom:none; }
+    .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
+    .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
+    .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
+    .pp-mobile-submenu-link:hover { color:#111827; background:#f9fafb; }
+    .pp-mobile-actions { padding:16px 5vw 24px; display:flex; gap:10px; }
+    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex:1; padding:12px 18px; font-size:15px; }
+    @media (max-width:680px){ .pp-nav{display:none;} .pp-header-actions{display:none;} .pp-mobile-toggle{display:flex;} .pp-header-inner{grid-template-columns:1fr auto;} }
+  </style>
+  <div class="pp-header-inner">
+    <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
+    <nav class="pp-nav">
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
+  </div>
+  <div class="pp-mobile-menu">
+    <nav class="pp-mobile-nav">
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+  </div>
+  <script>
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
+  </script>
+</header>
+
+<!-- ============================================================ CAREERS ============================================================ -->
+<style>
+  .cr-root { font-family:'Inter',sans-serif; color:#111827; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); }
+  .cr-wrap { max-width:1200px; margin:0 auto; padding:0 5vw; }
+
+  /* HERO */
+  .cr-hero { position:relative; padding:100px 0 80px; background:linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#3b0764 100%); color:#fff; overflow:hidden; }
+  .cr-hero::before { content:''; position:absolute; top:-180px; right:-140px; width:640px; height:640px; background:radial-gradient(circle,rgba(169,86,255,.45),transparent 65%); filter:blur(80px); pointer-events:none; }
+  .cr-hero::after { content:''; position:absolute; bottom:-140px; left:-140px; width:540px; height:540px; background:radial-gradient(circle,rgba(55,102,254,.4),transparent 65%); filter:blur(80px); pointer-events:none; }
+  .cr-hero .cr-wrap { position:relative; }
+  .cr-hero-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:56px; align-items:center; }
+  .cr-eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:linear-gradient(90deg,#e9d5ff,#bfdbfe); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:20px; }
+  .cr-hero h1 { font-size:clamp(38px,5vw,58px); font-weight:400; line-height:1.06; letter-spacing:-1.5px; margin-bottom:22px; color:#fff; }
+  .cr-hero h1 .cr-grad { background:linear-gradient(90deg,#e9d5ff,#bfdbfe); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .cr-hero .cr-lead { font-size:17px; font-weight:300; color:#cbd5e1; line-height:1.65; margin-bottom:32px; }
+  .cr-hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+  .cr-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:all .25s; border:none; cursor:pointer; font-family:'Inter',sans-serif; }
+  .cr-btn-primary { background:#fff; color:#1e1b4b; }
+  .cr-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,255,255,.2); }
+  .cr-btn-outline { background:rgba(255,255,255,.08); color:#fff; border:1.5px solid rgba(255,255,255,.25); }
+  .cr-btn-outline:hover { background:rgba(255,255,255,.16); }
+  .cr-hero-viz { display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .cr-viz-card { background:rgba(255,255,255,.05); backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.1); border-radius:18px; padding:22px; }
+  .cr-viz-k { font-size:28px; font-weight:500; background:linear-gradient(90deg,#e9d5ff,#bfdbfe); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1; letter-spacing:-.6px; margin-bottom:8px; }
+  .cr-viz-l { font-size:12.5px; color:#cbd5e1; font-weight:300; line-height:1.5; }
+
+  /* WHY */
+  .cr-why { padding:100px 0; background:#fff; }
+  .cr-section-head { text-align:center; max-width:760px; margin:0 auto 56px; }
+  .cr-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+  .cr-section-head h2 { font-size:clamp(30px,3.8vw,46px); font-weight:400; line-height:1.12; letter-spacing:-1.1px; margin-bottom:14px; }
+  .cr-section-head h2 .cr-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .cr-cards { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .cr-card { background:#fafafa; border:1px solid #e5e7eb; border-radius:20px; padding:30px 26px; transition:all .3s; position:relative; overflow:hidden; }
+  .cr-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--pp-grad); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
+  .cr-card:hover { transform:translateY(-4px); box-shadow:0 22px 44px rgba(124,93,255,.12); border-color:transparent; background:#fff; }
+  .cr-card:hover::before { transform:scaleX(1); }
+  .cr-card-ic { width:48px; height:48px; border-radius:14px; background:linear-gradient(135deg,rgba(169,86,255,.14),rgba(55,102,254,.14)); display:flex; align-items:center; justify-content:center; color:#7c5dff; margin-bottom:20px; }
+  .cr-card-ic svg { width:22px; height:22px; }
+  .cr-card h3 { font-size:17px; font-weight:500; margin-bottom:10px; letter-spacing:-.2px; line-height:1.3; }
+  .cr-card p { font-size:13.5px; color:#4B5563; font-weight:300; line-height:1.65; }
+
+  /* ROLES */
+  .cr-roles { padding:100px 0; background:#fafafa; }
+  .cr-roles-head { display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:20px; margin-bottom:28px; }
+  .cr-roles-head h2 { font-size:clamp(28px,3.4vw,40px); font-weight:400; line-height:1.12; letter-spacing:-.8px; }
+  .cr-roles-head h2 .cr-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .cr-roles-filters { display:flex; gap:8px; flex-wrap:wrap; }
+  .cr-filter { padding:8px 16px; background:#fff; border:1px solid #e5e7eb; border-radius:50px; font-size:12.5px; font-weight:500; color:#4B5563; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .cr-filter.on { background:var(--pp-grad); color:#fff; border-color:transparent; }
+  .cr-role-list { display:flex; flex-direction:column; gap:12px; }
+  .cr-role { display:grid; grid-template-columns:1fr auto auto auto; gap:24px; align-items:center; padding:22px 26px; background:#fff; border:1px solid #e5e7eb; border-radius:16px; text-decoration:none; color:inherit; transition:all .25s; }
+  .cr-role:hover { border-color:transparent; box-shadow:0 14px 32px rgba(124,93,255,.1); transform:translateX(4px); }
+  .cr-role h3 { font-size:16px; font-weight:500; letter-spacing:-.2px; }
+  .cr-role-dept { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 11px; border-radius:20px; background:linear-gradient(135deg,rgba(169,86,255,.14),rgba(55,102,254,.14)); color:#7c5dff; }
+  .cr-role-loc { font-size:13px; color:#6b7280; font-weight:300; }
+  .cr-role-arrow { color:#cbd5e1; }
+  .cr-role:hover .cr-role-arrow { color:#7c5dff; }
+  .cr-fallback { background:#fff; border:1px dashed #cbd5e1; border-radius:18px; padding:40px; text-align:center; margin-top:14px; }
+  .cr-fallback p { font-size:15px; color:#4B5563; font-weight:300; line-height:1.6; margin-bottom:20px; max-width:520px; margin-left:auto; margin-right:auto; }
+
+  /* CTA */
+  .cr-cta { padding:100px 0; background:#fff; text-align:center; }
+  .cr-cta h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:18px; max-width:720px; margin-left:auto; margin-right:auto; }
+  .cr-cta h2 .cr-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .cr-cta p { font-size:17px; color:#4B5563; font-weight:300; max-width:620px; margin:0 auto 32px; line-height:1.6; }
+  .cr-cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .cr-btn-dark { background:var(--pp-grad); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.28); }
+  .cr-btn-dark:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.38); }
+  .cr-btn-light { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
+  .cr-btn-light:hover { border-color:#c4b5fd; color:#7c5dff; }
+
+  @media (max-width:960px) { .cr-hero-grid { grid-template-columns:1fr; } .cr-cards { grid-template-columns:repeat(2,1fr); } .cr-role { grid-template-columns:1fr; gap:10px; } .cr-role-dept, .cr-role-loc { justify-self:start; } .cr-role-arrow { display:none; } }
+  @media (max-width:640px) { .cr-cards { grid-template-columns:1fr; } .cr-hero-ctas, .cr-cta-btns { flex-direction:column; align-items:center; } .cr-hero-ctas .cr-btn, .cr-cta-btns .cr-btn { width:100%; max-width:280px; justify-content:center; } }
+</style>
+
+<div class="cr-root">
+
+  <section class="cr-hero" aria-label="Careers hero">
+    <div class="cr-wrap">
+      <div class="cr-hero-grid">
+        <div>
+          <div class="cr-eyebrow">Join the Team</div>
+          <h1>Build the procurement platform <span class="cr-grad">hospitality depends on.</span></h1>
+          <p class="cr-lead">PurchasePlus processes 40 million invoices a year for the world's leading hotels, airlines, and hospitality groups. We're a team of engineers, product specialists, and hospitality veterans. If you want to solve real problems at real scale, we want to meet you.</p>
+          <div class="cr-hero-ctas">
+            <a href="../about-us/" class="cr-btn cr-btn-outline">About PurchasePlus</a>
+            <a href="#cr-roles" class="cr-btn cr-btn-primary">See Open Roles</a>
+          </div>
+        </div>
+        <div class="cr-hero-viz">
+          <div class="cr-viz-card"><div class="cr-viz-k">40M+</div><div class="cr-viz-l">Invoices a year, in production</div></div>
+          <div class="cr-viz-card"><div class="cr-viz-k">30K+</div><div class="cr-viz-l">Suppliers we personally onboard</div></div>
+          <div class="cr-viz-card"><div class="cr-viz-k">5</div><div class="cr-viz-l">Regions, one tight-knit team</div></div>
+          <div class="cr-viz-card"><div class="cr-viz-k">25</div><div class="cr-viz-l">Years of hospitality expertise</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cr-why" aria-label="Why PurchasePlus">
+    <div class="cr-wrap">
+      <div class="cr-section-head">
+        <div class="cr-kicker">Why People Join</div>
+        <h2>Why people choose <span class="cr-grad">PurchasePlus.</span></h2>
+      </div>
+      <div class="cr-cards">
+        <div class="cr-card">
+          <div class="cr-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+          <h3>Real-world impact</h3>
+          <p>The software you build is used at Accor, IHG, Marriott, Qantas and Emirates. You'll see your work in production, at scale, in real hospitality operations.</p>
+        </div>
+        <div class="cr-card">
+          <div class="cr-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 22V12a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10"/><path d="M3 22h18M7 10V6a5 5 0 0 1 10 0v4"/></svg></div>
+          <h3>Hospitality expertise</h3>
+          <p>This isn't generic SaaS. 25 years of understanding the specific workflows and language of the industry. Your colleagues know the domain.</p>
+        </div>
+        <div class="cr-card">
+          <div class="cr-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <h3>Engineering at scale</h3>
+          <p>Our platform handles millions of transactions for demanding enterprise customers. The engineering challenges are real.</p>
+        </div>
+        <div class="cr-card">
+          <div class="cr-card-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/></svg></div>
+          <h3>Global team, grounded culture</h3>
+          <p>Offices across Australia, Asia, and beyond, but a tight-knit team where good ideas get heard regardless of where they come from.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cr-roles" id="cr-roles" aria-label="Open roles">
+    <div class="cr-wrap">
+      <div class="cr-roles-head">
+        <h2>Open <span class="cr-grad">positions.</span></h2>
+        <div class="cr-roles-filters">
+          <button class="cr-filter on">All</button>
+          <button class="cr-filter">Engineering</button>
+          <button class="cr-filter">Product</button>
+          <button class="cr-filter">Sales</button>
+          <button class="cr-filter">Customer Success</button>
+          <button class="cr-filter">Operations</button>
+        </div>
+      </div>
+      <div class="cr-role-list">
+        <a href="#" class="cr-role"><h3>Senior Backend Engineer (Platform)</h3><span class="cr-role-dept">Engineering</span><span class="cr-role-loc">Sydney / Remote &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="#" class="cr-role"><h3>Product Manager, Invoicing &amp; AP</h3><span class="cr-role-dept">Product</span><span class="cr-role-loc">Sydney &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="#" class="cr-role"><h3>Enterprise Account Executive, APAC</h3><span class="cr-role-dept">Sales</span><span class="cr-role-loc">Singapore &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="#" class="cr-role"><h3>Customer Success Manager</h3><span class="cr-role-dept">Customer Success</span><span class="cr-role-loc">Bangkok &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="#" class="cr-role"><h3>Supplier Engagement Specialist</h3><span class="cr-role-dept">Operations</span><span class="cr-role-loc">Sydney &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+        <a href="#" class="cr-role"><h3>Frontend Engineer (React, TypeScript)</h3><span class="cr-role-dept">Engineering</span><span class="cr-role-loc">Remote (APAC) &middot; Full-time</span><svg class="cr-role-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a>
+      </div>
+      <div class="cr-fallback">
+        <p>Don't see a role that fits? We're always interested in meeting great people. Send us your details and we'll be in touch when something fits.</p>
+        <a href="../contact-us/" class="cr-btn cr-btn-dark">Send Your CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cr-cta" aria-label="CTA">
+    <div class="cr-wrap">
+      <div class="cr-kicker">Let's Talk</div>
+      <h2>Interested? <span class="cr-grad">Let's talk.</span></h2>
+      <p>Send us your CV and tell us what you'd like to work on.</p>
+      <div class="cr-cta-btns">
+        <a href="../" class="cr-btn cr-btn-light">See the Platform</a>
+        <a href="../contact-us/" class="cr-btn cr-btn-dark">Send Your Details</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
+<footer class="pp-footer" role="contentinfo">
+  <style>
+    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-footer { background:#fff; font-family:'Inter',sans-serif; color:#374151; border-top:1px solid #e5e7eb; }
+    .pp-ftr-inner { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .pp-ftr-body { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding:64px 0 52px; }
+    .pp-ftr-logo { display:flex; align-items:center; text-decoration:none; margin-bottom:24px; }
+    .pp-ftr-logo img { height:34px; width:auto; display:block; }
+    .pp-ftr-logo img.pp-ftr-logo-mobile { display:none; }
+    .pp-ftr-contact-head { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
+    .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
+    .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
+    .pp-ftr-email:hover { color:#7c5dff; }
+    @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
+    .pp-ftr-social { display:flex; gap:10px; }
+    .pp-ftr-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:7px; border:1px solid #e5e7eb; color:#6b7280; text-decoration:none; }
+    .pp-ftr-social a:hover { border-color:#c4b5fd; color:#7c5dff; background:#f5f3ff; }
+    .pp-ftr-social svg { width:15px; height:15px; fill:currentColor; }
+    .pp-ftr-col-head { font-size:13px; font-weight:600; color:#111827; margin-bottom:16px; }
+    .pp-ftr-phones { list-style:none; }
+    .pp-ftr-phones li { display:flex; align-items:baseline; gap:6px; margin-bottom:20px; }
+    .pp-ftr-country { font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#9ca3af; }
+    .pp-ftr-col-offset { padding-top:58px; }
+    .pp-ftr-col-right { text-align:right; }
+    .pp-ftr-col-divider { position:relative; }
+    .pp-ftr-col-divider::before { content:''; position:absolute; left:-17px; top:0; bottom:0; width:1px; background:#e5e7eb; }
+    .pp-ftr-phones a { font-size:12.5px; font-weight:300; color:#374151; text-decoration:none; }
+    .pp-ftr-links { list-style:none; }
+    .pp-ftr-links li + li { margin-top:11px; }
+    .pp-ftr-links a { font-size:13.5px; font-weight:300; color:#6b7280; text-decoration:none; line-height:1.4; }
+    .pp-ftr-links a:hover { color:#111827; }
+    .pp-ftr-bottom { border-top:1px solid #e5e7eb; padding:22px 0; }
+    .pp-ftr-bottom .pp-ftr-inner { display:flex; align-items:center; }
+    .pp-ftr-copy { font-size:13px; font-weight:300; color:#9ca3af; }
+    @media (max-width:960px){ .pp-ftr-body{ grid-template-columns:210px 210px; justify-content:center; gap:52px 80px; } .pp-ftr-body > div:nth-child(1){ order:3; } .pp-ftr-body > div:nth-child(2){ order:4; padding-top:58px; } .pp-ftr-body > div:nth-child(3){ order:1; } .pp-ftr-body > div:nth-child(4){ order:2; } .pp-ftr-col-offset{ padding-top:0; } .pp-ftr-col-right{ text-align:left; } .pp-ftr-col-divider::before{ display:none; } }
+    @media (max-width:580px){ .pp-ftr-body{ grid-template-columns:1fr; gap:0; padding:44px 0 0; } .pp-ftr-body > div{ text-align:center; padding-bottom:36px; } .pp-ftr-logo img.pp-ftr-logo-desktop{ display:none; } .pp-ftr-logo img.pp-ftr-logo-mobile{ display:block; height:182px; width:auto; } .pp-ftr-logo{ justify-content:center; } .pp-ftr-social{ justify-content:center; } .pp-ftr-phones li{ justify-content:center; } .pp-ftr-email{ display:flex; justify-content:center; } }
+  </style>
+  <div class="pp-ftr-inner">
+    <div class="pp-ftr-body">
+      <div>
+        <a href="https://www.purchaseplus.com" class="pp-ftr-logo"><img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26"><img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182"></a>
+        <p class="pp-ftr-contact-head">Get In Touch</p>
+        <p class="pp-ftr-address">477 Pitt Street<br>Haymarket NSW 2000<br>Australia</p>
+        <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
+        <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
+        <div class="pp-ftr-social">
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="pp-ftr-col-offset">
+        <p class="pp-ftr-col-head">Contact Numbers</p>
+        <ul class="pp-ftr-phones">
+          <li><span class="pp-ftr-country">AU:</span><a href="tel:+61291888600">+61 2 9188 8600</a></li>
+          <li><span class="pp-ftr-country">SG:</span><a href="tel:+6531388600">+65 3138 8600</a></li>
+          <li><span class="pp-ftr-country">US:</span><a href="tel:+18888600">+1 888 886 00</a></li>
+          <li><span class="pp-ftr-country">TH:</span><a href="tel:+6626408600">+66 2 640 8600</a></li>
+          <li><span class="pp-ftr-country">GB:</span><a href="tel:+443308088600">+44 330 808 8600</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right pp-ftr-col-divider">
+        <p class="pp-ftr-col-head">Solutions</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a></li>
+          <li><a href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a></li>
+          <li><a href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a></li>
+          <li><a href="https://www.purchaseplus.com/inventory">Inventory Management</a></li>
+          <li><a href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></li>
+          <li><a href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></li>
+          <li><a href="https://www.purchaseplus.com/api">API Documentation</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right">
+        <p class="pp-ftr-col-head">More</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/updates">Updates</a></li>
+          <li><a href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a></li>
+          <li><a href="https://www.purchaseplus.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.purchaseplus.com/about-us">About Our Team</a></li>
+          <li><a href="https://www.purchaseplus.com/help-and-training">Help and Training</a></li>
+          <li><a href="https://www.purchaseplus.com/policies">Our Policies</a></li>
+          <li><a href="https://www.purchaseplus.com/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-iv"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-iv').textContent=new Date().getFullYear();</script>
+</footer>
+</body></html>

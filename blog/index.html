@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Articles, guides, and industry insights for hospitality procurement managers, F&B directors, and finance teams. PurchasePlus Blog.">
+  <title>Blog, Procurement Insights for Hospitality | PurchasePlus</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog, Procurement Insights for Hospitality | PurchasePlus">
+  <meta property="og:description" content="Articles, guides, and industry insights for hospitality procurement managers, F&B directors, and finance teams. PurchasePlus Blog.">
+  <meta property="og:site_name" content="PurchasePlus">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111827; }
+    h1, h2, h3 { text-wrap: balance; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
+<header class="pp-header" role="banner">
+  <style>
+    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
+    .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
+    .pp-hdr-logo img { height:39px; width:auto; display:block; }
+    .pp-nav { display:flex; align-items:center; gap:2px; }
+    .pp-nav-item { position:relative; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link:hover { color:#111827; background:#f9fafb; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+    .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+    .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
+    .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
+    .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
+    .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
+    .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
+    @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu.pp-open { display:block; }
+    .pp-mobile-nav { padding:12px 5vw 8px; }
+    .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
+    .pp-mobile-nav-item:last-child { border-bottom:none; }
+    .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
+    .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
+    .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
+    .pp-mobile-submenu-link:hover { color:#111827; background:#f9fafb; }
+    .pp-mobile-actions { padding:16px 5vw 24px; display:flex; gap:10px; }
+    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex:1; padding:12px 18px; font-size:15px; }
+    @media (max-width:680px){ .pp-nav{display:none;} .pp-header-actions{display:none;} .pp-mobile-toggle{display:flex;} .pp-header-inner{grid-template-columns:1fr auto;} }
+  </style>
+  <div class="pp-header-inner">
+    <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
+    <nav class="pp-nav">
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
+  </div>
+  <div class="pp-mobile-menu">
+    <nav class="pp-mobile-nav">
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+  </div>
+  <script>
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
+  </script>
+</header>
+
+<!-- ============================================================ NEWS & BLOG ============================================================ -->
+<style>
+  .bl-root { font-family:'Inter',sans-serif; color:#111827; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); }
+  .bl-wrap { max-width:1200px; margin:0 auto; padding:0 5vw; }
+
+  .bl-hero { padding:80px 0 48px; background:linear-gradient(180deg,#fff 0%,#fafafa 100%); text-align:center; position:relative; overflow:hidden; }
+  .bl-hero::before { content:''; position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:900px; height:460px; background:radial-gradient(ellipse,rgba(124,93,255,.1),transparent 65%); filter:blur(40px); pointer-events:none; }
+  .bl-hero .bl-wrap { position:relative; }
+  .bl-eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
+  .bl-hero h1 { font-size:clamp(38px,5vw,58px); font-weight:400; line-height:1.06; letter-spacing:-1.4px; max-width:800px; margin:0 auto 16px; }
+  .bl-hero h1 .bl-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .bl-hero .bl-lead { font-size:17px; font-weight:300; color:#4B5563; line-height:1.6; max-width:620px; margin:0 auto 28px; }
+  .bl-search { max-width:480px; margin:0 auto; position:relative; }
+  .bl-search input { width:100%; padding:14px 20px 14px 44px; font-size:14px; font-family:'Inter',sans-serif; border:1px solid #e5e7eb; border-radius:50px; background:#fff; }
+  .bl-search input:focus { outline:none; border-color:#7c5dff; box-shadow:0 0 0 3px rgba(124,93,255,.12); }
+  .bl-search svg { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; color:#6b7280; }
+
+  /* FILTERS */
+  .bl-filters-row { padding:30px 0; background:#fff; border-bottom:1px solid #f3f4f6; }
+  .bl-filters { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .bl-filter { padding:8px 18px; background:#fff; border:1px solid #e5e7eb; border-radius:50px; font-size:13px; font-weight:500; color:#4B5563; cursor:pointer; transition:all .2s; font-family:'Inter',sans-serif; }
+  .bl-filter.on { background:var(--pp-grad); color:#fff; border-color:transparent; }
+  .bl-filter:hover:not(.on) { border-color:#c4b5fd; color:#7c5dff; }
+
+  /* FEATURED */
+  .bl-feat { padding:70px 0 50px; background:#fff; }
+  .bl-feat-card { display:grid; grid-template-columns:1.2fr 1fr; gap:40px; background:#fafafa; border:1px solid #e5e7eb; border-radius:24px; overflow:hidden; text-decoration:none; color:inherit; transition:all .3s; }
+  .bl-feat-card:hover { box-shadow:0 30px 60px rgba(124,93,255,.12); border-color:transparent; transform:translateY(-3px); }
+  .bl-feat-img { background:linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#1e3a8a 100%); min-height:360px; position:relative; overflow:hidden; }
+  .bl-feat-img::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 40%,rgba(169,86,255,.4),transparent 50%), radial-gradient(circle at 70% 60%,rgba(55,102,254,.4),transparent 50%); }
+  .bl-feat-img::after { content:'Featured'; position:absolute; top:24px; left:24px; padding:6px 14px; background:rgba(255,255,255,.95); color:#5b21b6; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:20px; }
+  .bl-feat-body { padding:44px; display:flex; flex-direction:column; justify-content:center; }
+  .bl-feat-body .bl-cat { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7c5dff; margin-bottom:12px; }
+  .bl-feat-body h2 { font-size:clamp(24px,2.6vw,32px); font-weight:500; line-height:1.2; letter-spacing:-.5px; margin-bottom:14px; }
+  .bl-feat-body p { font-size:15px; font-weight:300; color:#4B5563; line-height:1.65; margin-bottom:20px; }
+  .bl-feat-meta { display:flex; gap:14px; align-items:center; font-size:13px; color:#6b7280; margin-bottom:18px; }
+  .bl-feat-meta span::before { content:'·'; margin-right:10px; color:#cbd5e1; }
+  .bl-feat-meta span:first-child::before { content:''; margin:0; }
+  .bl-feat-more { font-size:14px; font-weight:500; color:#7c5dff; display:inline-flex; align-items:center; gap:6px; }
+  .bl-feat-more svg { width:14px; height:14px; transition:transform .2s; }
+  .bl-feat-card:hover .bl-feat-more svg { transform:translateX(3px); }
+
+  /* GRID */
+  .bl-grid-sec { padding:60px 0 90px; background:#fff; }
+  .bl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .bl-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition:all .3s; display:flex; flex-direction:column; }
+  .bl-card:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(124,93,255,.1); border-color:transparent; }
+  .bl-card-img { aspect-ratio:16/10; background:linear-gradient(135deg,var(--c1,#a956ff) 0%,var(--c2,#3766fe) 100%); position:relative; }
+  .bl-card-img::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 60% 40%,rgba(255,255,255,.15),transparent 55%); }
+  .bl-card-body { padding:24px; display:flex; flex-direction:column; flex:1; }
+  .bl-card-cat { font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#7c5dff; margin-bottom:10px; }
+  .bl-card h3 { font-size:16px; font-weight:500; line-height:1.35; letter-spacing:-.2px; margin-bottom:10px; }
+  .bl-card p { font-size:13.5px; color:#4B5563; font-weight:300; line-height:1.55; margin-bottom:14px; flex:1; }
+  .bl-card-meta { font-size:12px; color:#9ca3af; font-weight:300; }
+  .bl-card-more { font-size:12.5px; font-weight:500; color:#7c5dff; margin-top:10px; }
+
+  /* LINKEDIN CTA */
+  .bl-li { padding:80px 0; background:#fafafa; }
+  .bl-li-card { max-width:900px; margin:0 auto; background:linear-gradient(135deg,#0a66c2 0%,#004182 100%); border-radius:24px; padding:48px 56px; color:#fff; display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center; position:relative; overflow:hidden; }
+  .bl-li-card::before { content:''; position:absolute; top:-50%; right:-10%; width:60%; height:200%; background:radial-gradient(circle,rgba(255,255,255,.12),transparent 55%); filter:blur(40px); }
+  .bl-li-ic { width:70px; height:70px; border-radius:18px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; position:relative; }
+  .bl-li-ic svg { width:34px; height:34px; fill:#fff; }
+  .bl-li-card h2 { font-size:22px; font-weight:500; margin-bottom:4px; position:relative; }
+  .bl-li-card p { font-size:14px; color:rgba(255,255,255,.8); font-weight:300; position:relative; }
+  .bl-li-btn { padding:12px 24px; background:#fff; color:#0a66c2; border-radius:50px; font-size:14px; font-weight:500; text-decoration:none; white-space:nowrap; position:relative; transition:all .2s; }
+  .bl-li-btn:hover { transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.2); }
+
+  /* NEWSLETTER */
+  .bl-nl { padding:80px 0; background:#fff; }
+  .bl-nl-card { max-width:720px; margin:0 auto; text-align:center; }
+  .bl-nl-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+  .bl-nl-card h2 { font-size:clamp(28px,3.2vw,38px); font-weight:400; line-height:1.15; letter-spacing:-.7px; margin-bottom:12px; }
+  .bl-nl-card h2 .bl-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .bl-nl-card p { font-size:15.5px; color:#4B5563; font-weight:300; margin-bottom:26px; }
+  .bl-nl-form { display:grid; grid-template-columns:1fr auto; gap:10px; max-width:480px; margin:0 auto; }
+  .bl-nl-form input { padding:14px 18px; font-size:14px; font-family:'Inter',sans-serif; border:1px solid #e5e7eb; border-radius:50px; background:#fafafa; }
+  .bl-nl-form input:focus { outline:none; background:#fff; border-color:#7c5dff; box-shadow:0 0 0 3px rgba(124,93,255,.12); }
+  .bl-nl-form button { padding:14px 28px; background:var(--pp-grad); color:#fff; border:none; border-radius:50px; font-size:14px; font-weight:500; cursor:pointer; font-family:'Inter',sans-serif; }
+
+  @media (max-width:960px) { .bl-feat-card { grid-template-columns:1fr; } .bl-feat-img { min-height:240px; } .bl-feat-body { padding:28px; } .bl-grid { grid-template-columns:1fr 1fr; } .bl-li-card { grid-template-columns:1fr; text-align:center; padding:36px 28px; } .bl-li-ic { margin:0 auto; } }
+  @media (max-width:640px) { .bl-grid { grid-template-columns:1fr; } .bl-nl-form { grid-template-columns:1fr; } }
+</style>
+
+<div class="bl-root">
+
+  <section class="bl-hero" aria-label="Blog hero">
+    <div class="bl-wrap">
+      <div class="bl-eyebrow">News &amp; Blog</div>
+      <h1>Insights for hospitality <span class="bl-grad">procurement leaders.</span></h1>
+      <p class="bl-lead">Articles, industry news, and expert analysis for procurement managers, F&amp;B directors, and finance teams in hospitality.</p>
+      <div class="bl-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" placeholder="Search articles...">
+      </div>
+    </div>
+  </section>
+
+  <section class="bl-filters-row" aria-label="Categories">
+    <div class="bl-wrap">
+      <div class="bl-filters">
+        <button class="bl-filter on">All</button>
+        <button class="bl-filter">Procurement</button>
+        <button class="bl-filter">Inventory &amp; F&amp;B</button>
+        <button class="bl-filter">Technology</button>
+        <button class="bl-filter">Finance &amp; AP</button>
+        <button class="bl-filter">Sustainability</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="bl-feat" aria-label="Featured article">
+    <div class="bl-wrap">
+      <a href="#" class="bl-feat-card">
+        <div class="bl-feat-img"></div>
+        <div class="bl-feat-body">
+          <div class="bl-cat">Finance &amp; AP</div>
+          <h2>Why 3-way matching is the single biggest AP efficiency lever in hospitality.</h2>
+          <p>When invoice, PO, and receiving match, your AP team stops chasing variances. We break down how leading hotel groups are cutting invoice processing time by 70% and what it takes to get there.</p>
+          <div class="bl-feat-meta"><span>14 April 2026</span><span>8 min read</span></div>
+          <span class="bl-feat-more">Read article <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="bl-grid-sec" aria-label="Articles">
+    <div class="bl-wrap">
+      <div class="bl-grid">
+        <a href="#" class="bl-card" style="--c1:#a956ff;--c2:#7c5dff;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Supplier consolidation vs diversification, which way should hotels go in 2026?</h3><p>The pros and cons of consolidating suppliers, and how to think about it at the group level.</p><div class="bl-card-meta">8 April 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#3766fe;--c2:#2563eb;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>POS integrations that actually work: what to ask before signing a contract.</h3><p>A practical buyer's guide to evaluating POS connectivity claims from procurement vendors.</p><div class="bl-card-meta">2 April 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#059669;--c2:#0891b2;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>Tracking scope 3 emissions through your procurement data.</h3><p>How procurement systems are becoming the source of truth for scope 3 reporting in hospitality.</p><div class="bl-card-meta">27 March 2026 &middot; 9 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#dc2626;--c2:#ea580c;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>The hidden cost of stockouts: what F&amp;B directors often miss.</h3><p>Running lean looks efficient until you count the covers you couldn't serve.</p><div class="bl-card-meta">21 March 2026 &middot; 5 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#7c5dff;--c2:#3766fe;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Finance &amp; AP</div><h3>Closing the books in 3 days, not 3 weeks: a hotel group playbook.</h3><p>What changes when approved invoices post directly to the GL, every night.</p><div class="bl-card-meta">15 March 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#a21caf;--c2:#7c3aed;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Sourcing for the group, buying for the property: getting the balance right.</h3><p>How to give properties enough autonomy without losing group-level negotiation leverage.</p><div class="bl-card-meta">8 March 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#0891b2;--c2:#2563eb;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>AI in invoice processing: where it works, where it doesn't.</h3><p>A reality check on what automation actually handles today, and where human review still matters.</p><div class="bl-card-meta">1 March 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#ea580c;--c2:#f59e0b;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>Recipe costing isn't about recipes, it's about menu engineering.</h3><p>Why the best F&amp;B operators start with GP% per cover and work backwards.</p><div class="bl-card-meta">22 February 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card" style="--c1:#16a34a;--c2:#059669;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>How procurement can drive waste reduction, beyond bin audits.</h3><p>Use your purchasing data to find waste upstream, before food hits the compost.</p><div class="bl-card-meta">15 February 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bl-li" aria-label="LinkedIn CTA">
+    <div class="bl-wrap">
+      <div class="bl-li-card">
+        <div class="bl-li-ic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></div>
+        <div>
+          <h2>Follow PurchasePlus on LinkedIn</h2>
+          <p>Daily updates, industry news, and behind-the-scenes content.</p>
+        </div>
+        <a href="https://www.linkedin.com/company/purchaseplus" class="bl-li-btn">Follow Us &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bl-nl" aria-label="Newsletter">
+    <div class="bl-wrap">
+      <div class="bl-nl-card">
+        <div class="bl-nl-kicker">Stay Informed</div>
+        <h2>Get new articles delivered <span class="bl-grad">to your inbox.</span></h2>
+        <p>One email a month, curated insights for hospitality procurement leaders. Unsubscribe any time.</p>
+        <form class="bl-nl-form" onsubmit="event.preventDefault(); alert('Subscribed!'); this.reset();">
+          <input type="email" placeholder="you@company.com" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
+<footer class="pp-footer" role="contentinfo">
+  <style>
+    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-footer { background:#fff; font-family:'Inter',sans-serif; color:#374151; border-top:1px solid #e5e7eb; }
+    .pp-ftr-inner { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .pp-ftr-body { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding:64px 0 52px; }
+    .pp-ftr-logo { display:flex; align-items:center; text-decoration:none; margin-bottom:24px; }
+    .pp-ftr-logo img { height:34px; width:auto; display:block; }
+    .pp-ftr-logo img.pp-ftr-logo-mobile { display:none; }
+    .pp-ftr-contact-head { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
+    .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
+    .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
+    .pp-ftr-email:hover { color:#7c5dff; }
+    @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
+    .pp-ftr-social { display:flex; gap:10px; }
+    .pp-ftr-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:7px; border:1px solid #e5e7eb; color:#6b7280; text-decoration:none; }
+    .pp-ftr-social a:hover { border-color:#c4b5fd; color:#7c5dff; background:#f5f3ff; }
+    .pp-ftr-social svg { width:15px; height:15px; fill:currentColor; }
+    .pp-ftr-col-head { font-size:13px; font-weight:600; color:#111827; margin-bottom:16px; }
+    .pp-ftr-phones { list-style:none; }
+    .pp-ftr-phones li { display:flex; align-items:baseline; gap:6px; margin-bottom:20px; }
+    .pp-ftr-country { font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#9ca3af; }
+    .pp-ftr-col-offset { padding-top:58px; }
+    .pp-ftr-col-right { text-align:right; }
+    .pp-ftr-col-divider { position:relative; }
+    .pp-ftr-col-divider::before { content:''; position:absolute; left:-17px; top:0; bottom:0; width:1px; background:#e5e7eb; }
+    .pp-ftr-phones a { font-size:12.5px; font-weight:300; color:#374151; text-decoration:none; }
+    .pp-ftr-links { list-style:none; }
+    .pp-ftr-links li + li { margin-top:11px; }
+    .pp-ftr-links a { font-size:13.5px; font-weight:300; color:#6b7280; text-decoration:none; line-height:1.4; }
+    .pp-ftr-links a:hover { color:#111827; }
+    .pp-ftr-bottom { border-top:1px solid #e5e7eb; padding:22px 0; }
+    .pp-ftr-bottom .pp-ftr-inner { display:flex; align-items:center; }
+    .pp-ftr-copy { font-size:13px; font-weight:300; color:#9ca3af; }
+    @media (max-width:960px){ .pp-ftr-body{ grid-template-columns:210px 210px; justify-content:center; gap:52px 80px; } .pp-ftr-body > div:nth-child(1){ order:3; } .pp-ftr-body > div:nth-child(2){ order:4; padding-top:58px; } .pp-ftr-body > div:nth-child(3){ order:1; } .pp-ftr-body > div:nth-child(4){ order:2; } .pp-ftr-col-offset{ padding-top:0; } .pp-ftr-col-right{ text-align:left; } .pp-ftr-col-divider::before{ display:none; } }
+    @media (max-width:580px){ .pp-ftr-body{ grid-template-columns:1fr; gap:0; padding:44px 0 0; } .pp-ftr-body > div{ text-align:center; padding-bottom:36px; } .pp-ftr-logo img.pp-ftr-logo-desktop{ display:none; } .pp-ftr-logo img.pp-ftr-logo-mobile{ display:block; height:182px; width:auto; } .pp-ftr-logo{ justify-content:center; } .pp-ftr-social{ justify-content:center; } .pp-ftr-phones li{ justify-content:center; } .pp-ftr-email{ display:flex; justify-content:center; } }
+  </style>
+  <div class="pp-ftr-inner">
+    <div class="pp-ftr-body">
+      <div>
+        <a href="https://www.purchaseplus.com" class="pp-ftr-logo"><img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26"><img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182"></a>
+        <p class="pp-ftr-contact-head">Get In Touch</p>
+        <p class="pp-ftr-address">477 Pitt Street<br>Haymarket NSW 2000<br>Australia</p>
+        <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
+        <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
+        <div class="pp-ftr-social">
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="pp-ftr-col-offset">
+        <p class="pp-ftr-col-head">Contact Numbers</p>
+        <ul class="pp-ftr-phones">
+          <li><span class="pp-ftr-country">AU:</span><a href="tel:+61291888600">+61 2 9188 8600</a></li>
+          <li><span class="pp-ftr-country">SG:</span><a href="tel:+6531388600">+65 3138 8600</a></li>
+          <li><span class="pp-ftr-country">US:</span><a href="tel:+18888600">+1 888 886 00</a></li>
+          <li><span class="pp-ftr-country">TH:</span><a href="tel:+6626408600">+66 2 640 8600</a></li>
+          <li><span class="pp-ftr-country">GB:</span><a href="tel:+443308088600">+44 330 808 8600</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right pp-ftr-col-divider">
+        <p class="pp-ftr-col-head">Solutions</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a></li>
+          <li><a href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a></li>
+          <li><a href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a></li>
+          <li><a href="https://www.purchaseplus.com/inventory">Inventory Management</a></li>
+          <li><a href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></li>
+          <li><a href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></li>
+          <li><a href="https://www.purchaseplus.com/api">API Documentation</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right">
+        <p class="pp-ftr-col-head">More</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/updates">Updates</a></li>
+          <li><a href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a></li>
+          <li><a href="https://www.purchaseplus.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.purchaseplus.com/about-us">About Our Team</a></li>
+          <li><a href="https://www.purchaseplus.com/help-and-training">Help and Training</a></li>
+          <li><a href="https://www.purchaseplus.com/policies">Our Policies</a></li>
+          <li><a href="https://www.purchaseplus.com/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-iv"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-iv').textContent=new Date().getFullYear();</script>
+</footer>
+</body></html>

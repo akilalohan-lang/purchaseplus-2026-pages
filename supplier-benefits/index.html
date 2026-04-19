@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PurchasePlus gives suppliers direct access to buyers, live pricing control, faster payments, and 30,000+ supplier peers already on the platform.">
+  <title>Supplier Benefits | PurchasePlus</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Supplier Benefits | PurchasePlus">
+  <meta property="og:description" content="PurchasePlus gives suppliers direct access to buyers, live pricing control, faster payments, and 30,000+ supplier peers already on the platform.">
+  <meta property="og:site_name" content="PurchasePlus">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: #fff; color: #111827; }
+    h1, h2, h3 { text-wrap: balance; }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ GLOBAL HEADER ============================================================ -->
+<header class="pp-header" role="banner">
+  <style>
+    .pp-header *, .pp-header *::before, .pp-header *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-header { position:sticky; top:0; z-index:1000; background:#fff; border-bottom:1px solid #e5e7eb; font-family:'Inter',sans-serif; width:100vw; margin-left:calc(50% - 50vw); }
+    .pp-header-inner { padding:0 2vw; height:68px; display:grid; grid-template-columns:1.4fr auto 0.6fr; align-items:center; }
+    .pp-hdr-logo { display:flex; align-items:center; text-decoration:none; justify-self:start; }
+    .pp-hdr-logo img { height:39px; width:auto; display:block; }
+    .pp-nav { display:flex; align-items:center; gap:2px; }
+    .pp-nav-item { position:relative; }
+    .pp-nav-link { display:inline-flex; align-items:center; gap:4px; padding:8px 12px; font-size:13px; font-weight:400; color:#6b7280; text-decoration:none; border-radius:7px; transition:color .2s, background .2s; cursor:pointer; border:none; background:none; font-family:'Inter',sans-serif; white-space:nowrap; line-height:1; }
+    .pp-nav-link:hover { color:#111827; background:#f9fafb; }
+    .pp-nav-chevron { width:13px; height:13px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-nav-item.pp-open > .pp-nav-link .pp-nav-chevron { transform:rotate(180deg); color:#6b7280; }
+    .pp-dropdown { position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(-6px); min-width:210px; background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 10px 30px rgba(0,0,0,.09), 0 2px 8px rgba(0,0,0,.05); padding:6px; opacity:0; visibility:hidden; transition:opacity .18s, transform .18s, visibility .18s; z-index:200; pointer-events:none; }
+    .pp-dropdown::before { content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%); width:10px; height:6px; background:#fff; clip-path:polygon(50% 0%,0% 100%,100% 100%); }
+    .pp-nav-item.pp-open .pp-dropdown { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); pointer-events:auto; }
+    .pp-dropdown::after { content:''; position:absolute; top:-10px; left:0; right:0; height:10px; }
+    .pp-dropdown-right { left:auto; right:0; transform:translateY(-6px); }
+    .pp-dropdown-right::before { left:auto; right:20px; transform:none; }
+    .pp-nav-item.pp-open .pp-dropdown-right { transform:translateY(0); }
+    .pp-dropdown-link { display:block; padding:9px 13px; font-size:13.5px; font-weight:400; color:#374151; text-decoration:none; border-radius:8px; white-space:nowrap; }
+    .pp-dropdown-link:hover { color:#111827; background:#f3f4f6; }
+    .pp-header-actions { display:flex; align-items:center; gap:8px; justify-self:end; }
+    .pp-btn-register { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#111827; background:linear-gradient(#fff,#fff) padding-box, linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe) border-box; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-register:hover { transform:translateY(-1px); box-shadow:0 4px 14px rgba(119,93,255,.2); }
+    @keyframes pp-hdr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-btn-signin { display:inline-flex; align-items:center; padding:9px 20px; font-size:14px; font-weight:500; color:#fff; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 30%,#3766fe 60%,#7c5dff 85%,#a956ff 100%); background-size:250% 100%; animation:pp-hdr-grad 4s ease infinite; border:1.5px solid transparent; border-radius:8px; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
+    .pp-btn-signin:hover { transform:translateY(-1px); box-shadow:0 4px 16px rgba(55,102,254,.35); }
+    .pp-mobile-toggle { display:none; align-items:center; justify-content:center; width:40px; height:40px; border:none; background:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); cursor:pointer; border-radius:9px; justify-self:end; }
+    .pp-hamburger { display:flex; flex-direction:column; gap:5px; }
+    .pp-hamburger span { display:block; width:20px; height:2px; background:#fff; border-radius:2px; transition:all .25s ease; }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(2) { opacity:0; transform:scaleX(0); }
+    .pp-mobile-toggle.pp-active .pp-hamburger span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .pp-mobile-menu { display:none; position:absolute; top:100%; left:0; right:0; background:#fff; border-bottom:1px solid #e5e7eb; box-shadow:0 12px 32px rgba(0,0,0,.08); max-height:calc(100vh - 68px); overflow-y:auto; z-index:999; }
+    .pp-mobile-menu.pp-open { display:block; }
+    .pp-mobile-nav { padding:12px 5vw 8px; }
+    .pp-mobile-nav-item { border-bottom:1px solid #f3f4f6; }
+    .pp-mobile-nav-item:last-child { border-bottom:none; }
+    .pp-mobile-nav-link { display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-size:15px; font-weight:500; color:#111827; text-decoration:none; cursor:pointer; border:none; background:none; width:100%; text-align:left; }
+    .pp-mobile-chevron { width:16px; height:16px; color:#9ca3af; transition:transform .2s ease; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-chevron { transform:rotate(180deg); }
+    .pp-mobile-submenu { display:none; padding:0 0 12px 12px; flex-direction:column; gap:2px; }
+    .pp-mobile-nav-item.pp-open .pp-mobile-submenu { display:flex; }
+    .pp-mobile-submenu-link { display:block; padding:9px 12px; font-size:14px; color:#4b5563; text-decoration:none; border-radius:8px; }
+    .pp-mobile-submenu-link:hover { color:#111827; background:#f9fafb; }
+    .pp-mobile-actions { padding:16px 5vw 24px; display:flex; gap:10px; }
+    .pp-mobile-actions .pp-btn-register, .pp-mobile-actions .pp-btn-signin { flex:1; padding:12px 18px; font-size:15px; }
+    @media (max-width:680px){ .pp-nav{display:none;} .pp-header-actions{display:none;} .pp-mobile-toggle{display:flex;} .pp-header-inner{grid-template-columns:1fr auto;} }
+  </style>
+  <div class="pp-header-inner">
+    <a href="https://www.purchaseplus.com" class="pp-hdr-logo"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="28"></a>
+    <nav class="pp-nav">
+      <div class="pp-nav-item"><button class="pp-nav-link">What We Offer<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">Industries<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-nav-item"><a class="pp-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-nav-item"><button class="pp-nav-link">More<svg class="pp-nav-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-dropdown pp-dropdown-right"><a class="pp-dropdown-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-dropdown-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-header-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+    <button class="pp-mobile-toggle"><span class="pp-hamburger"><span></span><span></span><span></span></span></button>
+  </div>
+  <div class="pp-mobile-menu">
+    <nav class="pp-mobile-nav">
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">What We Offer<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/inventory">Inventory Management</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></div></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">Industries<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/hospitality-hotels">Hospitality &amp; Hotels</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/leisure-clubs">Leisure &amp; Clubs</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/healthcare-aged-care">Healthcare &amp; Aged Care</a></div></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/trust-center">Trust Center</a></div>
+      <div class="pp-mobile-nav-item"><a class="pp-mobile-nav-link" href="https://www.purchaseplus.com/updates">Updates</a></div>
+      <div class="pp-mobile-nav-item"><button class="pp-mobile-nav-link">More<svg class="pp-mobile-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="pp-mobile-submenu"><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/contact-us">Contact Us</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/about-us">About Our Team</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/help-and-training">Help &amp; Training</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/api">API Documentation</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/integrations">Integrations</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/policies">Our Policies</a><a class="pp-mobile-submenu-link" href="https://www.purchaseplus.com/blog">Blog</a></div></div>
+    </nav>
+    <div class="pp-mobile-actions"><a href="https://register.purchaseplus.com" class="pp-btn-register">Register</a><a href="https://www.purchaseplus.com/sign-in" class="pp-btn-signin">Sign In</a></div>
+  </div>
+  <script>
+    (function(){const h=document.querySelector('.pp-header');const t=h.querySelector('.pp-mobile-toggle');const m=h.querySelector('.pp-mobile-menu');const mi=h.querySelectorAll('.pp-mobile-nav-item');t.addEventListener('click',()=>{const o=m.classList.toggle('pp-open');t.classList.toggle('pp-active',o);});mi.forEach(it=>{const b=it.querySelector('.pp-mobile-nav-link');if(!b||b.tagName==='A')return;b.addEventListener('click',()=>{it.classList.toggle('pp-open');mi.forEach(s=>{if(s!==it)s.classList.remove('pp-open');});});});const ni=h.querySelectorAll('.pp-nav-item');const ca=()=>ni.forEach(i=>i.classList.remove('pp-open'));ni.forEach(it=>{const b=it.querySelector('button.pp-nav-link');it.addEventListener('mouseenter',()=>{ca();if(b)it.classList.add('pp-open');});it.addEventListener('mouseleave',()=>it.classList.remove('pp-open'));if(b)b.addEventListener('click',()=>{it.classList.toggle('pp-open');ni.forEach(o=>{if(o!==it)o.classList.remove('pp-open');});});});window.addEventListener('scroll',ca,{passive:true});document.addEventListener('click',e=>{if(!h.contains(e.target)){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});document.addEventListener('keydown',e=>{if(e.key==='Escape'){ca();m.classList.remove('pp-open');t.classList.remove('pp-active');}});})();
+  </script>
+</header>
+
+<!-- ============================================================ SUPPLIER BENEFITS ============================================================ -->
+<style>
+  .sb-root { font-family:'Inter',sans-serif; color:#111827; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); }
+  .sb-wrap { max-width:1200px; margin:0 auto; padding:0 5vw; }
+
+  /* HERO */
+  .sb-hero { position:relative; padding:90px 0 80px; background:linear-gradient(180deg,#fff 0%,#fafafa 100%); overflow:hidden; }
+  .sb-hero::before { content:''; position:absolute; top:-160px; right:-140px; width:560px; height:560px; background:radial-gradient(circle,rgba(169,86,255,.15),transparent 70%); filter:blur(40px); pointer-events:none; }
+  .sb-hero-grid { position:relative; display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
+  .sb-eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
+  .sb-hero h1 { font-size:clamp(38px,5vw,62px); font-weight:400; line-height:1.06; letter-spacing:-1.6px; margin-bottom:22px; }
+  .sb-hero h1 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .sb-hero .sb-lead { font-size:18px; font-weight:300; color:#4B5563; line-height:1.65; max-width:540px; margin-bottom:30px; }
+  .sb-hero-ctas { display:flex; gap:12px; margin-bottom:36px; }
+  .sb-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:all .25s; font-family:'Inter',sans-serif; border:none; cursor:pointer; }
+  .sb-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.28); }
+  .sb-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.38); }
+  .sb-btn-secondary { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
+  .sb-btn-secondary:hover { border-color:#c4b5fd; color:#7c5dff; }
+  .sb-stats { display:flex; gap:28px; flex-wrap:wrap; }
+  .sb-stat { font-size:13px; color:#374151; line-height:1.5; }
+  .sb-stat strong { display:block; font-size:24px; font-weight:500; color:#111827; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:4px; letter-spacing:-.4px; }
+  .sb-hero-visual { position:relative; display:grid; grid-template-columns:1.2fr 1fr; grid-template-rows:auto auto; gap:14px; }
+  .sb-hero-visual .sb-img { border-radius:18px; overflow:hidden; box-shadow:0 20px 40px rgba(17,24,39,.12); }
+  .sb-hero-visual .sb-img img { width:100%; height:100%; object-fit:cover; display:block; }
+  .sb-hero-visual .sb-img-1 { grid-row:1/3; aspect-ratio:3/4; }
+  .sb-hero-visual .sb-img-2 { aspect-ratio:4/3; }
+  .sb-hero-visual .sb-img-3 { aspect-ratio:4/3; }
+
+  /* TRUST BAR */
+  .sb-trust { padding:50px 0; background:#fff; border-top:1px solid #f3f4f6; border-bottom:1px solid #f3f4f6; }
+  .sb-trust-label { text-align:center; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#6b7280; margin-bottom:26px; }
+  .sb-trust-logos { display:flex; justify-content:center; align-items:center; gap:64px; flex-wrap:wrap; opacity:.65; }
+  .sb-trust-logos span { font-weight:600; font-size:17px; color:#6b7280; letter-spacing:-.2px; }
+
+  /* 6 BENEFITS with side-slide images */
+  .sb-feat { padding:100px 0; background:#fff; }
+  .sb-section-head { text-align:center; max-width:760px; margin:0 auto 72px; }
+  .sb-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+  .sb-section-head h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:16px; }
+  .sb-section-head h2 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .sb-rows { display:flex; flex-direction:column; gap:100px; }
+  .sb-row { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+  .sb-row.reverse { direction:rtl; }
+  .sb-row.reverse > * { direction:ltr; }
+  .sb-row .sb-copy-inner { max-width:480px; }
+  .sb-row .sb-num { font-size:13px; font-weight:700; letter-spacing:.12em; color:#7c5dff; margin-bottom:12px; }
+  .sb-row h3 { font-size:clamp(24px,2.6vw,32px); font-weight:400; line-height:1.15; letter-spacing:-.6px; margin-bottom:16px; }
+  .sb-row h3 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .sb-row p { font-size:16px; font-weight:300; color:#4B5563; line-height:1.7; }
+  .sb-row .sb-visual { opacity:0; transform:translateX(60px); transition:all .8s cubic-bezier(.16,1,.3,1); position:relative; }
+  .sb-row.reverse .sb-visual { transform:translateX(-60px); }
+  .sb-feat .sb-row .sb-visual.is-in, .sb-feat .sb-row.reverse .sb-visual.is-in { opacity:1; transform:translateX(0); }
+  .sb-row .sb-visual::before { content:''; position:absolute; inset:-30px; background:radial-gradient(circle,rgba(124,93,255,.16),transparent 65%); filter:blur(40px); z-index:-1; }
+  .sb-row .sb-visual img { width:100%; border-radius:20px; box-shadow:0 26px 60px rgba(17,24,39,.15); display:block; }
+
+  /* TESTIMONIAL */
+  .sb-testi { padding:90px 0; background:linear-gradient(180deg,#fafafa 0%,#fff 100%); }
+  .sb-testi-card { max-width:900px; margin:0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:56px 60px; text-align:center; position:relative; }
+  .sb-testi-card::before { content:'"'; position:absolute; top:20px; left:40px; font-size:120px; color:transparent; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; font-family:Georgia,serif; line-height:1; }
+  .sb-testi-quote { font-size:clamp(20px,2.2vw,26px); font-weight:300; color:#111827; line-height:1.5; letter-spacing:-.3px; margin-bottom:28px; position:relative; }
+  .sb-testi-author { font-size:14px; font-weight:500; color:#111827; }
+  .sb-testi-author span { display:block; font-weight:300; color:#6b7280; margin-top:4px; }
+
+  /* CTA BANNER */
+  .sb-cta { padding:100px 0; background:#fafafa; text-align:center; position:relative; overflow:hidden; }
+  .sb-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; background:radial-gradient(circle,rgba(169,86,255,.06),transparent 60%); pointer-events:none; }
+  .sb-cta .sb-wrap { position:relative; }
+  .sb-cta h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:18px; max-width:740px; margin-left:auto; margin-right:auto; }
+  .sb-cta h2 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .sb-cta p { font-size:17px; color:#4B5563; font-weight:300; max-width:640px; margin:0 auto 32px; line-height:1.6; }
+  .sb-cta-btns { display:flex; gap:14px; justify-content:center; }
+
+  @media (max-width:960px) {
+    .sb-hero-grid { grid-template-columns:1fr; gap:44px; }
+    .sb-row { grid-template-columns:1fr !important; gap:36px; direction:ltr; }
+    .sb-row .sb-visual { transform:none !important; }
+  }
+  @media (max-width:640px) {
+    .sb-testi-card { padding:40px 28px; }
+    .sb-hero-ctas, .sb-cta-btns { flex-direction:column; align-items:center; }
+    .sb-hero-ctas .sb-btn, .sb-cta-btns .sb-btn { width:100%; max-width:280px; justify-content:center; }
+    .sb-trust-logos { gap:32px; }
+  }
+</style>
+
+<div class="sb-root">
+
+  <!-- HERO -->
+  <section class="sb-hero" aria-label="Supplier Benefits Hero">
+    <div class="sb-wrap">
+      <div class="sb-hero-grid">
+        <div>
+          <div class="sb-eyebrow">For Suppliers</div>
+          <h1>More orders. <span class="sb-grad">Faster payments.</span> Less admin.</h1>
+          <p class="sb-lead">When you join PurchasePlus, you connect directly with the buyers who want to purchase from you, with accurate pricing, clean orders, and a streamlined invoicing process that gets you paid faster.</p>
+          <div class="sb-hero-ctas">
+            <a href="../join-as-a-supplier/" class="sb-btn sb-btn-primary">Join as a Supplier</a>
+            <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn sb-btn-secondary">Talk to Our Team</a>
+          </div>
+          <div class="sb-stats">
+            <div class="sb-stat"><strong>30,000+</strong>Suppliers on the platform</div>
+            <div class="sb-stat"><strong>40M+</strong>Invoices processed per year</div>
+            <div class="sb-stat"><strong>5</strong>Regions supported globally</div>
+          </div>
+        </div>
+        <div class="sb-hero-visual">
+          <div class="sb-img sb-img-1"><img src="../images/suppliers/001.png" alt="Supplier portal"></div>
+          <div class="sb-img sb-img-2"><img src="../images/suppliers/002.png" alt="Supplier catalogue"></div>
+          <div class="sb-img sb-img-3"><img src="../images/suppliers/003.png" alt="Supplier dashboard"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="sb-trust" aria-label="Connected suppliers">
+    <div class="sb-wrap">
+      <div class="sb-trust-label">Leading suppliers already connected</div>
+      <div class="sb-trust-logos">
+        <span>Coca-Cola</span><span>Nestl&eacute;</span><span>Lion</span><span>Bunzl</span><span>PFD Food Services</span><span>Simon George &amp; Sons</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 BENEFITS with side-slide images -->
+  <section class="sb-feat" aria-label="Why suppliers choose PurchasePlus">
+    <div class="sb-wrap">
+      <div class="sb-section-head">
+        <div class="sb-kicker">Why Suppliers Join</div>
+        <h2>Why 30,000+ suppliers <span class="sb-grad">choose PurchasePlus.</span></h2>
+      </div>
+      <div class="sb-rows">
+
+        <div class="sb-row">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 01</div>
+            <h3>Your products in front of buyers <span class="sb-grad">who are actively ordering.</span></h3>
+            <p>PurchasePlus connects you to the procurement teams at hotels, clubs, healthcare facilities, and more, across Australia, Asia, and beyond. Your catalogue is visible when they're ready to buy.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/004.png" alt="Buyer access"></div>
+        </div>
+
+        <div class="sb-row reverse">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 02</div>
+            <h3>Update prices once. <span class="sb-grad">Every buyer sees it immediately.</span></h3>
+            <p>Manage your product catalogue and pricing directly in PurchasePlus, manually or via API. No more emailing price lists that get ignored. Your buyers always have accurate, current pricing.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/005.png" alt="Pricing control"></div>
+        </div>
+
+        <div class="sb-row">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 03</div>
+            <h3>Fewer errors. Fewer disputes. <span class="sb-grad">Fewer credits.</span></h3>
+            <p>When buyers order from your catalogue, they use your exact product codes, descriptions, and units. Orders come through clean, matched to what you actually supply. Less back-and-forth, fewer corrections.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/006.png" alt="Order accuracy"></div>
+        </div>
+
+        <div class="sb-row reverse">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 04</div>
+            <h3>Invoices that match. <span class="sb-grad">Payments that arrive.</span></h3>
+            <p>PurchasePlus buyers do 3-way matching, invoice against PO against receiving note. When your invoice matches the order, it processes straight through. No chasing. No delays caused by discrepancies.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/007.png" alt="Invoice matching"></div>
+        </div>
+
+        <div class="sb-row">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 05</div>
+            <h3>We set you up personally, <span class="sb-grad">then stay available.</span></h3>
+            <p>Our supplier engagement team works directly with each supplier to get your catalogue loaded and your connection live. We don't leave you to figure it out alone. And we're available when you need changes.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/008.png" alt="Onboarding support"></div>
+        </div>
+
+        <div class="sb-row reverse">
+          <div class="sb-copy"><div class="sb-copy-inner">
+            <div class="sb-num">BENEFIT 06</div>
+            <h3>Find new buyers you didn't know <span class="sb-grad">were looking.</span></h3>
+            <p>PurchasePlus runs a supplier directory that procurement teams actively search. Being on the platform means being discoverable to buyers who haven't worked with you yet.</p>
+          </div></div>
+          <div class="sb-visual"><img src="../images/suppliers/009.png" alt="Supplier directory"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="sb-testi" aria-label="Supplier testimonial">
+    <div class="sb-wrap">
+      <div class="sb-testi-card">
+        <p class="sb-testi-quote">Since joining PurchasePlus, our order accuracy improved dramatically. Buyers order from our catalogue directly, no more phone calls fixing wrong product codes.</p>
+        <div class="sb-testi-author">Supplier Representative<span>Food &amp; Beverage Distribution</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="sb-cta" aria-label="Call to Action">
+    <div class="sb-wrap">
+      <div class="sb-kicker">Get Connected</div>
+      <h2>Join 30,000+ suppliers <span class="sb-grad">already on the platform.</span></h2>
+      <p>Your customers are already using PurchasePlus. Make it easy for them to buy from you.</p>
+      <div class="sb-cta-btns">
+        <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn sb-btn-secondary">Talk to Our Team</a>
+        <a href="../join-as-a-supplier/" class="sb-btn sb-btn-primary">Join as a Supplier</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function(){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ e.target.classList.toggle('is-in', e.isIntersecting); });
+    }, { threshold: 0.18 });
+    document.querySelectorAll('.sb-row .sb-visual').forEach(function(v){ io.observe(v); });
+  })();
+</script>
+<!-- ============================================================ GLOBAL FOOTER ============================================================ -->
+<footer class="pp-footer" role="contentinfo">
+  <style>
+    .pp-footer *, .pp-footer *::before, .pp-footer *::after { box-sizing:border-box; margin:0; padding:0; }
+    .pp-footer { background:#fff; font-family:'Inter',sans-serif; color:#374151; border-top:1px solid #e5e7eb; }
+    .pp-ftr-inner { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .pp-ftr-body { display:grid; grid-template-columns:repeat(4,1fr); gap:32px; padding:64px 0 52px; }
+    .pp-ftr-logo { display:flex; align-items:center; text-decoration:none; margin-bottom:24px; }
+    .pp-ftr-logo img { height:34px; width:auto; display:block; }
+    .pp-ftr-logo img.pp-ftr-logo-mobile { display:none; }
+    .pp-ftr-contact-head { font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#9ca3af; margin-bottom:14px; }
+    .pp-ftr-address { font-size:13.5px; font-weight:300; line-height:1.7; color:#6b7280; margin-bottom:16px; }
+    .pp-ftr-email { font-size:13.5px; color:#374151; text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:22px; }
+    .pp-ftr-email:hover { color:#7c5dff; }
+    @keyframes pp-ftr-grad { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+    .pp-ftr-demo-btn { display:inline-flex; align-items:center; padding:10px 22px; font-size:14px; font-weight:500; color:#fff; text-decoration:none; border-radius:8px; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 40%,#3766fe 70%,#a956ff 100%); background-size:250% 100%; animation:pp-ftr-grad 4s ease-in-out infinite; margin-bottom:20px; white-space:nowrap; }
+    .pp-ftr-social { display:flex; gap:10px; }
+    .pp-ftr-social a { display:flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:7px; border:1px solid #e5e7eb; color:#6b7280; text-decoration:none; }
+    .pp-ftr-social a:hover { border-color:#c4b5fd; color:#7c5dff; background:#f5f3ff; }
+    .pp-ftr-social svg { width:15px; height:15px; fill:currentColor; }
+    .pp-ftr-col-head { font-size:13px; font-weight:600; color:#111827; margin-bottom:16px; }
+    .pp-ftr-phones { list-style:none; }
+    .pp-ftr-phones li { display:flex; align-items:baseline; gap:6px; margin-bottom:20px; }
+    .pp-ftr-country { font-size:10px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:#9ca3af; }
+    .pp-ftr-col-offset { padding-top:58px; }
+    .pp-ftr-col-right { text-align:right; }
+    .pp-ftr-col-divider { position:relative; }
+    .pp-ftr-col-divider::before { content:''; position:absolute; left:-17px; top:0; bottom:0; width:1px; background:#e5e7eb; }
+    .pp-ftr-phones a { font-size:12.5px; font-weight:300; color:#374151; text-decoration:none; }
+    .pp-ftr-links { list-style:none; }
+    .pp-ftr-links li + li { margin-top:11px; }
+    .pp-ftr-links a { font-size:13.5px; font-weight:300; color:#6b7280; text-decoration:none; line-height:1.4; }
+    .pp-ftr-links a:hover { color:#111827; }
+    .pp-ftr-bottom { border-top:1px solid #e5e7eb; padding:22px 0; }
+    .pp-ftr-bottom .pp-ftr-inner { display:flex; align-items:center; }
+    .pp-ftr-copy { font-size:13px; font-weight:300; color:#9ca3af; }
+    @media (max-width:960px){ .pp-ftr-body{ grid-template-columns:210px 210px; justify-content:center; gap:52px 80px; } .pp-ftr-body > div:nth-child(1){ order:3; } .pp-ftr-body > div:nth-child(2){ order:4; padding-top:58px; } .pp-ftr-body > div:nth-child(3){ order:1; } .pp-ftr-body > div:nth-child(4){ order:2; } .pp-ftr-col-offset{ padding-top:0; } .pp-ftr-col-right{ text-align:left; } .pp-ftr-col-divider::before{ display:none; } }
+    @media (max-width:580px){ .pp-ftr-body{ grid-template-columns:1fr; gap:0; padding:44px 0 0; } .pp-ftr-body > div{ text-align:center; padding-bottom:36px; } .pp-ftr-logo img.pp-ftr-logo-desktop{ display:none; } .pp-ftr-logo img.pp-ftr-logo-mobile{ display:block; height:182px; width:auto; } .pp-ftr-logo{ justify-content:center; } .pp-ftr-social{ justify-content:center; } .pp-ftr-phones li{ justify-content:center; } .pp-ftr-email{ display:flex; justify-content:center; } }
+  </style>
+  <div class="pp-ftr-inner">
+    <div class="pp-ftr-body">
+      <div>
+        <a href="https://www.purchaseplus.com" class="pp-ftr-logo"><img class="pp-ftr-logo-desktop" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/62b50208b9104c08661c1b2e_logo-horizontal-web.svg" alt="PurchasePlus" height="26"><img class="pp-ftr-logo-mobile" src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/65828b5153df86406de401bb_logo-square.svg" alt="PurchasePlus" height="182"></a>
+        <p class="pp-ftr-contact-head">Get In Touch</p>
+        <p class="pp-ftr-address">477 Pitt Street<br>Haymarket NSW 2000<br>Australia</p>
+        <a href="mailto:help@marketboomer.com" class="pp-ftr-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>help@marketboomer.com</a>
+        <div><a href="https://www.purchaseplus.com/request-a-demo" class="pp-ftr-demo-btn">Request a Demo</a></div>
+        <div class="pp-ftr-social">
+          <a href="https://www.youtube.com/@purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5a3 3 0 0 0-2.1 2.1C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1C24 15.9 24 12 24 12s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/purchaseplus" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="pp-ftr-col-offset">
+        <p class="pp-ftr-col-head">Contact Numbers</p>
+        <ul class="pp-ftr-phones">
+          <li><span class="pp-ftr-country">AU:</span><a href="tel:+61291888600">+61 2 9188 8600</a></li>
+          <li><span class="pp-ftr-country">SG:</span><a href="tel:+6531388600">+65 3138 8600</a></li>
+          <li><span class="pp-ftr-country">US:</span><a href="tel:+18888600">+1 888 886 00</a></li>
+          <li><span class="pp-ftr-country">TH:</span><a href="tel:+6626408600">+66 2 640 8600</a></li>
+          <li><span class="pp-ftr-country">GB:</span><a href="tel:+443308088600">+44 330 808 8600</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right pp-ftr-col-divider">
+        <p class="pp-ftr-col-head">Solutions</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/procure-to-pay">Procure-to-Pay</a></li>
+          <li><a href="https://www.purchaseplus.com/ap-3-way-matching">AP 3-Way Matching</a></li>
+          <li><a href="https://www.purchaseplus.com/paperless-invoicing">Paperless Invoicing</a></li>
+          <li><a href="https://www.purchaseplus.com/inventory">Inventory Management</a></li>
+          <li><a href="https://www.purchaseplus.com/supplier-engagement">Supplier Engagement</a></li>
+          <li><a href="https://www.purchaseplus.com/for-suppliers">For Suppliers</a></li>
+          <li><a href="https://www.purchaseplus.com/api">API Documentation</a></li>
+        </ul>
+      </div>
+      <div class="pp-ftr-col-offset pp-ftr-col-right">
+        <p class="pp-ftr-col-head">More</p>
+        <ul class="pp-ftr-links">
+          <li><a href="https://www.purchaseplus.com/updates">Updates</a></li>
+          <li><a href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a></li>
+          <li><a href="https://www.purchaseplus.com/contact-us">Contact Us</a></li>
+          <li><a href="https://www.purchaseplus.com/about-us">About Our Team</a></li>
+          <li><a href="https://www.purchaseplus.com/help-and-training">Help and Training</a></li>
+          <li><a href="https://www.purchaseplus.com/policies">Our Policies</a></li>
+          <li><a href="https://www.purchaseplus.com/blog">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="pp-ftr-bottom"><div class="pp-ftr-inner"><p class="pp-ftr-copy">&copy; <span id="pp-ftr-year-iv"></span> PurchasePlus. All rights reserved.</p></div></div>
+  <script>document.getElementById('pp-ftr-year-iv').textContent=new Date().getFullYear();</script>
+</footer>
+</body></html>
