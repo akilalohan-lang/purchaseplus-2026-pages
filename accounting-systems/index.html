@@ -143,10 +143,13 @@
   .as-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:var(--pp-grad); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
   .as-card:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(124,93,255,.1); border-color:transparent; }
   .as-card:hover::before { transform:scaleX(1); }
-  .as-card-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-  .as-card-logo { font-size:16px; font-weight:600; color:#111827; letter-spacing:-.3px; }
-  .as-badge { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; }
-  .as-badge.api { background:linear-gradient(135deg,rgba(169,86,255,.14),rgba(55,102,254,.14)); color:#7c5dff; }
+  .as-card-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+  .as-card-head { display:flex; align-items:center; gap:12px; min-width:0; }
+  .as-card-logo-img { width:40px; height:40px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+  .as-card-logo-img img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+  .as-card-logo { font-size:15px; font-weight:600; color:#111827; letter-spacing:-.3px; }
+  .as-badge { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; flex-shrink:0; }
+  .as-badge.api { background:#d1fae5; color:#059669; }
   .as-badge.csv { background:#f3f4f6; color:#6b7280; }
   .as-card p { font-size:13.5px; font-weight:300; color:#4B5563; line-height:1.55; }
 
@@ -201,18 +204,18 @@
         <p>Direct API connections to the systems your finance team already runs, plus structured CSV exports for systems that don't expose an API.</p>
       </div>
       <div class="as-cards">
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Xero</div><span class="as-badge api">API</span></div><p>Real-time two-way sync of invoices, bills, and journal entries.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Oracle NetSuite</div><span class="as-badge api">API</span></div><p>Full ERP integration, purchases, receiving, AP, and GL.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Microsoft Dynamics 365</div><span class="as-badge api">API</span></div><p>Finance and Operations module integration.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Sage Intacct</div><span class="as-badge api">API</span></div><p>Multi-entity AP and GL integration.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">MYOB Advanced</div><span class="as-badge api">API</span></div><p>Cloud MYOB integration for AP and purchasing.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">MYOB AccountRight</div><span class="as-badge csv">CSV</span></div><p>Structured export for AccountRight desktop.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Caresystems</div><span class="as-badge csv">CSV</span></div><p>Aged care finance system integration.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Reckon</div><span class="as-badge csv">CSV</span></div><p>Reckon Accounts integration via structured export.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">SunSystems</div><span class="as-badge api">API</span></div><p>Enterprise finance system used by large hotel groups.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Accredo</div><span class="as-badge csv">CSV</span></div><p>New Zealand ERP integration.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Microsoft Dynamics GP</div><span class="as-badge csv">CSV</span></div><p>Legacy Dynamics GP export.</p></div>
-        <div class="as-card"><div class="as-card-top"><div class="as-card-logo">Custom / Other</div><span class="as-badge api">API</span></div><p>Roundtrip Integrations for bespoke connections.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14a7b9e17f661cc1ef1d_AP%20Xero.png" alt="Xero"></div><div class="as-card-logo">Xero</div></div><span class="as-badge api">API</span></div><p>Real-time two-way sync of invoices, bills, and journal entries.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13ac254ceb5ed693e426_AP%20Oracle%20Netsuite.png" alt="Oracle NetSuite"></div><div class="as-card-logo">Oracle NetSuite</div></div><span class="as-badge api">API</span></div><p>Full ERP integration, purchases, receiving, AP, and GL.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b1368652b9568aa25c5a9_AP%20Dynamics%20365.png" alt="Microsoft Dynamics 365"></div><div class="as-card-logo">Dynamics 365</div></div><span class="as-badge api">API</span></div><p>Finance and Operations module integration.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14233a17be225e52644c_AP%20Sage.png" alt="Sage Intacct"></div><div class="as-card-logo">Sage Intacct</div></div><span class="as-badge api">API</span></div><p>Multi-entity AP and GL integration.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b138ddde1ff75200d6017_AP%20Myob%20Acumatica.png" alt="MYOB Acumatica"></div><div class="as-card-logo">MYOB Acumatica</div></div><span class="as-badge api">API</span></div><p>Cloud MYOB integration for AP and purchasing.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13810c110e1b57afd110_AP%20Myob%20AccountRight.png" alt="MYOB AccountRight"></div><div class="as-card-logo">MYOB AccountRight</div></div><span class="as-badge csv">CSV</span></div><p>Structured export for AccountRight desktop.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b135c76933e15846a3056_AP%20Caresystems.png" alt="Caresystems"></div><div class="as-card-logo">Caresystems</div></div><span class="as-badge api">API</span></div><p>Aged care finance system integration.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b140e8f3370994259bdb7_AP%20Reckon.png" alt="Reckon"></div><div class="as-card-logo">Reckon</div></div><span class="as-badge csv">CSV</span></div><p>Reckon Accounts integration via structured export.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b148777b4abf0082a08fe_AP%20SunSystems.png" alt="SunSystems"></div><div class="as-card-logo">SunSystems</div></div><span class="as-badge api">API</span></div><p>Enterprise finance system used by large hotel groups.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b10718e804172c65a30ef_AP%20Accredo.png" alt="Accredo"></div><div class="as-card-logo">Accredo</div></div><span class="as-badge csv">CSV</span></div><p>New Zealand ERP integration.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13742de8239a42007ceb_AP%20Dynamics%20GP.png" alt="Microsoft Dynamics GP"></div><div class="as-card-logo">Dynamics GP</div></div><span class="as-badge csv">CSV</span></div><p>Legacy Dynamics GP export.</p></div>
+        <div class="as-card"><div class="as-card-top"><div class="as-card-head"><div class="as-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b139d4bbc6f5a0900d726_AP%20Myob%20Greentree.png" alt="MYOB Greentree"></div><div class="as-card-logo">MYOB Greentree</div></div><span class="as-badge api">API</span></div><p>Legacy on-premise MYOB ERP, via Roundtrip connector.</p></div>
       </div>
     </div>
   </section>

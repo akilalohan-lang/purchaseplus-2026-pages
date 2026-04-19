@@ -150,25 +150,31 @@
   .ps-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:var(--pp-grad); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
   .ps-card:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(124,93,255,.1); border-color:transparent; }
   .ps-card:hover::before { transform:scaleX(1); }
-  .ps-card-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
-  .ps-card-logo { font-size:16px; font-weight:600; color:#111827; letter-spacing:-.3px; }
-  .ps-badge { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; background:linear-gradient(135deg,rgba(169,86,255,.14),rgba(55,102,254,.14)); color:#7c5dff; }
+  .ps-card-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
+  .ps-card-head { display:flex; align-items:center; gap:12px; min-width:0; }
+  .ps-card-logo-img { width:40px; height:40px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
+  .ps-card-logo-img img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
+  .ps-card-logo { font-size:15px; font-weight:600; color:#111827; letter-spacing:-.3px; }
+  .ps-badge { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; background:#d1fae5; color:#059669; flex-shrink:0; }
   .ps-card p { font-size:13.5px; font-weight:300; color:#4B5563; line-height:1.55; }
 
-  /* SEE MORE */
+  /* SEE MORE (gradient) */
   .ps-more { padding:80px 0; background:#fff; }
-  .ps-more-card { background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%); border-radius:24px; padding:56px 48px; color:#fff; position:relative; overflow:hidden; }
-  .ps-more-card::before { content:''; position:absolute; top:-50%; right:-20%; width:50%; height:200%; background:radial-gradient(circle,rgba(124,93,255,.3),transparent 60%); filter:blur(60px); }
+  .ps-more-card { background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); background-size:220% 100%; animation:psGradMove 7s linear infinite; border-radius:24px; padding:56px 48px; color:#fff; position:relative; overflow:hidden; box-shadow:0 24px 60px rgba(124,93,255,.35); }
+  @keyframes psGradMove { 0%{background-position:0% 50%;} 100%{background-position:220% 50%;} }
+  .ps-more-card::before { content:''; position:absolute; top:-50%; right:-20%; width:60%; height:200%; background:radial-gradient(circle,rgba(255,255,255,.18),transparent 55%); filter:blur(40px); pointer-events:none; }
   .ps-more-grid { position:relative; display:grid; grid-template-columns:1.3fr 1fr; gap:40px; align-items:center; }
-  .ps-more-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:linear-gradient(90deg,#c4b5fd,#93c5fd); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
+  .ps-more-kicker { display:inline-block; font-size:12px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.9); margin-bottom:14px; }
   .ps-more-grid h2 { font-size:clamp(26px,3vw,38px); font-weight:400; line-height:1.15; letter-spacing:-.8px; margin-bottom:16px; color:#fff; }
-  .ps-more-grid p { font-size:15px; font-weight:300; color:#cbd5e1; line-height:1.65; }
+  .ps-more-grid h2 .ps-more-accent { background:linear-gradient(90deg,#fff,#e9d5ff,#bfdbfe,#fff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; animation:psMoreAccent 4s linear infinite; }
+  @keyframes psMoreAccent { 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
+  .ps-more-grid p { font-size:15px; font-weight:300; color:rgba(255,255,255,.92); line-height:1.65; }
   .ps-more-links { display:flex; flex-direction:column; gap:12px; }
-  .ps-more-link { display:flex; justify-content:space-between; align-items:center; padding:18px 22px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:14px; color:#fff; text-decoration:none; transition:all .25s; }
-  .ps-more-link:hover { background:rgba(255,255,255,.12); border-color:rgba(196,181,253,.3); transform:translateX(4px); }
-  .ps-more-link-t { font-size:15px; font-weight:500; }
-  .ps-more-link-s { font-size:12px; color:#94a3b8; font-weight:300; margin-top:2px; }
-  .ps-more-link svg { width:18px; height:18px; color:#c4b5fd; flex-shrink:0; }
+  .ps-more-link { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; background:#fff; border:1px solid rgba(255,255,255,.6); border-radius:16px; color:#111827; text-decoration:none; transition:all .25s; box-shadow:0 10px 24px rgba(17,24,39,.1); }
+  .ps-more-link:hover { transform:translateX(4px); box-shadow:0 14px 30px rgba(17,24,39,.15); }
+  .ps-more-link-t { font-size:16px; font-weight:500; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:psMoreAccent 5s linear infinite; }
+  .ps-more-link-s { font-size:12.5px; color:#6b7280; font-weight:300; margin-top:3px; }
+  .ps-more-link svg { width:18px; height:18px; color:#7c5dff; flex-shrink:0; }
 
   /* CTA */
   .ps-cta { padding:100px 0; background:#fafafa; text-align:center; }
@@ -226,13 +232,14 @@
         <p>PurchasePlus connects via API to the major POS platforms in hospitality, no middleware, no manual exports.</p>
       </div>
       <div class="ps-cards">
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">H&amp;L POS</div><span class="ps-badge">API</span></div><p>Australia's leading hospitality POS.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Oracle Micros Simphony</div><span class="ps-badge">API</span></div><p>Enterprise POS for major hotel groups worldwide.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Fedelta</div><span class="ps-badge">API</span></div><p>Hospitality POS for high-volume F&amp;B operations.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Shiji</div><span class="ps-badge">API</span></div><p>Global hospitality technology platform.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Bepoz</div><span class="ps-badge">API</span></div><p>POS and hospitality management software.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Square</div><span class="ps-badge">API</span></div><p>Widely-used POS for independent F&amp;B venues.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-logo">Agilysys</div><span class="ps-badge">API</span></div><p>POS and hospitality management for hotels and resorts.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12db4a033aa45259e110_POS%20H%26L.png" alt="H&amp;L POS"></div><div class="ps-card-logo">H&amp;L POS</div></div><span class="ps-badge">API</span></div><p>Australia's leading hospitality POS.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ebbd8eba54e06207e9_POS%20Oracle%20Micros%20Simphony.png" alt="Oracle Micros Simphony"></div><div class="ps-card-logo">Oracle Micros</div></div><span class="ps-badge">API</span></div><p>Enterprise POS for major hotel groups worldwide.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ceafdc38fe3f05f7d0_POS%20Fedelta.png" alt="Fedelta"></div><div class="ps-card-logo">Fedelta</div></div><span class="ps-badge">API</span></div><p>Hospitality POS for high-volume F&amp;B operations.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12fe845c14e7e3c96ee9_POS%20ShIji.png" alt="Shiji"></div><div class="ps-card-logo">Shiji</div></div><span class="ps-badge">API</span></div><p>Global hospitality technology platform.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ba1e75e0e15cf4326d_POS%20Bepoz.png" alt="Bepoz"></div><div class="ps-card-logo">Bepoz</div></div><span class="ps-badge">API</span></div><p>POS and hospitality management software.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b130c31e5b4917602ec4b_POS%20Square.png" alt="Square"></div><div class="ps-card-logo">Square</div></div><span class="ps-badge">API</span></div><p>Widely-used POS for independent F&amp;B venues.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12b432f4990aa69e6638_POS%20Agilysys.png" alt="Agilysys"></div><div class="ps-card-logo">Agilysys</div></div><span class="ps-badge">API</span></div><p>POS and hospitality management for hotels and resorts.</p></div>
+        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b131ae9b6b6ee2d3fe0a0_POS%20SwiftPOS.png" alt="SwiftPOS"></div><div class="ps-card-logo">SwiftPOS</div></div><span class="ps-badge">API</span></div><p>POS platform used across Australian venues and clubs.</p></div>
       </div>
     </div>
   </section>

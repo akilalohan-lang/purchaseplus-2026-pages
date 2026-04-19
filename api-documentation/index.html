@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PurchasePlus REST API, purchasing, invoicing, inventory, POS, and supplier modules. Full documentation, SwaggerHub reference, and integration support.">
+  <meta name="description" content="PurchasePlus REST API, 5 modules (Access, Purchasing, Inventory, POS, Supplying). Authentication, filtering predicates, pagination, rate limiting, idempotency, versioning and change notes.">
   <title>API Documentation | PurchasePlus</title>
   <meta property="og:type" content="website">
   <meta property="og:title" content="API Documentation | PurchasePlus">
-  <meta property="og:description" content="PurchasePlus REST API, purchasing, invoicing, inventory, POS, and supplier modules. Full documentation, SwaggerHub reference, and integration support.">
+  <meta property="og:description" content="PurchasePlus REST API, 5 modules (Access, Purchasing, Inventory, POS, Supplying). Authentication, filtering predicates, pagination, rate limiting, idempotency, versioning and change notes.">
   <meta property="og:site_name" content="PurchasePlus">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -106,37 +106,49 @@
   .ap-root { font-family:'Inter',sans-serif; color:#111827; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); }
   .ap-wrap { max-width:1200px; margin:0 auto; padding:0 5vw; }
 
-  /* HERO */
-  .ap-hero { position:relative; padding:90px 0 60px; background:linear-gradient(180deg,#0f172a 0%,#111827 100%); color:#fff; overflow:hidden; }
-  .ap-hero::before { content:''; position:absolute; top:-200px; right:-140px; width:640px; height:640px; background:radial-gradient(circle,rgba(124,93,255,.35),transparent 65%); filter:blur(60px); pointer-events:none; }
-  .ap-hero::after { content:''; position:absolute; bottom:-160px; left:-140px; width:540px; height:540px; background:radial-gradient(circle,rgba(55,102,254,.25),transparent 65%); filter:blur(60px); pointer-events:none; }
-  .ap-hero-grid { position:relative; display:grid; grid-template-columns:1.15fr 1fr; gap:50px; align-items:center; }
-  .ap-eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:linear-gradient(90deg,#c4b5fd,#93c5fd); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:20px; }
-  .ap-hero h1 { font-size:clamp(36px,4.6vw,56px); font-weight:400; line-height:1.08; letter-spacing:-1.4px; margin-bottom:22px; color:#fff; }
-  .ap-hero h1 .ap-grad { background:linear-gradient(90deg,#c4b5fd,#93c5fd); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
-  .ap-hero .ap-lead { font-size:17px; font-weight:300; color:#cbd5e1; line-height:1.65; max-width:540px; margin-bottom:32px; }
+  /* HERO (white, tall) */
+  .ap-hero { position:relative; padding:110px 0 100px; background:linear-gradient(180deg,#fff 0%,#fafafa 100%); overflow:hidden; min-height:640px; }
+  .ap-hero::before { content:''; position:absolute; top:-200px; right:-140px; width:680px; height:680px; background:radial-gradient(circle,rgba(169,86,255,.18),transparent 65%); filter:blur(70px); pointer-events:none; }
+  .ap-hero::after { content:''; position:absolute; bottom:-180px; left:-140px; width:540px; height:540px; background:radial-gradient(circle,rgba(55,102,254,.14),transparent 65%); filter:blur(70px); pointer-events:none; }
+  .ap-hero-grid { position:relative; display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; min-height:500px; }
+  .ap-eyebrow { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:22px; }
+  .ap-hero h1 { font-size:clamp(38px,5vw,62px); font-weight:400; line-height:1.08; letter-spacing:-1.5px; margin-bottom:24px; color:#111827; }
+  .ap-hero h1 .ap-grad { background:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; animation:apGradMove 5s linear infinite; }
+  @keyframes apGradMove { 0%{background-position:0% 50%;} 100%{background-position:220% 50%;} }
+  .ap-hero .ap-lead { font-size:18px; font-weight:300; color:#4B5563; line-height:1.65; max-width:560px; margin-bottom:34px; }
   .ap-hero-ctas { display:flex; gap:12px; margin-bottom:32px; flex-wrap:wrap; }
-  .ap-btn { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:50px; font-size:14.5px; font-weight:500; text-decoration:none; transition:all .25s; font-family:'Inter',sans-serif; border:none; cursor:pointer; }
-  .ap-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.4); }
-  .ap-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.55); }
-  .ap-btn-outline { background:rgba(255,255,255,.06); color:#fff; border:1.5px solid rgba(255,255,255,.2); }
-  .ap-btn-outline:hover { background:rgba(255,255,255,.12); border-color:rgba(196,181,253,.4); }
+  .ap-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:all .25s; font-family:'Inter',sans-serif; border:none; cursor:pointer; }
+  .ap-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.3); }
+  .ap-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.4); }
+  .ap-btn-outline { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
+  .ap-btn-outline:hover { border-color:#c4b5fd; color:#7c5dff; }
   .ap-chips { display:flex; gap:10px; flex-wrap:wrap; }
-  .ap-chip { display:inline-flex; align-items:center; gap:6px; padding:8px 14px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:50px; font-size:12.5px; font-weight:500; color:#e2e8f0; }
-  .ap-chip::before { content:''; width:6px; height:6px; border-radius:50%; background:linear-gradient(135deg,#a956ff,#3766fe); }
+  .ap-chip { display:inline-flex; align-items:center; gap:7px; padding:8px 14px; background:#fff; border:1px solid #e5e7eb; border-radius:50px; font-size:12.5px; font-weight:500; color:#374151; }
+  .ap-chip::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--pp-grad); }
 
-  /* Code block visual */
-  .ap-code { background:rgba(15,23,42,.6); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; box-shadow:0 30px 60px rgba(0,0,0,.4); }
-  .ap-code-bar { display:flex; align-items:center; gap:8px; padding:12px 16px; background:rgba(255,255,255,.03); border-bottom:1px solid rgba(255,255,255,.06); }
-  .ap-code-dot { width:10px; height:10px; border-radius:50%; }
+  /* Code block (kept dark, the user likes it) */
+  .ap-code { background:linear-gradient(180deg,#0f172a 0%,#111827 100%); border:1px solid rgba(255,255,255,.08); border-radius:18px; overflow:hidden; box-shadow:0 30px 60px rgba(17,24,39,.25); }
+  .ap-code-bar { display:flex; align-items:center; gap:8px; padding:14px 18px; background:rgba(255,255,255,.03); border-bottom:1px solid rgba(255,255,255,.06); }
+  .ap-code-dot { width:11px; height:11px; border-radius:50%; }
   .ap-code-dot.r { background:#ef4444; } .ap-code-dot.y { background:#eab308; } .ap-code-dot.g { background:#22c55e; }
-  .ap-code-lang { margin-left:auto; font-size:11px; color:#64748b; letter-spacing:.1em; text-transform:uppercase; }
-  .ap-code pre { margin:0; padding:20px 22px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; line-height:1.7; color:#cbd5e1; overflow-x:auto; }
+  .ap-code-lang { margin-left:auto; font-size:11px; color:#64748b; letter-spacing:.12em; text-transform:uppercase; }
+  .ap-code pre { margin:0; padding:22px 26px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13px; line-height:1.75; color:#cbd5e1; overflow-x:auto; }
   .ap-code .c1 { color:#64748b; } .ap-code .c2 { color:#c4b5fd; } .ap-code .c3 { color:#93c5fd; } .ap-code .c4 { color:#86efac; }
 
+  /* ENV CARDS */
+  .ap-env { padding:72px 0; background:#fff; }
+  .ap-env-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .ap-env-card { border:1px solid #e5e7eb; border-radius:16px; padding:24px 28px; display:flex; gap:18px; align-items:center; transition:all .25s; }
+  .ap-env-card:hover { border-color:#c4b5fd; box-shadow:0 14px 28px rgba(124,93,255,.1); }
+  .ap-env-card .ap-env-tag { font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:6px 12px; border-radius:6px; flex-shrink:0; }
+  .ap-env-card.prod .ap-env-tag { background:#d1fae5; color:#059669; }
+  .ap-env-card.stg .ap-env-tag { background:#fef3c7; color:#d97706; }
+  .ap-env-card .ap-env-url { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:13.5px; color:#111827; font-weight:500; }
+  .ap-env-card .ap-env-sub { font-size:12px; color:#6b7280; font-weight:300; margin-top:3px; }
+
   /* MODULES */
-  .ap-modules { padding:90px 0; background:#fff; }
-  .ap-section-head { text-align:center; max-width:760px; margin:0 auto 56px; }
+  .ap-modules { padding:90px 0; background:#fafafa; }
+  .ap-section-head { text-align:center; max-width:800px; margin:0 auto 56px; }
   .ap-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
   .ap-section-head h2 { font-size:clamp(30px,3.8vw,46px); font-weight:400; line-height:1.12; letter-spacing:-1.1px; margin-bottom:14px; }
   .ap-section-head h2 .ap-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
@@ -146,44 +158,53 @@
   .ap-mod::before { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:var(--pp-grad); transform:scaleX(0); transform-origin:left; transition:transform .35s; }
   .ap-mod:hover { transform:translateY(-4px); box-shadow:0 22px 44px rgba(124,93,255,.12); border-color:transparent; }
   .ap-mod:hover::before { transform:scaleX(1); }
-  .ap-mod-icon { width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg,rgba(169,86,255,.12),rgba(55,102,254,.12)); display:flex; align-items:center; justify-content:center; color:#7c5dff; margin-bottom:18px; }
+  .ap-mod-icon { width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,rgba(169,86,255,.12),rgba(55,102,254,.12)); display:flex; align-items:center; justify-content:center; color:#7c5dff; margin-bottom:18px; }
   .ap-mod-icon svg { width:22px; height:22px; }
   .ap-mod h3 { font-size:18px; font-weight:500; margin-bottom:8px; letter-spacing:-.3px; }
-  .ap-mod p { font-size:14px; font-weight:300; color:#4B5563; line-height:1.55; margin-bottom:16px; flex:1; }
+  .ap-mod p { font-size:14px; font-weight:300; color:#4B5563; line-height:1.6; margin-bottom:16px; flex:1; }
   .ap-mod-link { font-size:13px; font-weight:500; color:#7c5dff; display:inline-flex; align-items:center; gap:6px; }
   .ap-mod-link svg { width:14px; height:14px; transition:transform .2s; }
   .ap-mod:hover .ap-mod-link svg { transform:translateX(3px); }
 
-  /* TECHNICAL DOCS (collapsed sections) */
-  .ap-tech { padding:90px 0; background:#fafafa; }
-  .ap-docs { display:grid; grid-template-columns:280px 1fr; gap:48px; align-items:start; }
+  /* TECHNICAL DOCS */
+  .ap-tech { padding:90px 0; background:#fff; }
+  .ap-docs { display:grid; grid-template-columns:260px 1fr; gap:48px; align-items:start; }
   .ap-docs-nav { position:sticky; top:100px; }
   .ap-docs-nav h4 { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#6b7280; margin-bottom:14px; }
   .ap-docs-nav a { display:block; padding:8px 14px; font-size:13.5px; color:#4B5563; text-decoration:none; border-radius:8px; margin-bottom:2px; transition:all .2s; }
-  .ap-docs-nav a:hover { background:#fff; color:#7c5dff; }
+  .ap-docs-nav a:hover { background:#f3f4f6; color:#7c5dff; }
   .ap-doc-sec { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:32px 36px; margin-bottom:18px; }
-  .ap-doc-sec h3 { font-size:20px; font-weight:500; margin-bottom:14px; letter-spacing:-.3px; display:flex; align-items:center; gap:10px; }
-  .ap-doc-sec h3 .ap-doc-n { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7c5dff; background:rgba(124,93,255,.1); padding:4px 10px; border-radius:20px; }
-  .ap-doc-sec p { font-size:14.5px; font-weight:300; color:#4B5563; line-height:1.7; margin-bottom:10px; }
+  .ap-doc-sec h3 { font-size:20px; font-weight:500; margin-bottom:14px; letter-spacing:-.3px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .ap-doc-sec h3 .ap-doc-n { font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#7c5dff; background:rgba(124,93,255,.1); padding:4px 10px; border-radius:20px; }
+  .ap-doc-sec p { font-size:14.5px; font-weight:300; color:#4B5563; line-height:1.7; margin-bottom:12px; }
   .ap-doc-sec code { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; background:#f3f4f6; padding:2px 7px; border-radius:5px; color:#111827; }
-  .ap-doc-sec ul { list-style:none; margin-top:10px; }
-  .ap-doc-sec ul li { font-size:14px; color:#4B5563; padding:8px 0; border-bottom:1px solid #f3f4f6; display:flex; justify-content:space-between; gap:12px; }
-  .ap-doc-sec ul li:last-child { border-bottom:none; }
-  .ap-doc-sec ul li code { flex-shrink:0; }
+  .ap-doc-sec a { color:#7c5dff; text-decoration:none; font-weight:500; }
+  .ap-doc-sec a:hover { text-decoration:underline; }
+  .ap-doc-sec ul.ap-list { list-style:none; margin:10px 0; padding:0; }
+  .ap-doc-sec ul.ap-list li { font-size:14px; color:#4B5563; padding:10px 0; border-bottom:1px solid #f3f4f6; display:flex; justify-content:space-between; align-items:center; gap:16px; font-weight:300; }
+  .ap-doc-sec ul.ap-list li:last-child { border-bottom:none; }
+  .ap-doc-sec ul.ap-list li code { flex-shrink:0; }
+  .ap-doc-sec ul.ap-list li strong { font-weight:500; color:#111827; flex-shrink:0; min-width:50px; }
+  .ap-doc-sec .ap-mini-code { background:#0f172a; color:#cbd5e1; border-radius:10px; padding:16px 18px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; line-height:1.65; margin:12px 0; overflow-x:auto; }
+  .ap-doc-sec .ap-mini-code .c1 { color:#64748b; } .ap-doc-sec .ap-mini-code .c2 { color:#c4b5fd; } .ap-doc-sec .ap-mini-code .c4 { color:#86efac; }
+  .ap-pred-table { width:100%; border-collapse:collapse; margin:12px 0; font-size:13px; }
+  .ap-pred-table th { text-align:left; padding:10px 12px; background:#fafafa; font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#6b7280; border-bottom:1px solid #e5e7eb; }
+  .ap-pred-table td { padding:10px 12px; border-bottom:1px solid #f3f4f6; color:#4B5563; font-weight:300; }
+  .ap-pred-table td:first-child { color:#111827; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; font-weight:500; }
 
   /* SUPPORT */
-  .ap-sup { padding:100px 0; background:#fff; text-align:center; }
+  .ap-sup { padding:100px 0; background:#fafafa; text-align:center; }
   .ap-sup h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:18px; max-width:740px; margin-left:auto; margin-right:auto; }
   .ap-sup h2 .ap-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
   .ap-sup p { font-size:17px; color:#4B5563; font-weight:300; max-width:600px; margin:0 auto 32px; line-height:1.6; }
 
-  @media (max-width:960px) { .ap-hero-grid { grid-template-columns:1fr; } .ap-mods { grid-template-columns:1fr; } .ap-docs { grid-template-columns:1fr; } .ap-docs-nav { position:static; } }
-  @media (max-width:640px) { .ap-hero-ctas { flex-direction:column; align-items:stretch; } .ap-btn { width:100%; justify-content:center; } }
+  @media (max-width:960px) { .ap-hero-grid { grid-template-columns:1fr; gap:40px; } .ap-env-grid { grid-template-columns:1fr; } .ap-mods { grid-template-columns:1fr; } .ap-docs { grid-template-columns:1fr; } .ap-docs-nav { position:static; } }
+  @media (max-width:640px) { .ap-hero-ctas { flex-direction:column; align-items:stretch; } .ap-btn { width:100%; justify-content:center; } .ap-doc-sec { padding:24px 22px; } }
 </style>
 
 <div class="ap-root">
 
-  <!-- HERO -->
+  <!-- HERO (WHITE) -->
   <section class="ap-hero" aria-label="API Documentation Hero">
     <div class="ap-wrap">
       <div class="ap-hero-grid">
@@ -196,10 +217,11 @@
             <a href="#ap-modules" class="ap-btn ap-btn-primary">View API Reference</a>
           </div>
           <div class="ap-chips">
-            <div class="ap-chip">RESTful API</div>
+            <div class="ap-chip">RESTful</div>
+            <div class="ap-chip">Form-encoded requests</div>
             <div class="ap-chip">JSON responses</div>
             <div class="ap-chip">Token authentication</div>
-            <div class="ap-chip">5 modules available</div>
+            <div class="ap-chip">5 modules</div>
           </div>
         </div>
         <div class="ap-code">
@@ -211,7 +233,7 @@
 <span class="c2">curl</span> <span class="c3">-X GET</span> \
   <span class="c3">"https://api.purchaseplus.com/v2/purchasing/orders"</span> \
   <span class="c3">-H</span> <span class="c4">"Authorization: Bearer &lt;TOKEN&gt;"</span> \
-  <span class="c3">-H</span> <span class="c4">"Accept: application/json"</span>
+  <span class="c3">-H</span> <span class="c4">"Accept: application/vnd.mbapi.v2+json"</span>
 
 <span class="c1"># Response</span>
 {
@@ -220,8 +242,27 @@
       <span class="c4">"status"</span>: <span class="c4">"approved"</span>,
       <span class="c4">"total"</span>: <span class="c2">1842.50</span> }
   ],
-  <span class="c4">"cursor"</span>: <span class="c4">"eyJpZCI6..."</span>
+  <span class="c4">"links"</span>: {
+    <span class="c4">"self"</span>: <span class="c4">"/v2/purchasing/orders?page=1"</span>,
+    <span class="c4">"next"</span>: <span class="c4">"/v2/purchasing/orders?page=2"</span>
+  }
 }</pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENT URLS -->
+  <section class="ap-env" aria-label="API environments">
+    <div class="ap-wrap">
+      <div class="ap-env-grid">
+        <div class="ap-env-card prod">
+          <span class="ap-env-tag">Production</span>
+          <div><div class="ap-env-url">https://api.purchaseplus.com</div><div class="ap-env-sub">Live production environment. Requires approved API credentials.</div></div>
+        </div>
+        <div class="ap-env-card stg">
+          <span class="ap-env-tag">Staging</span>
+          <div><div class="ap-env-url">https://api.staging.purchaseplus.com</div><div class="ap-env-sub">Sandbox environment for integration development and testing.</div></div>
         </div>
       </div>
     </div>
@@ -233,11 +274,11 @@
       <div class="ap-section-head">
         <div class="ap-kicker">5 Modules</div>
         <h2>What you can build with the <span class="ap-grad">PurchasePlus API.</span></h2>
-        <p>Five modules covering every workflow in the platform, each with full Swagger documentation.</p>
+        <p>Five separate modules represent functional areas of the platform, each with its own Swagger Hub reference documentation.</p>
       </div>
       <div class="ap-mods">
-        <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div><h3>Access</h3><p>User provisioning, roles, permissions, and session management.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
-        <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3zM3 11h18v4H3zM3 19h18v2H3z"/></svg></div><h3>Purchasing</h3><p>Purchase orders, receiving, approvals, and supplier interactions.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+        <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div><h3>Access</h3><p>User provisioning, authentication, personas, roles, and session tokens.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
+        <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v4H3zM3 11h18v4H3zM3 19h18v2H3z"/></svg></div><h3>Purchasing</h3><p>Purchase orders, approvals, receiving notes, and supplier interactions.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
         <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg></div><h3>Inventory</h3><p>Stock levels, stocktakes, recipes, transfers, and variance tracking.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
         <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></div><h3>Point of Sale</h3><p>Sales transactions, menu items, revenue centres, and POS mappings.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
         <a href="#" class="ap-mod"><div class="ap-mod-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></div><h3>Supplying</h3><p>Supplier catalogues, pricing updates, and order acknowledgements.</p><span class="ap-mod-link">View SwaggerHub Docs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span></a>
@@ -257,54 +298,130 @@
           <h4>On This Page</h4>
           <a href="#ap-auth">Authentication</a>
           <a href="#ap-authz">Authorization</a>
-          <a href="#ap-errors">Error Codes</a>
+          <a href="#ap-errors">Errors</a>
           <a href="#ap-pagination">Pagination</a>
+          <a href="#ap-links">Links</a>
+          <a href="#ap-related">Related Resources</a>
           <a href="#ap-filters">Filtering</a>
+          <a href="#ap-reqid">Request IDs</a>
+          <a href="#ap-version">Versioning</a>
+          <a href="#ap-idem">Idempotent Requests</a>
           <a href="#ap-rate">Rate Limiting</a>
-          <a href="#ap-version">Versioning (v2.0)</a>
           <a href="#ap-changes">Change Notes</a>
         </aside>
         <div class="ap-doc-body">
+
           <div class="ap-doc-sec" id="ap-auth">
-            <h3>Authentication <span class="ap-doc-n">Bearer Token</span></h3>
-            <p>All requests require a bearer token in the <code>Authorization</code> header. Tokens are issued per service account through the Access module.</p>
-            <p>Token lifetime defaults to 24 hours and can be refreshed via <code>POST /v2/access/tokens/refresh</code>.</p>
+            <h3>Authentication <span class="ap-doc-n">Token-based</span></h3>
+            <p>Authenticate by signing in with your account email and password. The response headers contain <code>Access-token</code>, <code>Client</code>, and <code>Uid</code>, which must be passed on every subsequent request.</p>
+            <div class="ap-mini-code"><span class="c1"># Sign in</span>
+<span class="c2">curl</span> -X POST <span class="c4">"https://api.purchaseplus.com/v2/access/sign-in"</span> \
+  -H <span class="c4">"Accept: application/vnd.mbapi.v2+json"</span> \
+  -d <span class="c4">"email=you@company.com&amp;password=..."</span>
+
+<span class="c1"># Subsequent request</span>
+<span class="c2">curl</span> <span class="c4">"https://api.purchaseplus.com/v2/purchasing/orders"</span> \
+  -H <span class="c4">"Access-token: &lt;TOKEN&gt;"</span> \
+  -H <span class="c4">"Client: &lt;CLIENT&gt;"</span> \
+  -H <span class="c4">"Uid: you@company.com"</span></div>
           </div>
+
           <div class="ap-doc-sec" id="ap-authz">
-            <h3>Authorization <span class="ap-doc-n">RBAC</span></h3>
-            <p>Role-based access control is enforced per module. A token's granted scopes appear in the token payload and are validated against every endpoint.</p>
+            <h3>Authorization <span class="ap-doc-n">RBAC via Personas</span></h3>
+            <p>Once authenticated, access to resources is controlled by the Personas assigned through the PurchasePlus user interface. If you need additional access, reach out to your administrator or to <a href="https://www.purchaseplus.com/contact-us">our support team</a>.</p>
           </div>
+
           <div class="ap-doc-sec" id="ap-errors">
-            <h3>Error Codes</h3>
-            <ul>
-              <li>400 Bad Request<code>Malformed payload</code></li>
-              <li>401 Unauthorized<code>Invalid token</code></li>
-              <li>403 Forbidden<code>Scope not granted</code></li>
-              <li>404 Not Found<code>Resource missing</code></li>
-              <li>429 Too Many Requests<code>Rate limit hit</code></li>
-              <li>500 Server Error<code>Contact support</code></li>
+            <h3>Errors</h3>
+            <p>The API uses standard HTTP status codes. Failing responses include an <code>errors</code> array with details.</p>
+            <ul class="ap-list">
+              <li><strong>200</strong>OK<code>Request successful</code></li>
+              <li><strong>400</strong>Bad Request<code>Malformed payload</code></li>
+              <li><strong>401</strong>Unauthorized<code>Invalid or missing token</code></li>
+              <li><strong>403</strong>Forbidden<code>Not permitted by Persona</code></li>
+              <li><strong>404</strong>Not Found<code>Resource does not exist</code></li>
+              <li><strong>406</strong>Not Acceptable<code>Missing Accept header</code></li>
+              <li><strong>409</strong>Conflict<code>Resource state conflict</code></li>
+              <li><strong>429</strong>Too Many Requests<code>Rate limit reached</code></li>
+              <li><strong>500</strong>Server Error<code>Contact support</code></li>
             </ul>
           </div>
+
           <div class="ap-doc-sec" id="ap-pagination">
-            <h3>Pagination <span class="ap-doc-n">Cursor</span></h3>
-            <p>List endpoints return a <code>cursor</code> field. Pass it as a query parameter on the next request to retrieve the following page. Default page size is 50; max is 200.</p>
+            <h3>Pagination <span class="ap-doc-n">Page parameter</span></h3>
+            <p>Multi-record endpoints accept a <code>page</code> query parameter. The response includes <code>links</code> to navigate between pages.</p>
+            <div class="ap-mini-code"><span class="c2">GET</span> <span class="c4">/v2/purchasing/orders?page=2</span></div>
           </div>
+
+          <div class="ap-doc-sec" id="ap-links">
+            <h3>Links</h3>
+            <p>Every response includes a <code>links</code> object with three types of links:</p>
+            <ul class="ap-list">
+              <li><strong>Resource &amp; Collection Links</strong><code>self</code></li>
+              <li><strong>Pagination Links</strong><code>first, last, next, prev</code></li>
+              <li><strong>Relationship Links</strong><code>related, self</code></li>
+            </ul>
+            <p>Relationship links expose related resources and the relationships themselves, useful for navigating data without extra calls.</p>
+          </div>
+
+          <div class="ap-doc-sec" id="ap-related">
+            <h3>Related Resources <span class="ap-doc-n">include param</span></h3>
+            <p>Pass the <code>include</code> query parameter to embed related data in a single response, reducing round-trips.</p>
+            <div class="ap-mini-code"><span class="c2">GET</span> <span class="c4">/v2/purchasing/orders/PO-90432?include=supplier,line_items.product</span></div>
+          </div>
+
           <div class="ap-doc-sec" id="ap-filters">
-            <h3>Filtering Predicates</h3>
-            <p>Filter lists with <code>filter[field]=value</code> syntax. Operators: <code>eq</code>, <code>ne</code>, <code>gt</code>, <code>lt</code>, <code>gte</code>, <code>lte</code>, <code>in</code>, <code>like</code>.</p>
+            <h3>Filtering <span class="ap-doc-n">filter[field]=value</span></h3>
+            <p>List endpoints support rich filtering with the syntax <code>filter[field_predicate]=value</code>. Common predicates:</p>
+            <table class="ap-pred-table">
+              <thead><tr><th>Predicate</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td>eq</td><td>Equals</td></tr>
+                <tr><td>not_eq</td><td>Not equal</td></tr>
+                <tr><td>lt / lteq</td><td>Less than / less than or equal</td></tr>
+                <tr><td>gt / gteq</td><td>Greater than / greater than or equal</td></tr>
+                <tr><td>matches</td><td>SQL LIKE with wildcards</td></tr>
+                <tr><td>contains</td><td>Contains substring</td></tr>
+                <tr><td>starts / ends</td><td>Starts with / ends with</td></tr>
+                <tr><td>in / not_in</td><td>In / not in a set of values</td></tr>
+                <tr><td>true / false</td><td>Boolean is true / false</td></tr>
+                <tr><td>fuzzy</td><td>Full-text fuzzy search</td></tr>
+                <tr><td>date_before / date_after</td><td>Date-time comparisons</td></tr>
+              </tbody>
+            </table>
+            <div class="ap-mini-code"><span class="c2">GET</span> <span class="c4">/v2/purchasing/orders?filter[status_eq]=approved&amp;filter[total_gteq]=500</span></div>
           </div>
-          <div class="ap-doc-sec" id="ap-rate">
-            <h3>Rate Limiting</h3>
-            <p>60 requests per minute per token. Response headers expose <code>X-RateLimit-Remaining</code> and <code>X-RateLimit-Reset</code>.</p>
+
+          <div class="ap-doc-sec" id="ap-reqid">
+            <h3>Request IDs <span class="ap-doc-n">PP-Request-Id</span></h3>
+            <p>Every response includes a unique <code>PP-Request-Id</code> header. Include this ID when contacting support about a specific request.</p>
           </div>
+
           <div class="ap-doc-sec" id="ap-version">
             <h3>Versioning <span class="ap-doc-n">v2.0</span></h3>
-            <p>Current stable release is v2.0. Breaking changes are introduced only in new major versions. Deprecations are announced 12 months in advance.</p>
+            <p>The current version is 2.0. Pass the Accept header <code>application/vnd.mbapi.v2+json</code> on every request. If omitted, requests fall back to the deprecated v1.0. Breaking changes are only introduced in new major versions.</p>
           </div>
+
+          <div class="ap-doc-sec" id="ap-idem">
+            <h3>Idempotent Requests <span class="ap-doc-n">Idempotency-Key</span></h3>
+            <p>To safely retry <code>POST</code> and <code>PATCH</code> requests, include an <code>Idempotency-Key</code> header containing a UUID. Repeated calls with the same key return the previously cached successful response.</p>
+            <div class="ap-mini-code">-H <span class="c4">"Idempotency-Key: 9c0f4a1d-2e7b-4c52-9a3d-1f80b6a08c77"</span></div>
+          </div>
+
+          <div class="ap-doc-sec" id="ap-rate">
+            <h3>Rate Limiting <span class="ap-doc-n">5 rps / IP</span></h3>
+            <p>The API allows 5 requests per second per IP address. Exceeding the limit returns HTTP 429. Implement exponential back-off retries in your client.</p>
+          </div>
+
           <div class="ap-doc-sec" id="ap-changes">
             <h3>Change Notes</h3>
-            <p>See the <a href="https://www.purchaseplus.com/updates" style="color:#7c5dff;">release notes</a> for month-by-month change history.</p>
+            <ul class="ap-list">
+              <li><strong>Sep 2019</strong>Version 2 introduction<code>v2.0</code></li>
+              <li><strong>Apr 2024</strong>API overhaul begins, documentation refresh<code>ongoing</code></li>
+              <li><strong>Apr 2026</strong>Supplier catalogue API, Idempotency-Key rolled out<code>stable</code></li>
+            </ul>
           </div>
+
         </div>
       </div>
     </div>

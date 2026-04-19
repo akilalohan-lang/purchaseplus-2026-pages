@@ -129,9 +129,9 @@
   .bl-feat { padding:70px 0 50px; background:#fff; }
   .bl-feat-card { display:grid; grid-template-columns:1.2fr 1fr; gap:40px; background:#fafafa; border:1px solid #e5e7eb; border-radius:24px; overflow:hidden; text-decoration:none; color:inherit; transition:all .3s; }
   .bl-feat-card:hover { box-shadow:0 30px 60px rgba(124,93,255,.12); border-color:transparent; transform:translateY(-3px); }
-  .bl-feat-img { background:linear-gradient(135deg,#3b0764 0%,#5b21b6 50%,#1e3a8a 100%); min-height:360px; position:relative; overflow:hidden; }
-  .bl-feat-img::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 40%,rgba(169,86,255,.4),transparent 50%), radial-gradient(circle at 70% 60%,rgba(55,102,254,.4),transparent 50%); }
-  .bl-feat-img::after { content:'Featured'; position:absolute; top:24px; left:24px; padding:6px 14px; background:rgba(255,255,255,.95); color:#5b21b6; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:20px; }
+  .bl-feat-img { background-size:cover; background-position:center; min-height:360px; position:relative; overflow:hidden; }
+  .bl-feat-img::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(124,93,255,.2) 0%,transparent 50%,rgba(55,102,254,.2) 100%); }
+  .bl-feat-img::after { content:'Featured'; position:absolute; top:24px; left:24px; padding:6px 14px; background:rgba(255,255,255,.95); color:#5b21b6; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; border-radius:20px; z-index:2; }
   .bl-feat-body { padding:44px; display:flex; flex-direction:column; justify-content:center; }
   .bl-feat-body .bl-cat { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:#7c5dff; margin-bottom:12px; }
   .bl-feat-body h2 { font-size:clamp(24px,2.6vw,32px); font-weight:500; line-height:1.2; letter-spacing:-.5px; margin-bottom:14px; }
@@ -148,8 +148,9 @@
   .bl-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
   .bl-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; overflow:hidden; text-decoration:none; color:inherit; transition:all .3s; display:flex; flex-direction:column; }
   .bl-card:hover { transform:translateY(-4px); box-shadow:0 20px 40px rgba(124,93,255,.1); border-color:transparent; }
-  .bl-card-img { aspect-ratio:16/10; background:linear-gradient(135deg,var(--c1,#a956ff) 0%,var(--c2,#3766fe) 100%); position:relative; }
-  .bl-card-img::before { content:''; position:absolute; inset:0; background:radial-gradient(circle at 60% 40%,rgba(255,255,255,.15),transparent 55%); }
+  .bl-card-img { aspect-ratio:16/10; background-size:cover; background-position:center; position:relative; transition:transform .5s ease; }
+  .bl-card-img::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,transparent 55%,rgba(17,24,39,.15) 100%); }
+  .bl-card:hover .bl-card-img { transform:scale(1.03); }
   .bl-card-body { padding:24px; display:flex; flex-direction:column; flex:1; }
   .bl-card-cat { font-size:10.5px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#7c5dff; margin-bottom:10px; }
   .bl-card h3 { font-size:16px; font-weight:500; line-height:1.35; letter-spacing:-.2px; margin-bottom:10px; }
@@ -157,16 +158,17 @@
   .bl-card-meta { font-size:12px; color:#9ca3af; font-weight:300; }
   .bl-card-more { font-size:12.5px; font-weight:500; color:#7c5dff; margin-top:10px; }
 
-  /* LINKEDIN CTA */
+  /* LINKEDIN CTA (white) */
   .bl-li { padding:80px 0; background:#fafafa; }
-  .bl-li-card { max-width:900px; margin:0 auto; background:linear-gradient(135deg,#0a66c2 0%,#004182 100%); border-radius:24px; padding:48px 56px; color:#fff; display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center; position:relative; overflow:hidden; }
-  .bl-li-card::before { content:''; position:absolute; top:-50%; right:-10%; width:60%; height:200%; background:radial-gradient(circle,rgba(255,255,255,.12),transparent 55%); filter:blur(40px); }
-  .bl-li-ic { width:70px; height:70px; border-radius:18px; background:rgba(255,255,255,.15); display:flex; align-items:center; justify-content:center; position:relative; }
-  .bl-li-ic svg { width:34px; height:34px; fill:#fff; }
-  .bl-li-card h2 { font-size:22px; font-weight:500; margin-bottom:4px; position:relative; }
-  .bl-li-card p { font-size:14px; color:rgba(255,255,255,.8); font-weight:300; position:relative; }
-  .bl-li-btn { padding:12px 24px; background:#fff; color:#0a66c2; border-radius:50px; font-size:14px; font-weight:500; text-decoration:none; white-space:nowrap; position:relative; transition:all .2s; }
-  .bl-li-btn:hover { transform:translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.2); }
+  .bl-li-card { max-width:900px; margin:0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:44px 52px; display:grid; grid-template-columns:auto 1fr auto; gap:32px; align-items:center; position:relative; overflow:hidden; box-shadow:0 20px 40px rgba(17,24,39,.06); }
+  .bl-li-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--pp-grad); }
+  .bl-li-ic { width:64px; height:64px; border-radius:16px; background:linear-gradient(135deg,rgba(169,86,255,.12),rgba(55,102,254,.12)); display:flex; align-items:center; justify-content:center; color:#7c5dff; }
+  .bl-li-ic svg { width:32px; height:32px; fill:currentColor; }
+  .bl-li-card h2 { font-size:22px; font-weight:500; margin-bottom:4px; color:#111827; letter-spacing:-.3px; }
+  .bl-li-card h2 .bl-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+  .bl-li-card p { font-size:14px; color:#4B5563; font-weight:300; }
+  .bl-li-btn { padding:12px 24px; background:var(--pp-grad); color:#fff; border-radius:50px; font-size:14px; font-weight:500; text-decoration:none; white-space:nowrap; transition:all .2s; box-shadow:0 8px 18px rgba(124,93,255,.25); }
+  .bl-li-btn:hover { transform:translateY(-1px); box-shadow:0 12px 24px rgba(124,93,255,.35); }
 
   /* NEWSLETTER */
   .bl-nl { padding:80px 0; background:#fff; }
@@ -214,7 +216,7 @@
   <section class="bl-feat" aria-label="Featured article">
     <div class="bl-wrap">
       <a href="#" class="bl-feat-card">
-        <div class="bl-feat-img"></div>
+        <div class="bl-feat-img" style="background-image:url('../images/suppliers/007.png');"></div>
         <div class="bl-feat-body">
           <div class="bl-cat">Finance &amp; AP</div>
           <h2>Why 3-way matching is the single biggest AP efficiency lever in hospitality.</h2>
@@ -229,15 +231,15 @@
   <section class="bl-grid-sec" aria-label="Articles">
     <div class="bl-wrap">
       <div class="bl-grid">
-        <a href="#" class="bl-card" style="--c1:#a956ff;--c2:#7c5dff;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Supplier consolidation vs diversification, which way should hotels go in 2026?</h3><p>The pros and cons of consolidating suppliers, and how to think about it at the group level.</p><div class="bl-card-meta">8 April 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#3766fe;--c2:#2563eb;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>POS integrations that actually work: what to ask before signing a contract.</h3><p>A practical buyer's guide to evaluating POS connectivity claims from procurement vendors.</p><div class="bl-card-meta">2 April 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#059669;--c2:#0891b2;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>Tracking scope 3 emissions through your procurement data.</h3><p>How procurement systems are becoming the source of truth for scope 3 reporting in hospitality.</p><div class="bl-card-meta">27 March 2026 &middot; 9 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#dc2626;--c2:#ea580c;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>The hidden cost of stockouts: what F&amp;B directors often miss.</h3><p>Running lean looks efficient until you count the covers you couldn't serve.</p><div class="bl-card-meta">21 March 2026 &middot; 5 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#7c5dff;--c2:#3766fe;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Finance &amp; AP</div><h3>Closing the books in 3 days, not 3 weeks: a hotel group playbook.</h3><p>What changes when approved invoices post directly to the GL, every night.</p><div class="bl-card-meta">15 March 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#a21caf;--c2:#7c3aed;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Sourcing for the group, buying for the property: getting the balance right.</h3><p>How to give properties enough autonomy without losing group-level negotiation leverage.</p><div class="bl-card-meta">8 March 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#0891b2;--c2:#2563eb;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>AI in invoice processing: where it works, where it doesn't.</h3><p>A reality check on what automation actually handles today, and where human review still matters.</p><div class="bl-card-meta">1 March 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#ea580c;--c2:#f59e0b;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>Recipe costing isn't about recipes, it's about menu engineering.</h3><p>Why the best F&amp;B operators start with GP% per cover and work backwards.</p><div class="bl-card-meta">22 February 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
-        <a href="#" class="bl-card" style="--c1:#16a34a;--c2:#059669;"><div class="bl-card-img"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>How procurement can drive waste reduction, beyond bin audits.</h3><p>Use your purchasing data to find waste upstream, before food hits the compost.</p><div class="bl-card-meta">15 February 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/001.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Supplier consolidation vs diversification, which way should hotels go in 2026?</h3><p>The pros and cons of consolidating suppliers, and how to think about it at the group level.</p><div class="bl-card-meta">8 April 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/002.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>POS integrations that actually work: what to ask before signing a contract.</h3><p>A practical buyer's guide to evaluating POS connectivity claims from procurement vendors.</p><div class="bl-card-meta">2 April 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/003.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>Tracking scope 3 emissions through your procurement data.</h3><p>How procurement systems are becoming the source of truth for scope 3 reporting in hospitality.</p><div class="bl-card-meta">27 March 2026 &middot; 9 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/004.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>The hidden cost of stockouts: what F&amp;B directors often miss.</h3><p>Running lean looks efficient until you count the covers you couldn't serve.</p><div class="bl-card-meta">21 March 2026 &middot; 5 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/005.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Finance &amp; AP</div><h3>Closing the books in 3 days, not 3 weeks: a hotel group playbook.</h3><p>What changes when approved invoices post directly to the GL, every night.</p><div class="bl-card-meta">15 March 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/006.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Procurement</div><h3>Sourcing for the group, buying for the property: getting the balance right.</h3><p>How to give properties enough autonomy without losing group-level negotiation leverage.</p><div class="bl-card-meta">8 March 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/008.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Technology</div><h3>AI in invoice processing: where it works, where it doesn't.</h3><p>A reality check on what automation actually handles today, and where human review still matters.</p><div class="bl-card-meta">1 March 2026 &middot; 7 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/009.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Inventory &amp; F&amp;B</div><h3>Recipe costing isn't about recipes, it's about menu engineering.</h3><p>Why the best F&amp;B operators start with GP% per cover and work backwards.</p><div class="bl-card-meta">22 February 2026 &middot; 6 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
+        <a href="#" class="bl-card"><div class="bl-card-img" style="background-image:url('../images/suppliers/001.png');"></div><div class="bl-card-body"><div class="bl-card-cat">Sustainability</div><h3>How procurement can drive waste reduction, beyond bin audits.</h3><p>Use your purchasing data to find waste upstream, before food hits the compost.</p><div class="bl-card-meta">15 February 2026 &middot; 8 min read</div><div class="bl-card-more">Read more &rarr;</div></div></a>
       </div>
     </div>
   </section>
@@ -247,7 +249,7 @@
       <div class="bl-li-card">
         <div class="bl-li-ic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zm1.78 13.02H3.56V9h3.56v11.45zM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46C23.21 24 24 23.23 24 22.27V1.73C24 .77 23.21 0 22.23 0z"/></svg></div>
         <div>
-          <h2>Follow PurchasePlus on LinkedIn</h2>
+          <h2>Follow PurchasePlus <span class="bl-grad">on LinkedIn.</span></h2>
           <p>Daily updates, industry news, and behind-the-scenes content.</p>
         </div>
         <a href="https://www.linkedin.com/company/purchaseplus" class="bl-li-btn">Follow Us &rarr;</a>

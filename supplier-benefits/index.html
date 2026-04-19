@@ -101,231 +101,487 @@
   </script>
 </header>
 
-<!-- ============================================================ SUPPLIER BENEFITS ============================================================ -->
-<style>
-  .sb-root { font-family:'Inter',sans-serif; color:#111827; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); }
-  .sb-wrap { max-width:1200px; margin:0 auto; padding:0 5vw; }
+<!-- ============================================================ SUPPLIER BENEFITS — Hospitality & Hotels pattern ============================================================ -->
 
-  /* HERO */
-  .sb-hero { position:relative; padding:90px 0 80px; background:linear-gradient(180deg,#fff 0%,#fafafa 100%); overflow:hidden; }
-  .sb-hero::before { content:''; position:absolute; top:-160px; right:-140px; width:560px; height:560px; background:radial-gradient(circle,rgba(169,86,255,.15),transparent 70%); filter:blur(40px); pointer-events:none; }
-  .sb-hero-grid { position:relative; display:grid; grid-template-columns:1.1fr 1fr; gap:60px; align-items:center; }
-  .sb-eyebrow { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:18px; }
-  .sb-hero h1 { font-size:clamp(38px,5vw,62px); font-weight:400; line-height:1.06; letter-spacing:-1.6px; margin-bottom:22px; }
-  .sb-hero h1 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
-  .sb-hero .sb-lead { font-size:18px; font-weight:300; color:#4B5563; line-height:1.65; max-width:540px; margin-bottom:30px; }
-  .sb-hero-ctas { display:flex; gap:12px; margin-bottom:36px; }
-  .sb-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:all .25s; font-family:'Inter',sans-serif; border:none; cursor:pointer; }
-  .sb-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.28); }
-  .sb-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.38); }
-  .sb-btn-secondary { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
-  .sb-btn-secondary:hover { border-color:#c4b5fd; color:#7c5dff; }
-  .sb-stats { display:flex; gap:28px; flex-wrap:wrap; }
-  .sb-stat { font-size:13px; color:#374151; line-height:1.5; }
-  .sb-stat strong { display:block; font-size:24px; font-weight:500; color:#111827; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:4px; letter-spacing:-.4px; }
-  .sb-hero-visual { position:relative; display:grid; grid-template-columns:1.2fr 1fr; grid-template-rows:auto auto; gap:14px; }
-  .sb-hero-visual .sb-img { border-radius:18px; overflow:hidden; box-shadow:0 20px 40px rgba(17,24,39,.12); }
-  .sb-hero-visual .sb-img img { width:100%; height:100%; object-fit:cover; display:block; }
-  .sb-hero-visual .sb-img-1 { grid-row:1/3; aspect-ratio:3/4; }
-  .sb-hero-visual .sb-img-2 { aspect-ratio:4/3; }
-  .sb-hero-visual .sb-img-3 { aspect-ratio:4/3; }
+<!-- SECTION 1 — HERO (mirrors w045_HERO) -->
+<section class="sb-hero" aria-label="Supplier Benefits Hero">
+  <style>
+    .sb-hero {
+      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563;
+      --pp-blue:#3766fe; --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
+      --pp-border:#e2e8f0; --pp-pad:5vw;
+      font-family:var(--pp-font); width:100%; position:relative; background:#fff;
+      color:var(--pp-ink); overflow:visible; z-index:2; min-height:620px;
+    }
+    .sb-hero .sb-slides { position:absolute; inset:0; z-index:0; overflow:hidden; background:#fff; }
+    .sb-hero .sb-slide { position:absolute; inset:0; opacity:0; transition:opacity 2.2s ease-in-out; overflow:hidden; will-change:opacity; }
+    .sb-hero .sb-slide.active { opacity:1; }
+    .sb-hero .sb-slide img { width:100%; height:100%; display:block; object-fit:cover; object-position:center center; transform:scale(1); transition:transform 10s ease; will-change:transform; }
+    .sb-hero .sb-slide.active img { transform:scale(1.04); }
+    .sb-hero .sb-fade { position:absolute; bottom:0; left:0; right:0; height:160px; background:linear-gradient(to bottom,transparent,#fff); z-index:1; pointer-events:none; }
+    .sb-hero .sb-overlay { position:absolute; inset:0; background:linear-gradient(to right, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 28%, rgba(255,255,255,0.72) 50%, rgba(255,255,255,0.30) 72%, rgba(255,255,255,0.08) 92%); z-index:1; pointer-events:none; }
+    .sb-hero .sb-overlay-accent { position:absolute; inset:0; background:linear-gradient(180deg, rgba(169,86,255,0.05) 0%, rgba(55,102,254,0.03) 30%, transparent 60%); z-index:1; pointer-events:none; }
+    .sb-hero .sb-inner { position:relative; z-index:2; padding:80px var(--pp-pad) 32px; box-sizing:border-box; width:100%; }
+    .sb-hero .sb-layout { display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:start; }
+    .sb-hero .sb-kicker { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:18px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .sb-hero .sb-heading { font-size:clamp(40px,4.2vw,62px); font-weight:400; line-height:1.14; letter-spacing:-1.2px; margin:0 0 14px; color:var(--pp-ink); max-width:760px; }
+    .sb-hero .sb-heading-line { display:inline-block; white-space:nowrap; }
+    .sb-hero .sb-heading-gradient { background:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:sbGradPulse 5s linear infinite; }
+    @keyframes sbGradPulse { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .sb-hero .sb-desc { font-size:16px; font-weight:300; color:var(--pp-text); line-height:1.65; margin:0 0 22px; max-width:540px; text-wrap:balance; }
+    .sb-hero .sb-buttons { display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+    .sb-hero .sb-btn-primary { display:inline-flex; align-items:center; padding:14px 32px; background:var(--pp-grad); color:#fff; font-size:16px; font-weight:400; border-radius:50px; border:none; cursor:pointer; text-decoration:none; font-family:var(--pp-font); box-shadow:0 4px 15px rgba(55,102,254,0.3); transition:transform .2s,box-shadow .2s; white-space:nowrap; }
+    .sb-hero .sb-btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(55,102,254,0.35); }
+    .sb-hero .sb-btn-link { display:inline-flex; align-items:center; gap:6px; color:var(--pp-ink); font-size:16px; font-weight:400; text-decoration:none; font-family:var(--pp-font); transition:color .2s; white-space:nowrap; }
+    .sb-hero .sb-btn-link:hover { color:#7c5dff; }
+    .sb-hero .sb-features { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+    .sb-hero .sb-feature { display:inline-flex; align-items:center; gap:7px; padding:6px 12px; background:rgba(255,255,255,0.85); border:1px solid var(--pp-border); border-radius:50px; font-size:11px; font-weight:400; color:var(--pp-text); backdrop-filter:blur(4px); }
+    .sb-hero .sb-feat-icon { width:14px; height:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .sb-hero .sb-feat-icon svg { width:12px; height:12px; stroke:var(--pp-blue); stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .sb-hero .sb-info-card { position:relative; z-index:3; background:rgba(255,255,255,0.95); border:1px solid var(--pp-border); border-radius:16px; padding:22px 24px; backdrop-filter:blur(16px); box-shadow:0 12px 30px rgba(15,23,42,0.06); margin-top:4px; max-width:600px; transform:translateY(40px); }
+    .sb-hero .sb-info-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; gap:12px; }
+    .sb-hero .sb-info-title { font-size:15px; font-weight:500; color:var(--pp-ink); margin:0; }
+    .sb-hero .sb-info-badge { font-size:10px; font-weight:600; color:var(--pp-blue); background:rgba(55,102,254,0.08); padding:5px 12px; border-radius:50px; white-space:nowrap; }
+    .sb-hero .sb-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .sb-hero .sb-step { display:flex; flex-direction:column; align-items:flex-start; }
+    .sb-hero .sb-step-num { width:24px; height:24px; border-radius:6px; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:600; color:#fff; flex-shrink:0; margin-bottom:8px; }
+    .sb-hero .sb-step-name { font-size:13px; font-weight:500; color:var(--pp-ink); margin:0 0 4px; }
+    .sb-hero .sb-step-desc { font-size:12px; font-weight:300; color:var(--pp-text); line-height:1.45; margin:0; }
+    .sb-hero .sb-info-footer { margin-top:14px; padding-top:10px; border-top:1px solid var(--pp-border); font-size:12px; font-weight:300; color:#94a3b8; line-height:1.4; }
+    .sb-hero .sb-right-spacer { min-height:1px; }
+    @media (max-width:1400px) { .sb-hero .sb-heading { font-size:clamp(38px,4.6vw,54px); } }
+    @media (max-width:1100px) { .sb-hero .sb-feature { flex:0 0 calc(50% - 8px); } }
+    @media (max-width:1024px) {
+      .sb-hero { --pp-pad:5vw; }
+      .sb-hero .sb-inner { padding:56px var(--pp-pad) 28px; }
+      .sb-hero .sb-layout { grid-template-columns:1fr; gap:22px; }
+      .sb-hero .sb-heading { font-size:clamp(34px,6vw,44px); max-width:100%; }
+      .sb-hero .sb-desc { max-width:100%; }
+      .sb-hero .sb-info-card { transform:none; max-width:100%; margin-top:12px; }
+      .sb-hero .sb-steps { grid-template-columns:1fr; gap:12px; }
+      .sb-hero .sb-step { flex-direction:row; gap:10px; align-items:flex-start; }
+      .sb-hero .sb-step-num { margin-bottom:0; }
+      .sb-hero .sb-overlay { background:linear-gradient(to bottom, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.72) 55%, rgba(255,255,255,0.35) 85%, rgba(255,255,255,0.18) 100%); }
+    }
+    @media (max-width:768px) {
+      .sb-hero { --pp-pad:24px; }
+      .sb-hero .sb-inner { padding:46px var(--pp-pad) 24px; }
+      .sb-hero .sb-heading { font-size:clamp(32px,7vw,38px); }
+      .sb-hero .sb-desc { font-size:15px; }
+      .sb-hero .sb-info-card { padding:22px; }
+    }
+    @media (max-width:480px) {
+      .sb-hero { --pp-pad:16px; }
+      .sb-hero .sb-inner { padding:34px var(--pp-pad) 20px; }
+      .sb-hero .sb-slides { bottom:auto; height:420px; }
+      .sb-hero .sb-slide img { object-fit:cover; object-position:center top; opacity:0.45; }
+      .sb-hero .sb-fade { bottom:auto; top:290px; height:130px; }
+      .sb-hero .sb-overlay { bottom:auto; height:420px; background:rgba(255,255,255,0.42); }
+      .sb-hero .sb-overlay-accent { display:none; }
+      .sb-hero .sb-btn-primary { padding:12px 24px; font-size:15px; }
+      .sb-hero .sb-btn-link { font-size:15px; }
+      .sb-hero .sb-features { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+      .sb-hero .sb-feature { display:flex; justify-content:center; background-image:var(--pp-grad); background-size:200% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; border:none; backdrop-filter:none; animation:sbGradPulse 4s linear infinite; font-size:10.5px; }
+      .sb-hero .sb-feat-icon svg { stroke:#7c5dff; -webkit-text-fill-color:initial; }
+    }
+  </style>
 
-  /* TRUST BAR */
-  .sb-trust { padding:50px 0; background:#fff; border-top:1px solid #f3f4f6; border-bottom:1px solid #f3f4f6; }
-  .sb-trust-label { text-align:center; font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:#6b7280; margin-bottom:26px; }
-  .sb-trust-logos { display:flex; justify-content:center; align-items:center; gap:64px; flex-wrap:wrap; opacity:.65; }
-  .sb-trust-logos span { font-weight:600; font-size:17px; color:#6b7280; letter-spacing:-.2px; }
+  <div class="sb-slides">
+    <div class="sb-slide active" data-slide="0"><img src="../images/suppliers/001.png" alt="" loading="eager"></div>
+    <div class="sb-slide" data-slide="1"><img src="../images/suppliers/002.png" alt="" loading="lazy"></div>
+    <div class="sb-slide" data-slide="2"><img src="../images/suppliers/003.png" alt="" loading="lazy"></div>
+  </div>
+  <div class="sb-overlay"></div>
+  <div class="sb-overlay-accent"></div>
+  <div class="sb-fade"></div>
 
-  /* 6 BENEFITS with side-slide images */
-  .sb-feat { padding:100px 0; background:#fff; }
-  .sb-section-head { text-align:center; max-width:760px; margin:0 auto 72px; }
-  .sb-kicker { display:inline-block; font-size:12px; font-weight:600; letter-spacing:.16em; text-transform:uppercase; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
-  .sb-section-head h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:16px; }
-  .sb-section-head h2 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
-  .sb-rows { display:flex; flex-direction:column; gap:100px; }
-  .sb-row { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
-  .sb-row.reverse { direction:rtl; }
-  .sb-row.reverse > * { direction:ltr; }
-  .sb-row .sb-copy-inner { max-width:480px; }
-  .sb-row .sb-num { font-size:13px; font-weight:700; letter-spacing:.12em; color:#7c5dff; margin-bottom:12px; }
-  .sb-row h3 { font-size:clamp(24px,2.6vw,32px); font-weight:400; line-height:1.15; letter-spacing:-.6px; margin-bottom:16px; }
-  .sb-row h3 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
-  .sb-row p { font-size:16px; font-weight:300; color:#4B5563; line-height:1.7; }
-  .sb-row .sb-visual { opacity:0; transform:translateX(60px); transition:all .8s cubic-bezier(.16,1,.3,1); position:relative; }
-  .sb-row.reverse .sb-visual { transform:translateX(-60px); }
-  .sb-feat .sb-row .sb-visual.is-in, .sb-feat .sb-row.reverse .sb-visual.is-in { opacity:1; transform:translateX(0); }
-  .sb-row .sb-visual::before { content:''; position:absolute; inset:-30px; background:radial-gradient(circle,rgba(124,93,255,.16),transparent 65%); filter:blur(40px); z-index:-1; }
-  .sb-row .sb-visual img { width:100%; border-radius:20px; box-shadow:0 26px 60px rgba(17,24,39,.15); display:block; }
+  <div class="sb-inner">
+    <div class="sb-layout">
+      <div class="sb-left">
+        <span class="sb-kicker">For Suppliers</span>
+        <h1 class="sb-heading">
+          <span class="sb-heading-line sb-heading-line1">More orders.</span><br>
+          <span class="sb-heading-line sb-heading-line2">Faster payments.</span><br>
+          <span class="sb-heading-line sb-heading-line3 sb-heading-gradient">Less admin.</span>
+        </h1>
+        <p class="sb-desc">When you join PurchasePlus, you connect directly with the buyers who want to purchase from you, with accurate pricing, clean orders, and a streamlined invoicing process that gets you paid faster.</p>
+        <div class="sb-buttons">
+          <a href="../join-as-a-supplier/" class="sb-btn-primary">Join as a Supplier</a>
+          <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn-link">Talk to Our Team &rarr;</a>
+        </div>
+        <div class="sb-features">
+          <span class="sb-feature"><span class="sb-feat-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>30,000+ suppliers connected</span>
+          <span class="sb-feature"><span class="sb-feat-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>Direct buyer access</span>
+          <span class="sb-feature"><span class="sb-feat-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>Faster payment cycles</span>
+          <span class="sb-feature"><span class="sb-feat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>Dedicated onboarding</span>
+        </div>
 
-  /* TESTIMONIAL */
-  .sb-testi { padding:90px 0; background:linear-gradient(180deg,#fafafa 0%,#fff 100%); }
-  .sb-testi-card { max-width:900px; margin:0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:56px 60px; text-align:center; position:relative; }
-  .sb-testi-card::before { content:'"'; position:absolute; top:20px; left:40px; font-size:120px; color:transparent; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; font-family:Georgia,serif; line-height:1; }
-  .sb-testi-quote { font-size:clamp(20px,2.2vw,26px); font-weight:300; color:#111827; line-height:1.5; letter-spacing:-.3px; margin-bottom:28px; position:relative; }
-  .sb-testi-author { font-size:14px; font-weight:500; color:#111827; }
-  .sb-testi-author span { display:block; font-weight:300; color:#6b7280; margin-top:4px; }
-
-  /* CTA BANNER */
-  .sb-cta { padding:100px 0; background:#fafafa; text-align:center; position:relative; overflow:hidden; }
-  .sb-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; background:radial-gradient(circle,rgba(169,86,255,.06),transparent 60%); pointer-events:none; }
-  .sb-cta .sb-wrap { position:relative; }
-  .sb-cta h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin-bottom:18px; max-width:740px; margin-left:auto; margin-right:auto; }
-  .sb-cta h2 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
-  .sb-cta p { font-size:17px; color:#4B5563; font-weight:300; max-width:640px; margin:0 auto 32px; line-height:1.6; }
-  .sb-cta-btns { display:flex; gap:14px; justify-content:center; }
-
-  @media (max-width:960px) {
-    .sb-hero-grid { grid-template-columns:1fr; gap:44px; }
-    .sb-row { grid-template-columns:1fr !important; gap:36px; direction:ltr; }
-    .sb-row .sb-visual { transform:none !important; }
-  }
-  @media (max-width:640px) {
-    .sb-testi-card { padding:40px 28px; }
-    .sb-hero-ctas, .sb-cta-btns { flex-direction:column; align-items:center; }
-    .sb-hero-ctas .sb-btn, .sb-cta-btns .sb-btn { width:100%; max-width:280px; justify-content:center; }
-    .sb-trust-logos { gap:32px; }
-  }
-</style>
-
-<div class="sb-root">
-
-  <!-- HERO -->
-  <section class="sb-hero" aria-label="Supplier Benefits Hero">
-    <div class="sb-wrap">
-      <div class="sb-hero-grid">
-        <div>
-          <div class="sb-eyebrow">For Suppliers</div>
-          <h1>More orders. <span class="sb-grad">Faster payments.</span> Less admin.</h1>
-          <p class="sb-lead">When you join PurchasePlus, you connect directly with the buyers who want to purchase from you, with accurate pricing, clean orders, and a streamlined invoicing process that gets you paid faster.</p>
-          <div class="sb-hero-ctas">
-            <a href="../join-as-a-supplier/" class="sb-btn sb-btn-primary">Join as a Supplier</a>
-            <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn sb-btn-secondary">Talk to Our Team</a>
+        <div class="sb-info-card">
+          <div class="sb-info-header">
+            <h3 class="sb-info-title">Supplier Connection Flow</h3>
+            <span class="sb-info-badge">Onboarding Ready</span>
           </div>
-          <div class="sb-stats">
-            <div class="sb-stat"><strong>30,000+</strong>Suppliers on the platform</div>
-            <div class="sb-stat"><strong>40M+</strong>Invoices processed per year</div>
-            <div class="sb-stat"><strong>5</strong>Regions supported globally</div>
+          <div class="sb-steps">
+            <div class="sb-step"><span class="sb-step-num">1</span><div><h4 class="sb-step-name">Apply in Minutes</h4><p class="sb-step-desc">Submit the short form and our supplier team reviews it within one business day.</p></div></div>
+            <div class="sb-step"><span class="sb-step-num">2</span><div><h4 class="sb-step-name">Catalogue Onboarded</h4><p class="sb-step-desc">We personally load your products, pricing, and units, manually or via API.</p></div></div>
+            <div class="sb-step"><span class="sb-step-num">3</span><div><h4 class="sb-step-name">Transact Cleanly</h4><p class="sb-step-desc">Clean orders. Matching invoices. Faster payment. Ongoing support.</p></div></div>
           </div>
+          <p class="sb-info-footer">Built for suppliers of every size, from national distributors to local producers.</p>
         </div>
-        <div class="sb-hero-visual">
-          <div class="sb-img sb-img-1"><img src="../images/suppliers/001.png" alt="Supplier portal"></div>
-          <div class="sb-img sb-img-2"><img src="../images/suppliers/002.png" alt="Supplier catalogue"></div>
-          <div class="sb-img sb-img-3"><img src="../images/suppliers/003.png" alt="Supplier dashboard"></div>
+      </div>
+      <div class="sb-right-spacer" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var section = document.querySelector('.sb-hero');
+      if (!section) return;
+      var slides = section.querySelectorAll('.sb-slide');
+      var headings = [
+        ['More orders.', 'Faster payments.', 'Less admin.'],
+        ['Live pricing.', 'Zero email chains.', 'Always current.'],
+        ['Clean orders.', 'Matching invoices.', 'Faster payment.']
+      ];
+      var current = 0;
+      function setHeading(i) {
+        section.querySelector('.sb-heading-line1').textContent = headings[i][0];
+        section.querySelector('.sb-heading-line2').textContent = headings[i][1];
+        section.querySelector('.sb-heading-line3').textContent = headings[i][2];
+      }
+      function nextSlide() {
+        slides[current].classList.remove('active');
+        current = (current + 1) % headings.length;
+        slides[current].classList.add('active');
+        setHeading(current);
+      }
+      setHeading(current);
+      setInterval(nextSlide, 9000);
+    })();
+  </script>
+</section>
+
+<!-- SECTION 2 — WHY SUPPLIERS JOIN (mirrors w046_CONTROL) -->
+<section class="sb-ctrl" aria-label="Why Suppliers Join">
+  <style>
+    .sb-ctrl {
+      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563; --pp-blue:#3766fe;
+      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); --pp-border:#e2e8f0; --pp-pad:5vw;
+      --pp-left-slot:clamp(440px,38vw,580px); --pp-under-overlap-gap:50px; --pp-head-nudge-x:10px;
+      background:#fff; font-family:var(--pp-font); width:100%; overflow-x:hidden;
+      padding:0 0 80px; position:relative; z-index:1;
+    }
+    .sb-ctrl .sb-inner { width:100%; padding:0 var(--pp-pad); box-sizing:border-box; }
+    .sb-ctrl .sb-top { display:grid; grid-template-columns:var(--pp-left-slot) 1fr; column-gap:56px; align-items:start; padding-top:0; }
+    .sb-ctrl .sb-left-slot { min-height:1px; grid-column:1; grid-row:1; }
+    .sb-ctrl .sb-right-slot { min-height:1px; grid-column:2; grid-row:1 / span 2; }
+    .sb-ctrl .sb-head { margin:0; grid-column:1 / -1; grid-row:2; padding-top:var(--pp-under-overlap-gap); padding-left:var(--pp-head-nudge-x); }
+    .sb-ctrl .sb-kicker { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:20px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; line-height:1.2; }
+    .sb-ctrl .sb-title { font-size:clamp(34px,3.6vw,48px); font-weight:400; color:var(--pp-ink); margin:0 0 16px; letter-spacing:-1px; line-height:1.18; text-wrap:balance; }
+    .sb-ctrl .sb-title .sb-grad-word { background:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; animation:sbGradPulse 5s linear infinite; }
+    .sb-ctrl .sb-sub { font-size:18px; font-weight:300; color:var(--pp-text); line-height:1.6; margin:0; max-width:100%; text-wrap:balance; }
+    .sb-ctrl .sb-card-container { background:#f8fafc; border-radius:24px; padding:32px; border:1px solid var(--pp-border); margin-top:18px; position:relative; overflow:hidden; }
+    .sb-ctrl .sb-card-container::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--pp-grad); border-radius:24px 24px 0 0; }
+    .sb-ctrl .sb-groups { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .sb-ctrl .sb-group { display:flex; flex-direction:column; }
+    .sb-ctrl .sb-card { background:#fff; border:1px solid var(--pp-border); border-radius:20px; padding:0 0 24px; transition:border-color .3s,box-shadow .3s,transform .3s; box-shadow:0 4px 15px rgba(15,23,42,0.03); display:flex; flex-direction:column; flex:1; overflow:hidden; }
+    .sb-ctrl .sb-card:hover { border-color:#cbd5e1; box-shadow:0 12px 28px rgba(15,23,42,0.06); transform:translateY(-3px); }
+    .sb-ctrl .sb-card-img { width:100%; aspect-ratio:16/10; overflow:hidden; }
+    .sb-ctrl .sb-card-img img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
+    .sb-ctrl .sb-card:hover .sb-card-img img { transform:scale(1.04); }
+    .sb-ctrl .sb-card-body { padding:24px; display:flex; flex-direction:column; flex:1; }
+    .sb-ctrl .sb-card-icon { width:38px; height:38px; border-radius:10px; background:var(--pp-grad); display:flex; align-items:center; justify-content:center; margin-bottom:14px; flex-shrink:0; }
+    .sb-ctrl .sb-card-icon svg { width:20px; height:20px; stroke:#fff; stroke-width:1.8; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .sb-ctrl .sb-card-name { font-size:18px; font-weight:500; color:var(--pp-ink); margin:0 0 10px; }
+    .sb-ctrl .sb-card-desc { font-size:14px; font-weight:300; color:var(--pp-text); line-height:1.6; margin:0 0 20px; text-wrap:balance; }
+    .sb-ctrl .sb-checks { display:flex; flex-direction:column; gap:10px; list-style:none; margin:0; padding:0; margin-top:auto; }
+    .sb-ctrl .sb-check { display:flex; gap:8px; align-items:center; font-size:13px; font-weight:400; color:var(--pp-ink); }
+    .sb-ctrl .sb-check-icon { width:20px; height:20px; border-radius:50%; background:rgba(55,102,254,0.1); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .sb-ctrl .sb-check-icon svg { width:11px; height:11px; stroke:var(--pp-blue); stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; }
+    .sb-ctrl .sb-win { margin-top:12px; padding:16px 20px; background:#fff; border:1px solid var(--pp-border); border-radius:12px; display:flex; align-items:center; gap:12px; }
+    .sb-ctrl .sb-win-dot { width:8px; height:8px; border-radius:50%; background:var(--pp-grad); flex-shrink:0; }
+    .sb-ctrl .sb-win-content { min-width:0; }
+    .sb-ctrl .sb-win-label { font-size:9px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:#94a3b8; margin:0 0 2px; }
+    .sb-ctrl .sb-win-text { font-size:14px; font-weight:500; margin:0; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    @media (max-width:1200px) { .sb-ctrl { --pp-left-slot:clamp(380px,34vw,520px); } .sb-ctrl .sb-top { column-gap:32px; } }
+    @media (max-width:1024px) {
+      .sb-ctrl { padding:48px 0 60px; }
+      .sb-ctrl .sb-top { grid-template-columns:1fr; padding-top:26px; }
+      .sb-ctrl .sb-left-slot, .sb-ctrl .sb-right-slot { display:none; }
+      .sb-ctrl .sb-head { grid-column:auto; grid-row:auto; max-width:100%; padding-top:0; padding-left:0; }
+      .sb-ctrl .sb-sub { max-width:620px; }
+      .sb-ctrl .sb-card-container { padding:32px; border-radius:20px; }
+      .sb-ctrl .sb-groups { grid-template-columns:1fr; }
+    }
+    @media (max-width:768px) { .sb-ctrl { --pp-pad:24px; } .sb-ctrl .sb-title { font-size:28px; } .sb-ctrl .sb-card-container { border-radius:18px; padding:24px; } }
+    @media (max-width:480px) {
+      .sb-ctrl { --pp-pad:16px; }
+      .sb-ctrl .sb-head { text-align:center; }
+      .sb-ctrl .sb-sub { margin-left:auto; margin-right:auto; }
+      .sb-ctrl .sb-card-container { border-radius:16px; padding:16px; }
+    }
+  </style>
+
+  <div class="sb-inner">
+    <div class="sb-top">
+      <div class="sb-left-slot" aria-hidden="true"></div>
+      <div class="sb-head">
+        <span class="sb-kicker">Why Suppliers Connect</span>
+        <h2 class="sb-title"><span class="sb-grad-word">Unmatched</span> buyer reach</h2>
+        <p class="sb-sub">Your customers are already on PurchasePlus. Connecting puts you where they're ordering, with clean data, accurate pricing, and the dedicated support we're known for.</p>
+      </div>
+      <div class="sb-right-slot" aria-hidden="true"></div>
+    </div>
+
+    <div class="sb-card-container">
+      <div class="sb-groups">
+
+        <div class="sb-group">
+          <article class="sb-card">
+            <div class="sb-card-img"><img src="../images/suppliers/004.png" alt=""></div>
+            <div class="sb-card-body">
+              <span class="sb-card-icon"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg></span>
+              <h3 class="sb-card-name">Direct to the buyers</h3>
+              <p class="sb-card-desc">Procurement teams at hotels, clubs, and healthcare facilities reach you directly in the platform, no more gatekeeping.</p>
+              <ul class="sb-checks">
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Procurement-ready catalogue</li>
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Discoverable supplier directory</li>
+              </ul>
+            </div>
+          </article>
+          <div class="sb-win"><span class="sb-win-dot"></span><div class="sb-win-content"><p class="sb-win-label">Supplier Win</p><p class="sb-win-text">More orders, less chasing</p></div></div>
         </div>
+
+        <div class="sb-group">
+          <article class="sb-card">
+            <div class="sb-card-img"><img src="../images/suppliers/005.png" alt=""></div>
+            <div class="sb-card-body">
+              <span class="sb-card-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></span>
+              <h3 class="sb-card-name">Price control in your hands</h3>
+              <p class="sb-card-desc">Update your prices once and every buyer sees it instantly. No more emailing spreadsheets that never get loaded.</p>
+              <ul class="sb-checks">
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Live pricing, manually or via API</li>
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Your units, your codes, your terms</li>
+              </ul>
+            </div>
+          </article>
+          <div class="sb-win"><span class="sb-win-dot"></span><div class="sb-win-content"><p class="sb-win-label">Commercial Win</p><p class="sb-win-text">Pricing accuracy, every order</p></div></div>
+        </div>
+
+        <div class="sb-group">
+          <article class="sb-card">
+            <div class="sb-card-img"><img src="../images/suppliers/006.png" alt=""></div>
+            <div class="sb-card-body">
+              <span class="sb-card-icon"><svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <h3 class="sb-card-name">Invoices that clear</h3>
+              <p class="sb-card-desc">Buyers do 3-way matching. When your invoice matches PO and receiving, it processes straight through, no phone calls, no delays.</p>
+              <ul class="sb-checks">
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Clean 3-way matched billing</li>
+                <li class="sb-check"><span class="sb-check-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Predictable payment timing</li>
+              </ul>
+            </div>
+          </article>
+          <div class="sb-win"><span class="sb-win-dot"></span><div class="sb-win-content"><p class="sb-win-label">Finance Win</p><p class="sb-win-text">Faster, cleaner payment cycles</p></div></div>
+        </div>
+
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- TRUST BAR -->
-  <section class="sb-trust" aria-label="Connected suppliers">
-    <div class="sb-wrap">
-      <div class="sb-trust-label">Leading suppliers already connected</div>
-      <div class="sb-trust-logos">
-        <span>Coca-Cola</span><span>Nestl&eacute;</span><span>Lion</span><span>Bunzl</span><span>PFD Food Services</span><span>Simon George &amp; Sons</span>
-      </div>
+<!-- SECTION 3 — 6 KEY BENEFITS (side-slide pattern, mirrors Key Features) -->
+<section class="sb-feat" aria-label="Key supplier benefits">
+  <style>
+    .sb-feat {
+      --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563;
+      --pp-grad:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%);
+      background:#fff; font-family:var(--pp-font); padding:100px 5vw;
+    }
+    .sb-feat .sb-max { max-width:1200px; margin:0 auto; }
+    .sb-feat .sb-head { text-align:center; max-width:760px; margin:0 auto 72px; }
+    .sb-feat .sb-kicker { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px; background-image:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .sb-feat .sb-head h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin:0 0 16px; text-wrap:balance; }
+    .sb-feat .sb-head h2 .sb-grad { background:var(--pp-grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:500; animation:sbGradPulse 5s linear infinite; }
+    .sb-feat .sb-head p { font-size:17px; color:var(--pp-text); font-weight:300; line-height:1.6; margin:0; }
+    .sb-feat .sb-rows { display:flex; flex-direction:column; gap:100px; }
+    .sb-feat .sb-row { display:grid; grid-template-columns:1fr 1fr; gap:70px; align-items:center; }
+    .sb-feat .sb-row.reverse { direction:rtl; }
+    .sb-feat .sb-row.reverse > * { direction:ltr; }
+    .sb-feat .sb-copy-inner { max-width:480px; }
+    .sb-feat .sb-num { font-size:13px; font-weight:700; letter-spacing:.12em; color:#7c5dff; margin-bottom:12px; }
+    .sb-feat .sb-row h3 { font-size:clamp(24px,2.6vw,32px); font-weight:400; line-height:1.18; letter-spacing:-.6px; margin:0 0 16px; }
+    .sb-feat .sb-row h3 .sb-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:500; }
+    .sb-feat .sb-row p { font-size:16px; font-weight:300; color:var(--pp-text); line-height:1.7; margin:0; }
+    .sb-feat .sb-row .sb-visual { opacity:0; transform:translateX(60px); transition:all .8s cubic-bezier(.16,1,.3,1); position:relative; }
+    .sb-feat .sb-row.reverse .sb-visual { transform:translateX(-60px); }
+    .sb-feat .sb-row .sb-visual.is-in, .sb-feat .sb-row.reverse .sb-visual.is-in { opacity:1; transform:translateX(0); }
+    .sb-feat .sb-row .sb-visual::before { content:''; position:absolute; inset:-30px; background:radial-gradient(circle,rgba(124,93,255,.16),transparent 65%); filter:blur(40px); z-index:-1; }
+    .sb-feat .sb-row .sb-visual img { width:100%; border-radius:20px; box-shadow:0 26px 60px rgba(17,24,39,.15); display:block; }
+    @media (max-width:960px) { .sb-feat .sb-row { grid-template-columns:1fr !important; gap:36px; direction:ltr; } .sb-feat .sb-row .sb-visual { transform:none !important; } }
+  </style>
+
+  <div class="sb-max">
+    <div class="sb-head">
+      <div class="sb-kicker">Why 30,000+ Suppliers Stay</div>
+      <h2>Six reasons suppliers call PurchasePlus <span class="sb-grad">their easiest channel.</span></h2>
+      <p>From pricing control to predictable payments, every benefit is designed around the realities of running a supply business.</p>
     </div>
-  </section>
+    <div class="sb-rows">
 
-  <!-- 6 BENEFITS with side-slide images -->
-  <section class="sb-feat" aria-label="Why suppliers choose PurchasePlus">
-    <div class="sb-wrap">
-      <div class="sb-section-head">
-        <div class="sb-kicker">Why Suppliers Join</div>
-        <h2>Why 30,000+ suppliers <span class="sb-grad">choose PurchasePlus.</span></h2>
+      <div class="sb-row">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 01</div>
+          <h3>Your products, in front of buyers <span class="sb-grad">actively ordering.</span></h3>
+          <p>PurchasePlus connects you to the procurement teams at hotels, clubs, healthcare facilities, and more, across Australia, Asia, and beyond. Your catalogue is visible when they're ready to buy.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/004.png" alt=""></div>
       </div>
-      <div class="sb-rows">
 
-        <div class="sb-row">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 01</div>
-            <h3>Your products in front of buyers <span class="sb-grad">who are actively ordering.</span></h3>
-            <p>PurchasePlus connects you to the procurement teams at hotels, clubs, healthcare facilities, and more, across Australia, Asia, and beyond. Your catalogue is visible when they're ready to buy.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/004.png" alt="Buyer access"></div>
-        </div>
-
-        <div class="sb-row reverse">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 02</div>
-            <h3>Update prices once. <span class="sb-grad">Every buyer sees it immediately.</span></h3>
-            <p>Manage your product catalogue and pricing directly in PurchasePlus, manually or via API. No more emailing price lists that get ignored. Your buyers always have accurate, current pricing.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/005.png" alt="Pricing control"></div>
-        </div>
-
-        <div class="sb-row">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 03</div>
-            <h3>Fewer errors. Fewer disputes. <span class="sb-grad">Fewer credits.</span></h3>
-            <p>When buyers order from your catalogue, they use your exact product codes, descriptions, and units. Orders come through clean, matched to what you actually supply. Less back-and-forth, fewer corrections.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/006.png" alt="Order accuracy"></div>
-        </div>
-
-        <div class="sb-row reverse">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 04</div>
-            <h3>Invoices that match. <span class="sb-grad">Payments that arrive.</span></h3>
-            <p>PurchasePlus buyers do 3-way matching, invoice against PO against receiving note. When your invoice matches the order, it processes straight through. No chasing. No delays caused by discrepancies.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/007.png" alt="Invoice matching"></div>
-        </div>
-
-        <div class="sb-row">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 05</div>
-            <h3>We set you up personally, <span class="sb-grad">then stay available.</span></h3>
-            <p>Our supplier engagement team works directly with each supplier to get your catalogue loaded and your connection live. We don't leave you to figure it out alone. And we're available when you need changes.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/008.png" alt="Onboarding support"></div>
-        </div>
-
-        <div class="sb-row reverse">
-          <div class="sb-copy"><div class="sb-copy-inner">
-            <div class="sb-num">BENEFIT 06</div>
-            <h3>Find new buyers you didn't know <span class="sb-grad">were looking.</span></h3>
-            <p>PurchasePlus runs a supplier directory that procurement teams actively search. Being on the platform means being discoverable to buyers who haven't worked with you yet.</p>
-          </div></div>
-          <div class="sb-visual"><img src="../images/suppliers/009.png" alt="Supplier directory"></div>
-        </div>
-
+      <div class="sb-row reverse">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 02</div>
+          <h3>Update prices once. <span class="sb-grad">Every buyer sees it immediately.</span></h3>
+          <p>Manage your product catalogue and pricing directly in PurchasePlus, manually or via API. No more emailing price lists that get ignored. Your buyers always have accurate, current pricing.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/005.png" alt=""></div>
       </div>
+
+      <div class="sb-row">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 03</div>
+          <h3>Fewer errors. Fewer disputes. <span class="sb-grad">Fewer credits.</span></h3>
+          <p>When buyers order from your catalogue, they use your exact product codes, descriptions, and units. Orders come through clean, matched to what you actually supply. Less back-and-forth, fewer corrections.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/006.png" alt=""></div>
+      </div>
+
+      <div class="sb-row reverse">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 04</div>
+          <h3>Invoices that match. <span class="sb-grad">Payments that arrive.</span></h3>
+          <p>PurchasePlus buyers do 3-way matching, invoice against PO against receiving note. When your invoice matches the order, it processes straight through. No chasing. No delays caused by discrepancies.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/007.png" alt=""></div>
+      </div>
+
+      <div class="sb-row">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 05</div>
+          <h3>We set you up personally, <span class="sb-grad">then stay available.</span></h3>
+          <p>Our supplier engagement team works directly with each supplier to get your catalogue loaded and your connection live. We don't leave you to figure it out alone. And we're available when you need changes.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/008.png" alt=""></div>
+      </div>
+
+      <div class="sb-row reverse">
+        <div class="sb-copy"><div class="sb-copy-inner">
+          <div class="sb-num">BENEFIT 06</div>
+          <h3>Find new buyers you didn't know <span class="sb-grad">were looking.</span></h3>
+          <p>PurchasePlus runs a supplier directory that procurement teams actively search. Being on the platform means being discoverable to buyers who haven't worked with you yet.</p>
+        </div></div>
+        <div class="sb-visual"><img src="../images/suppliers/009.png" alt=""></div>
+      </div>
+
     </div>
-  </section>
+  </div>
 
-  <!-- TESTIMONIAL -->
-  <section class="sb-testi" aria-label="Supplier testimonial">
-    <div class="sb-wrap">
-      <div class="sb-testi-card">
-        <p class="sb-testi-quote">Since joining PurchasePlus, our order accuracy improved dramatically. Buyers order from our catalogue directly, no more phone calls fixing wrong product codes.</p>
-        <div class="sb-testi-author">Supplier Representative<span>Food &amp; Beverage Distribution</span></div>
-      </div>
+  <script>
+    (function(){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ e.target.classList.toggle('is-in', e.isIntersecting); });
+      }, { threshold:0.18 });
+      document.querySelectorAll('.sb-feat .sb-row .sb-visual').forEach(function(v){ io.observe(v); });
+    })();
+  </script>
+</section>
+
+<!-- SECTION 4 — TESTIMONIAL -->
+<section class="sb-testi" aria-label="Supplier testimonial">
+  <style>
+    .sb-testi { padding:90px 5vw; background:linear-gradient(180deg,#fafafa 0%,#fff 100%); font-family:'Inter',sans-serif; }
+    .sb-testi .sb-card { max-width:900px; margin:0 auto; background:#fff; border:1px solid #e5e7eb; border-radius:24px; padding:56px 60px; text-align:center; position:relative; }
+    .sb-testi .sb-card::before { content:'"'; position:absolute; top:20px; left:40px; font-size:120px; color:transparent; background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); -webkit-background-clip:text; background-clip:text; font-family:Georgia,serif; line-height:1; }
+    .sb-testi .sb-quote { font-size:clamp(20px,2.2vw,26px); font-weight:300; color:#111827; line-height:1.5; letter-spacing:-.3px; margin:0 0 28px; position:relative; text-wrap:balance; }
+    .sb-testi .sb-author { font-size:14px; font-weight:500; color:#111827; }
+    .sb-testi .sb-author span { display:block; font-weight:300; color:#6b7280; margin-top:4px; }
+    @media (max-width:640px) { .sb-testi .sb-card { padding:40px 28px; } }
+  </style>
+  <div class="sb-card">
+    <p class="sb-quote">Since joining PurchasePlus, our order accuracy improved dramatically. Buyers order from our catalogue directly, no more phone calls fixing wrong product codes.</p>
+    <div class="sb-author">Supplier Representative<span>Food &amp; Beverage Distribution</span></div>
+  </div>
+</section>
+
+<!-- SECTION 5 — LOGO MARQUEE (mirrors Homepage widget_001 carousel exactly) -->
+<section class="sb-marq" aria-label="Leading suppliers connected">
+  <style>
+    .sb-marq { font-family:'Inter',sans-serif; background:#fff; padding:70px 40px; text-align:center; overflow:hidden; }
+    .sb-marq .sb-leaders-text { width:100%; text-align:center; font-size:20px; font-weight:300; color:#4B5563; margin:0 0 24px; z-index:5; }
+    .sb-marq .sb-brand-anim { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; animation:sbMarqGrad 5s linear infinite; }
+    @keyframes sbMarqGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .sb-marq .sb-carousel { width:100%; overflow:hidden; background:transparent; position:relative; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); }
+    .sb-marq .sb-track { display:flex; gap:15rem; align-items:center; animation:sbMarq 40s linear infinite; width:max-content; will-change:transform; -webkit-transform:translate3d(0,0,0); }
+    .sb-marq .sb-track .sb-logo { height:120px; min-width:200px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-weight:600; font-size:32px; color:#6b7280; letter-spacing:-.5px; opacity:.75; white-space:nowrap; }
+    @keyframes sbMarq { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+  </style>
+
+  <div class="sb-leaders-text">Leading suppliers already connected with <span class="sb-brand-anim">PurchasePlus</span>.</div>
+  <div class="sb-carousel">
+    <div class="sb-track">
+      <div class="sb-logo">Coca-Cola</div>
+      <div class="sb-logo">Nestl&eacute;</div>
+      <div class="sb-logo">Lion</div>
+      <div class="sb-logo">Bunzl</div>
+      <div class="sb-logo">PFD Food Services</div>
+      <div class="sb-logo">Simon George &amp; Sons</div>
+      <div class="sb-logo">Gilmours</div>
+      <div class="sb-logo">Bidfood</div>
+      <div class="sb-logo">Countrywide</div>
+      <div class="sb-logo">Asahi Beverages</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="sb-logo" aria-hidden="true">Coca-Cola</div>
+      <div class="sb-logo" aria-hidden="true">Nestl&eacute;</div>
+      <div class="sb-logo" aria-hidden="true">Lion</div>
+      <div class="sb-logo" aria-hidden="true">Bunzl</div>
+      <div class="sb-logo" aria-hidden="true">PFD Food Services</div>
+      <div class="sb-logo" aria-hidden="true">Simon George &amp; Sons</div>
+      <div class="sb-logo" aria-hidden="true">Gilmours</div>
+      <div class="sb-logo" aria-hidden="true">Bidfood</div>
+      <div class="sb-logo" aria-hidden="true">Countrywide</div>
+      <div class="sb-logo" aria-hidden="true">Asahi Beverages</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CTA BANNER -->
-  <section class="sb-cta" aria-label="Call to Action">
-    <div class="sb-wrap">
-      <div class="sb-kicker">Get Connected</div>
-      <h2>Join 30,000+ suppliers <span class="sb-grad">already on the platform.</span></h2>
-      <p>Your customers are already using PurchasePlus. Make it easy for them to buy from you.</p>
-      <div class="sb-cta-btns">
-        <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn sb-btn-secondary">Talk to Our Team</a>
-        <a href="../join-as-a-supplier/" class="sb-btn sb-btn-primary">Join as a Supplier</a>
-      </div>
+<!-- SECTION 6 — CTA BANNER (kept per user request) -->
+<section class="sb-cta" aria-label="Call to Action">
+  <style>
+    .sb-cta { font-family:'Inter',sans-serif; padding:100px 5vw; background:#fafafa; text-align:center; position:relative; overflow:hidden; }
+    .sb-cta::before { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:900px; height:900px; background:radial-gradient(circle,rgba(169,86,255,.06),transparent 60%); pointer-events:none; }
+    .sb-cta .sb-cta-max { position:relative; max-width:1100px; margin:0 auto; }
+    .sb-cta .sb-cta-kicker { display:inline-block; font-size:13px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; margin-bottom:16px; background-image:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .sb-cta h2 { font-size:clamp(32px,4vw,48px); font-weight:400; line-height:1.1; letter-spacing:-1.1px; margin:0 0 18px; max-width:740px; margin-left:auto; margin-right:auto; text-wrap:balance; }
+    .sb-cta h2 .sb-grad { background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:500; }
+    .sb-cta p { font-size:17px; color:#4B5563; font-weight:300; max-width:640px; margin:0 auto 32px; line-height:1.6; }
+    .sb-cta .sb-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+    .sb-cta .sb-btn { display:inline-flex; align-items:center; padding:14px 32px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:all .25s; font-family:'Inter',sans-serif; border:none; cursor:pointer; }
+    .sb-cta .sb-btn-primary { background:linear-gradient(90deg,#a956ff 0%,#7c5dff 50%,#3766fe 100%); color:#fff; box-shadow:0 10px 24px rgba(124,93,255,.28); }
+    .sb-cta .sb-btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(124,93,255,.38); }
+    .sb-cta .sb-btn-secondary { background:#fff; color:#111827; border:1.5px solid #e5e7eb; }
+    .sb-cta .sb-btn-secondary:hover { border-color:#c4b5fd; color:#7c5dff; }
+    @media (max-width:640px) { .sb-cta .sb-btns { flex-direction:column; align-items:center; } .sb-cta .sb-btn { width:100%; max-width:280px; justify-content:center; } }
+  </style>
+
+  <div class="sb-cta-max">
+    <div class="sb-cta-kicker">Get Connected</div>
+    <h2>Join 30,000+ suppliers <span class="sb-grad">already on the platform.</span></h2>
+    <p>Your customers are already using PurchasePlus. Make it easy for them to buy from you.</p>
+    <div class="sb-btns">
+      <a href="https://www.purchaseplus.com/talk-to-sales" class="sb-btn sb-btn-secondary">Talk to Our Team</a>
+      <a href="../join-as-a-supplier/" class="sb-btn sb-btn-primary">Join as a Supplier</a>
     </div>
-  </section>
-
-</div>
-
-<script>
-  (function(){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ e.target.classList.toggle('is-in', e.isIntersecting); });
-    }, { threshold: 0.18 });
-    document.querySelectorAll('.sb-row .sb-visual').forEach(function(v){ io.observe(v); });
-  })();
-</script>
+  </div>
+</section>
 <!-- ============================================================ GLOBAL FOOTER ============================================================ -->
 <footer class="pp-footer" role="contentinfo">
   <style>

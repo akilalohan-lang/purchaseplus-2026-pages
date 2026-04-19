@@ -129,11 +129,17 @@
   .up-item-card { background:#fafafa; border:1px solid #e5e7eb; border-radius:16px; padding:26px 30px; }
   .up-item-card h3 { font-size:14px; font-weight:600; color:#111827; margin-bottom:12px; letter-spacing:.02em; }
   .up-item-card ul { list-style:none; padding-left:0; margin-bottom:16px; }
-  .up-item-card ul li { padding:8px 0; font-size:14.5px; color:#4B5563; font-weight:300; line-height:1.55; display:flex; align-items:start; gap:10px; border-bottom:1px solid #f3f4f6; }
+  .up-item-card ul li { padding:10px 0; font-size:14px; color:#4B5563; font-weight:300; line-height:1.4; display:grid; grid-template-columns:16px 220px 1fr; gap:12px; align-items:center; border-bottom:1px solid #f3f4f6; white-space:nowrap; overflow:hidden; }
   .up-item-card ul li:last-child { border-bottom:none; }
-  .up-item-card ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--pp-grad); margin-top:8px; flex-shrink:0; }
-  .up-item-card ul li strong { font-weight:500; color:#111827; }
-  .up-tag-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .up-item-card ul li::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--pp-grad); flex-shrink:0; justify-self:start; margin-left:5px; }
+  .up-item-card ul li strong { font-weight:500; color:#111827; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .up-item-card ul li span.dsc { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .up-item-foot { display:flex; justify-content:space-between; align-items:center; gap:14px; margin-top:18px; padding-top:14px; border-top:1px solid #f3f4f6; flex-wrap:wrap; }
+  .up-tag-row { display:flex; gap:8px; flex-wrap:wrap; }
+  .up-read-btn { display:inline-flex; align-items:center; gap:6px; padding:10px 22px; background:var(--pp-grad); color:#fff; border-radius:50px; font-size:13px; font-weight:500; text-decoration:none; transition:all .25s; white-space:nowrap; }
+  .up-read-btn:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(124,93,255,.28); }
+  .up-read-btn svg { width:12px; height:12px; transition:transform .2s; }
+  .up-read-btn:hover svg { transform:translateX(3px); }
   .up-tag { font-size:11px; font-weight:600; letter-spacing:.08em; padding:4px 11px; border-radius:20px; text-transform:uppercase; }
   .up-tag.new { background:#ecfdf5; color:#059669; }
   .up-tag.imp { background:#eff6ff; color:#2563eb; }
@@ -159,7 +165,12 @@
   .up-cross-btn { padding:12px 22px; background:#fff; color:#7c5dff; border:1px solid #e5e7eb; border-radius:50px; font-size:13px; font-weight:500; text-decoration:none; white-space:nowrap; transition:all .2s; }
   .up-cross-btn:hover { border-color:#c4b5fd; transform:translateX(3px); }
 
-  @media (max-width:640px) { .up-tl { padding-left:30px; } .up-item::before { left:-29px; } .up-sub-form { grid-template-columns:1fr; } .up-cross-card { flex-direction:column; text-align:center; } }
+  @media (max-width:860px) {
+    .up-item-card ul li { grid-template-columns:16px 1fr; white-space:normal; overflow:visible; }
+    .up-item-card ul li strong { grid-column:2; white-space:normal; }
+    .up-item-card ul li span.dsc { grid-column:2; white-space:normal; margin-top:2px; }
+  }
+  @media (max-width:640px) { .up-tl { padding-left:30px; } .up-item::before { left:-29px; } .up-sub-form { grid-template-columns:1fr; } .up-cross-card { flex-direction:column; text-align:center; } .up-item-foot { flex-direction:column; align-items:flex-start; } .up-read-btn { width:100%; justify-content:center; } }
 </style>
 
 <div class="up-root">
@@ -184,12 +195,15 @@
           <div class="up-item-card">
             <h3>What's new this month</h3>
             <ul>
-              <li><strong>Invoice AI line-item coder.</strong> GL codes suggested automatically on each invoice line, based on supplier and category history.</li>
-              <li><strong>Budget variance alerts.</strong> Push notifications when a property-level budget exceeds 80% spend before month end.</li>
-              <li><strong>Two new POS integrations.</strong> Shiji and Agilysys now connect via API.</li>
-              <li><strong>SSO for supplier portal.</strong> Suppliers can now sign in with Microsoft 365 or Google Workspace.</li>
+              <li><strong>AI line-item coder.</strong><span class="dsc">Auto-suggests GL codes per invoice line.</span></li>
+              <li><strong>Budget variance alerts.</strong><span class="dsc">Push alerts when spend hits 80% before month end.</span></li>
+              <li><strong>Shiji &amp; Agilysys POS.</strong><span class="dsc">Two new POS integrations now connect via API.</span></li>
+              <li><strong>Supplier portal SSO.</strong><span class="dsc">Sign in with Microsoft 365 or Google Workspace.</span></li>
             </ul>
-            <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag imp">Improved</span><span class="up-tag fix">Fixed</span></div>
+            <div class="up-item-foot">
+              <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag imp">Improved</span><span class="up-tag fix">Fixed</span></div>
+              <a href="#" class="up-read-btn">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
           </div>
         </div>
 
@@ -200,12 +214,15 @@
           <div class="up-item-card">
             <h3>Highlights</h3>
             <ul>
-              <li><strong>Recipe Costing v2.</strong> Live GP% by dish, menu, and outlet, with drill-down to ingredient-level variance.</li>
-              <li><strong>Multi-property budget rollup.</strong> Group-level financial reporting without leaving PurchasePlus.</li>
-              <li><strong>Faster approvals.</strong> Approval workflow engine rebuilt for 3x throughput on invoices.</li>
-              <li><strong>Supplier catalogue API.</strong> Suppliers can sync pricing from their own systems via REST API.</li>
+              <li><strong>Recipe Costing v2.</strong><span class="dsc">Live GP% by dish, menu, and outlet.</span></li>
+              <li><strong>Multi-property budgets.</strong><span class="dsc">Group-level financial reporting in-app.</span></li>
+              <li><strong>Faster approvals.</strong><span class="dsc">Workflow engine rebuilt for 3x throughput.</span></li>
+              <li><strong>Supplier catalogue API.</strong><span class="dsc">Sync pricing from your system via REST API.</span></li>
             </ul>
-            <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag imp">Improved</span></div>
+            <div class="up-item-foot">
+              <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag imp">Improved</span></div>
+              <a href="#" class="up-read-btn">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
           </div>
         </div>
 
@@ -216,12 +233,15 @@
           <div class="up-item-card">
             <h3>End of year delivery</h3>
             <ul>
-              <li><strong>SOC 2 Type II certified.</strong> Annual audit completed without findings.</li>
-              <li><strong>MYOB Advanced integration.</strong> Cloud MYOB now supported via API alongside AccountRight CSV export.</li>
-              <li><strong>Mobile receiving update.</strong> Receiving note capture now works offline, syncs when back online.</li>
-              <li><strong>12 customer-reported bugs fixed</strong> across purchasing, invoicing, and reporting.</li>
+              <li><strong>SOC 2 Type II certified.</strong><span class="dsc">Annual audit completed without findings.</span></li>
+              <li><strong>MYOB Advanced.</strong><span class="dsc">Cloud MYOB now supported via API.</span></li>
+              <li><strong>Mobile receiving update.</strong><span class="dsc">Receiving now works offline, syncs later.</span></li>
+              <li><strong>12 bugs fixed.</strong><span class="dsc">Across purchasing, invoicing, and reporting.</span></li>
             </ul>
-            <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag fix">Fixed</span></div>
+            <div class="up-item-foot">
+              <div class="up-tag-row"><span class="up-tag new">New</span><span class="up-tag fix">Fixed</span></div>
+              <a href="#" class="up-read-btn">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
           </div>
         </div>
 
