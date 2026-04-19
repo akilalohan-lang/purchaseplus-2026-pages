@@ -173,9 +173,12 @@
     @keyframes ivBarGrow { 0%,100% { transform:scaleY(.18); opacity:.55; } 50% { transform:scaleY(1); opacity:1; } }
 
     /* Card positions + float animation */
-    .iv-hero .pp-float-1 { top:7%; left:-3%; animation:ivFloatA 7s ease-in-out infinite; }
-    .iv-hero .pp-float-2 { top:44%; right:-1%; animation:ivFloatB 8.5s ease-in-out infinite -2.5s; }
-    .iv-hero .pp-float-3 { bottom:9%; left:10%; animation:ivFloatC 6.5s ease-in-out infinite -3.5s; }
+    /* float-1 (Matching donut): middle-left, beside the video */
+    /* float-2 (Processing bars): bottom-right, sits under the chef */
+    /* float-3 (Invoices counter): bottom-left */
+    .iv-hero .pp-float-1 { top:42%; left:-4%; animation:ivFloatA 7s ease-in-out infinite; }
+    .iv-hero .pp-float-2 { bottom:14%; right:-2%; animation:ivFloatB 8.5s ease-in-out infinite -2.5s; }
+    .iv-hero .pp-float-3 { bottom:8%; left:8%; animation:ivFloatC 6.5s ease-in-out infinite -3.5s; }
     @keyframes ivFloatA { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
     @keyframes ivFloatB { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-16px);} }
     @keyframes ivFloatC { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
