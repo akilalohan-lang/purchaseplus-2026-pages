@@ -502,7 +502,7 @@
   </script>
 </section>
 
-<!-- ============================================================ WIDGET 3: KEY FEATURES (6 alternating rows) ============================================================ -->
+<!-- ============================================================ WIDGET 3: KEY FEATURES (6 alternating rows, image slides in from side with gradient glow) ============================================================ -->
 <section class="iv-feat" aria-label="Key Features">
   <style>
     .iv-feat { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:110px 5vw; }
@@ -510,19 +510,31 @@
     .iv-feat .head { text-align:center; max-width:760px; margin:0 auto 72px; }
     .iv-feat .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
     .iv-feat .head h2 { font-size:clamp(32px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#111827; }
-    .iv-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-bottom:110px; }
+    .iv-feat .row { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-bottom:130px; }
     .iv-feat .row:last-child { margin-bottom:0; }
     .iv-feat .row.reverse .visual { order:-1; }
     .iv-feat .copy .tag { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:5px 12px; border-radius:999px; background:linear-gradient(135deg, rgba(169,86,255,.12), rgba(55,102,254,.08)); color:#7c5dff; margin-bottom:16px; }
-    .iv-feat .copy h3 { font-size:clamp(26px,2.6vw,34px); font-weight:500; line-height:1.2; letter-spacing:-.5px; color:#111827; margin-bottom:16px; }
+    .iv-feat .copy h3 { font-size:clamp(26px,2.6vw,34px); font-weight:400; line-height:1.2; letter-spacing:-.5px; color:#111827; margin-bottom:16px; }
     .iv-feat .copy p { font-size:17px; font-weight:300; line-height:1.7; color:#4B5563; }
-    .iv-feat .visual { aspect-ratio:4/3; border-radius:24px; background:linear-gradient(135deg, #f8fafc, #fff); border:1px solid #e2e8f0; box-shadow:0 20px 60px rgba(15,23,42,.05); padding:32px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
-    .iv-feat .visual::before { content:''; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(169,86,255,.08), transparent 60%), radial-gradient(circle at 70% 70%, rgba(55,102,254,.08), transparent 60%); }
-    .iv-feat .visual .mock { position:relative; z-index:1; width:100%; height:100%; display:flex; align-items:center; justify-content:center; color:#7c5dff; }
-    .iv-feat .visual .mock svg { width:50%; height:50%; stroke:currentColor; stroke-width:1.2; fill:none; stroke-linecap:round; stroke-linejoin:round; opacity:.45; }
-    .iv-feat .visual .mock-label { position:absolute; bottom:16px; left:16px; font-size:11px; font-weight:500; color:#94a3b8; letter-spacing:.04em; }
-    @media (max-width:1024px){ .iv-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:72px; } .iv-feat .row.reverse .visual{ order:0; } }
-    @media (max-width:640px){ .iv-feat{ padding:72px 20px; } .iv-feat .copy h3{ font-size:24px; } .iv-feat .copy p{ font-size:15px; } }
+
+    /* Visual: full-bleed image with gradient glow underneath, slides in from the side */
+    .iv-feat .visual { position:relative; opacity:0; transform:translateX(100px); transition:opacity .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1); }
+    .iv-feat .row.reverse .visual { transform:translateX(-100px); }
+    .iv-feat .visual.is-in { opacity:1; transform:translateX(0); }
+    .iv-feat .visual img { display:block; width:100%; height:auto; position:relative; z-index:2; }
+    .iv-feat .visual::before {
+      content:''; position:absolute; left:6%; right:6%; bottom:-8%; height:45%;
+      background:radial-gradient(ellipse at 50% 50%, rgba(169,86,255,.45), rgba(124,93,255,.28) 35%, rgba(55,102,254,.18) 60%, transparent 80%);
+      filter:blur(38px);
+      opacity:0;
+      transition:opacity 1.2s ease .25s;
+      z-index:1;
+      pointer-events:none;
+    }
+    .iv-feat .visual.is-in::before { opacity:1; }
+
+    @media (max-width:1024px){ .iv-feat .row{ grid-template-columns:1fr; gap:32px; margin-bottom:90px; } .iv-feat .row.reverse .visual{ order:0; } }
+    @media (max-width:640px){ .iv-feat{ padding:72px 20px; } .iv-feat .copy h3{ font-size:24px; } .iv-feat .copy p{ font-size:15px; } .iv-feat .visual, .iv-feat .row.reverse .visual { transform:translateY(40px); } .iv-feat .visual.is-in { transform:translateY(0); } }
   </style>
   <div class="wrap">
     <div class="head">
@@ -536,16 +548,16 @@
         <h3>Every invoice format, one inbox.</h3>
         <p>Suppliers email invoices in whatever format they use. PurchasePlus AI scans and extracts all data (header, lines, totals, tax) with no manual keying. Works with PDFs, scans, EDI files, and more.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="6" y="10" width="36" height="28" rx="3"/><path d="M6 14l18 12 18-12"/><circle cx="40" cy="34" r="6" fill="rgba(124,93,255,.1)"/><path d="M37 34l2 2 4-4"/></svg><div class="mock-label">Screenshot: AI invoice scanning</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/6.png" alt="AI scanning any invoice format" loading="lazy"></div>
     </div>
 
     <div class="row reverse">
       <div class="copy">
         <div class="tag">Feature 02 · 3-Way Matching</div>
-        <h3>Invoice vs PO vs Receiving Note, automatically.</h3>
+        <h3>Invoice vs PO vs receiving note, automatically.</h3>
         <p>Every invoice is checked against the original purchase order (price and product) and the goods receiving note (quantity and delivery). Discrepancies are flagged. Matched invoices process straight through.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><circle cx="12" cy="12" r="7"/><circle cx="36" cy="12" r="7"/><circle cx="24" cy="34" r="7"/><path d="M18 14l12 0M14 18l8 12M34 18l-8 12"/></svg><div class="mock-label">Screenshot: 3-way match visualizer</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/5.png" alt="3-way matching visualizer" loading="lazy"></div>
     </div>
 
     <div class="row">
@@ -554,7 +566,7 @@
         <h3>Exceptions go to the right person, automatically.</h3>
         <p>Configure approval rules by dollar amount, supplier, GL code, or discrepancy type. Invoices that need review route automatically, with full context, to the right approver. No manual chasing.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="4" y="14" width="12" height="20" rx="2"/><rect x="32" y="6" width="12" height="20" rx="2"/><rect x="32" y="28" width="12" height="14" rx="2"/><path d="M16 24l12-10M16 26l12 10"/><circle cx="28" cy="16" r="2"/><circle cx="28" cy="36" r="2"/></svg><div class="mock-label">Screenshot: Approval workflow</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/4.png" alt="Auto approval routing" loading="lazy"></div>
     </div>
 
     <div class="row reverse">
@@ -563,7 +575,7 @@
         <h3>Every invoice line coded correctly. Every time.</h3>
         <p>Set up your GL mapping once. PurchasePlus applies the correct GL code to every invoice line automatically, based on the product, supplier, and cost centre. Month-end reconciliation becomes a check, not a task.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><path d="M6 8h36M6 16h36M6 24h36M6 32h36M6 40h24"/><rect x="32" y="28" width="12" height="8" rx="2" fill="rgba(124,93,255,.12)"/></svg><div class="mock-label">Screenshot: GL code mapping</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/3.png" alt="Auto GL coding" loading="lazy"></div>
     </div>
 
     <div class="row">
@@ -572,7 +584,7 @@
         <h3>Approved invoices flow straight to your accounting system.</h3>
         <p>Once approved, PurchasePlus generates journal entries and exports them directly to Xero, NetSuite, Dynamics 365, MYOB, and more. No rekeying. No manual uploads.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="14" height="32" rx="2"/><rect x="28" y="8" width="14" height="32" rx="2"/><path d="M20 24h8M24 20l4 4-4 4"/></svg><div class="mock-label">Screenshot: ERP sync console</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/2.png" alt="ERP sync console" loading="lazy"></div>
     </div>
 
     <div class="row reverse">
@@ -581,43 +593,78 @@
         <h3>A complete, timestamped trail for every invoice.</h3>
         <p>Every action on every invoice is logged: who approved it, when, and why an exception was flagged. Full audit history available for every document, every time.</p>
       </div>
-      <div class="visual"><div class="mock"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l6 4"/></svg><div class="mock-label">Screenshot: Audit timeline</div></div></div>
+      <div class="visual"><img src="../images/invoicing-features/1.png" alt="Audit timeline" loading="lazy"></div>
     </div>
   </div>
+  <script>
+    (function(){
+      var visuals = document.querySelectorAll('.iv-feat .visual');
+      if (!visuals.length || !('IntersectionObserver' in window)) {
+        visuals.forEach(function(v){ v.classList.add('is-in'); });
+        return;
+      }
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.18 });
+      visuals.forEach(function(v){ io.observe(v); });
+    })();
+  </script>
 </section>
 
-<!-- ============================================================ WIDGET 4: ROI SECTION (4 stat cards) ============================================================ -->
+<!-- ============================================================ WIDGET 4: ROI SECTION (pulsing gradient bg that fades in/out) ============================================================ -->
 <section class="iv-roi" aria-label="The ROI Numbers">
   <style>
-    .iv-roi { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:linear-gradient(180deg, #0b0f1f 0%, #111827 100%); color:#fff; padding:110px 5vw; position:relative; overflow:hidden; }
-    .iv-roi::before { content:''; position:absolute; top:-50%; left:50%; transform:translateX(-50%); width:120%; height:200%; background: radial-gradient(ellipse at center, rgba(124,93,255,.15), transparent 55%); pointer-events:none; }
-    .iv-roi .wrap { max-width:1200px; margin:0 auto; position:relative; z-index:1; }
-    .iv-roi .head { text-align:center; max-width:760px; margin:0 auto 64px; }
-    .iv-roi .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
-    .iv-roi h2 { font-size:clamp(32px,4.2vw,48px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#fff; }
+    .iv-roi { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; color:#fff; padding:180px 5vw; position:relative; overflow:hidden; }
+    /* Pulsing gradient bg masked to fade in at the top and out at the bottom */
+    .iv-roi::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(135deg, #a956ff 0%, #7c5dff 45%, #3766fe 100%);
+      background-size:240% 240%;
+      animation:ivRoiBgPulse 11s ease-in-out infinite;
+      mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      -webkit-mask-image:linear-gradient(to bottom, transparent 0%, #000 18%, #000 82%, transparent 100%);
+      z-index:0;
+    }
+    @keyframes ivRoiBgPulse {
+      0%,100% { background-position:0% 50%; }
+      50% { background-position:100% 50%; }
+    }
+    /* Soft light halo above the grid */
+    .iv-roi::after {
+      content:''; position:absolute; top:20%; left:50%; transform:translateX(-50%);
+      width:80%; height:60%;
+      background:radial-gradient(ellipse at center, rgba(255,255,255,.22), transparent 65%);
+      pointer-events:none; z-index:1;
+    }
+    .iv-roi .wrap { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+    .iv-roi .head { text-align:center; max-width:880px; margin:0 auto 64px; }
+    .iv-roi .kicker { font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-bottom:18px; }
+    .iv-roi h2 { font-size:clamp(32px,4.2vw,48px); font-weight:400; line-height:1.15; letter-spacing:-1px; color:#fff; text-wrap:balance; }
     .iv-roi .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-    .iv-roi .stat { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:40px 28px; backdrop-filter:blur(8px); display:flex; flex-direction:column; gap:8px; transition:transform .3s ease, border-color .3s ease; }
-    .iv-roi .stat:hover { transform:translateY(-4px); border-color:rgba(169,86,255,.35); }
-    .iv-roi .stat .num { font-size:clamp(40px,5vw,60px); font-weight:500; line-height:1; letter-spacing:-1.5px; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:ivRoiGrad 6s linear infinite; }
-    @keyframes ivRoiGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
-    .iv-roi .stat .label { font-size:15px; font-weight:400; color:rgba(255,255,255,.78); line-height:1.4; margin-top:4px; }
-    .iv-roi .cta-row { text-align:center; margin-top:52px; }
-    .iv-roi .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 28px; border-radius:50px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); color:#fff; font-size:15px; font-weight:500; text-decoration:none; transition:background .2s, transform .2s; }
-    .iv-roi .btn:hover { background:rgba(255,255,255,.14); transform:translateY(-2px); }
+    .iv-roi .stat { background:#fff; border:1px solid rgba(255,255,255,.5); border-radius:24px; padding:40px 28px; display:flex; flex-direction:column; gap:10px; box-shadow:0 20px 50px rgba(15,23,42,.15); transition:transform .3s ease, box-shadow .3s ease; }
+    .iv-roi .stat:hover { transform:translateY(-4px); box-shadow:0 30px 70px rgba(15,23,42,.22); }
+    .iv-roi .stat .num { font-size:clamp(40px,5vw,60px); font-weight:500; line-height:1; letter-spacing:-1.5px; background:var(--grad); background-size:220% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:ivRoiNumGrad 6s linear infinite; }
+    @keyframes ivRoiNumGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
+    .iv-roi .stat .label { font-size:14px; font-weight:300; color:#4B5563; line-height:1.55; margin-top:6px; }
+    .iv-roi .cta-row { text-align:center; margin-top:60px; }
+    .iv-roi .btn { display:inline-flex; align-items:center; gap:10px; padding:16px 32px; border-radius:50px; background:#fff; color:#7c5dff; font-size:16px; font-weight:500; text-decoration:none; box-shadow:0 14px 30px rgba(15,23,42,.15); transition:transform .2s ease, box-shadow .2s ease; }
+    .iv-roi .btn:hover { transform:translateY(-3px); box-shadow:0 20px 40px rgba(15,23,42,.22); }
     .iv-roi .btn svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; }
-    @media (max-width:900px){ .iv-roi .grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:480px){ .iv-roi .grid{ grid-template-columns:1fr; } }
+    @media (max-width:900px){ .iv-roi{ padding:140px 5vw; } .iv-roi .grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:480px){ .iv-roi{ padding:100px 5vw; } .iv-roi .grid{ grid-template-columns:1fr; } }
   </style>
   <div class="wrap">
     <div class="head">
       <div class="kicker">The ROI</div>
-      <h2>The numbers that matter to your CFO.</h2>
+      <h2>The numbers that matter to your&nbsp;CFO</h2>
     </div>
     <div class="grid">
-      <div class="stat"><div class="num">40M+</div><div class="label">Invoices processed across PurchasePlus since 1999.</div></div>
-      <div class="stat"><div class="num">90%</div><div class="label">Straight-through processing rate, no human touch required.</div></div>
-      <div class="stat"><div class="num">75%</div><div class="label">Reduction in invoice processing costs.</div></div>
-      <div class="stat"><div class="num">1 FTE</div><div class="label">Saved per 2,000 monthly invoices.</div></div>
+      <div class="stat"><div class="num">40M+</div><div class="label">Invoices processed across PurchasePlus since 1999</div></div>
+      <div class="stat"><div class="num">90%</div><div class="label">Straight-through processing rate, no human touch required</div></div>
+      <div class="stat"><div class="num">75%</div><div class="label">Reduction in invoice processing costs</div></div>
+      <div class="stat"><div class="num">1 FTE</div><div class="label">Saved per 2,000 monthly invoices</div></div>
     </div>
     <div class="cta-row">
       <a class="btn" href="https://www.purchaseplus.com/request-a-demo">Calculate your ROI <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
@@ -625,62 +672,196 @@
   </div>
 </section>
 
-<!-- ============================================================ WIDGET 5: INTEGRATIONS (logo strip) ============================================================ -->
+<!-- ============================================================ WIDGET 5: INTEGRATIONS (Hospitality widget_051 pattern) ============================================================ -->
 <section class="iv-int" aria-label="Integrations">
   <style>
-    .iv-int { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fff; padding:88px 5vw; }
-    .iv-int .wrap { max-width:1200px; margin:0 auto; text-align:center; }
-    .iv-int .kicker { font-size:13px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px; }
-    .iv-int h2 { font-size:clamp(28px,3.4vw,36px); font-weight:400; line-height:1.2; letter-spacing:-.6px; color:#111827; margin-bottom:44px; }
-    .iv-int .logos { display:grid; grid-template-columns:repeat(4,1fr); gap:24px 28px; align-items:stretch; }
-    .iv-int .logo { padding:28px 20px; border:1px solid #e2e8f0; border-radius:20px; background:#fff; display:flex; align-items:center; justify-content:center; font-size:17px; font-weight:600; color:#111827; letter-spacing:-.3px; transition:border-color .2s, box-shadow .2s, transform .2s; min-height:92px; }
-    .iv-int .logo:hover { border-color:#c4b5fd; box-shadow:0 12px 36px rgba(124,93,255,.12); transform:translateY(-2px); }
-    .iv-int .cta { display:inline-flex; align-items:center; gap:8px; margin-top:40px; color:#7c5dff; font-size:15px; font-weight:500; text-decoration:none; }
-    .iv-int .cta:hover { color:#3766fe; }
-    .iv-int .cta svg { width:16px; height:16px; stroke:currentColor; stroke-width:2; fill:none; stroke-linecap:round; stroke-linejoin:round; transition:transform .2s; }
-    .iv-int .cta:hover svg { transform:translateX(3px); }
-    @media (max-width:900px){ .iv-int .logos{ grid-template-columns:repeat(2,1fr); } }
+    .iv-int { --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563; --pp-blue:#3766fe; --pp-purple:#a956ff; --pp-grad:linear-gradient(90deg,#a956ff 0%,#3766fe 100%); --pp-border:#e2e8f0; background:#fff; font-family:var(--pp-font); padding:100px 0; color:var(--pp-ink); overflow:hidden; text-align:center; }
+    .iv-int .pp-max-width { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .iv-int .pp-head { max-width:850px; margin:0 auto 60px; }
+    .iv-int .pp-kicker { display:inline-block; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:.15em; color:var(--pp-purple); margin-bottom:20px; }
+    .iv-int .pp-title { font-size:clamp(34px,4.5vw,54px); font-weight:400; line-height:1.1; letter-spacing:-.04em; margin-bottom:24px; }
+    .iv-int .pp-title-grad { background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600; }
+    .iv-int .pp-subhead { font-size:19px; font-weight:300; color:var(--pp-text); line-height:1.6; max-width:720px; margin:0 auto; text-wrap:balance; }
+
+    .iv-int .pp-pulse-stage { height:100px; display:flex; justify-content:center; align-items:center; margin-bottom:30px; position:relative; }
+    .iv-int .pp-pulse-core { width:50px; height:50px; background:var(--pp-grad); border-radius:50%; z-index:5; box-shadow:0 0 25px rgba(55,102,254,.2); }
+    .iv-int .pp-pulse-ring { position:absolute; border:1px solid var(--pp-blue); border-radius:50%; animation:ivIntHubPulse 4s infinite linear; opacity:0; }
+    @keyframes ivIntHubPulse { 0% { width:50px; height:50px; opacity:.8; } 100% { width:280px; height:280px; opacity:0; } }
+
+    .iv-int .pp-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin-bottom:80px; }
+    .iv-int .pp-card { background:#fcfdfe; border:1px solid var(--pp-border); border-radius:32px; padding:40px; transition:all .4s cubic-bezier(.165,.84,.44,1); text-align:left; }
+    .iv-int .pp-card:hover { transform:translateY(-8px); border-color:var(--pp-blue); box-shadow:0 20px 40px rgba(15,23,42,.04); }
+    .iv-int .pp-svg-icon { width:48px; height:48px; margin-bottom:24px; stroke:var(--pp-blue); stroke-width:1.5; fill:none; }
+    .iv-int .pp-card-name { font-size:21px; font-weight:500; margin-bottom:12px; }
+    .iv-int .pp-card-desc { font-size:15px; font-weight:300; line-height:1.6; color:var(--pp-text); }
+
+    .iv-int .pp-marquee-wrap { padding-top:60px; border-top:1px solid var(--pp-border); position:relative; overflow:hidden; }
+    .iv-int .pp-carousel { width:100%; overflow:hidden; -webkit-mask-image:linear-gradient(to right, transparent, black 15%, black 85%, transparent); mask-image:linear-gradient(to right, transparent, black 15%, black 85%, transparent); }
+    .iv-int .pp-track { display:flex; gap:15rem; align-items:center; animation:ivIntMarquee 50s linear infinite; width:max-content; will-change:transform; }
+    .iv-int .pp-track img { height:110px; min-width:180px; object-fit:contain; flex-shrink:0; opacity:.6; transition:opacity .3s ease; }
+    .iv-int .pp-track img:hover { opacity:1; }
+    @keyframes ivIntMarquee { from { transform:translateX(-50%); } to { transform:translateX(0); } }
+    .iv-int .pp-footer-note { font-size:13px; color:#94a3b8; font-weight:300; max-width:650px; margin:40px auto 0; text-wrap:balance; }
+
+    @media (max-width:1100px) { .iv-int .pp-track { gap:8rem; } .iv-int .pp-track img { height:80px; } }
+    @media (max-width:768px) { .iv-int .pp-title { font-size:34px; line-height:1.2; } .iv-int .pp-grid { grid-template-columns:1fr; gap:20px; } .iv-int .pp-card { padding:30px; } }
+    @media (max-width:479px) { .iv-int .pp-track { gap:1rem; } .iv-int .pp-track img { height:45px; min-width:90px; } }
   </style>
-  <div class="wrap">
-    <div class="kicker">Integrations</div>
-    <h2>Works with your existing accounting system.</h2>
-    <div class="logos">
-      <div class="logo">Xero</div>
-      <div class="logo">NetSuite</div>
-      <div class="logo">Dynamics 365</div>
-      <div class="logo">Sage</div>
-      <div class="logo">MYOB</div>
-      <div class="logo">Reckon</div>
-      <div class="logo">SunSystems</div>
-      <div class="logo">Accredo</div>
+
+  <div class="pp-max-width">
+    <header class="pp-head">
+      <span class="pp-kicker">Integrations</span>
+      <h2 class="pp-title">Built to fit your <span class="pp-title-grad">existing</span> accounting stack</h2>
+      <p class="pp-subhead">PurchasePlus plugs into the finance systems your team already runs. Approved invoices flow out as journal entries, line by line, with no rekeying.</p>
+    </header>
+
+    <div class="pp-pulse-stage">
+      <div class="pp-pulse-core"></div>
+      <div class="pp-pulse-ring" style="animation-delay:0s"></div>
+      <div class="pp-pulse-ring" style="animation-delay:1.5s"></div>
     </div>
-    <a class="cta" href="https://www.purchaseplus.com/integrations/accounting-systems">See all integrations <svg viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+
+    <div class="pp-grid">
+      <article class="pp-card">
+        <svg class="pp-svg-icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+        <h3 class="pp-card-name">Accounting &amp; ERP</h3>
+        <p class="pp-card-desc">Push coded invoice data and journal entries directly into Xero, NetSuite, Dynamics 365, MYOB, Sage, and more. Zero double entry.</p>
+      </article>
+      <article class="pp-card">
+        <svg class="pp-svg-icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><polyline points="2 4 12 13 22 4"></polyline></svg>
+        <h3 class="pp-card-name">Invoice Capture</h3>
+        <p class="pp-card-desc">Receive invoices from email, EDI, scanned PDFs, and supplier portals. No onboarding friction for your suppliers.</p>
+      </article>
+      <article class="pp-card">
+        <svg class="pp-svg-icon" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+        <h3 class="pp-card-name">Reporting &amp; BI</h3>
+        <p class="pp-card-desc">Feed structured spend, GL-coded line data, and audit history into your leadership reporting stack.</p>
+      </article>
+    </div>
+
+    <div class="pp-marquee-wrap">
+      <div class="pp-carousel">
+        <div class="pp-track">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14a7b9e17f661cc1ef1d_AP%20Xero.png" alt="Xero">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13ac254ceb5ed693e426_AP%20Oracle%20Netsuite.png" alt="Oracle NetSuite">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14233a17be225e52644c_AP%20Sage.png" alt="Sage">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b140e8f3370994259bdb7_AP%20Reckon.png" alt="Reckon">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b1496587867add08ba87d_AP%20Technology1.png" alt="Technology One">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13810c110e1b57afd110_AP%20Myob%20AccountRight.png" alt="MYOB AccountRight">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b1368652b9568aa25c5a9_AP%20Dynamics%20365.png" alt="Dynamics 365">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b10718e804172c65a30ef_AP%20Accredo.png" alt="Accredo">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13742de8239a42007ceb_AP%20Dynamics%20GP.png" alt="Dynamics GP">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b135c76933e15846a3056_AP%20Caresystems.png" alt="Caresystems">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b138ddde1ff75200d6017_AP%20Myob%20Acumatica.png" alt="MYOB Acumatica">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b139d4bbc6f5a0900d726_AP%20Myob%20Greentree.png" alt="MYOB Greentree">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b148777b4abf0082a08fe_AP%20SunSystems.png" alt="SunSystems">
+          <!-- duplicates for seamless looping -->
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14a7b9e17f661cc1ef1d_AP%20Xero.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13ac254ceb5ed693e426_AP%20Oracle%20Netsuite.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b14233a17be225e52644c_AP%20Sage.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b140e8f3370994259bdb7_AP%20Reckon.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b1496587867add08ba87d_AP%20Technology1.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13810c110e1b57afd110_AP%20Myob%20AccountRight.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b1368652b9568aa25c5a9_AP%20Dynamics%20365.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b10718e804172c65a30ef_AP%20Accredo.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b13742de8239a42007ceb_AP%20Dynamics%20GP.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b135c76933e15846a3056_AP%20Caresystems.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b138ddde1ff75200d6017_AP%20Myob%20Acumatica.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b139d4bbc6f5a0900d726_AP%20Myob%20Greentree.png" aria-hidden="true">
+          <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b148777b4abf0082a08fe_AP%20SunSystems.png" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+
+    <p class="pp-footer-note">Integration options vary by your ERP and invoice environment. In a demo, we&rsquo;ll walk through exactly what connected looks like for your stack.</p>
   </div>
 </section>
 
-<!-- ============================================================ WIDGET 6: CTA BANNER ============================================================ -->
+<!-- ============================================================ WIDGET 6: CTA BANNER (Hospitality widget_052 pattern, rising screen deck) ============================================================ -->
 <section class="iv-cta" aria-label="Final CTA">
   <style>
-    .iv-cta { --grad:linear-gradient(90deg,#a956ff,#7c5dff 50%,#3766fe); font-family:'Inter',sans-serif; background:#fafafa; padding:110px 5vw; border-top:1px solid #e5e7eb; }
-    .iv-cta .wrap { max-width:1040px; margin:0 auto; background:linear-gradient(135deg, #a956ff 0%, #7c5dff 50%, #3766fe 100%); border-radius:40px; padding:72px 56px; text-align:center; color:#fff; position:relative; overflow:hidden; }
-    .iv-cta .wrap::before { content:''; position:absolute; top:-50%; right:-20%; width:80%; height:200%; background:radial-gradient(ellipse at center, rgba(255,255,255,.18), transparent 55%); pointer-events:none; }
-    .iv-cta .wrap::after { content:''; position:absolute; bottom:-60%; left:-20%; width:80%; height:160%; background:radial-gradient(ellipse at center, rgba(255,255,255,.12), transparent 55%); pointer-events:none; }
-    .iv-cta h2 { position:relative; z-index:1; font-size:clamp(30px,4.2vw,44px); font-weight:400; line-height:1.15; letter-spacing:-1px; max-width:900px; margin:0 auto 32px; text-wrap:balance; }
-    .iv-cta .btns { position:relative; z-index:1; display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
-    .iv-cta .btn { display:inline-flex; align-items:center; padding:14px 32px; border-radius:50px; font-size:15px; font-weight:500; text-decoration:none; transition:transform .2s, box-shadow .2s; white-space:nowrap; }
-    .iv-cta .btn-primary { background:#fff; color:#7c5dff; box-shadow:0 8px 24px rgba(0,0,0,.15); }
-    .iv-cta .btn-primary:hover { transform:translateY(-2px); box-shadow:0 14px 30px rgba(0,0,0,.2); }
-    .iv-cta .btn-ghost { background:transparent; color:#fff; border:1px solid rgba(255,255,255,.4); }
-    .iv-cta .btn-ghost:hover { background:rgba(255,255,255,.1); transform:translateY(-2px); }
-    @media (max-width:640px){ .iv-cta{ padding:60px 20px; } .iv-cta .wrap{ padding:48px 28px; border-radius:28px; } }
+    .iv-cta { --pp-font:'Inter',sans-serif; --pp-ink:#111827; --pp-text:#4B5563; --pp-blue:#3766fe; --pp-purple:#a956ff; --pp-grad:linear-gradient(90deg,#a956ff 0%,#3766fe 100%); --pp-border:#e2e8f0; background:#fff; font-family:var(--pp-font); padding:80px 0 0 0; color:var(--pp-ink); overflow:hidden; text-align:center; position:relative; }
+    .iv-cta .pp-max-width { max-width:1200px; margin:0 auto; padding:0 5vw; }
+    .iv-cta .pp-cta-head { max-width:900px; margin:0 auto 40px; }
+    .iv-cta .pp-cta-title { font-size:clamp(34px,4.5vw,54px); font-weight:400; line-height:1.1; letter-spacing:-.04em; margin:0 0 20px; }
+    .iv-cta .pp-cta-grad { display:inline-block; background:linear-gradient(90deg, #a956ff, #3766fe, #a956ff); background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent; animation:ivCtaShiftGrad 4s linear infinite; font-weight:600; }
+    @keyframes ivCtaShiftGrad { 0% { background-position:0% center; } 100% { background-position:200% center; } }
+    .iv-cta .pp-cta-sub { font-size:20px; font-weight:300; color:var(--pp-text); line-height:1.6; margin-bottom:30px; max-width:800px; margin-left:auto; margin-right:auto; }
+    .iv-cta .pp-cta-btns { display:flex; gap:16px; justify-content:center; margin-bottom:40px; }
+    .iv-cta .pp-btn { padding:16px 36px; border-radius:50px; font-size:16px; font-weight:500; text-decoration:none; transition:all .3s cubic-bezier(.165,.84,.44,1); }
+    .iv-cta .pp-btn-primary { background:var(--pp-grad); color:#fff; box-shadow:0 10px 20px rgba(55,102,254,.2); }
+    .iv-cta .pp-btn-primary:hover { transform:translateY(-3px); box-shadow:0 15px 30px rgba(55,102,254,.3); }
+    .iv-cta .pp-btn-secondary { background:#fff; color:var(--pp-ink); border:1px solid var(--pp-border); }
+    .iv-cta .pp-btn-secondary:hover { background:#f8fafc; border-color:#cbd5e1; transform:translateY(-3px); }
+    .iv-cta .pp-cta-note { font-size:13px; color:#94a3b8; max-width:700px; margin:0 auto 60px; font-weight:300; line-height:1.5; }
+    .iv-cta .pp-screen-deck { position:relative; width:100%; height:320px; display:flex; justify-content:center; align-items:flex-end; pointer-events:none; overflow:visible; }
+    .iv-cta .pp-rising-img { position:absolute; width:65%; border-radius:20px 20px 0 0; transform:translateY(40%); transition:transform .1s linear; }
+    .iv-cta .pp-rising-img-main { z-index:10; width:70%; }
+    .iv-cta .pp-rising-img-L1 { z-index:5; width:60%; left:5%; }
+    .iv-cta .pp-rising-img-R1 { z-index:5; width:60%; right:5%; }
+    .iv-cta .pp-rising-img-L2 { z-index:2; width:50%; left:-10%; }
+    .iv-cta .pp-rising-img-R2 { z-index:2; width:50%; right:-10%; }
+    @media (max-width:768px) {
+      .iv-cta .pp-cta-title { font-size:24px; }
+      .iv-cta .pp-cta-sub { font-size:16px; text-wrap:balance; }
+      .iv-cta .pp-cta-btns { flex-direction:column; align-items:center; }
+      .iv-cta .pp-btn { width:100%; max-width:280px; }
+      .iv-cta .pp-cta-note { margin-bottom:30px; }
+      .iv-cta .pp-screen-deck { height:200px; }
+      .iv-cta .pp-rising-img-main { width:75%; }
+      .iv-cta .pp-rising-img-L1 { width:55%; left:2%; }
+      .iv-cta .pp-rising-img-R1 { width:55%; right:2%; }
+      .iv-cta .pp-rising-img-L2 { width:45%; left:-5%; }
+      .iv-cta .pp-rising-img-R2 { width:45%; right:-5%; }
+    }
   </style>
-  <div class="wrap">
-    <h2>40 million invoices processed. What would zero manual entry mean for your team?</h2>
-    <div class="btns">
-      <a class="btn btn-primary" href="https://www.purchaseplus.com/request-a-demo">Book a Demo</a>
-      <a class="btn btn-ghost" href="https://www.purchaseplus.com/talk-to-sales">Talk to Sales</a>
+
+  <div class="pp-max-width">
+    <header class="pp-cta-head">
+      <h2 class="pp-cta-title">
+        40 million invoices processed. <span class="pp-cta-grad">Zero manual entry</span> for your team.
+      </h2>
+      <p class="pp-cta-sub">
+        Join the finance teams already using PurchasePlus AI to capture, match, code and post every invoice, with no rekeying.
+      </p>
+    </header>
+
+    <div class="pp-cta-btns">
+      <a href="https://www.purchaseplus.com/talk-to-sales" class="pp-btn pp-btn-secondary">Talk to Sales</a>
+      <a href="https://www.purchaseplus.com/request-a-demo" class="pp-btn pp-btn-primary">Book a Demo</a>
+    </div>
+
+    <p class="pp-cta-note">
+      Results vary by AP volume, ERP environment, and existing invoicing maturity. We&rsquo;ll walk through realistic expectations in a demo.
+    </p>
+
+    <div class="pp-screen-deck" id="iv-cta-deck">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f536cd8ffdfacc6f1ee7_Artboard%2010_PurchasePlu.png" class="pp-rising-img pp-rising-img-R2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52f675d51ed4d3a3f5f_Artboard%207_PurchasePlu.png" class="pp-rising-img pp-rising-img-L2" data-speed="0.8">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f53458e2ec1328938992_Artboard%209_PurchasePlu.avif" class="pp-rising-img pp-rising-img-R1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f52810574bcc78f16cd4_Artboard%206_PurchasePlu.png" class="pp-rising-img pp-rising-img-L1" data-speed="0.9">
+      <img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/6939f532c446307cb7b90dcb_Artboard%208_PurchasePlu.png" class="pp-rising-img pp-rising-img-main" data-speed="1.0">
     </div>
   </div>
+
+  <script>
+    (function(){
+      var section = document.querySelector('.iv-cta');
+      if (!section) return;
+      var screens = section.querySelectorAll('.pp-rising-img');
+      window.addEventListener('scroll', function(){
+        var rect = section.getBoundingClientRect();
+        var winH = window.innerHeight;
+        var progress = Math.max(0, Math.min(1, (winH - rect.top) / (winH * 1.2)));
+        screens.forEach(function(img){
+          var speed = parseFloat(img.getAttribute('data-speed')) || 1;
+          var moveY = 40 - (progress * 30 * speed);
+          img.style.transform = 'translateY(' + moveY + '%)';
+          img.style.opacity = 1;
+        });
+      }, { passive: true });
+    })();
+  </script>
 </section>
 
 <!-- ============================================================ GLOBAL FOOTER ============================================================ -->
