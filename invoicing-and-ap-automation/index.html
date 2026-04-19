@@ -121,6 +121,7 @@
       display:flex;
       justify-content:center;
       align-items:center;
+      min-height:780px;
     }
     .iv-hero .pp-inner { max-width:1350px; width:100%; box-sizing:border-box; }
     .iv-hero .pp-hero-grid { display:flex; flex-direction:row; gap:30px; align-items:center; justify-content:center; }
@@ -143,9 +144,22 @@
     .iv-hero .pp-cta-secondary:hover { color:#7c5dff; }
     .iv-hero .pp-cta-secondary svg { width:18px; height:18px; stroke:currentColor; stroke-width:2; transition:transform .2s ease; }
     .iv-hero .pp-cta-secondary:hover svg { transform:translateX(3px); }
-    .iv-hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; }
+    .iv-hero .pp-visual { width:55%; display:flex; justify-content:flex-start; align-items:center; position:relative; }
     .iv-hero .pp-video { width:90%; height:auto; max-height:700px; display:block; margin-left:30px; object-fit:contain; }
     .iv-hero .pp-break { display:none; }
+
+    /* Floating stat cards */
+    .iv-hero .pp-float { position:absolute; z-index:3; background:#fff; border:1px solid #e5e7eb; border-radius:14px; padding:12px 18px; box-shadow:0 20px 50px rgba(15,23,42,.10), 0 4px 12px rgba(15,23,42,.05); display:flex; align-items:center; gap:12px; pointer-events:none; will-change:transform; }
+    .iv-hero .pp-float-dot { width:10px; height:10px; border-radius:50%; background:var(--pp-grad); flex-shrink:0; box-shadow:0 0 0 5px rgba(124,93,255,.10); }
+    .iv-hero .pp-float-txt { display:flex; flex-direction:column; line-height:1; }
+    .iv-hero .pp-float-num { font-size:20px; font-weight:700; letter-spacing:-0.3px; background:var(--pp-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .iv-hero .pp-float-label { font-size:10px; font-weight:600; color:#6b7280; letter-spacing:.08em; text-transform:uppercase; margin-top:4px; }
+    .iv-hero .pp-float-1 { top:7%; left:-3%; animation:ivFloatA 7s ease-in-out infinite; }
+    .iv-hero .pp-float-2 { top:44%; right:-1%; animation:ivFloatB 8.5s ease-in-out infinite -2.5s; }
+    .iv-hero .pp-float-3 { bottom:9%; left:10%; animation:ivFloatC 6.5s ease-in-out infinite -3.5s; }
+    @keyframes ivFloatA { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-12px);} }
+    @keyframes ivFloatB { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-16px);} }
+    @keyframes ivFloatC { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
     @media (max-width: 1200px) {
       .iv-hero { padding:35px 15px 35px 55px; }
       .iv-hero .pp-title { font-size:60px; }
@@ -163,8 +177,11 @@
       .iv-hero .pp-break { display:block; }
       .iv-hero .pp-bullets li > span:last-child { white-space:normal; }
     }
+    @media (max-width: 1024px) {
+      .iv-hero .pp-float { display:none; }
+    }
     @media (max-width: 768px) {
-      .iv-hero { padding:25px 10px 25px 35px; }
+      .iv-hero { padding:25px 10px 25px 35px; min-height:auto; }
       .iv-hero .pp-title { font-size:36px; }
       .iv-hero .pp-sub { font-size:16px; max-width:300px; }
       .iv-hero .pp-bullets li { font-size:13px; }
@@ -184,7 +201,7 @@
     <div class="pp-hero-grid">
       <div class="pp-copy">
         <div class="pp-eyebrow">Invoicing &amp; AP Automation</div>
-        <h1 class="pp-title">From email to <span class="pp-grad">approved&nbsp;invoice</span> — <span class="pp-grad">zero&nbsp;manual&nbsp;entry.</span></h1>
+        <h1 class="pp-title">From email to <span class="pp-grad">approved&nbsp;invoice.</span> <span class="pp-grad">Zero&nbsp;manual&nbsp;entry.</span></h1>
         <p class="pp-sub">
           PurchasePlus receives invoices in any format, reads every line with AI, matches them against purchase orders and receiving notes, and routes exceptions to your&nbsp;team.
         </p>
@@ -215,11 +232,22 @@
         </div>
       </div>
       <div class="pp-visual">
-        <!-- VIDEO: replace src with final Invoicing hero loop (1080x1350 portrait) -->
         <video class="pp-video" autoplay loop muted playsinline aria-label="AI invoicing demo">
-          <source src="https://raw.githubusercontent.com/akilalohan-lang/purchaseplus/main/001H.mp4" type="video/mp4">
+          <source src="../videos/invoicing-and-ap-automation.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+        <div class="pp-float pp-float-1" aria-hidden="true">
+          <span class="pp-float-dot"></span>
+          <div class="pp-float-txt"><span class="pp-float-num">40M+</span><span class="pp-float-label">Invoices</span></div>
+        </div>
+        <div class="pp-float pp-float-2" aria-hidden="true">
+          <span class="pp-float-dot"></span>
+          <div class="pp-float-txt"><span class="pp-float-num">90%</span><span class="pp-float-label">Straight-through</span></div>
+        </div>
+        <div class="pp-float pp-float-3" aria-hidden="true">
+          <span class="pp-float-dot"></span>
+          <div class="pp-float-txt"><span class="pp-float-num">1 FTE</span><span class="pp-float-label">Saved</span></div>
+        </div>
       </div>
     </div>
   </div>
