@@ -146,17 +146,18 @@
   /* SUPPORTED POS */
   .ps-supp { padding:90px 0; background:#fafafa; }
   .ps-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-  .ps-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:22px; transition:all .3s; position:relative; overflow:hidden; }
+  .ps-card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:24px; transition:all .3s; position:relative; overflow:hidden; display:grid; grid-template-columns:96px 1fr; gap:18px; align-items:start; }
   .ps-card::before { content:''; position:absolute; top:0; left:0; width:100%; height:2px; background:var(--pp-grad); transform:scaleX(0); transform-origin:left; transition:transform .35s ease; }
   .ps-card:hover { transform:translateY(-3px); box-shadow:0 16px 36px rgba(124,93,255,.1); border-color:transparent; }
   .ps-card:hover::before { transform:scaleX(1); }
-  .ps-card-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; }
-  .ps-card-head { display:flex; align-items:center; gap:12px; min-width:0; }
-  .ps-card-logo-img { width:40px; height:40px; border-radius:8px; background:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; }
-  .ps-card-logo-img img { max-width:100%; max-height:100%; object-fit:contain; display:block; }
-  .ps-card-logo { font-size:15px; font-weight:600; color:#111827; letter-spacing:-.3px; }
+  .ps-card-logo-img { width:96px; height:96px; border-radius:14px; background:#fff; border:1px solid #f3f4f6; display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden; padding:12px; }
+  .ps-card-logo-img img { max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; display:block; }
+  .ps-card-main { display:flex; flex-direction:column; min-width:0; }
+  .ps-card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:8px; }
+  .ps-card-logo { font-size:16px; font-weight:600; color:#111827; letter-spacing:-.3px; line-height:1.2; }
   .ps-badge { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:4px 10px; border-radius:20px; background:#d1fae5; color:#059669; flex-shrink:0; }
-  .ps-card p { font-size:13.5px; font-weight:300; color:#4B5563; line-height:1.55; }
+  .ps-card p { font-size:13.5px; font-weight:300; color:#4B5563; line-height:1.55; margin:0; }
+  @media (max-width:480px){ .ps-card { grid-template-columns:76px 1fr; gap:14px; padding:18px; } .ps-card-logo-img { width:76px; height:76px; padding:10px; } }
 
   /* SEE MORE (gradient) */
   .ps-more { padding:80px 0; background:#fff; }
@@ -232,14 +233,14 @@
         <p>PurchasePlus connects via API to the major POS platforms in hospitality, no middleware, no manual exports.</p>
       </div>
       <div class="ps-cards">
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12db4a033aa45259e110_POS%20H%26L.png" alt="H&amp;L POS"></div><div class="ps-card-logo">H&amp;L POS</div></div><span class="ps-badge">API</span></div><p>Australia's leading hospitality POS.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ebbd8eba54e06207e9_POS%20Oracle%20Micros%20Simphony.png" alt="Oracle Micros Simphony"></div><div class="ps-card-logo">Oracle Micros</div></div><span class="ps-badge">API</span></div><p>Enterprise POS for major hotel groups worldwide.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ceafdc38fe3f05f7d0_POS%20Fedelta.png" alt="Fedelta"></div><div class="ps-card-logo">Fedelta</div></div><span class="ps-badge">API</span></div><p>Hospitality POS for high-volume F&amp;B operations.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12fe845c14e7e3c96ee9_POS%20ShIji.png" alt="Shiji"></div><div class="ps-card-logo">Shiji</div></div><span class="ps-badge">API</span></div><p>Global hospitality technology platform.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ba1e75e0e15cf4326d_POS%20Bepoz.png" alt="Bepoz"></div><div class="ps-card-logo">Bepoz</div></div><span class="ps-badge">API</span></div><p>POS and hospitality management software.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b130c31e5b4917602ec4b_POS%20Square.png" alt="Square"></div><div class="ps-card-logo">Square</div></div><span class="ps-badge">API</span></div><p>Widely-used POS for independent F&amp;B venues.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12b432f4990aa69e6638_POS%20Agilysys.png" alt="Agilysys"></div><div class="ps-card-logo">Agilysys</div></div><span class="ps-badge">API</span></div><p>POS and hospitality management for hotels and resorts.</p></div>
-        <div class="ps-card"><div class="ps-card-top"><div class="ps-card-head"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b131ae9b6b6ee2d3fe0a0_POS%20SwiftPOS.png" alt="SwiftPOS"></div><div class="ps-card-logo">SwiftPOS</div></div><span class="ps-badge">API</span></div><p>POS platform used across Australian venues and clubs.</p></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12db4a033aa45259e110_POS%20H%26L.png" alt="H&amp;L POS"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">H&amp;L POS</div><span class="ps-badge">API</span></div><p>Australia's leading hospitality POS.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ebbd8eba54e06207e9_POS%20Oracle%20Micros%20Simphony.png" alt="Oracle Micros Simphony"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Oracle Micros</div><span class="ps-badge">API</span></div><p>Enterprise POS for major hotel groups worldwide.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ceafdc38fe3f05f7d0_POS%20Fedelta.png" alt="Fedelta"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Fedelta</div><span class="ps-badge">API</span></div><p>Hospitality POS for high-volume F&amp;B operations.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12fe845c14e7e3c96ee9_POS%20ShIji.png" alt="Shiji"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Shiji</div><span class="ps-badge">API</span></div><p>Global hospitality technology platform.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12ba1e75e0e15cf4326d_POS%20Bepoz.png" alt="Bepoz"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Bepoz</div><span class="ps-badge">API</span></div><p>POS and hospitality management software.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b130c31e5b4917602ec4b_POS%20Square.png" alt="Square"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Square</div><span class="ps-badge">API</span></div><p>Widely-used POS for independent F&amp;B venues.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b12b432f4990aa69e6638_POS%20Agilysys.png" alt="Agilysys"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">Agilysys</div><span class="ps-badge">API</span></div><p>POS and hospitality management for hotels and resorts.</p></div></div>
+        <div class="ps-card"><div class="ps-card-logo-img"><img src="https://cdn.prod.website-files.com/62b4fd72b25b1bcbcba262e8/694b131ae9b6b6ee2d3fe0a0_POS%20SwiftPOS.png" alt="SwiftPOS"></div><div class="ps-card-main"><div class="ps-card-top"><div class="ps-card-logo">SwiftPOS</div><span class="ps-badge">API</span></div><p>POS platform used across Australian venues and clubs.</p></div></div>
       </div>
     </div>
   </section>
