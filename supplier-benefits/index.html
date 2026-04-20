@@ -523,8 +523,9 @@
     .sb-marq .sb-brand-anim { font-weight:400; background:linear-gradient(90deg,#a956ff 0%,#a956ff 20%,#7c5dff 50%,#3766fe 80%,#3766fe 100%); background-size:220% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; animation:sbMarqGrad 5s linear infinite; }
     @keyframes sbMarqGrad { 0%{background-position:200% 50%;} 100%{background-position:0% 50%;} }
     .sb-marq .sb-carousel { width:100%; overflow:hidden; background:transparent; position:relative; -webkit-mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); mask-image:linear-gradient(to right,transparent,black 10%,black 90%,transparent); }
-    .sb-marq .sb-track { display:flex; gap:15rem; align-items:center; animation:sbMarq 40s linear infinite; width:max-content; will-change:transform; -webkit-transform:translate3d(0,0,0); }
-    .sb-marq .sb-track img { height:120px; min-width:200px; object-fit:contain; background:transparent; flex-shrink:0; }
+    .sb-marq .sb-track { display:flex; gap:5rem; align-items:center; animation:sbMarq 60s linear infinite; width:max-content; will-change:transform; -webkit-transform:translate3d(0,0,0); }
+    .sb-marq .sb-track img { height:56px; min-width:140px; max-width:180px; object-fit:contain; background:transparent; flex-shrink:0; filter:grayscale(100%); opacity:.55; transition:filter .35s ease, opacity .35s ease; }
+    .sb-marq .sb-track img:hover { filter:grayscale(0%); opacity:1; }
     @keyframes sbMarq { from { transform:translateX(0); } to { transform:translateX(-50%); } }
   </style>
 
