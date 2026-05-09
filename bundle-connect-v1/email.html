@@ -9,20 +9,19 @@
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f5f5f5; min-height: 100vh; padding: 40px 20px; }
   .label { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: #9ca3af; margin-bottom: 32px; }
   h1 { text-align: center; font-size: 22px; font-weight: 600; color: #111; margin-bottom: 8px; }
-  .sub { text-align: center; font-size: 14px; color: #666; margin-bottom: 32px; }
-  .email-wrap { max-width: 600px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.10); overflow: hidden; }
+  .sub { text-align: center; font-size: 14px; color: #666; margin-bottom: 40px; }
+  .option-label { text-align: center; font-size: 13px; font-weight: 600; color: #6b7280; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 16px; }
+  .email-wrap { max-width: 600px; margin: 0 auto 56px; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,.10); overflow: hidden; }
   .email-meta { background: #fafafa; border-bottom: 1px solid #e5e7eb; padding: 16px 24px; font-size: 13px; color: #374151; }
   .email-meta strong { color: #111; }
   .email-meta div { margin-bottom: 4px; }
-  .header-images { display: grid; grid-template-columns: 1fr 1fr; }
-  .header-images img { width: 100%; display: block; }
-  .img-label { font-size: 11px; color: #9ca3af; text-align: center; padding: 6px; background: #fafafa; border-top: 1px solid #f0f0f0; }
+  .email-meta div:last-child { margin-bottom: 0; }
+  .header-img img { width: 100%; display: block; }
   .email-body { padding: 32px 28px; }
   .email-body p { font-size: 15px; line-height: 1.7; color: #111827; margin-bottom: 20px; white-space: pre-wrap; }
-  .email-body .bullets { margin: 0 0 20px; padding: 0; list-style: none; }
-  .email-body .bullets li { font-size: 15px; line-height: 1.7; color: #111827; padding: 4px 0; }
   .divider { border: none; border-top: 1px solid #f0f0f0; margin: 24px 0; }
   .sig { font-size: 14px; color: #6b7280; }
+  a { color: #7c5dff; }
 </style>
 </head>
 <body>
@@ -30,24 +29,48 @@
 <h1>Email</h1>
 <p class="sub">Two header image options. Copy is identical for both.</p>
 
+<!-- Option 1 -->
+<p class="option-label">Header Option 1</p>
 <div class="email-wrap">
   <div class="email-meta">
     <div><strong>Subject:</strong> 🔗 New integration live: PurchasePlus + Bundle Connect</div>
     <div><strong>Preview:</strong> Your laundry and procurement workflow just got connected</div>
     <div><strong>From:</strong> The PurchasePlus Team</div>
   </div>
-
-  <div class="header-images">
-    <div>
-      <img src="images/email-1.png" alt="Email header option 1">
-      <div class="img-label">Header Option 1</div>
-    </div>
-    <div>
-      <img src="images/email-2.png" alt="Email header option 2">
-      <div class="img-label">Header Option 2</div>
-    </div>
+  <div class="header-img">
+    <img src="images/email-1.png" alt="Email header option 1">
   </div>
+  <div class="email-body">
+    <p>Hi {first_name},</p>
+    <p>PurchasePlus is now integrated with Bundle Connect.</p>
+    <p>If your operation runs hotel or accommodation operations on both platforms, your laundry workflow now connects directly to your procurement.</p>
+    <p>Here is what is live now for all PurchasePlus customers:</p>
+    <p>🔄 <strong>Automatic catalogue sync</strong><br>Your pricing, SKUs, and product lists stay aligned across both platforms without manual updates.</p>
+    <p>📦 <strong>Orders created in Bundle Connect from inside PurchasePlus</strong><br>No switching systems. No re-entering data. Orders flow directly into Bundle Connect.</p>
+    <p>🧾 <strong>Invoices sent straight back to PurchasePlus</strong><br>Faster AP reconciliation, fewer mismatches, and a cleaner financial workflow.</p>
+    <p>🔐 <strong>Role-based purchasing controls across both systems</strong><br>The right people get the right permissions, end to end.</p>
+    <p>⚡ <strong>One-step activation for customer-specific platforms</strong><br>Built for multi-site groups, franchise networks, and organisations with layered approval structures.</p>
+    <p>The result is end-to-end procurement automation across your linen and laundry supply chain, from ordering through to fulfilment and invoicing, with zero double handling.</p>
+    <hr class="divider">
+    <p><strong>How to activate</strong></p>
+    <p>Already on both platforms? Contact your CSM or email <a href="mailto:help@purchaseplus.com">help@purchaseplus.com</a> to get started.</p>
+    <p>Want to learn more? <a href="https://www.purchaseplus.com">www.purchaseplus.com</a></p>
+    <hr class="divider">
+    <p class="sig">The PurchasePlus Team</p>
+  </div>
+</div>
 
+<!-- Option 2 -->
+<p class="option-label">Header Option 2</p>
+<div class="email-wrap">
+  <div class="email-meta">
+    <div><strong>Subject:</strong> 🔗 New integration live: PurchasePlus + Bundle Connect</div>
+    <div><strong>Preview:</strong> Your laundry and procurement workflow just got connected</div>
+    <div><strong>From:</strong> The PurchasePlus Team</div>
+  </div>
+  <div class="header-img">
+    <img src="images/email-2.png" alt="Email header option 2">
+  </div>
   <div class="email-body">
     <p>Hi {first_name},</p>
     <p>PurchasePlus is now integrated with Bundle Connect.</p>
